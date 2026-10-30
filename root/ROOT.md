@@ -16,7 +16,7 @@ Users receive a copyable starting structure and a working method. Their intended
 
 ## Scope
 
-The current offering consists of four starter documents: a product README, workflow, rules template, and root design template.
+The current offering consists of four starter documents and a practical lifecycle guide. The starter contains a product README, workflow, rules template, and root design template. The guide explains how to apply them from project setup through delivery and evolution.
 
 This repository also maintains its own design, workflow, rules, version, changelog, and license. The approach is independent of language, framework, and AI provider. It does not promise automatic implementation or synchronization when a document is edited.
 
@@ -31,6 +31,7 @@ The starter's root design remains a draft until the product's human approves it.
 ## Major areas and relationships
 
 - [starter/](../starter/) is the user-facing product material. Its README introduces the resulting product; its workflow defines collaboration; its rules hold specific requirements; its root design establishes product direction.
+- [guide/](../guide/README.md) explains application of the workflow through six repeatable stages. It identifies human and AI responsibilities, concrete actions, expected outputs, and readiness to proceed. Its examples and prompts are illustrative; they do not introduce product requirements or claim approval.
 - This [workflow](WORKFLOW.md) defines how we maintain the method repository, and these [rules](RULES.md) hold any adopted repository-specific requirements.
 - The repository [README](../README.md) introduces the method and explains adoption.
 - [VERSION](../VERSION) identifies the method baseline. [CHANGELOG.md](../CHANGELOG.md) explains changes and adoption.
@@ -48,6 +49,7 @@ The repository's `root/` governs this method; `starter/root/` supplies documents
 ## Success criteria
 
 - Users can locate and copy the four starter documents without relying on additional materials.
+- Users can follow the guide from project setup through delivery, maintenance, and method updates. The guide references the starter's conventions and remains optional to copy into products.
 - The workflow explains the complete cycle from initial design through delivery and evolution.
 - Document responsibilities are distinct and consistent across the README, starter, and repository governance.
 - Placeholder content cannot reasonably be mistaken for adopted rules or approved product design.

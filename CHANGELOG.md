@@ -13,6 +13,8 @@ This file records changes to the Design-Led Development method and its starter. 
 
 ### Repository
 
+- Add a practical guide covering project setup, root design, detailed designs, realization, verification and delivery, and ongoing evolution. Include adoption of existing projects, optional prompts and examples, and independent version records. Link it from the repository README and design.
+
 - Define this method repository's own design, workflow, and rules under `root/`, separately from the materials copied into products.
 - Update the repository README around the copyable starter and its use.
 - Establish `VERSION` as the method's release baseline, independently of design revisions and the releases of products using it.

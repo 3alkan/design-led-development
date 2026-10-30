@@ -6,7 +6,7 @@ The approach brings together project management, human–AI roles and permission
 
 ## Start a project
 
-1. Read the [workflow](starter/root/WORKFLOW.md).
+1. Read the [workflow](starter/root/WORKFLOW.md), then follow the [practical guide](guide/README.md) to apply it from project setup through delivery and evolution.
 2. Copy the **contents** of [starter/](starter/) into your product repository. For an existing project, reconcile these documents with existing files before copying.
 3. Adapt the product README and develop the project's top-level design in `root/ROOT.md` with AI.
 4. Add adopted project-specific requirements to `root/RULES.md`. Group them by topic, keep identifiers stable, and include exceptions and reasons where helpful. Remove template placeholders.
@@ -35,6 +35,7 @@ The starter contains templates, not an approved product design or pre-adopted pr
 ## Repository structure
 
 - [starter/](starter/) contains the four documents users copy into their projects.
+- [guide/](guide/README.md) explains how to use the method throughout a project's life, with prompts, examples, and readiness checks.
 - [root/](root/ROOT.md) contains the design, workflow, and rules governing development of this method itself.
 - [CHANGELOG.md](CHANGELOG.md) records method changes and adoption guidance.
 - [VERSION](VERSION) identifies the method baseline.
