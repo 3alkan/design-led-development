@@ -36,6 +36,7 @@ The starter contains templates, not an approved product design or pre-adopted pr
 
 - [starter/](starter/) contains the four documents users copy into their projects.
 - [guide/](guide/README.md) explains how to use the method throughout a project's life, with prompts, examples, and readiness checks.
+- [examples/](examples/README.md) describes the intended worked examples; no complete example project is included in this release.
 - [root/](root/ROOT.md) contains the design, workflow, and rules governing development of this method itself.
 - [CHANGELOG.md](CHANGELOG.md) records method changes and adoption guidance.
 - [VERSION](VERSION) identifies the method baseline.
@@ -45,6 +46,10 @@ The starter contains templates, not an approved product design or pre-adopted pr
 
 Before changing this repository, read its [root design](root/ROOT.md), [workflow](root/WORKFLOW.md), and [rules](root/RULES.md).
 
-The current method version is `0.1.0-dev`, an unreleased development baseline. The method is this repository's product, so it has one release version. Its design documents have independent revisions. Products built using the starter maintain their own versions and release histories.
+The current method version is `0.1.0`, identified by Git tag `v0.1.0`. This initial release supplies the starter and guide for practical use; the method has not yet been validated through a complete real project. Feedback from that use will inform later releases.
+
+Use a tagged version when adopting the method so you can identify the source baseline. Read the [changelog](CHANGELOG.md) before adopting later versions and preserve your project's own rules and design decisions.
+
+The method is this repository's product, so it has one release version. Its design documents have independent revisions. Products built using the starter maintain their own versions and release histories.
 
 See the [repository workflow](root/WORKFLOW.md) for change and release practices.

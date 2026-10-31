@@ -2,7 +2,13 @@
 
 This file records changes to the Design-Led Development method and its starter. Products built using the method maintain their own changelogs.
 
-## Unreleased — 0.1.0-dev
+## Unreleased
+
+No changes recorded after 0.1.0.
+
+## 0.1.0 — 2026-10-31
+
+Initial release of the method, copyable starter, and practical guide. Git tag: `v0.1.0`.
 
 ### Starter
 
@@ -14,7 +20,7 @@ This file records changes to the Design-Led Development method and its starter. 
 ### Repository
 
 - Add a practical guide covering project setup, root design, detailed designs, realization, verification and delivery, and ongoing evolution. Include adoption of existing projects, optional prompts and examples, and independent version records. Link it from the repository README and design.
-
+- Add an examples index describing the expected scope and evidence for future worked projects.
 - Define this method repository's own design, workflow, and rules under `root/`, separately from the materials copied into products.
 - Update the repository README around the copyable starter and its use.
 - Establish `VERSION` as the method's release baseline, independently of design revisions and the releases of products using it.
@@ -25,4 +31,8 @@ Copy the contents of `starter/` into a new product repository, replace placehold
 
 For an existing project, reconcile the starter with its documents and approved decisions before adoption. Preserve product-specific rules and record the method baseline in the product README.
 
-This is an unreleased development baseline. These entries do not declare or publish a release.
+### Validation and limitations
+
+Release checks cover internal document links, Markdown structure and formatting, version consistency, and use of the copied starter in isolation. The starter design remains a draft and the rules remain placeholders until adapted for a product.
+
+No complete worked project is included, and the method has not yet been validated through a real project's full lifecycle. The next step is to use this release in another project and bring the findings back into the method.

@@ -31,7 +31,7 @@ read:
 ## Method baseline
 
 Based on [Design-Led Development](https://github.com/3alkan/design-led-development),
-version `0.1.0-dev` (unreleased development baseline).
+version `0.1.0`.
 
 ## License
 

@@ -47,7 +47,7 @@ Check internal Markdown links, formatting, and consistency among affected docume
 
 `VERSION` records the method's release version. The method is this repository's product, so no separate product version is needed here. Design documents have their own revisions. Products using the method version themselves independently.
 
-Keep user-visible changes and adoption guidance under Unreleased in `CHANGELOG.md` during development. The current baseline is `0.1.0-dev`; completing an edit or commit does not automatically require a version increase.
+Keep user-visible changes and adoption guidance under Unreleased in `CHANGELOG.md` during development. Read the current method baseline from `VERSION`; completing an edit or commit does not automatically require a version increase.
 
 For stable releases, use patch versions for corrections preserving the method, minor versions for compatible additions, and major versions for changes requiring adopters to revise their workflow or documents. During `0.x`, minor releases can contain disruptive changes; explain adoption requirements.
 

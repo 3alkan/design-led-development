@@ -1,8 +1,8 @@
 # Design-Led Development
 
 Revision: 1
-Status: Draft
-Approval: Not yet recorded for this repository design revision.
+Status: Approved
+Approval: The human authorized the first version release of the current method and starter before trial in another project. This approval covers the initial release scope described here, not a claim of real-project validation.
 
 ## Purpose
 
@@ -32,6 +32,7 @@ The starter's root design remains a draft until the product's human approves it.
 
 - [starter/](../starter/) is the user-facing product material. Its README introduces the resulting product; its workflow defines collaboration; its rules hold specific requirements; its root design establishes product direction.
 - [guide/](../guide/README.md) explains application of the workflow through six repeatable stages. It identifies human and AI responsibilities, concrete actions, expected outputs, and readiness to proceed. Its examples and prompts are illustrative; they do not introduce product requirements or claim approval.
+- [examples/](../examples/README.md) records what a future complete example should demonstrate. The initial release contains this index only, not a completed example project.
 - This [workflow](WORKFLOW.md) defines how we maintain the method repository, and these [rules](RULES.md) hold any adopted repository-specific requirements.
 - The repository [README](../README.md) introduces the method and explains adoption.
 - [VERSION](../VERSION) identifies the method baseline. [CHANGELOG.md](../CHANGELOG.md) explains changes and adoption.
