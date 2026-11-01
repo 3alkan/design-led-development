@@ -1,19 +1,19 @@
-# <Project name>
+# [Project name]
 
-<Describe the product, who it serves, and what it offers.>
+[Describe the product, who it serves, and what it offers.]
 
 ## Getting started
 
-<Explain prerequisites, installation, configuration, and how
-to run the product.>
+[Explain prerequisites, installation, configuration, and how
+to run the product.]
 
 ## Usage
 
-<Show how to use the product, with examples where helpful.>
+[Show how to use the product, with examples where helpful.]
 
 ## Project status
 
-<Describe current availability and known limitations.>
+[Describe current availability and known limitations.]
 
 ## Development
 
@@ -26,13 +26,16 @@ read:
 
 ## Releases
 
-<Explain where to find product releases and their changes.>
+[Explain where to find product releases and their changes.]
 
 ## Method baseline
 
-Based on [Design-Led Development](https://github.com/3alkan/design-led-development),
-version `0.1.1`.
+Based on [Design-Led Development](https://github.com/3alkan/design-led-development).
+Release baseline: `0.1.2`.
+
+If adopting changes beyond that release, also record the source commit
+and any local adaptations here.
 
 ## License
 
-<State the product's license and link to its license file.>
+[State the product's license and link to its license file.]

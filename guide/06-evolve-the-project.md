@@ -61,7 +61,7 @@ A design revision does not automatically require a product release. A method upd
 
 ## Adopt method updates deliberately
 
-Read the method's [changelog](../CHANGELOG.md) and compare the baseline you adopted with the proposed update. For development baselines, use the recorded source commit when needed to identify the original contents.
+Read the method's [changelog](../CHANGELOG.md) and compare the baseline you adopted with the proposed update. Distinguish released entries from Unreleased changes. For adoption beyond a release, use the recorded source commit and local adaptation notes to identify the original contents.
 
 Propose relevant changes to your product's workflow and templates. Preserve product-specific rules and approved decisions; do not overwrite them by copying a new starter blindly.
 

@@ -1,8 +1,8 @@
 # Design-Led Development
 
-Revision: 2
-Status: Approved
-Approval: The human authorized adopting issue #1's commit checkpoint improvement and releasing the updated method. Revision 1 remains identifiable at tag v0.1.0. This approval does not claim real-project validation.
+- Revision: 3
+- Status: Approved
+- Approval: Following discussion of issue #2, the human approved strict folder design hierarchy by default, using an existing common ancestor where appropriate, and a separate shared design only for cross-branch responsibilities that do not fit the ancestor's scope. Narrower branch designs remain in their branches. Revision 2 remains identifiable at tag v0.1.1. This approval does not claim full real-project validation.
 
 ## Purpose
 
@@ -47,6 +47,8 @@ The repository's `root/` governs this method; `starter/root/` supplies documents
 - Templates are starting points, not approvals or mandatory large forms.
 - The method version is this repository's product version. Design revisions advance independently, as do versions of products built using the method.
 - AI suggests proportionate commit checkpoints for coherent design baselines, verified implementation increments, and focused corrections. Suggestions identify the intended scope and preserve unrelated work. A suggestion does not authorize a commit; design approval, verification, release, and permission to push remain separate.
+- The project root and its `root/` directory are distinct. The latter holds project-wide workflow, rules, and top-level design; other scopes do not automatically belong inside it. Folder hierarchy normally expresses design hierarchy, with designs beside their realization and nested designs inheriting applicable ancestor constraints. Technical wrapper folders do not need a design merely because they contain other scopes.
+- For a responsibility spanning branches, use an existing common ancestor's design if the decision belongs at its level. Otherwise, a focused shared design may live separately, for example under `design/`. This is a cross-branch exception, not general freedom of placement. Each narrower branch design references the shared design and respects both shared and applicable local ancestor constraints; conflicts return to discussion. The shared design identifies participating branches. Each decision has one owner, and moves preserve decisions, approvals, and references.
 
 ## Success criteria
 

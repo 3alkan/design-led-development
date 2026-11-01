@@ -6,11 +6,12 @@ Replace the placeholders with adopted rules. Every rule listed applies.
 Keep identifiers stable. Omit Exception and Reason when unnecessary.
 -->
 
-## 1. <Topic>
+## 1. [Topic]
 
-### 1.1 <Rule title>
+### 1.1 [Rule title]
 
-<State the requirement, including its scope or conditions where needed.>
+[State the requirement, including its scope or conditions where needed.]
 
-Exception: <Optional exception.>
-Reason: <Optional reason.>
+Exception: [Optional exception.]
+
+Reason: [Optional reason.]

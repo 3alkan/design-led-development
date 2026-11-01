@@ -18,7 +18,7 @@ A compact record can be useful:
 
 | Approved expectation | Check and environment | Result | Remaining limitation |
 | --- | --- | --- | --- |
-| <Expectation> | <Actual check performed> | <Observed result> | <Unverified part or gap> |
+| [Expectation] | [Actual check performed] | [Observed result] | [Unverified part or gap] |
 
 This is a blank example, not verification evidence. Store the actual results in a location appropriate to the project, linked from its delivery record or README where useful.
 

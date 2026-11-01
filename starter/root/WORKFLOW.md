@@ -24,9 +24,17 @@ are recorded in three documents under `root/`:
 - `ROOT.md` defines the project's purpose, scope, intended outcomes,
   and overall design.
 
+The project root is the directory containing the whole product.
+The `root/` directory inside it holds these project-wide documents;
+it is not automatically the container for other design or implementation
+scopes. Other scopes normally live alongside it or within source areas.
+
 The human and AI maintain these documents as the project evolves.
 AI may propose changes; the human approves changes to the working
 method, rules, and design.
+
+These documents define project authority within the AI tool's
+governing instructions and access permissions.
 
 The repository's `README.md` introduces the product and explains
 how to use it. It directs contributors to these documents.
@@ -66,8 +74,12 @@ Child documents develop those responsibilities in detail. Keep
 decisions at their appropriate level instead of collecting every
 detail in the parent or repeating shared decisions across documents.
 
+Folder hierarchy is the default expression of design hierarchy.
+Keep scope designs beside the implementation they govern. Nested
+designs inherit applicable constraints from their governing ancestors,
+starting with the project's top-level design in `root/ROOT.md`.
 A folder's design document lives inside that folder and uses its
-name, such as `lending/lending.md`.
+name, such as `lending/lending.md` or `src/lending/lending.md`.
 
 When an individual file needs a focused design, its document lives
 beside it and keeps the complete filename with `.md` appended,
@@ -75,6 +87,52 @@ such as `eligibility.py.md`.
 
 Design documents can exist before their corresponding implementation.
 Not every implementation file needs a separate design document.
+
+Early scope folders may become implementation folders. They do not
+commit the project to a framework or final source layout. When that
+layout is selected, reconcile design placement with it rather than
+keeping duplicate authoritative copies in old and new locations.
+
+For a responsibility spanning multiple branches, first consider its
+existing common ancestor's design. Keep the decision there when it
+belongs at that ancestor's level. A technical wrapper such as `src/`
+does not need a design merely to act as a physical common ancestor.
+
+If the shared responsibility would overload or distort the ancestor's
+scope, a focused shared design may live separately, for example in
+`design/renewal/renewal.md`. This is a limited cross-branch exception
+to folder hierarchy, not general permission to place designs anywhere.
+
+The shared design owns common policy, cross-branch contracts, and
+responsibility allocation. It identifies participating branches and
+links their responsible designs. Narrower designs stay in their
+branches, reference the shared design, and own local behavior and
+realization decisions within it.
+Create branch designs when they have meaningful decisions to own;
+empty forwarding documents are unnecessary. If a branch needs no
+intermediate design, link its responsible artifact designs directly
+to the shared design in both directions and identify the local
+ancestor constraints that still apply.
+
+Branch designs must satisfy both applicable local ancestor constraints
+and the shared design. Resolve conflicts through design discussion;
+neither silently overrides the other. Keep one owner for each decision
+and reference shared decisions instead of duplicating them.
+
+This exception does not move other module designs into `design/`.
+Local hierarchy remains intact, and artifact designs remain beside
+their artifacts. Identify governing scopes and keep relationships
+navigable in both directions. Technical directory nesting alone does
+not give an otherwise undesigned folder authority over its contents.
+
+When moving or splitting a design, preserve its decisions, revision
+and approval records, and identifiable history. Update incoming and
+outgoing references and implementation mappings. A mechanical path
+change preserves approval when scope and governing constraints remain
+unchanged. Moving under a different governing ancestor or changing
+responsibilities can change the design; resolve those effects and
+obtain approval before treating the new arrangement as approved.
+Adopting a method update alone does not authorize moving product files.
 
 Lower-level designs must respect applicable rules and broader approved
 designs. Resolve contradictions explicitly through design discussion.

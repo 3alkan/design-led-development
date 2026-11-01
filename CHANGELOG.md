@@ -4,7 +4,32 @@ This file records changes to the Design-Led Development method and its starter. 
 
 ## Unreleased
 
-No changes recorded after 0.1.1.
+No changes recorded after 0.1.2.
+
+## 0.1.2 — 2026-11-01
+
+Clarify design hierarchy and the cross-branch exception from [issue #2](https://github.com/3alkan/design-led-development/issues/2), with repository-wide consistency and template rendering fixes. Git tag: `v0.1.2`.
+
+### Changed
+
+- Clarify the project root, the project-wide `root/` directory, and design hierarchy in response to [issue #2](https://github.com/3alkan/design-led-development/issues/2).
+- Preserve folder hierarchy as the default design hierarchy, with designs beside implementation and nested scopes inheriting applicable ancestor constraints.
+- For cross-branch responsibilities, first use an existing common ancestor's design when appropriate. Allow a focused separate shared design only when the responsibility would overload or distort the ancestor's scope. Keep narrower branch designs local, respecting both shared and local ancestor constraints.
+- Demonstrate common policy and contracts in a shared design, narrower behavior in branch designs, and artifact designs beside individual files. Require navigable references without duplicated decision ownership; no general separate-placement exception is introduced.
+- Explain how early design folders evolve into source layouts, with co-located and shared-scope examples. Preserve decisions, approval history, and references when moving designs; do not move adopter files automatically.
+- Record the approved placement decision as repository design revision 3 and align repository, setup, and starter workflow terminology.
+- Clarify that moves preserve approval only when scope and governing constraints remain unchanged, and allow direct shared-to-artifact references when an intermediate branch design is unnecessary.
+- Distinguish the released baseline from unreleased source and local adaptations, and make template placeholders and approval fields readable in rendered Markdown.
+
+### Adoption
+
+Review the placement guidance against the project's existing hierarchy. Use an appropriate common ancestor before introducing a separate cross-branch design. Update branch references and implementation mappings deliberately, and resolve conflicts between shared and local ancestor constraints through discussion. Existing adopters need not move files just to match an illustrative tree.
+
+Merge the updated workflow through the project's human approval process, preserve product-specific decisions, and record release baseline `0.1.2` in the product README. Replace angle-bracket template placeholders with visible square-bracket placeholders where needed; this formatting change does not alter adopted requirements or approval scope.
+
+### Validation and limitations
+
+Checks cover all repository Markdown documents, rendered placeholders and approval fields, internal links, illustrative cross-branch paths, version references, release history, and use of the copied four-file starter in isolation. A complete worked example and full real-project lifecycle validation remain pending.
 
 ## 0.1.1 — 2026-11-01
 

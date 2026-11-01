@@ -14,6 +14,8 @@ The [starter workflow](../starter/root/WORKFLOW.md) is distributed to users for 
 
 The human directs the method and approves consequential changes to design, workflow, and rules.
 
+Project authority remains within the AI tool's governing instructions and access permissions.
+
 AI helps develop the design, challenges assumptions, compares alternatives, and records decisions in their appropriate documents. It realizes approved changes and verifies the results.
 
 AI works independently within approved scope and delegated freedom. It returns consequential missing decisions to discussion and cannot approve its own proposals.
@@ -21,6 +23,12 @@ AI works independently within approved scope and delegated freedom. It returns c
 ## Design and approval
 
 Begin with the relevant design and its approval state. Keep whole-repository decisions in `ROOT.md`; create focused design documents when a scope needs separate treatment.
+
+Folder hierarchy normally expresses design hierarchy. Keep designs beside their realization, with nested scopes respecting applicable ancestor constraints. This repository's `root/` holds project-wide governance, not every subordinate scope. Technical wrappers do not require their own design just because they contain other scopes.
+
+For a cross-branch responsibility, first use an existing common ancestor's design when the decision belongs at that level. If it would overload or distort that scope, allow a focused shared design outside the branches. It owns common decisions and links participating branch designs; narrower designs remain local and reference it. They must satisfy both local ancestor and shared constraints, with conflicts returned to discussion. This is a cross-branch exception, not an open-ended placement choice. Keep artifact designs adjacent and preserve decisions, approval history, and references when moving designs.
+
+If an intermediate branch design has no meaningful decisions to own, link the responsible artifact designs and shared design directly while retaining applicable local ancestor constraints. A mechanical move preserves approval only when scope and governing constraints remain unchanged; changes of governing ancestor or responsibility must be resolved and approved as design changes.
 
 Identify the revision and scope when recording human approval. Proposed meaningful changes remain drafts until approved; preserve the approved baseline in Git or another identifiable record. Never invent approval or extend it to later revisions. Formatting and spelling corrections need not reopen settled decisions.
 

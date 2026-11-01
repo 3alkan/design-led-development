@@ -32,6 +32,8 @@ project-name/
 
 The starter contains templates, not an approved product design or pre-adopted project rules. Adapt them through discussion with the human.
 
+The project root is `project-name/`; its `root/` directory holds project-wide documents. Folder hierarchy normally expresses design hierarchy. A responsibility spanning branches can use a focused shared design when it does not fit the common ancestor's scope; narrower designs remain in their branches. See [design placement](guide/03-develop-detailed-designs.md) for examples.
+
 ## Repository structure
 
 - [starter/](starter/) contains the four documents users copy into their projects.
@@ -46,7 +48,9 @@ The starter contains templates, not an approved product design or pre-adopted pr
 
 Before changing this repository, read its [root design](root/ROOT.md), [workflow](root/WORKFLOW.md), and [rules](root/RULES.md).
 
-The current method version is `0.1.1`, identified by Git tag `v0.1.1`. This release clarifies when AI should suggest meaningful commit checkpoints while preserving human authorization boundaries. The method has not yet been validated through a complete real project. Feedback from that use will inform later releases.
+The latest released method version is `0.1.2`, identified by Git tag `v0.1.2`. This release clarifies folder design hierarchy and its cross-branch exception, improves template rendering, and distinguishes release baselines from later adaptations. Changes listed under Unreleased in the changelog are not part of that tag; files on the development branch may include them.
+
+The method has not yet been validated through a complete real project. Feedback from that use will inform later releases.
 
 Use a tagged version when adopting the method so you can identify the source baseline. Read the [changelog](CHANGELOG.md) before adopting later versions and preserve your project's own rules and design decisions.
 

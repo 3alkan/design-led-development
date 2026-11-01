@@ -21,7 +21,9 @@ project-name/
 
 Keep existing source files and decisions if the project already exists. Compare documents before copying so that the starter does not overwrite established work. Existing behavior is useful evidence; discuss which behavior should become part of the approved design.
 
-Adapt the README's product name and description. Keep its method baseline, and record the source commit too if you copy an unreleased development baseline and need to identify the exact source later.
+Here, `project-name/` is the project root; `root/` holds its project-wide documents. Feature areas can begin alongside it before implementation exists. Keep their designs hierarchical and beside their realization. The [detailed design guide](03-develop-detailed-designs.md) explains how that structure develops and when a cross-branch responsibility needs a shared design.
+
+Adapt the README's product name and description. Keep its release baseline. If adopting changes beyond that release, record the source commit and any local adaptations too; the release number alone does not identify unreleased contents.
 
 ## Establish the collaboration
 
