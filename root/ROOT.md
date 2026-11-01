@@ -1,8 +1,8 @@
 # Design-Led Development
 
-Revision: 1
+Revision: 2
 Status: Approved
-Approval: The human authorized the first version release of the current method and starter before trial in another project. This approval covers the initial release scope described here, not a claim of real-project validation.
+Approval: The human authorized adopting issue #1's commit checkpoint improvement and releasing the updated method. Revision 1 remains identifiable at tag v0.1.0. This approval does not claim real-project validation.
 
 ## Purpose
 
@@ -46,6 +46,7 @@ The repository's `root/` governs this method; `starter/root/` supplies documents
 - Workflow instructions belong in the workflow. Specific project requirements belong in rules, grouped by topic with stable identifiers and optional exceptions and reasons. Every adopted rule applies.
 - Templates are starting points, not approvals or mandatory large forms.
 - The method version is this repository's product version. Design revisions advance independently, as do versions of products built using the method.
+- AI suggests proportionate commit checkpoints for coherent design baselines, verified implementation increments, and focused corrections. Suggestions identify the intended scope and preserve unrelated work. A suggestion does not authorize a commit; design approval, verification, release, and permission to push remain separate.
 
 ## Success criteria
 

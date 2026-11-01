@@ -46,7 +46,7 @@ The starter contains templates, not an approved product design or pre-adopted pr
 
 Before changing this repository, read its [root design](root/ROOT.md), [workflow](root/WORKFLOW.md), and [rules](root/RULES.md).
 
-The current method version is `0.1.0`, identified by Git tag `v0.1.0`. This initial release supplies the starter and guide for practical use; the method has not yet been validated through a complete real project. Feedback from that use will inform later releases.
+The current method version is `0.1.1`, identified by Git tag `v0.1.1`. This release clarifies when AI should suggest meaningful commit checkpoints while preserving human authorization boundaries. The method has not yet been validated through a complete real project. Feedback from that use will inform later releases.
 
 Use a tagged version when adopting the method so you can identify the source baseline. Read the [changelog](CHANGELOG.md) before adopting later versions and preserve your project's own rules and design decisions.
 

@@ -165,6 +165,24 @@ If implementation reveals a consequential problem or missing
 decision, return it to the relevant design discussion. Preserve
 the approved intent until a change is approved.
 
+## Commit checkpoints
+
+AI should suggest a commit when work reaches a meaningful, coherent
+checkpoint: an agreed design baseline worth preserving, a completed
+implementation increment with appropriate verification, or a focused
+correction.
+
+Inspect the working tree and staged changes before suggesting the
+checkpoint. Briefly explain why it is useful and identify which changes
+belong together. Optionally propose a commit message. Preserve unrelated
+work; avoid suggestions after every small edit or a rigid relationship
+between documents and commits.
+
+A suggestion does not authorize creating a commit. Commit only when
+requested or within explicitly delegated committing permissions.
+A commit does not itself approve design, prove conformance, publish
+a release, or authorize a push.
+
 ## Verification and delivery
 
 Verification determines whether the implementation fulfills

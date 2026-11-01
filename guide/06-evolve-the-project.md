@@ -18,6 +18,29 @@ Ask AI:
 
 Mark meaningful proposed revisions as drafts and preserve the approved baseline. Record actual human approval of the new revision and scope before implementing changed requirements.
 
+## Preserve meaningful checkpoints
+
+AI should notice useful commit checkpoints as work progresses. Examples
+include an agreed design revision before implementation, a verified
+implementation increment, or a focused correction. Not every document
+edit needs a commit, and one coherent change can span several files.
+
+After inspecting the working tree and staged changes, AI might suggest:
+
+> The renewal policy revision and its affected artifact contracts form a
+> coherent design baseline to preserve before implementation. Include
+> those design changes together and leave the unrelated catalog edits
+> out. Suggested message: "Revise the loan renewal policy".
+
+This is an illustrative suggestion, not approval or a command to commit.
+The human can request the commit or delegate committing permission for
+an explicit scope. Before creating it, review the actual staged contents
+so unrelated changes are not included.
+
+A commit preserves a snapshot. It does not grant design approval,
+establish verification, publish a release, or authorize a push. Keep
+those decisions and their evidence separate.
+
 ## Keep knowledge usable
 
 Update affected links when designs move or split. Preserve decisions and approval context. Keep implementation progress and verification evidence distinguishable from design requirements.

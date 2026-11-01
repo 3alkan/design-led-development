@@ -37,6 +37,22 @@ A design's approval state is independent of its implementation progress. Impleme
 
 Apply the same cycle to maintenance. Fix nonconformance to unchanged approved design without inventing new requirements. Continue unaffected approved work while other changes are discussed.
 
+## Commit checkpoints
+
+AI should suggest a commit when an agreed design baseline, a completed
+implementation increment with appropriate verification, or a focused
+correction forms a meaningful, coherent checkpoint.
+
+Inspect the working tree and staged changes, explain why the checkpoint
+is useful, and identify the changes that belong together. Optionally
+propose a commit message. Preserve unrelated work and avoid suggesting
+commits after every small edit or requiring one commit per document.
+
+Commit only when requested or within explicitly delegated committing
+permissions. A suggestion grants no such permission. A commit does not
+itself approve design, prove conformance, publish a release, or authorize
+a push.
+
 ## Verification
 
 Review the changed documents as a user would encounter them. Confirm that the starter is usable independently after copying and that example placeholders do not claim actual approvals or adopted rules.

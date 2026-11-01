@@ -4,7 +4,26 @@ This file records changes to the Design-Led Development method and its starter. 
 
 ## Unreleased
 
-No changes recorded after 0.1.0.
+No changes recorded after 0.1.1.
+
+## 0.1.1 — 2026-11-01
+
+Clarify commit checkpoint guidance from [issue #1](https://github.com/3alkan/design-led-development/issues/1). Git tag: `v0.1.1`.
+
+### Changed
+
+- Have AI suggest proportionate commit checkpoints for agreed design baselines, appropriately verified implementation increments, and focused corrections in both workflows.
+- Explain that suggestions identify coherent scope after inspecting working and staged changes, preserve unrelated work, and can include a proposed message.
+- Keep commit authorization explicit and separate from design approval, conformance evidence, release, and permission to push.
+- Add a practical example to the project evolution guide and record the approved change as repository design revision 2.
+
+### Adoption
+
+Merge the commit checkpoint section from `starter/root/WORKFLOW.md` into your project's workflow through the human approval process. Preserve project-specific decisions and update the method baseline in the product README to `0.1.1`. No product rules, implementation changes, or automatic committing permission are required.
+
+### Validation and limitations
+
+This patch clarifies the existing baseline-preservation process without changing design authority or granting new committing permissions. Full real-project lifecycle validation remains pending.
 
 ## 0.1.0 — 2026-10-31
 
