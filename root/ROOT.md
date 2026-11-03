@@ -63,6 +63,7 @@ The repository's `root/` governs this method; `starter/root/` supplies documents
 - Placeholder content cannot reasonably be mistaken for adopted rules or approved product design.
 - Local links resolve within the repository's defined contents and method version references agree.
 - The changelog reflects actual changes without inventing releases or approval history.
+- Every approved design baseline can be identified and recovered from an authorized Git commit without requiring a design-specific tag.
 
 ## Open questions
 
