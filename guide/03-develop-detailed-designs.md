@@ -137,7 +137,7 @@ Describe relevant inputs, outcomes, boundaries, relationships, important failure
 
 Resolve contradictions with broader designs before implementation. Discuss consequential unknowns rather than burying assumptions in code.
 
-Obtain human approval for the identified revisions and scope. After approval, follow the [approval sweep](06-evolve-the-project.md#final-state-writing), including the recoverable pre-sweep snapshot, final-state commit and matching design tag. Preserve pending changes as drafts; do not sweep unapproved proposals.
+Obtain human approval for the identified revisions and scope. After approval, follow the [approval sweep](06-evolve-the-project.md#final-state-writing), preserving the prior approved baseline and committing the final-state approved revision. Preserve pending changes as drafts; do not sweep unapproved proposals.
 
 ## Ready to continue
 
