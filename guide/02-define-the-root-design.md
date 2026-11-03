@@ -33,9 +33,9 @@ Use the amount of detail needed for the next decisions. Leave detailed contracts
 
 Ask AI to summarize the proposed revision, its scope, and consequential open questions. Resolve the questions that block the next work; identify deferred questions and their boundaries explicitly.
 
-The human can approve an identified revision or an explicit part of it. Record the actual approved scope and revision so the approval can be understood in a later session. If only part is approved, distinguish that part from remaining draft content.
+The human can approve an identified revision or an explicit part of it. Record the exact approved scope and revision so the approval can be understood in a later session. If only part is approved, move the remainder to a separately identified pending revision; use `Status: Mixed` while approved and draft sections coexist.
 
-Before recording approval, leave draft annotations visible only for pending revisions. After actual approval, follow the [final-state writing and approval sweep](06-evolve-the-project.md#final-state-writing): preserve and tag the approved baseline, remove the approved revision's inline draft markers, and record one approval-header line. Never convert a draft marker into historical prose inside the design body.
+Keep draft annotations only in unapproved sections. After actual approval, follow the [final-state writing and approval sweep](06-evolve-the-project.md#final-state-writing), including its Git snapshot, final-state commit, and tag sequence. Never convert a draft marker into historical prose inside the design body.
 
 Keep implementation progress separate. Approval means the design may be realized; it does not mean the product exists or has passed verification.
 
