@@ -48,7 +48,7 @@ The project root is `project-name/`; its `root/` directory holds project-wide do
 
 Before changing this repository, read its [root design](root/ROOT.md), [workflow](root/WORKFLOW.md), and [rules](root/RULES.md).
 
-The latest released method version is `0.1.2`, identified by Git tag `v0.1.2`. This release clarifies folder design hierarchy and its cross-branch exception, improves template rendering, and distinguishes release baselines from later adaptations. Changes listed under Unreleased in the changelog are not part of that tag; files on the development branch may include them.
+The latest released method version is `0.1.2`, identified by Git tag `v0.1.2`. This release clarifies folder design hierarchy and its cross-branch exception, improves template rendering, and distinguishes release baselines from later adaptations. Changes listed under Unreleased in the changelog are not part of that tag. The `VERSION` file currently names intended release `0.1.3`, which is **not published** until its release checklist is completed and `v0.1.3` is tagged.
 
 The method has not yet been validated through a complete real project. Feedback from that use will inform later releases.
 

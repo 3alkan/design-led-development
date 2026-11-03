@@ -1,7 +1,7 @@
 # Design-Led Development
 
-- Revision: 3
-- Status: Approved
+- Revision: 4 (proposed)
+- Status: Mixed (revision 3 approved; revision 4 draft)
 - Approval: Rev 3 approved by human (date not recorded).
 
 ## Purpose
@@ -32,7 +32,7 @@ The starter's root design remains a draft until the product's human approves it.
 
 - [starter/](../starter/) is the user-facing product material. Its README introduces the resulting product; its workflow defines collaboration; its rules hold specific requirements; its root design establishes product direction.
 - [guide/](../guide/README.md) explains application of the workflow through six repeatable stages. It identifies human and AI responsibilities, concrete actions, expected outputs, and readiness to proceed. Its examples and prompts are illustrative; they do not introduce product requirements or claim approval.
-- [examples/](../examples/README.md) records what a future complete example should demonstrate. The initial release contains this index only, not a completed example project.
+- [examples/](../examples/README.md) records the requirements for a complete example; no completed example project is currently included.
 - This [workflow](WORKFLOW.md) defines how we maintain the method repository, and these [rules](RULES.md) hold any adopted repository-specific requirements.
 - The repository [README](../README.md) introduces the method and explains adoption.
 - [VERSION](../VERSION) identifies the method baseline. [CHANGELOG.md](../CHANGELOG.md) explains changes and adoption.
@@ -49,6 +49,12 @@ The repository's `root/` governs this method; `starter/root/` supplies documents
 - AI suggests proportionate commit checkpoints for coherent design baselines, verified implementation increments, and focused corrections. Suggestions identify the intended scope and preserve unrelated work. A suggestion does not authorize a commit; design approval, verification, release, and permission to push remain separate.
 - The project root and its `root/` directory are distinct. The latter holds project-wide workflow, rules, and top-level design; other scopes do not automatically belong inside it. Folder hierarchy normally expresses design hierarchy, with designs beside their realization and nested designs inheriting applicable ancestor constraints. Technical wrapper folders do not need a design merely because they contain other scopes.
 - For a responsibility spanning branches, use an existing common ancestor's design if the decision belongs at its level. Otherwise, a focused shared design may live separately, for example under `design/`. This is a cross-branch exception, not general freedom of placement. Each narrower branch design references the shared design and respects both shared and applicable local ancestor constraints; conflicts return to discussion. The shared design identifies participating branches. Each decision has one owner, and moves preserve decisions, approvals, and references.
+
+## Pending changes — Draft revision 4
+
+The method keeps approved design bodies in final-state voice and preserves superseded wording in Git instead of retaining historical narration inside design text. Approval and tagging mechanics belong in [WORKFLOW.md](WORKFLOW.md), while audit findings belong outside authoritative design documents.
+
+This proposed design principle is not approved by the preceding revision 3 approval entry. On human approval, integrate the principle into Shared design decisions, remove this pending section, append an actual revision 4 approval record, and perform the approved baseline sweep.
 
 ## Success criteria
 

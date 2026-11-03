@@ -34,7 +34,7 @@ Identify the revision and scope when recording human approval. Proposed meaningf
 
 Write approved design bodies as current-state requirements, realizations, and at most one sentence of rationale per paragraph. Do not retain superseded revision narratives in body text. Pending `(Draft revision N: …)` markers belong only in the unapproved draft.
 
-On actual approval of revision N, perform the approval sweep: commit a recoverable pre-sweep snapshot, remove that revision's inline draft markers, add one `Rev N approved by [who] [YYYY-MM-DD]` header line, check the resulting current-state wording against the approved scope, commit the sweep, and tag that final-state commit with a unique immutable baseline tag. Git holds superseded text, external findings/audit records hold session evidence, and header lines hold approval identity. Never invent an approval or move a tag; follow commit/tag permissions. Historical approvals with missing dates must not be backfilled by guessing.
+On actual approval of an identified design scope, follow the canonical [approval sweep](../guide/06-evolve-the-project.md#final-state-writing): commit the pre-sweep snapshot, remove only approved draft markers, record one `- Approval: Rev N approved by [who] [YYYY-MM-DD]` line per revision, verify and commit the final-state text, and tag that commit using the unique per-scope design tag convention. For partial approvals, keep the remainder in a newly identified draft revision and mark the document `Mixed`. Git holds superseded text, external findings/audit records hold session evidence, and header lines hold approval identity. Never invent approval details, move a tag, or bypass commit/tag permissions.
 
 A design's approval state is independent of its implementation progress. Implementation is evidence of the current realization, not authority to redefine the intended design.
 
@@ -75,7 +75,7 @@ Check internal Markdown links, formatting, and consistency among affected docume
 
 ## Versioning and releases
 
-`VERSION` records the method's release version. The method is this repository's product, so no separate product version is needed here. Design documents have their own revisions. Products using the method version themselves independently.
+`VERSION` records the method's intended version (which may be the next proposed version during release preparation); a published release is identified by its corresponding Git tag and release documentation. The method is this repository's product, so no separate product version is needed here. Design documents have their own revisions. Products using the method version themselves independently.
 
 Keep user-visible changes and adoption guidance under Unreleased in `CHANGELOG.md` during development. Read the current method baseline from `VERSION`; completing an edit or commit does not automatically require a version increase.
 
