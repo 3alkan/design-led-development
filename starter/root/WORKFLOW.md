@@ -172,10 +172,10 @@ During an unapproved revision, `(Draft revision N: …)` markers may indicate pr
 
 On human approval of identified revision N and scope, perform the **approval sweep**:
 
-1. Preserve a recoverable Git snapshot of the proposed revision and anchor the approved baseline with a unique, immutable Git tag before discarding transient annotations. Do not replace an existing tag.
+1. Commit a recoverable Git snapshot of the proposed revision before discarding transient annotations. Do not replace an existing tag.
 2. Remove all inline draft markers belonging to the approved revision, retaining the approved current-state decisions and no narrative of superseded text.
 3. Record exactly one approval-header line per revision: `Rev N approved by [who] [YYYY-MM-DD]`. Keep the header concise; never invent an approval, identity, or date.
-4. Check that the swept text still matches the human-approved scope and commit it with authorization. Leave any unapproved scope visibly marked as draft.
+4. Check that the swept text still matches the human-approved scope, commit it with authorization, and anchor that final-state commit with a unique, immutable Git baseline tag. Leave any unapproved scope visibly marked as draft.
 
 History has exactly three destinations: Git commits and tags for superseded versions, a separate findings/audit area for long-form reviews and session records, and one-line approval-header entries for who approved which revision and when. A Git tag or commit is not itself human approval; ask for authorized Git operations when permission is missing.
 
@@ -239,8 +239,9 @@ proposed changes are under discussion.
 3. Approve the design.
    Resolve consequential questions and obtain human approval
    for the identified revisions and implementation scope. Preserve
-   and tag the approved baseline, remove its inline draft markers,
-   add the one-line approval record, and verify the swept text.
+   as a recoverable Git snapshot, remove its inline draft markers,
+   add the one-line approval record, verify and commit the sweep,
+   and tag the final-state baseline.
 
 4. Realize the design.
    AI implements the approved scope in manageable increments,
