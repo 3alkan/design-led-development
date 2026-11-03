@@ -168,14 +168,16 @@ require a large template.
 
 Approved design documents describe **what is true now**: each paragraph states the rule, how it is realized, or no more than one sentence of rationale. Do not embed descriptions of past revisions, superseded wording, audit sessions, or duplicated rationale in current design bodies.
 
-During an unapproved revision, `(Draft revision N: …)` markers may indicate proposed changes for human review. These annotations exist only in drafts; they are not permanent design prose.
+During an unapproved revision, `(Draft revision N: …)` markers may indicate proposed changes for human review. These annotations exist only in drafts; they are not permanent design prose. Use `Status: Mixed` when approved and pending material coexist, with proposals under a visibly labeled `Pending changes — Draft revision N` section. On partial approval, identify the approved portion and move the unapproved remainder into a new draft revision before sweeping; previously approved content stays authoritative.
 
 On human approval of identified revision N and scope, perform the **approval sweep**:
 
 1. Commit a recoverable Git snapshot of the proposed revision before discarding transient annotations. Do not replace an existing tag.
 2. Remove all inline draft markers belonging to the approved revision, retaining the approved current-state decisions and no narrative of superseded text.
-3. Record exactly one approval-header line per revision: `Rev N approved by [who] [YYYY-MM-DD]`. Keep the header concise; never invent an approval, identity, or date.
-4. Check that the swept text still matches the human-approved scope, commit it with authorization, and anchor that final-state commit with a unique, immutable Git baseline tag. Leave any unapproved scope visibly marked as draft.
+3. Add exactly one `- Approval: Rev N approved by [who] [YYYY-MM-DD]` header line per approved revision, retaining earlier lines. Put the exact approved scope in the associated Git commit message or findings/approval record rather than header prose; never invent an approval, identity, or date.
+4. Check that the swept text still matches the human-approved scope, commit it with authorization, and anchor **that final-state commit** with a unique, immutable Git design tag. Leave any unapproved scope visibly marked as draft.
+
+For each approved design revision use `design/<scope-key>/rev-N`, where `scope-key` uniquely identifies the document's repository-relative path (for example `root/ROOT.md` → `root-root`). One approval spanning multiple designs creates one tag per approved document revision, all on the same final-state commit; record paths and scope in the approval record. Never overwrite tags; resolve renames or collisions using a new recorded unique key. Design tags and method/product release tags are separate.
 
 History has exactly three destinations: Git commits and tags for superseded versions, a separate findings/audit area for long-form reviews and session records, and one-line approval-header entries for who approved which revision and when. A Git tag or commit is not itself human approval; ask for authorized Git operations when permission is missing.
 
@@ -188,6 +190,7 @@ A component design follows the same voice and approval format as the root design
 
 - Revision: 2
 - Status: Approved
+- Approval: Rev 1 approved by [approver] [YYYY-MM-DD]
 - Approval: Rev 2 approved by [approver] [YYYY-MM-DD]
 
 ## Responsibility
@@ -238,10 +241,10 @@ proposed changes are under discussion.
 
 3. Approve the design.
    Resolve consequential questions and obtain human approval
-   for the identified revisions and implementation scope. Preserve
-   as a recoverable Git snapshot, remove its inline draft markers,
-   add the one-line approval record, verify and commit the sweep,
-   and tag the final-state baseline.
+   for the identified revisions and implementation scope. Commit
+   a recoverable pre-sweep snapshot, remove approved draft markers,
+   append the one-line approval record, verify and commit the final-state
+   design, and tag that commit for each approved design revision.
 
 4. Realize the design.
    AI implements the approved scope in manageable increments,
