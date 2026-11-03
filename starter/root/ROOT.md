@@ -4,7 +4,9 @@
 - Status: Draft
 - Approval: Not yet recorded.
 
-<!-- Document voice: write only the current design in the body; use at most one sentence of rationale per paragraph. Keep pending (Draft revision N: …) markers only until human approval. On approval, preserve/tag the baseline, remove the markers and add one line: Rev N approved by [who] [YYYY-MM-DD]. Do not claim approval for this template. -->
+**Document voice (template note — remove when adapting):** State the current design, not revision history. Use at most one sentence of rationale per paragraph. Mark proposed changes as draft; after actual approval follow the sweep in [WORKFLOW.md](WORKFLOW.md#document-voice-and-final-state-writing). Each approved revision adds one `- Approval: Rev N approved by [who] [YYYY-MM-DD]` header line. This template is not approved.
+
+For partial approval, use `Status: Mixed` and put remaining proposals under `## Pending changes — Draft revision N`. Approved sections remain authoritative; draft sections do not.
 
 ## Purpose
 
