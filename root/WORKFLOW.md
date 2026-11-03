@@ -75,7 +75,7 @@ Check internal Markdown links, formatting, and consistency among affected docume
 
 ## Versioning and releases
 
-`VERSION` records the method's release version. The method is this repository's product, so no separate product version is needed here. Design documents have their own revisions. Products using the method version themselves independently.
+`VERSION` records the method's intended version (which may be the next proposed version during release preparation); a published release is identified by its corresponding Git tag and release documentation. The method is this repository's product, so no separate product version is needed here. Design documents have their own revisions. Products using the method version themselves independently.
 
 Keep user-visible changes and adoption guidance under Unreleased in `CHANGELOG.md` during development. Read the current method baseline from `VERSION`; completing an edit or commit does not automatically require a version increase.
 
