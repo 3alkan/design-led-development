@@ -4,7 +4,20 @@ This file records changes to the Design-Led Development method and its starter. 
 
 ## Unreleased
 
-No changes recorded after 0.1.2.
+### Changed — proposed 0.1.3 (not yet released)
+
+- Add final-state writing discipline to the guide, repository workflow, and copyable starter: approved design bodies describe current decisions rather than accumulating revision archaeology ([issue #3](https://github.com/3alkan/design-led-development/issues/3)).
+- Define the human-approval sweep: preserve/tag the approved baseline, remove draft markers, and add one concise revision-approval record; retain audit-session evidence separately.
+- Classify document sediment during audits and demonstrate final-state voice in root and component design examples.
+- Propose the `0.1.3` patch baseline as an editorial/workflow clarification; no design decision authority or implementation semantics change.
+
+### Adoption
+
+Review and approve the workflow change before applying it to product designs. Add the final-state writing and `SEDIMENT` audit guidance, retain local project requirements, and perform sweeps only on genuinely approved revisions. Do not fabricate past approval dates or overwrite existing tags.
+
+### Validation and limitations
+
+The proposal is pending review and is not a published release. The `VERSION` file represents the proposed next baseline; `v0.1.3` has not been tagged. The starter remains a template, not an approved product design.
 
 ## 0.1.2 — 2026-11-01
 

@@ -35,6 +35,8 @@ Ask AI to summarize the proposed revision, its scope, and consequential open que
 
 The human can approve an identified revision or an explicit part of it. Record the actual approved scope and revision so the approval can be understood in a later session. If only part is approved, distinguish that part from remaining draft content.
 
+Before recording approval, leave draft annotations visible only for pending revisions. After actual approval, follow the [final-state writing and approval sweep](06-evolve-the-project.md#final-state-writing): preserve and tag the approved baseline, remove the approved revision's inline draft markers, and record one approval-header line. Never convert a draft marker into historical prose inside the design body.
+
 Keep implementation progress separate. Approval means the design may be realized; it does not mean the product exists or has passed verification.
 
 ## Ready to continue

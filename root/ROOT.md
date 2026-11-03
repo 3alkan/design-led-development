@@ -2,7 +2,7 @@
 
 - Revision: 3
 - Status: Approved
-- Approval: Following discussion of issue #2, the human approved strict folder design hierarchy by default, using an existing common ancestor where appropriate, and a separate shared design only for cross-branch responsibilities that do not fit the ancestor's scope. Narrower branch designs remain in their branches. Revision 2 remains identifiable at tag v0.1.1. This approval does not claim full real-project validation.
+- Approval: Rev 3 approved by human (date not recorded).
 
 ## Purpose
 

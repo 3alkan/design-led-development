@@ -164,6 +164,43 @@ Make important expectations clear enough to implement and assess.
 Use only the structure the scope needs. A small design does not
 require a large template.
 
+## Document voice and final-state writing
+
+Approved design documents describe **what is true now**: each paragraph states the rule, how it is realized, or no more than one sentence of rationale. Do not embed descriptions of past revisions, superseded wording, audit sessions, or duplicated rationale in current design bodies.
+
+During an unapproved revision, `(Draft revision N: …)` markers may indicate proposed changes for human review. These annotations exist only in drafts; they are not permanent design prose.
+
+On human approval of identified revision N and scope, perform the **approval sweep**:
+
+1. Commit a recoverable Git snapshot of the proposed revision before discarding transient annotations. Do not replace an existing tag.
+2. Remove all inline draft markers belonging to the approved revision, retaining the approved current-state decisions and no narrative of superseded text.
+3. Record exactly one approval-header line per revision: `Rev N approved by [who] [YYYY-MM-DD]`. Keep the header concise; never invent an approval, identity, or date.
+4. Check that the swept text still matches the human-approved scope, commit it with authorization, and anchor that final-state commit with a unique, immutable Git baseline tag. Leave any unapproved scope visibly marked as draft.
+
+History has exactly three destinations: Git commits and tags for superseded versions, a separate findings/audit area for long-form reviews and session records, and one-line approval-header entries for who approved which revision and when. A Git tag or commit is not itself human approval; ask for authorized Git operations when permission is missing.
+
+When reviewing designs, classify historical narration in the body, multi-line approval prose, and repeated rationale across files as `SEDIMENT` findings. Correct them without changing approved meaning or discarding pending work.
+
+A component design follows the same voice and approval format as the root design. For example, an approved component document can use:
+
+```markdown
+# Renewal component
+
+- Revision: 2
+- Status: Approved
+- Approval: Rev 2 approved by [approver] [YYYY-MM-DD]
+
+## Responsibility
+
+Validate renewal requests against the renewal policy defined by the governing design.
+
+## Realization
+
+Return an eligibility result and a reason code to the calling scope.
+```
+
+This example is illustrative, not an actual product approval.
+
 ## Design approval
 
 Design is developed through discussion and recorded as a draft.
@@ -201,7 +238,10 @@ proposed changes are under discussion.
 
 3. Approve the design.
    Resolve consequential questions and obtain human approval
-   for the identified revisions and implementation scope.
+   for the identified revisions and implementation scope. Preserve
+   as a recoverable Git snapshot, remove its inline draft markers,
+   add the one-line approval record, verify and commit the sweep,
+   and tag the final-state baseline.
 
 4. Realize the design.
    AI implements the approved scope in manageable increments,

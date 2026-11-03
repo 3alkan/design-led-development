@@ -32,6 +32,10 @@ If an intermediate branch design has no meaningful decisions to own, link the re
 
 Identify the revision and scope when recording human approval. Proposed meaningful changes remain drafts until approved; preserve the approved baseline in Git or another identifiable record. Never invent approval or extend it to later revisions. Formatting and spelling corrections need not reopen settled decisions.
 
+Write approved design bodies as current-state requirements, realizations, and at most one sentence of rationale per paragraph. Do not retain superseded revision narratives in body text. Pending `(Draft revision N: …)` markers belong only in the unapproved draft.
+
+On actual approval of revision N, perform the approval sweep: commit a recoverable pre-sweep snapshot, remove that revision's inline draft markers, add one `Rev N approved by [who] [YYYY-MM-DD]` header line, check the resulting current-state wording against the approved scope, commit the sweep, and tag that final-state commit with a unique immutable baseline tag. Git holds superseded text, external findings/audit records hold session evidence, and header lines hold approval identity. Never invent an approval or move a tag; follow commit/tag permissions. Historical approvals with missing dates must not be backfilled by guessing.
+
 A design's approval state is independent of its implementation progress. Implementation is evidence of the current realization, not authority to redefine the intended design.
 
 ## Working cycle
@@ -64,6 +68,8 @@ a push.
 ## Verification
 
 Review the changed documents as a user would encounter them. Confirm that the starter is usable independently after copying and that example placeholders do not claim actual approvals or adopted rules.
+
+Classify superseded-history prose in design bodies, multi-line approval narratives, and duplicated cross-file rationale as `SEDIMENT` findings. Keep long audit explanations in findings/audit records, not design bodies.
 
 Check internal Markdown links, formatting, and consistency among affected documents. When reviewing a staged commit, assess the staged contents rather than relying on other local files. Report limitations honestly; a formatting check alone does not prove that the method is effective.
 
