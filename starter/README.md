@@ -31,7 +31,7 @@ read:
 ## Method baseline
 
 Based on [Design-Led Development](https://github.com/3alkan/design-led-development).
-Release baseline: `0.1.2`.
+Release baseline: `0.1.3`.
 
 If adopting changes beyond that release, also record the source commit
 and any local adaptations here.

@@ -4,13 +4,17 @@ This file records changes to the Design-Led Development method and its starter. 
 
 ## Unreleased
 
-### Changed — intended for 0.1.3 (not yet released)
+No changes recorded after 0.1.3.
+
+## 0.1.3 — 2026-11-03
+
+Final-state writing discipline and repository-wide consistency corrections from [issue #3](https://github.com/3alkan/design-led-development/issues/3). Release tag: `v0.1.3`.
 
 - Add final-state writing discipline to the guide, repository workflow, and copyable starter: approved design bodies describe current decisions rather than accumulating revision archaeology ([issue #3](https://github.com/3alkan/design-led-development/issues/3)).
-- Define the human-approval sweep: preserve/tag the approved baseline, remove draft markers, and add one concise revision-approval record; retain audit-session evidence separately.
+- Define the human-approval sweep: preserve the previous baseline, remove approved draft markers, append one concise approval record, and commit the final-state approved scope; retain audit-session evidence separately.
 - Classify document sediment during audits and demonstrate final-state voice in root and component design examples.
-- Resolve the repository-wide pre-release audit: clarify partial approvals, per-scope baseline tags, repeatable one-line approval records, and the final-state Git commit/tag sequence; fix the starter's approval checklist.
-- Prepare `0.1.3` as the next patch baseline without changing who may approve design or authorize Git operations.
+- Resolve the repository-wide pre-release audit: clarify partial approvals, identifiable approval commits, repeatable one-line approval records, and the final-state commit sequence; fix the starter's approval checklist.
+- Require an identifiable commit for an approved design baseline without requiring any design-specific tag or a separate draft commit for every approval. Release tags remain required. Preserve human approval and Git-operation authorization boundaries.
 
 ### Adoption
 
@@ -18,7 +22,7 @@ Review the updated workflow before applying it to product designs. Add the final
 
 ### Validation and limitations
 
-The Issue #3 implementation has been approved and merged; the subsequent repository-wide audit corrections remain under review. `VERSION` indicates the intended next baseline, not a published release. No `v0.1.3` tag has been created. The starter remains a template, not an approved product design.
+The changes underwent a repository-wide documentation audit, including a check of 58 relative Markdown links with no broken local targets found. The starter remains a template, not an approved product design. No full real-project lifecycle or executable test-suite validation is claimed.
 
 ## 0.1.2 — 2026-11-01
 
