@@ -18,6 +18,23 @@ Ask AI:
 
 Mark meaningful proposed revisions as drafts and preserve the approved baseline. Record actual human approval of the new revision and scope before implementing changed requirements.
 
+## Final-state writing
+
+An approved design document describes **the current state**, not the sequence of edits that produced it. Each paragraph states a current rule, its realization, or at most one sentence of rationale. Do not narrate superseded proposals, audit discoveries, or past wording in the design body.
+
+While revision N is pending, inline `(Draft revision N: …)` markers may identify its proposed changes for the approver. These markers are permitted only in an unapproved draft; distinguish unapproved sections clearly if a document also contains approved content.
+
+**Approval sweeps the draft.** Once the human actually approves the identified scope and revision:
+
+1. Preserve the pre-sweep approved or draft snapshot in Git, and anchor the approved baseline with a uniquely named Git tag. Keep the tagged content recoverable before removing temporary notes; do not move an existing tag to represent different content.
+2. Remove all inline markers for the approved revision and any superseded-history narration from the current design body. Retain the actual approved rules, decisions, and necessary rationale.
+3. Add exactly one approval-header line for that revision in the form `Rev N approved by [who] [YYYY-MM-DD]`. Do not invent an approver or date; if an old record lacks these details, say so rather than fabricating them.
+4. Review the resulting final-state text against the approved scope, and commit the sweep. Do not treat tagging, committing, or rewriting as a substitute for human approval.
+
+History has three distinct homes: **Git commits and tags** preserve superseded text and baselines; **findings/audit records** preserve longer investigation and session context outside design bodies; **one-line header approval records** identify who approved which revision and when. Do not paste audit narratives into approval fields or repeat rationale across design files.
+
+The sweep is performed after approval, not as a way of asserting approval for a pending proposal. Tag creation and commits still require the permissions defined by the project's workflow; if permission is unavailable, leave approval processing incomplete and request the authorized Git operation.
+
 ## Preserve meaningful checkpoints
 
 AI should notice useful commit checkpoints as work progresses. Examples
