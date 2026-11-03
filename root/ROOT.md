@@ -1,9 +1,10 @@
 # Design-Led Development
 
-- Revision: 4
+- Revision: 5
 - Status: Approved
 - Approval: Rev 3 approved by human (date not recorded).
 - Approval: Rev 4 approved by human 2026-11-03.
+- Approval: Rev 5 approved by human 2026-11-03.
 
 ## Purpose
 
@@ -51,7 +52,7 @@ The repository's `root/` governs this method; `starter/root/` supplies documents
 - The project root and its `root/` directory are distinct. The latter holds project-wide workflow, rules, and top-level design; other scopes do not automatically belong inside it. Folder hierarchy normally expresses design hierarchy, with designs beside their realization and nested designs inheriting applicable ancestor constraints. Technical wrapper folders do not need a design merely because they contain other scopes.
 - For a responsibility spanning branches, use an existing common ancestor's design if the decision belongs at its level. Otherwise, a focused shared design may live separately, for example under `design/`. This is a cross-branch exception, not general freedom of placement. Each narrower branch design references the shared design and respects both shared and applicable local ancestor constraints; conflicts return to discussion. The shared design identifies participating branches. Each decision has one owner, and moves preserve decisions, approvals, and references.
 
-- Approved design bodies describe the current decisions in final-state voice; superseded wording remains recoverable through Git. Approval and tagging procedures belong in [WORKFLOW.md](WORKFLOW.md), while extended audit findings stay outside authoritative design bodies.
+- Approved design bodies describe current decisions in final-state voice; Git commits identify approved baselines and preserve superseded wording. Design-specific tags are not required; release tags identify published versions. Approval procedures belong in [WORKFLOW.md](WORKFLOW.md), while extended audit findings stay outside authoritative design bodies.
 
 ## Success criteria
 
