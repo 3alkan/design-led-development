@@ -22,14 +22,16 @@ Mark meaningful proposed revisions as drafts and preserve the approved baseline.
 
 An approved design document describes **the current state**, not the sequence of edits that produced it. Each paragraph states a current rule, its realization, or at most one sentence of rationale. Do not narrate superseded proposals, audit discoveries, or past wording in the design body.
 
-While revision N is pending, inline `(Draft revision N: …)` markers may identify its proposed changes for the approver. These markers are permitted only in an unapproved draft; distinguish unapproved sections clearly if a document also contains approved content.
+While revision N is pending, inline `(Draft revision N: …)` markers may identify proposed changes for the approver. These markers exist only in drafts. For a document with both approved and pending work, use `Status: Mixed`, retain only the recorded approved scope as authoritative, and place unapproved proposals in a clearly labeled `Pending changes — Draft revision N` section. If only part of N is approved, identify the approved scope and move the remainder to a new draft revision before sweeping; a partial decision never silently approves the remainder.
 
 **Approval sweeps the draft.** Once the human actually approves the identified scope and revision:
 
 1. Commit a recoverable pre-sweep snapshot in Git before removing temporary notes. Never move an existing tag to represent different content.
 2. Remove all inline markers for the approved revision and any superseded-history narration from the current design body. Retain the actual approved rules, decisions, and necessary rationale.
-3. Add exactly one approval-header line for that revision in the form `Rev N approved by [who] [YYYY-MM-DD]`. Do not invent an approver or date; if an old record lacks these details, say so rather than fabricating them.
-4. Review the resulting final-state text against the approved scope, commit the sweep, and tag **that committed final-state baseline** with a uniquely named Git tag. Do not treat tagging, committing, or rewriting as a substitute for human approval.
+3. Record one concise `- Approval: Rev N approved by [who] [YYYY-MM-DD]` header line for each approved revision, keeping prior lines rather than overwriting them. Record the exact approved scope in the Git commit message or an associated findings/approval record; a partial approval must not be presented as approval of the whole document. Do not fabricate old approvers or dates.
+4. Review the resulting final-state text against the approved scope, commit the sweep, and tag **that committed final-state baseline**. Do not treat tagging, committing, or rewriting as a substitute for human approval.
+
+**Baseline identity.** Use a stable, repository-unique scope key derived from the design's repository-relative path (for example `root/ROOT.md` → `root-root`, `src/lending/lending.md` → `src-lending-lending`). Name its approved tag `design/<scope-key>/rev-N`. If one approval spans several design documents, create one such tag per approved document revision, all pointing to the **same final-state commit**. Include their exact paths and approved scope in that commit message or a separate findings/approval record. Never reuse or move a tag; if a path rename could collide with an old key, choose a new unique key and record the mapping in the approval record. Method release tags (`v0.1.3`, etc.) are separate from design-approval tags.
 
 History has three distinct homes: **Git commits and tags** preserve superseded text and baselines; **findings/audit records** preserve longer investigation and session context outside design bodies; **one-line header approval records** identify who approved which revision and when. Do not paste audit narratives into approval fields or repeat rationale across design files.
 
