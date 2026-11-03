@@ -22,6 +22,12 @@ A compact record can be useful:
 
 This is a blank example, not verification evidence. Store the actual results in a location appropriate to the project, linked from its delivery record or README where useful.
 
+## Review design-document sediment
+
+During routine design audits, classify history embedded in the current design as `SEDIMENT`: superseded wording or revision archaeology in the body, approval-header prose exceeding one line per revision, or rationale duplicated across files. Report each finding with its location and an appropriate correction. Move long-form findings to the project's findings/audit records; preserve superseded versions in Git rather than inside design prose.
+
+A `SEDIMENT` finding is a documentation-maintenance issue, not proof that a design decision is invalid or that approval occurred. A correction must not silently change approved meaning, delete pending draft content, or manufacture an approval record.
+
 ## Resolve gaps honestly
 
 Correct implementation that fails approved expectations. If the intended design needs to change, discuss and approve that revision before treating the implementation as conforming.
