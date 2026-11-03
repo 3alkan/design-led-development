@@ -137,7 +137,7 @@ Describe relevant inputs, outcomes, boundaries, relationships, important failure
 
 Resolve contradictions with broader designs before implementation. Discuss consequential unknowns rather than burying assumptions in code.
 
-Obtain human approval for the identified revisions and scope. Keep the approved baseline recoverable in Git or an equivalent record.
+Obtain human approval for the identified revisions and scope. After approval, perform the [approval sweep](06-evolve-the-project.md#final-state-writing): preserve and tag the approved baseline in Git, remove inline draft markers for the approved revision, and record a one-line approval entry. Do not sweep unapproved proposals.
 
 ## Ready to continue
 
