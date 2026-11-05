@@ -83,7 +83,7 @@ A ready-to-copy optional documentation overlay under `optional/docs/dld/` can be
 | [`docs/internal/packaging.md`](../docs/internal/packaging.md) | DLD-project packaging design details and maintainer guidance. |
 | [`VERSION`](../VERSION), [`CHANGELOG.md`](../CHANGELOG.md), [`LICENSE`](../LICENSE) | Release version, release history, and licensing. |
 
-The [reference repository layout](../docs/reference/repository-layout.md) is optional guidance, not a mandatory scaffold. Physical placement does not create design authority. New artifacts and scopes are introduced only when their engineering responsibilities justify them.
+The [reference repository layout](../docs/organize.md) is optional guidance, not a mandatory scaffold. Physical placement does not create design authority. New artifacts and scopes are introduced only when their engineering responsibilities justify them.
 
 Cross-cutting method changes are owned by Core. Changes to the DLD product, starter contract, and distribution relationships are owned here; implementation details remain with the corresponding packaging, documentation, and other engineering artifacts.
 

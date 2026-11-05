@@ -1,31 +1,33 @@
-# DLD Documentation
+# Understand and Use DLD
 
-The documentation in this directory helps people **understand and apply Design-Led Development (DLD)**. It is entirely optional. The [versioned DLD Core](../foundation/CORE.md) alone specifies the method; guides and references here cannot add obligations or approve project decisions.
+**Design-Led Development (DLD)** is a design-centered method for humans and AI to develop and evolve software together. Its central idea is that **approved abstract design governs what a project intends to do**, while implementation and evidence show what has actually been realized.
 
-## Find what you need
+The [DLD Core](../foundation/CORE.md) is the complete authoritative specification. **Nothing in this documentation is required to comply with DLD.** These pages explain, illustrate, and help you apply the Core; they do not add rules.
 
-| Goal | Resource |
+## Choose a starting point
+
+| If you want to… | Read |
 | --- | --- |
-| Understand the method's actual requirements | [Core](../foundation/CORE.md) |
-| Apply DLD in a new or existing project | [Adoption guide](guides/adoption.md) |
-| Follow a concrete learning path | [Practical working guide](guides/lifecycle/01-start-the-project.md) |
-| Consider file and responsibility placement | [Repository-layout reference](reference/repository-layout.md) |
+| Understand the method itself | [DLD Core](../foundation/CORE.md) |
+| Begin a new project or introduce DLD to an existing one | [Adopt DLD](adopt.md) |
+| See how a human and AI work through an actual increment | [Work with DLD](work.md) |
+| Decide where designs and implementation artifacts belong | [Organize a project](organize.md) |
+| Improve the DLD methodology and its distributions | [Contribute to DLD](contribute.md) |
 
-## Practical working guide
+A good first reading is **Core → Adopt → Work**, but readers can start with the question relevant to them. The pages are independent learning resources, not a mandatory workflow.
 
-These chapters follow one illustrative journey through an increment. **They are not mandatory phases, approvals, or a substitute for the recurring operating cycle in Core.** Start with whichever activity is relevant.
+## The mental model
 
-1. [Establish the project and context](guides/lifecycle/01-start-the-project.md)
-2. [Develop project-level intent](guides/lifecycle/02-define-the-foundation-design.md)
-3. [Refine owned design scopes](guides/lifecycle/03-develop-detailed-designs.md)
-4. [Realize approved intent](guides/lifecycle/04-realize-the-design.md)
-5. [Evaluate and deliver outcomes](guides/lifecycle/05-verify-and-deliver.md)
-6. [Maintain, change, and resume](guides/lifecycle/06-evolve-the-project.md)
+- **Intent:** People and AI develop abstract designs, but humans approve consequential intended outcomes.
+- **Ownership:** Decisions have identifiable design owners, organized by engineering responsibility.
+- **Realization:** Implementation choices may be delegated within approved design and permissions.
+- **Evidence:** Verification and validation assess claims about the result; findings can lead to corrections or new design proposals.
+- **Continuity:** Participants resume from sufficient authoritative context for their current scope, rather than reconstructing an entire mature project.
 
-## How these documents relate to Core
+For detailed boundaries, approval rules, and requirements, consult Core rather than treating this summary as an alternative specification.
 
-**Core** defines what DLD requires. **Guides** explain possible ways to work. **References** offer examples and trade-offs. Nothing in these pages establishes an alternative design authority. In case of disagreement, follow the project's adopted Core and applicable approved designs, and report the inconsistency.
+## What is included when adopting
 
-The minimal DLD starter does not require this directory, an AI instruction file, or internet access. A product distribution may include an optional documentation overlay for local, version-matched reference material. Installing it never changes the adopted method or the project's own DESIGN and RULES.
+A DLD starter supplies a project README and `foundation/{CORE,DESIGN,RULES}.md`. That foundation is sufficient to practice the method. Supporting documentation can be consulted separately or copied from a version-matched optional overlay into a project's `docs/dld/` directory.
 
-For maintainers of DLD itself, the development repository separately includes a contributor guide and internal packaging documents. They do not form part of an adopting project's methodological authority.
+The adopted Core is unchanged for its version. A project's own DESIGN and RULES are different documents with different authority. Neither these guides nor examples can approve project choices on behalf of a human.

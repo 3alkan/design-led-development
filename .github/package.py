@@ -13,13 +13,9 @@ from zipfile import ZipFile, ZIP_DEFLATED
 ROOT = Path(__file__).resolve().parents[1]
 COMMON_DOCS = [
     "docs/README.md",
-    "docs/guides/lifecycle/01-start-the-project.md",
-    "docs/guides/lifecycle/02-define-the-foundation-design.md",
-    "docs/guides/lifecycle/03-develop-detailed-designs.md",
-    "docs/guides/lifecycle/04-realize-the-design.md",
-    "docs/guides/lifecycle/05-verify-and-deliver.md",
-    "docs/guides/lifecycle/06-evolve-the-project.md",
-    "docs/reference/repository-layout.md",
+    "docs/adopt.md",
+    "docs/work.md",
+    "docs/organize.md",
 ]
 STARTER_TEMPLATES = [
     "starter/README.md",
@@ -28,14 +24,14 @@ STARTER_TEMPLATES = [
 ]
 # Optional documentation is distributed ready to copy into an adopting
 # project's docs/dld/ directory. It is not part of the minimum starter.
-OPTIONAL_DOCS = [*COMMON_DOCS, "docs/guides/adoption.md"]
+OPTIONAL_DOCS = [*COMMON_DOCS]
 OPTIONAL_PREFIX = "optional/docs/dld/"
 COMMON = ["foundation/CORE.md", "VERSION", "CHANGELOG.md", "LICENSE", *COMMON_DOCS]
-PRODUCT_SOURCES = [*COMMON, "docs/guides/adoption.md", *STARTER_TEMPLATES]
+PRODUCT_SOURCES = [*COMMON, *STARTER_TEMPLATES]
 DEVELOPMENT_SOURCES = [
     "README.md", "VERSION", "CHANGELOG.md", "LICENSE", ".gitignore",
     "foundation/CORE.md", "foundation/DESIGN.md", "foundation/RULES.md",
-    *COMMON_DOCS, "docs/guides/adoption.md", "docs/guides/development.md",
+    *COMMON_DOCS, "docs/contribute.md",
     "docs/internal/product-readme.md", "docs/internal/packaging.md", *STARTER_TEMPLATES,
     "examples/README.md", ".github/package.py",
     ".github/workflows/package-check.yml",
@@ -84,8 +80,9 @@ def package_files(kind: str, version: str, release: bool) -> dict[str, bytes]:
         intro = (intro.replace("../../foundation/", "foundation/")
                       .replace("../../starter/", "starter/")
                       .replace("../README.md", "docs/README.md")
-                      .replace("../guides/", "docs/guides/")
-                      .replace("../reference/", "docs/reference/"))
+                      .replace("../adopt.md", "docs/adopt.md")
+                      .replace("../work.md", "docs/work.md")
+                      .replace("../organize.md", "docs/organize.md"))
         files["README.md"] = intro.encode("utf-8")
         if not release:
             files["README.md"] += (
@@ -192,11 +189,11 @@ def check_package(kind: str, files: dict[str, bytes]) -> None:
         raise ValueError("Generated starter Core differs from canonical Core.")
     if kind == "product":
         mandatory |= set(STARTER_TEMPLATES) | {
-            "README.md", "docs/guides/adoption.md", "starter/foundation/CORE.md"
+            "README.md", "docs/adopt.md", "starter/foundation/CORE.md"
         }
         forbidden = {
             "foundation/DESIGN.md", "foundation/RULES.md",
-            "docs/guides/development.md", "docs/internal/packaging.md",
+            "docs/contribute.md", "docs/internal/packaging.md",
             "docs/internal/product-readme.md", ".github/package.py",
         }
         if forbidden.intersection(files):
@@ -206,7 +203,7 @@ def check_package(kind: str, files: dict[str, bytes]) -> None:
         check_optional_support(files)
     else:
         mandatory |= {"foundation/DESIGN.md", "foundation/RULES.md",
-                      "docs/guides/development.md", ".github/package.py"}
+                      "docs/contribute.md", ".github/package.py"}
     if missing := mandatory.difference(files):
         raise ValueError("Missing " + kind + " files: " + repr(sorted(missing)))
     if any(p == "AGENTS.md" or p.endswith("/AGENTS.md") for p in files):

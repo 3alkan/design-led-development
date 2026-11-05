@@ -1,15 +1,15 @@
-# Design-Led Development — Product
+# Design-Led Development
 
-Design-Led Development (DLD) is a design-centered, human-authoritative, AI-assisted software engineering methodology. This package provides a **self-contained project starter** and optional learning material.
+DLD is a **design-centered, human-authoritative, AI-assisted software engineering methodology**. Its [Core](../../foundation/CORE.md) is the complete authoritative specification.
 
-The [versioned DLD Core](../../foundation/CORE.md) is the **only authoritative specification of the methodology**. The guides in this package help explain Core; no guide is needed for compliance.
+This distribution includes a minimal copyable project starter and optional documentation. No guide or external service is needed to practice DLD.
 
-## Start using DLD
+## Begin
 
-Copy the **contents of [starter/](../../starter/README.md)** into the root of a new or existing project. Reconcile files if the project already has its own README or governance records.
+Copy the **contents** of [starter/](../../starter/README.md) into your new or existing project, reconciling any existing files:
 
 ```text
-my-project/
+your-project/
   README.md
   foundation/
     CORE.md
@@ -17,31 +17,17 @@ my-project/
     RULES.md
 ```
 
-The starter's Core is an unchanged copy of the adopted version. Its DESIGN is an unapproved initial template; RULES begins with no additional adopted project rules. Neither includes the DLD development project's own design or approvals.
+The copied Core identifies the adopted method version and remains unchanged until a deliberate upgrade. The project DESIGN starts as a draft; RULES starts without additional approved constraints. Neither imports the DLD development project's approvals.
 
-Edit the README to explain your project. Work with AI to develop sufficient project-level intent and approve consequential choices explicitly before realizing them. For existing software, reconcile one relevant scope at a time; legacy behavior is evidence, not automatically approved intent.
+The starter README includes an AI initialization instruction. Begin with the governing foundation and the active work scope, and expand context only as dependencies require. Human approval governs consequential new intent; AI can work within approved design and actual permissions.
 
-The starter README includes an AI initialization prompt. It directs AI to the foundation and relevant scopes, then expands context progressively rather than loading the entire project. An AI-specific instruction file or external memory system is not required.
-
-## Learn and explore
-
-Use these resources if helpful:
+## Optional learning material
 
 - [Documentation overview](../README.md)
-- [Adoption guide](../guides/adoption.md)
-- [Practical learning path](../guides/lifecycle/01-start-the-project.md)
-- [Repository organization reference](../reference/repository-layout.md)
+- [Adopt DLD](../adopt.md)
+- [Work with DLD](../work.md)
+- [Organize engineering responsibilities](../organize.md)
 
-These resources are **optional explanations**, not additional rules.
+For a local reference collection, copy the **contents** of `optional/docs/dld/` into the project's `docs/dld/`. These version-matched pages and the changelog have links prepared for that location. They do not change or duplicate the adopted Core.
 
-## Optional local documentation
-
-To keep the reference material inside an adopting project, copy the **contents** of `optional/docs/dld/` into that project's `docs/dld/`. This overlay contains version-matched explanations, a documentation index, the changelog, and links adjusted for the installed location.
-
-The overlay does not install or modify a second Core. It can be omitted entirely. A project may use the guides offline without changing its authoritative DESIGN, RULES, or method version.
-
-## Package identity and maintenance
-
-The product package includes the canonical Core, a copyable starter, optional guides and reference material, version information, changelog, and license. It excludes contributor-only governance and packaging internals.
-
-When a new DLD version becomes available, adopting projects keep their current Core until deliberately upgrading. Consult the new Core and changelog, evaluate adoption implications, and preserve existing project-specific approvals and history.
+The product includes Core, starter, explanatory documentation, version, changelog, and license; DLD contributor governance and packaging tools are excluded.

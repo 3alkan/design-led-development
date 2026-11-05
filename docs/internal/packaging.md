@@ -1,49 +1,38 @@
-# DLD Distribution Assembly — Maintainer Reference
+# Distribution Assembly
 
-**Development-only documentation.** This describes the DLD project's current packaging implementation, not requirements of the DLD methodology. The [canonical Core](../../foundation/CORE.md) remains authoritative for what adopters must do.
+**Maintainer reference.** This page explains the DLD development project's packaging implementation. It does not impose packaging practices on adopting projects. The normative method remains in [Core](../../foundation/CORE.md).
 
-## Inputs and audiences
+## Source and outputs
 
-The source repository owns one canonical `foundation/CORE.md`. The package assembler at [`.github/package.py`](../../.github/package.py) uses explicit file lists to construct **development** and **product** archives from an identified source baseline.
+The assembler [`.github/package.py`](../../.github/package.py) builds two ZIP distributions from one source revision:
 
-| Output | Intended audience | Distinguishing content |
-| --- | --- | --- |
-| Development archive | Contributors maintaining DLD | Development DESIGN and RULES, contributor guidance, packaging sources |
-| Product archive | People adopting DLD | Methodology Core, clean starter, explanatory guides and references, license, version, changelog |
+| Archive | Purpose |
+| --- | --- |
+| Development | Canonical Core, project DESIGN/RULES, maintained sources, contributor documentation, packaging infrastructure |
+| Product | Identical canonical Core, minimal adopter starter, optional learning documents, changelog, license, version |
 
-Both outputs use the same Core bytes and version identity. The generated starter Core is copied from the canonical maintained source; it is never maintained independently.
+The product excludes this development project's DESIGN, RULES, contributor documentation, and packaging internals.
 
-## The starter and optional overlay
+The product starter contains only `README.md` and `foundation/{CORE,DESIGN,RULES}.md`. Its Core is copied byte-for-byte from the maintained canonical Core, not edited separately. The starter README's version placeholder is resolved during assembly.
 
-The starter contains exactly:
+## Optional documentation overlay
 
-```text
-starter/
-  README.md
-  foundation/
-    CORE.md
-    DESIGN.md
-    RULES.md
-```
+The product also contains `optional/docs/dld/`, a **copy-ready optional** collection of the adopter documentation and changelog. It can be copied into an adopter's `docs/dld/`. During assembly, relative Markdown links are rewritten for that installed location and validated.
 
-The README's version placeholder is filled during assembly. For unreleased package checks, its label identifies an unreleased source snapshot. The project-neutral DESIGN is a draft, and RULES adopts no additional constraints.
+This overlay is neither part of the required project starter nor a competing specification. It does not create another Core.
 
-The product separately includes the optional documentation overlay `optional/docs/dld/`. An adopter may copy its contents into `docs/dld/` beside the starter. The assembler rewrites relative links for that installed location and includes version-matched explanatory materials and the changelog. The overlay must not contain a second Core or the DLD development project's governance documents.
+## Verification
 
-## Validate from the repository
+From the development repository:
 
 ```sh
 python .github/package.py --check
 ```
 
-The assembler builds both ZIP archives under ignored `dist/` and checks expected inclusion and exclusions, byte-for-byte shared Core identity, version placeholder resolution, relative Markdown links, optional overlay links in an installed-project view, and ZIP integrity.
+This creates unreleased distribution archives under ignored `dist/`. It checks file membership, Core identity, archive integrity, link resolution (including installed-overlay links), and resolved version labels.
 
-The repository `VERSION` is the distribution version used by the current assembler. During proposal development, Core may identify an intended next version before `VERSION` is advanced for release preparation; this temporary mismatch must be resolved before publication.
+The release version is read from the repository `VERSION` file. During proposal work, Core can carry an intended next version before the release metadata has been updated. Resolve that discrepancy before release.
 
-## Publication boundaries
+Release mode additionally requires a clean source tree and exact matching tag. Neither technical validation nor tagging supplies human authorization to merge or publish.
 
-The assembler's `--release` mode checks for a clean tree and an exact matching version tag. Those are technical prerequisites, not proof of human approval or independent permission to merge, tag, or publish.
-
-Before an authorized release, review the current approved design baseline, Core identity, starter, changelog, release version, relevant verification results, and known limitations. Do not claim complete methodological validation from package assembly alone.
-
-See the [development guide](../guides/development.md) for change ownership and contributor work.
+For contributor workflow, see [Contribute](../contribute.md).
