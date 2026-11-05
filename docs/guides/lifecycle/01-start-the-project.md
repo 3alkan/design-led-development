@@ -1,29 +1,29 @@
-# 1. Start a project
+# 1. Establish a Project and Working Context
 
-**Goal:** Establish the project and a human–AI working context. This is an entry point to a repeatable process, not a required phase gate.
+**Optional learning chapter.** These chapters illustrate a possible journey, not mandatory SDLC phases. [Core](../../../foundation/CORE.md) governs the actual DLD method.
 
-**Human:** Explain the problem, intended users, and known constraints.
+## Start from a concrete outcome
 
-**AI:** Clarify the goal, identify assumptions, and distinguish proposals from decisions.
+A human might begin with: “We want a small application that accepts scholarship applications.” AI can help clarify who uses it, what outcomes matter, and which assumptions are still unverified.
 
-## Prepare the foundation
+Rather than designing the entire system, identify the **next useful scope**. That might be a public information page before adding applicant accounts or review workflows.
 
-Copy the contents of the distribution's [starter](../../../starter/README.md) into the project root, or reconcile the templates with existing files. The assembled starter provides the project README and `foundation/{CORE,DESIGN,RULES}.md`; the copy of Core must come from the same versioned distribution.
+## Establish the project foundation
 
-Do not overwrite existing project decisions. For an existing implementation, inspect actual behavior as evidence of the current state, not as automatic approval of that behavior.
+For a new project, copy the contents of the release [starter](../../../starter/README.md) and adapt the README, draft DESIGN, and RULES to the project. Use the exact versioned Core provided by the distribution.
 
-## Begin work with AI
+For an existing project, first understand what files and current behavior exist. Reconcile rather than overwrite any existing authoritative material.
 
-Give the AI an explicit request to read the project's Core, RULES, DESIGN, relevant scoped documents, and current state. An AI tool need not discover them automatically.
+## Begin with sufficient AI context
 
-For example:
+One useful prompt is:
 
-> Read my project's foundation and current state. Help me clarify its purpose, known constraints, and next consequential decisions. Keep drafts separate from approved decisions.
+> Read my project's DLD foundation, identify what is approved and what is still draft, and help me establish the next useful project scope. Ask for human decisions when a proposed choice would establish consequential intent.
 
-Start the first DESIGN as Draft. Keep RULES free of imagined constraints; if none are adopted, say so. Use [adoption guidance](../adoption.md) for upgrades and existing-project reconciliation.
+As the system grows, use progressive context loading: foundation first, then active and governing scopes, then material dependencies. Do not load unrelated history.
 
-## Outcome
+## What the first increment achieves
 
-The human and AI understand where methodological and project authority live and have a useful first question or increment. The entire technology stack need not be chosen now.
+The participants understand the immediate objective, the relevant project authority, and the most important unresolved decisions. Nothing here implies that the design has been approved or that implementation has been authorized.
 
-**Continue:** [Define the foundation design](02-define-the-foundation-design.md).
+**Next example:** [Develop project-level intent](02-define-the-foundation-design.md).
