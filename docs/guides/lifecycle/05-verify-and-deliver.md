@@ -1,33 +1,40 @@
-# 5. Verify, validate, and deliver
+# 5. Evaluate and Deliver Outcomes
 
-**Goal:** Establish evidence about the realized increment and prepare it for actual use.
+**Optional learning chapter.** The appropriate evidence depends on the project and the consequences of failure.
 
-**Human:** Assess intended outcomes, decide acceptance of limitations, and authorize delivery.
+## Verify and validate different questions
 
-**AI:** Perform relevant checks, expose discrepancies, and prepare supporting information.
+**Verification** asks whether the realization conforms to its approved design. **Validation** asks whether the outcome serves its intended need.
 
-## Verify and validate
+For a submission form, verification might include inspecting required fields, testing invalid inputs, and checking the API contract. Validation might involve having intended users complete a realistic application and assessing whether the flow meets their actual needs.
 
-**Verification** asks whether realization conforms to approved design. **Validation** asks whether it meets the intended use. Select tests, inspection, direct use, demonstrations, and operating checks according to context and risk.
+Ask AI:
 
-> Compare the realized increment with its approved requirements and acceptance criteria. Record checks actually performed, results, gaps, and anything unverified.
+> Compare the current realization to the approved requirements and intended outcomes. Identify the checks you actually performed, their results, and the properties you still cannot establish.
 
-A compact evidence record can be:
+A compact optional evidence note might be:
 
-| Approved criterion | Performed check | Observed result | Remaining limitation |
-| --- | --- | --- | --- |
-| [Criterion] | [Actual check/environment] | [Result] | [Gap or untested part] |
+| Claim | Supporting observation | Limits |
+| --- | --- | --- |
+| Required fields are validated | Relevant validation tests passed | End-to-end behavior not yet checked |
+| Reviewer can inspect a submission | Reviewer walkthrough succeeded | Accessibility review pending |
 
-This is a template, **not evidence**. An implementation defect should be corrected; a proposed change to design intent needs human review under Core. Passing tests alone cannot establish every intended outcome.
+This table is an **illustrative record**, not actual verification evidence or a mandatory format.
 
-## Prepare delivery
+## Interpret failures
 
-Provide actual setup, usage, configuration, operating, and recovery instructions as applicable. Record release identity, delivered scope, known limitations, verification evidence, and where the result can be obtained.
+A failed check may indicate a realization defect, an invalid assumption, or a deficiency in intended design. Correct implementation against unchanged approved intent; return consequential design changes to human approval.
 
-Do not prescribe deployment infrastructure for a project that does not need it. Delivery requires agreed criteria and authorization; a commit, package, or tag is not itself authorization or proof of approval.
+A check not performed is not a failed check. Equally, it is not a passed check. Describe the uncertainty.
 
-## Outcome
+## Prepare real delivery
 
-The delivered scope and its evidence are identifiable; users have the information needed to operate the product.
+Before deployment or release, identify the actual scope, acceptance criteria, permissions, known limitations, and useful operating information. A built archive, tag, or passing test is not publication authorization.
 
-**Continue:** [Evolve the project](06-evolve-the-project.md).
+Delivery, support, and retirement practices vary with the kind of software and user context; there is no universal DLD packaging platform or release ceremony.
+
+## What the increment achieves
+
+People can distinguish what was produced, what was checked, what remains uncertain, and what was actually authorized for use.
+
+**Next example:** [Maintain, change, and resume](06-evolve-the-project.md).
