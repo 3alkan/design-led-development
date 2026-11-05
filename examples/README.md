@@ -1,22 +1,37 @@
-# Worked examples
+# Worked Examples
 
-This folder is reserved for complete projects demonstrating Design-Led Development. No worked project is included yet. For practical instructions, follow the [guide](../guide/README.md).
+Worked examples show how **Design-Led Development (DLD)** is applied to real or illustrative software projects. They complement the [shared methodology](../guide/methodology.md), [practical guide](../guide/README.md), and [reference repository layout](../guide/reference-repository-layout.md); they do not define new methodological rules.
 
-## What an example should show
+No completed worked example is currently included. This directory is maintained only when a useful example exists; an empty example is not required for adopting DLD.
 
-- A clear problem, intended users, and expected outcomes.
-- The four starting documents from [starter/](../starter/), adapted to the example project.
-- Root and detailed designs, with decisions at their appropriate scopes.
-- How design discussion leads to an identified approved scope and then implementation.
-- Verification against the design and instructions for using the resulting product.
-- A later change showing how design, implementation, and verification evolve together.
+## What an example demonstrates
 
-Keep the example small enough to follow from beginning to end. Explain the relationship between decisions and the resulting product, rather than presenting code alone.
+An example should make the relationship between **approved abstract design**, **realization**, and **evidence** understandable to both humans and AI. Depending on its purpose, it should show:
 
-## Evidence and labeling
+- The project's intent, stakeholders, needs, outcomes, scope, and constraints.
+- The project-level `foundation/` documents, adapted from the [starter](../starter/) without treating template placeholders as approved decisions.
+- Design decisions at the nearest appropriate owning scopes, with clear cross-scope references and no competing authoritative copies.
+- Human decisions and approvals, AI proposals and delegated realization, and how consequential discoveries return for human review.
+- Implementation, integration, verification, and validation against the applicable approved design.
+- Relevant delivery, operation, maintenance, change, or retirement concerns and the evidence they generate.
+- How the abstract design and its concrete realizations remain coherent when the project evolves.
 
-Distinguish illustrative approval records from actual human approvals. Report only checks that were performed, and make incomplete or unverified work explicit. An example's product version is independent of the method version it adopts.
+The **complete software project lifecycle** is DLD's scope, but an individual example may focus on one activity or increment. State what the example covers instead of inventing lifecycle history or unnecessary repository directories.
 
-## Next decision
+## Structure and ownership
 
-The first example's topic, scope, and implementation technology have not been selected. Define and approve its design before building it.
+Use the [reference layout](../guide/reference-repository-layout.md) selectively, respecting the example project's technology and responsibilities. Do not require generic `design/`, `shared/`, or other directories without an actual owner or need.
+
+Keep an example's own design authority within that example project. It does not govern the DLD methodology or other examples. The DLD development repository itself is also an application of DLD, with its own authoritative [foundation](../foundation/DESIGN.md).
+
+## Authenticity and verification
+
+Clearly distinguish **real decisions, recorded human approvals, and performed checks** from illustrative scenarios, simulated records, proposals, and unverified claims. A commit, passing test, or release tag does not by itself constitute human design approval.
+
+Record enough setup information for someone to understand or reproduce the example within its declared constraints. Explain important trade-offs and limitations without turning the example into a competing copy of the methodology guide.
+
+Each example project has its own project and design versions, independent of the version of DLD it adopts.
+
+## Distribution boundary
+
+Examples are maintained in the DLD **development distribution**. The user-facing **product distribution** provides the shared methodology, adoption guidance, and self-contained starter; a worked example is included in the product only when it has been deliberately selected and verified as useful for adopters.
