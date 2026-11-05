@@ -4,12 +4,9 @@ This reference describes a **comprehensive catalogue of engineering responsibili
 
 ## How to use this reference
 
-1. One authoritative owner per design decision, located at the nearest appropriate scope encompassing its responsibility. Other scopes reference rather than duplicate it.
-2. Organize primarily by engineering responsibility; co-locate scoped designs, realizations, and tests when meaningful. Cross-scope relationships may be explicit links instead of directory nesting.
-3. Preserve ecosystem-native source, configuration, build, CI, and packaging conventions when these are the natural owners.
-4. Treat lifecycle stages as activities across areas, not as the primary directory taxonomy.
-5. Separate authoritative design, maintained realization sources, generated outputs, supporting documentation, verification evidence, and lifecycle records.
-6. Create additional directories only for distinct, appropriately owned responsibilities; keep them discoverable.
+Use the [Core's scope and ownership principles](../../foundation/CORE.md#5-design-scopes-and-ownership) to determine which responsibility owns an artifact. The layout below is a catalogue, not a set of additional DLD rules.
+
+Start with the engineering responsibilities the project actually has. Prefer ecosystem-native conventions for source and build configuration, keep authoritative designs and relevant evidence discoverable, and separate maintained sources from generated outputs. Add folders only when their ownership and purpose are meaningful.
 
 ## Reference structure
 
@@ -50,9 +47,11 @@ This tree is a catalogue of responsibilities, not an instruction to create empty
 - Planning, risk, changes, incidents, support, and retirement records belong with their responsible scopes or external systems, with discoverable references. They must not be confused with the authoritative design.
 - `build/` and `dist/` distinguish generated intermediate artifacts from assembled product outputs. A distributable is not a verified, authorized release simply because it exists.
 
-## Distribution boundaries
+## Distribution responsibilities
 
-Each distributable has identifiable maintained inputs, an ecosystem-native or simple explicit assembly definition, and verifiable outputs. One repository may produce several products. DLD itself has one version and release tag with two distributions: **development** (materials to maintain DLD) and **product** (materials needed to use DLD). Do not copy the DLD development project's DESIGN or RULES into adopters' projects. Product assembly copies the canonical Core exactly into the starter's foundation and supplies clean, unapproved DESIGN and RULES templates.
+A project may produce one or more distributable artifacts. Identify the maintained inputs, ownership of assembly, output boundaries, and verification evidence for each distribution. A generated package is not automatically an approved or authorized release.
+
+DLD's own distribution process is documented separately for contributors in the development repository; an adopting project follows the packaging conventions appropriate to its technology and products.
 
 ## Extensions
 
