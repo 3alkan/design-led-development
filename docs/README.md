@@ -10,8 +10,6 @@ This is the documentation home for **Design-Led Development (DLD)**. [DLD Core](
 | Apply DLD to a new or existing project | [Adoption guide](guides/adoption.md) |
 | Work through a complete development increment | [Practical lifecycle guide](guides/lifecycle/01-start-the-project.md) |
 | Decide where engineering artifacts belong | [Repository layout reference](reference/repository-layout.md) |
-| Contribute changes to DLD itself | [Development guide](guides/development.md) |
-| Understand how the two distributions are assembled | [Packaging reference](internal/packaging.md) |
 
 ## Practical lifecycle guide
 
@@ -31,4 +29,4 @@ The chapters form an example **repeatable learning path**, not mandatory waterfa
 - **Reference** helps choose suitable engineering structures; its directory catalogue is not a mandatory scaffold.
 - **Internal documentation** describes how DLD's maintained source becomes distributable artifacts. It is for contributors, not adopters.
 
-The **product distribution** contains Core, this documentation index, the adoption and practical guides, and the repository reference. The **development distribution** additionally contains development and internal documentation. Only the generated `starter/` contents are copied into a user's own project.
+The **product distribution** contains Core, this documentation index, the adoption and practical guides, and the repository reference. The **development distribution** additionally includes contributor guidance and internal packaging documentation. Only the generated `starter/` contents are copied into a user's own project.

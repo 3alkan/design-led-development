@@ -12,13 +12,13 @@ from zipfile import ZipFile, ZIP_DEFLATED
 ROOT = Path(__file__).resolve().parents[1]
 COMMON_DOCS = [
     "docs/README.md",
-    "docs/01-start-the-project.md",
-    "docs/02-define-the-foundation-design.md",
-    "docs/03-develop-detailed-designs.md",
-    "docs/04-realize-the-design.md",
-    "docs/05-verify-and-deliver.md",
-    "docs/06-evolve-the-project.md",
-    "docs/reference-repository-layout.md",
+    "docs/guides/lifecycle/01-start-the-project.md",
+    "docs/guides/lifecycle/02-define-the-foundation-design.md",
+    "docs/guides/lifecycle/03-develop-detailed-designs.md",
+    "docs/guides/lifecycle/04-realize-the-design.md",
+    "docs/guides/lifecycle/05-verify-and-deliver.md",
+    "docs/guides/lifecycle/06-evolve-the-project.md",
+    "docs/reference/repository-layout.md",
 ]
 STARTER_TEMPLATES = [
     "starter/README.md",
@@ -26,12 +26,12 @@ STARTER_TEMPLATES = [
     "starter/foundation/RULES.md",
 ]
 COMMON = ["foundation/CORE.md", "VERSION", "CHANGELOG.md", "LICENSE", *COMMON_DOCS]
-PRODUCT_SOURCES = [*COMMON, "docs/adoption.md", *STARTER_TEMPLATES]
+PRODUCT_SOURCES = [*COMMON, "docs/guides/adoption.md", *STARTER_TEMPLATES]
 DEVELOPMENT_SOURCES = [
     "README.md", "VERSION", "CHANGELOG.md", "LICENSE", ".gitignore",
     "foundation/CORE.md", "foundation/DESIGN.md", "foundation/RULES.md",
-    *COMMON_DOCS, "docs/adoption.md", "docs/development.md",
-    "docs/product.md", "docs/packaging.md", *STARTER_TEMPLATES,
+    *COMMON_DOCS, "docs/guides/adoption.md", "docs/guides/development.md",
+    "docs/internal/product-readme.md", "docs/internal/packaging.md", *STARTER_TEMPLATES,
     "examples/README.md", ".github/package.py",
     ".github/workflows/package-check.yml",
 ]
@@ -72,15 +72,14 @@ def package_files(kind: str, version: str, release: bool) -> dict[str, bytes]:
     # generated from the one canonical source, never maintained separately.
     files["starter/foundation/CORE.md"] = files["foundation/CORE.md"]
     if kind == "product":
-        # This source lives under docs/ in the development repo. In the
-        # product it is the root introduction, so resolve paths accordingly.
-        intro = source("docs/product.md").decode("utf-8").replace(
-            "../foundation/", "foundation/"
-        ).replace("../docs/", "docs/").replace("../starter/", "starter/")
-        # docs/product.md is installed as root README.md; same-directory
-        # links from its source must be retargeted to docs/.
-        for target in ("README.md", "adoption.md", "reference-repository-layout.md"):
-            intro = intro.replace("](" + target + ")", "](docs/" + target + ")")
+        # The maintained product entry lives in docs/internal/ but is
+        # distributed at the archive root. Rewrite only known relative paths.
+        intro = source("docs/internal/product-readme.md").decode("utf-8")
+        intro = (intro.replace("../../foundation/", "foundation/")
+                      .replace("../../starter/", "starter/")
+                      .replace("../README.md", "docs/README.md")
+                      .replace("../guides/", "docs/guides/")
+                      .replace("../reference/", "docs/reference/"))
         files["README.md"] = intro.encode("utf-8")
         if not release:
             files["README.md"] += (
@@ -110,11 +109,12 @@ def check_package(kind: str, files: dict[str, bytes]) -> None:
         raise ValueError("Generated starter Core differs from canonical Core.")
     if kind == "product":
         mandatory |= set(STARTER_TEMPLATES) | {
-            "README.md", "docs/adoption.md", "starter/foundation/CORE.md"
+            "README.md", "docs/guides/adoption.md", "starter/foundation/CORE.md"
         }
         forbidden = {
             "foundation/DESIGN.md", "foundation/RULES.md",
-            "docs/development.md", ".github/package.py",
+            "docs/guides/development.md", "docs/internal/packaging.md",
+            "docs/internal/product-readme.md", ".github/package.py",
         }
         if forbidden.intersection(files):
             raise ValueError("Product contains development-only files.")
@@ -122,7 +122,7 @@ def check_package(kind: str, files: dict[str, bytes]) -> None:
             raise ValueError("Adopted Core differs from canonical Core.")
     else:
         mandatory |= {"foundation/DESIGN.md", "foundation/RULES.md",
-                      "docs/development.md", ".github/package.py"}
+                      "docs/guides/development.md", ".github/package.py"}
     if missing := mandatory.difference(files):
         raise ValueError("Missing " + kind + " files: " + repr(sorted(missing)))
     if any(p == "AGENTS.md" or p.endswith("/AGENTS.md") for p in files):

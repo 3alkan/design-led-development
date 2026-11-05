@@ -19,6 +19,6 @@ Review effects across both distributions without making their project-specific a
 
 ## Validation and delivery
 
-Run `python .github/package.py --check` and inspect the resulting product as an adopter would. Confirm internal links, correct inclusion/exclusion by audience, unchanged Core copies, clean templates, and useful documentation navigation. See the [packaging reference](../internal/packaging.md).
+Run `python .github/package.py --check` and inspect the resulting product as an adopter would. Confirm internal links, correct inclusion/exclusion by audience, unchanged Core copies, clean templates, and useful documentation navigation. See the [packaging reference](../internal/packaging.md). Both development-only references are discoverable here without entering the shared product documentation index.
 
 Package validation is not proof of complete methodological effectiveness or human approval. Publish a version only after the applicable design and release decisions have actually been authorized.
