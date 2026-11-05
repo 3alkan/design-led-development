@@ -21,7 +21,7 @@ The intended outcomes are:
 
 ## Project scope and boundaries
 
-The DLD development project owns the canonical Core source, its own project design and rules, the clean adopter starter, optional supporting reference material, and the packaging and validation machinery needed to distribute them.
+The DLD development project owns the canonical Core source, its own project design and rules, the clean adopter starter, optional supporting reference material, and the planned distribution assembly and validation responsibilities. The implementation of that machinery is not part of the present minimal repository baseline.
 
 The project does not promise automatic design-to-implementation synchronization, a particular programming language or AI provider, a mandatory AI instruction file, or formal certification against an external engineering standard.
 
@@ -41,7 +41,7 @@ The project produces two distributions sharing the same versioned Core and DLD r
 
 | Distribution | Audience and contents |
 | --- | --- |
-| **Development** | DLD maintainers: canonical Core, this project's DESIGN and RULES, maintained documentation, starter sources, examples, packaging, and development infrastructure. |
+| **Development** | DLD maintainers: canonical Core, this project's DESIGN and RULES, maintained optional supporting material and starter sources, with packaging and development infrastructure added when required. |
 | **Product** | DLD adopters: a project-neutral starter containing the sole distributed Core copy, optional supporting reference material, version identity, changelog, and license. It excludes DLD development's own DESIGN, RULES, and internal packaging material. |
 
 The distributions are assembled from an identifiable maintained source baseline. Successful assembly or automated checks provide evidence about the packages; neither substitutes for human authorization to release.
@@ -76,12 +76,11 @@ The product provides one optional supporting reference on user-project repositor
 | [`README.md`](../README.md) | Development repository entry point and navigation. |
 | [`docs/supporting/`](../docs/supporting/repository-layout.md) | Optional, non-authoritative material for DLD adopters; currently the repository layout reference. |
 | [`starter/`](../starter/README.md) | Project-neutral starter sources; packaging generates its Core copy. |
-| [`.github/package.py`](../.github/package.py) | Assembly and validation of development and product distributions. |
 | [`VERSION`](../VERSION), [`CHANGELOG.md`](../CHANGELOG.md), [`LICENSE`](../LICENSE) | Release version, release history, and licensing. |
 
 The [repository layout reference](../docs/supporting/repository-layout.md) is optional guidance, not a mandatory scaffold. Physical placement does not create design authority. New artifacts and scopes are introduced only when their engineering responsibilities justify them.
 
-Cross-cutting method changes are owned by Core. Changes to the DLD product, starter contract, and distribution relationships are owned here; implementation details remain with the corresponding packaging, documentation, and other engineering artifacts.
+Cross-cutting method changes are owned by Core. Changes to the DLD product, starter contract, and distribution relationships are owned here. Distribution implementation details will be owned by their engineering artifacts once those are introduced.
 
 ## Development and release approach
 
@@ -89,7 +88,7 @@ DLD development follows the adopted Core's design-led cycle. For consequential c
 
 The project's supporting artifacts must remain consistent with the authoritative Core. Changes to Core's normative method are not established through edits to guides, starter templates, implementation scripts, or this project DESIGN.
 
-A candidate release is prepared by aligning the canonical Core, starter, documentation, packaging, changelog, and version identity, then validating both distributions. Commit creation, successful validation, approval of project design, and authorization to merge, tag, or publish are distinct events.
+A future candidate release will require distribution tooling and verification. Before that release, align the canonical Core, starter, supporting material, changelog, and version identity, then validate the assembled distributions. Commit creation, successful validation, approval of project design, and authorization to merge, tag, or publish are distinct events.
 
 ## Acceptance criteria
 
