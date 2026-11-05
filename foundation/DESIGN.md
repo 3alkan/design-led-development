@@ -31,6 +31,12 @@ The repository develops **one DLD method with one versioned Core** and produces 
 
 The two distributions share the same DLD version and release tag. Distribution assembly is reproducible from identified maintained sources; successful assembly alone does not constitute human approval or publication.
 
+### Optional supporting materials
+
+The product distribution makes the full adopter-oriented guidance and reference material available separately from the minimal starter. An optional, ready-to-copy documentation overlay allows an adopter to add version-matched support material to the project's own documentation area without editing or duplicating Core, DESIGN, or RULES.
+
+The overlay preserves valid links after copying and is not needed for methodological compliance. A project's human and AI can operate using the starter alone; supporting material assists learning and less-common engineering decisions when requested.
+
 ### Adopter's starter
 
 The assembled starter contains a project README and a `foundation/` with an exact copy of the versioned Core, a draft DESIGN template, and a RULES template without pre-adopted project constraints.
@@ -54,7 +60,8 @@ Use the [reference repository layout](../docs/reference/repository-layout.md) se
 - Core is the only authoritative DLD methodology; neither project-specific governance nor documentation independently redefines it.
 - The development repository operates as a DLD project using its own DESIGN and RULES under Core.
 - Both distributions contain identical canonical Core content and the same DLD version identity.
-- Each assembled starter is self-contained and contains no actual DLD-development-specific approvals or project rules.
+- Each assembled starter is sufficient for full DLD compliance without supplemental documentation, network access, or DLD-development-specific approvals and rules.
+- The product includes optional, locally copyable supporting documentation whose links resolve after installation and whose content does not redefine Core.
 - Adoption requires no mandatory AI-provider-specific instruction file or access to the DLD development repository after copying the starter.
 - Package validation checks expected contents, shared Core identity, and relative document links.
 - Published versions and recorded approvals reflect actual authorized actions rather than inferred success from packaging or commits.

@@ -4,6 +4,11 @@ This file records changes to the Design-Led Development method and its starter. 
 
 ## Unreleased
 
+### Proposed optional documentation integration (not approved or released)
+- Require that the minimal copied starter alone be sufficient for full DLD collaboration and compliance.
+- Distribute the complete adopter guides and reference documentation in the product, with an optional, version-matched, copy-ready `docs/dld/` overlay for projects that want local supporting knowledge.
+- Validate the optional overlay's links in its installed project layout without duplicating Core or imposing new mandatory documents.
+
 ### Proposed foundation and documentation simplification (not approved or released)
 - Establish a single canonical, versioned DLD Core in `foundation/CORE.md`, shared without modification by development and adopters.
 - Remove `WORKFLOW.md`: consolidate the method and operating protocol into Core; keep DESIGN and RULES project-specific.
