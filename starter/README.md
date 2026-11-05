@@ -1,25 +1,27 @@
 # [Project name]
 
-[Briefly describe the project, its intended users, and its purpose.]
+[Briefly describe the project, its purpose, and who it serves.]
 
 ## Getting started
 
-[Provide the instructions needed to set up, run, or use the project.]
+[Add instructions to use, build, or operate this project when applicable.]
 
-## Development with DLD
+## Design-Led Development
 
-This project follows **Design-Led Development (DLD)**.
+This project uses **Design-Led Development (DLD)**.
 
-- [CORE.md](foundation/CORE.md) defines the adopted, versioned DLD methodology.
-- [DESIGN.md](foundation/DESIGN.md) defines this project's design, including its approval state.
-- [RULES.md](foundation/RULES.md) records additional project-specific constraints, if any.
-
-At the start of each new or resumed AI session, explicitly instruct AI:
-
-> Read `foundation/CORE.md`, `foundation/RULES.md`, and `foundation/DESIGN.md`. Read applicable scoped designs and inspect the current project state. Distinguish approved decisions from drafts, follow DLD Core, and discuss consequential design changes before realizing them.
-
-AI tools may not discover these documents automatically. The foundation contains the project's working authority within applicable tool instructions and permissions; no AI-specific instruction file is required.
+- [CORE.md](foundation/CORE.md) is the adopted DLD methodology and remains unchanged for its identified version.
+- [DESIGN.md](foundation/DESIGN.md) defines project-level intended design and identifies its approval state.
+- [RULES.md](foundation/RULES.md) contains additional approved project constraints, or states that none have been adopted.
 
 **Adopted DLD version:** `@DLD_BASELINE@`
 
-The adopted Core remains unchanged for that version. Project-specific decisions belong in DESIGN and RULES, not in Core.
+### Starting or resuming work with AI
+
+When the AI tool does not automatically read project instructions, explicitly direct it:
+
+> Read `foundation/CORE.md`, `foundation/DESIGN.md`, and `foundation/RULES.md`. For the task at hand, identify the governing and active design scopes, their approvals, relevant dependencies, actual realization state, and available evidence. Load additional scope context as needed rather than reconstructing the whole project. Distinguish approved decisions from drafts, establish your delegation and permissions, and bring consequential unresolved choices to me before realizing changed intent. Follow Core and report uncertainty and verification limits accurately.
+
+For ongoing work, use the relevant scoped designs and discoverable handoff information to reconstruct sufficient context. An AI-specific instruction file or persistent AI memory system is not required.
+
+The project may begin with a draft design. Draft content is not approved merely because it appears in the foundation. Project-specific decisions and rules belong in their respective authoritative files, not in Core.
