@@ -2,49 +2,35 @@
 
 - Revision: 1
 - Status: Draft
-- Approval: Not yet recorded.
-
-**Document voice (template note — remove when adapting):** State the current design, not revision history. Use at most one sentence of rationale per paragraph. Mark proposed changes as draft; after actual approval follow the sweep in [CORE.md](CORE.md#6-writing-and-approving-design). Each approved revision adds one `- Approval: Rev N approved by [who] [YYYY-MM-DD]` header line and is recorded in an identifiable Git commit. This template is not approved.
-
-For partial approval, use `Status: Mixed` and put remaining proposals under `## Pending changes — Draft revision N`. Approved sections remain authoritative; draft sections do not.
 
 ## Purpose
 
-[Why should this project exist? What problem does it solve?]
+[Why this project exists and what problem it addresses.]
 
-## Users and outcomes
+## Users and intended outcomes
 
-[Who is it for? What should they be able to achieve?]
+[Who the project serves and what outcomes it must enable.]
 
 ## Scope
 
-[What does the project include? What is explicitly excluded?]
+[What the project includes and excludes.]
 
-## Lifecycle-relevant design
+## Intended behavior
 
-[Describe approved project-wide requirements, constraints, operational and maintenance concerns, and other lifecycle knowledge at the proper scope; detailed scope designs live with their owners.]
+[The project-wide behavior, capabilities, and experience to be delivered.]
 
-## Overall design
+## Responsibilities and relationships
 
-[Describe how the product should work and the intended experience.
-Keep this at the whole-project level.]
+[Major areas of responsibility, their relationships, and links to separately owned designs where applicable.]
 
-## Major areas and relationships
+## Constraints and shared decisions
 
-[Identify the main areas, their responsibilities, and how they
-work together. Link their detailed designs as they develop.]
+[Project-wide requirements, constraints, and decisions governing multiple scopes. Reference project rules rather than duplicating them.]
 
-## Shared design decisions
+## Acceptance criteria
 
-[Record architectural, technical, or experience decisions that
-govern multiple areas. Reference rules rather than repeating them.]
-
-## Success criteria
-
-[What observable outcomes demonstrate that the project fulfills
-its purpose and design?]
+[Observable conditions by which the intended outcomes can be assessed.]
 
 ## Open questions
 
-[What remains undecided? Keep proposals distinguishable from
-approved decisions.]
+[Consequential questions that remain unresolved.]
