@@ -1,31 +1,49 @@
-# Adopting DLD
+# Adopt DLD in a Project
 
-**Audience:** Humans and AI applying DLD to a software project. Read [DLD Core](../../foundation/CORE.md) for the authoritative method; this guide explains adoption rather than redefining it.
+This guide provides **optional practical suggestions**. The authoritative method is [DLD Core](../../foundation/CORE.md). The project's own foundation and governing scoped designs determine its intended work.
 
-## Start a new project
+## Begin with the minimal starter
 
-1. Copy the **contents** of the distribution's `starter/` into the project root. The assembled starter includes `README.md` and `foundation/{CORE,DESIGN,RULES}.md`.
-2. Edit the project README to describe the actual project. Keep its adopted DLD version.
-3. Begin an AI session by explicitly asking AI to read `foundation/CORE.md`, `foundation/RULES.md`, `foundation/DESIGN.md`, applicable scoped designs, and the current repository state.
-4. With AI, develop the project's first draft design. Human approval of consequential decisions precedes realization of that changed intent.
-5. Replace the blank rules statement only if additional project-specific constraints are actually adopted.
+A packaged DLD release provides a starter whose contents can be copied into a project:
 
-A copied Core is **frozen for its adopted DLD version**. It must not be edited to customize the project. An AI instruction file is not required and Markdown auto-discovery must not be assumed.
+```text
+README.md
+foundation/
+  CORE.md
+  DESIGN.md
+  RULES.md
+```
 
-## Adopt DLD in an existing project
+Use the package's **starter** rather than copying the DLD development repository's own foundation. The packaged Core is derived from the canonical Core; the DESIGN template is a draft and RULES begins with no additional adopted constraints.
 
-Inspect current behavior, documentation, implementation, and constraints before copying anything. Reconcile conflicting files rather than overwriting project decisions. Existing code is useful evidence, not automatically approved intended design. Establish design authority and approval state explicitly, then proceed incrementally.
+If the project already has a README or foundation files, reconcile the contents rather than overwriting existing decisions and history. Identify the DLD version adopted by the project in its README.
 
-## Optional local reference material
+## First conversation with AI
 
-The **starter alone is sufficient** for working in compliance with DLD. The product's `docs/` provides optional explanation and reference material, which can also be consulted without copying it.
+AI tools do not necessarily discover Markdown files. The starter README contains an initialization request that directs AI to the foundation, current scope, relevant dependencies, approval state, implementation evidence, and actual permissions. For example:
 
-For offline or persistent access in the adopting project, copy the **contents of `optional/docs/dld/`** from the product distribution into `docs/dld/` in the project. This is a prepared, version-matched documentation overlay with local links adjusted for that location. Its `README.md` indexes the guides and repository-layout reference.
+> Read the project foundation, then identify the relevant approved and draft design, constraints, dependencies, and current work state. Help me select the next useful scope. Present consequential design choices for my approval; do not assume that legacy behavior or your own suggestions are approved.
 
-Only install the material you want to maintain locally; these guides are non-authoritative and need not be read at every AI session. Review or refresh the installed support material when deliberately upgrading DLD, without overwriting project-specific documentation.
+The goal is **sufficient scope-aware context**, not a full reconstruction of unrelated project history. As the work reveals dependencies, expand the context.
 
-## Work and evolve
+## Starting a new project
 
-Use the [practical lifecycle guide](lifecycle/01-start-the-project.md) when helpful. Add scoped designs and other engineering artifacts only when they have a real responsibility. The [repository reference](../reference/repository-layout.md) provides options without prescribing a scaffold.
+Begin with purpose, intended users or stakeholders, outcomes, and the responsibilities currently understood. Draft only enough project-level design to govern the next useful increment. AI can investigate alternatives and keep questions visible. The human decides consequential intent and explicitly approves the scope being accepted.
 
-When adopting a newer DLD release, review its [changelog](../../CHANGELOG.md) and Core changes. Record the new baseline only after deliberate adoption and the necessary human decisions. Preserve project-specific DESIGN, RULES, approved history, and unreconciled proposals.
+No need to select every library, define every module, or create a design file per source file in advance. Add scoped designs when distinct engineering responsibilities justify them.
+
+## Adopting in an existing project
+
+Treat current code, tests, documentation, and observed behavior as **evidence of the existing system**—not automatic approval of that behavior. Choose a useful work scope, inspect governing dependencies, reconstruct intended requirements, and ask the human to resolve consequential gaps.
+
+Keep reconciled scopes distinct from unexplored ones. Existing systems can continue operating while DLD design authority is established incrementally where consequential work will occur. This avoids a mandatory whole-codebase reverse-engineering exercise.
+
+## Optional local documentation
+
+The starter alone contains all mandatory DLD methodological instructions.
+
+For additional offline reference, copy the **contents** of the product package's `optional/docs/dld/` into your project's `docs/dld/`. Those guides are version-matched and their links are adjusted for that location. They remain optional and cannot supersede the local `foundation/CORE.md`.
+
+When upgrading DLD, compare the new Core and [changelog](../../CHANGELOG.md), assess consequences, and obtain deliberate human authorization. Preserve your project's DESIGN, RULES, their approval history, and existing unreconciled work.
+
+For a concrete example of progressing through an increment, see the [practical guide](lifecycle/01-start-the-project.md). For location decisions, see the [repository reference](../reference/repository-layout.md).
