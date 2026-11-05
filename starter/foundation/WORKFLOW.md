@@ -3,15 +3,17 @@
 This workflow defines how the human and AI work together to realize
 a project from beginning to end.
 
-The comprehensive abstract project design is the project's authoritative source of truth throughout the complete software lifecycle. The human and AI develop
-the design together, recording the project's purpose, behavior,
-structure, and constraints in Markdown documents.
+The comprehensive abstract project design is authoritative throughout the complete software lifecycle. Humans and AI develop it together, recording project intent, requirements, structure, behavior, constraints, and decisions at their proper ownership scopes.
 
 The human directs the project and approves its design. AI contributes
 to design discussions, realizes approved designs, and verifies that
 the implementation fulfills them.
 
 Design continues to govern the project through conception, realization, verification, delivery, operation, maintenance, evolution, and retirement.
+
+## Session start and continuity
+
+AI tools are not guaranteed to discover these files automatically. At the beginning of a new or resumed human–AI session, the human explicitly directs AI to read this `WORKFLOW.md`, `RULES.md`, `DESIGN.md`, the applicable scoped designs, and the current repository state. AI identifies approved versus pending scope and the next permitted activity before acting. The project's `README.md` provides a concise reusable startup instruction; no separate AI-agent file is required.
 
 ## Project foundation
 
@@ -73,8 +75,8 @@ Child documents develop those responsibilities in detail. Keep
 decisions at their appropriate level instead of collecting every
 detail in the parent or repeating shared decisions across documents.
 
-Folder hierarchy is the default expression of design hierarchy.
-Keep scope designs beside the implementation they govern. Nested
+Use engineering responsibility and the nearest appropriate owning scope to organize design. Physical hierarchy can express scope composition but does not alone establish authority.
+Co-locate scope designs with realization where appropriate, not at the expense of authority or hierarchy. Nested
 designs inherit applicable constraints from their governing ancestors,
 starting with the project's top-level design in `foundation/DESIGN.md`.
 A folder's design document lives inside that folder and uses its
@@ -92,37 +94,9 @@ commit the project to a framework or final source layout. When that
 layout is selected, reconcile design placement with it rather than
 keeping duplicate authoritative copies in old and new locations.
 
-For a responsibility spanning multiple branches, first consider its
-existing common ancestor's design. Keep the decision there when it
-belongs at that ancestor's level. A technical wrapper such as `src/`
-does not need a design merely to act as a physical common ancestor.
+For responsibilities spanning branches, place an authoritative shared design at the lowest appropriate common owning scope, or at a meaningful sibling scope when the common physical ancestor has no relevant ownership. Name it for the responsibility, not because it is generically "shared." No global `design/` directory is required. Reference that design from affected scopes, and preserve all applicable broader constraints.
 
-If the shared responsibility would overload or distort the ancestor's
-scope, a focused shared design may live separately, for example in
-`design/renewal/renewal.md`. This is a limited cross-branch exception
-to folder hierarchy, not general permission to place designs anywhere.
-
-The shared design owns common policy, cross-branch contracts, and
-responsibility allocation. It identifies participating branches and
-links their responsible designs. Narrower designs stay in their
-branches, reference the shared design, and own local behavior and
-realization decisions within it.
-Create branch designs when they have meaningful decisions to own;
-empty forwarding documents are unnecessary. If a branch needs no
-intermediate design, link its responsible artifact designs directly
-to the shared design in both directions and identify the local
-ancestor constraints that still apply.
-
-Branch designs must satisfy both applicable local ancestor constraints
-and the shared design. Resolve conflicts through design discussion;
-neither silently overrides the other. Keep one owner for each decision
-and reference shared decisions instead of duplicating them.
-
-This exception does not move other module designs into `design/`.
-Local hierarchy remains intact, and artifact designs remain beside
-their artifacts. Identify governing scopes and keep relationships
-navigable in both directions. Technical directory nesting alone does
-not give an otherwise undesigned folder authority over its contents.
+One decision has one authoritative owner. A scope should link to the decisions governing it rather than reproduce them. Do not create empty forwarding documents merely to mimic directory hierarchy. Designs can exist before realizations and need not be coupled to implementation filenames when that would misrepresent their responsibility.
 
 When moving or splitting a design, preserve its decisions, revision
 and approval records, and identifiable history. Update incoming and

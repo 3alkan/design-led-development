@@ -4,11 +4,17 @@
 
 Humans decide and approve design; AI proposes, analyzes, and may autonomously realize approved scope. DLD is standards-informed without claiming formal conformance. The approach brings together project management, human–AI roles and permissions, and project realization. The intended outcome is a working product with the design knowledge needed to maintain and evolve it.
 
+## Learning and distributions
+
+Start with the shared [DLD fundamentals](guide/methodology.md). This **development repository itself follows DLD**: its [foundation design](foundation/DESIGN.md), [workflow](foundation/WORKFLOW.md), and [rules](foundation/RULES.md) govern its evolution. Contributors use the [development guide](guide/development.md); adopters use the [product introduction](product/README.md) and [adoption guide](guide/adoption.md).
+
+Both distributions share the fundamentals and general lifecycle/reference guide. The development distribution also includes engineering sources and contributor instructions; the product distribution includes a self-contained user introduction and copyable starter. No AI-specific instruction file is required: AI is explicitly directed to read the project foundation at session start.
+
 ## Reference architecture
 
 DLD defines a [comprehensive, selectively adoptable software repository layout](guide/reference-repository-layout.md) with a `foundation/` scope, conventional documentation and source boundaries, and distinct testing, verification, build, and distribution responsibilities. It separates DLD's development repository from two release distributions: development and product. One version/tag governs both distributions; current tagged release information below remains unchanged until a new release is authorized.
 
-## Start a project
+## Use DLD in another project
 
 1. Read the [workflow](starter/foundation/WORKFLOW.md), then follow the [practical guide](guide/README.md) to apply it from project setup through delivery and evolution.
 2. Copy the **contents** of [starter/](starter/) into your product repository. For an existing project, reconcile these documents with existing files before copying.
@@ -52,7 +58,7 @@ The project root is `project-name/`; its `foundation/` directory holds project-w
 
 Before changing this repository, read its [foundation design](foundation/DESIGN.md), [workflow](foundation/WORKFLOW.md), and [rules](foundation/RULES.md).
 
-The last documented method release is `0.1.3`, identified by Git tag `v0.1.3`. It introduces final-state writing, approval sweeps, and consistent audit and baseline records. See the changelog for adoption guidance.
+The last documented published method release is `0.1.3`, identified by Git tag `v0.1.3`. It introduces final-state writing, approval sweeps, and consistent audit and baseline records. See the changelog for adoption guidance.
 
 The method has not yet been validated through a complete real project. Feedback from that use will inform later releases.
 

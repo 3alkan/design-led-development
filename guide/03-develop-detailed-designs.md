@@ -40,7 +40,7 @@ project-name/
 
 These scope folders can become implementation folders. They do not prescribe a final source layout or require empty implementation files.
 
-If the approved implementation layout later introduces `src/`, reconcile placement with it. Moving designs with their implementation areas preserves the normal hierarchy. Only a responsibility spanning branches may need the shared-design exception explained below. One possible result is:
+If the approved implementation layout later introduces `src/`, reconcile placement with it. Moving designs with their implementation areas preserves the normal hierarchy. Responsibilities spanning branches follow nearest appropriate ownership as explained below. One possible result is:
 
 ```text
 project-name/
@@ -67,7 +67,7 @@ The renewal policy belongs in the renewal design. An eligibility artifact refere
 
 A folder document uses its folder's name. A file companion retains the complete filename and adds `.md`.
 
-## Exception: a responsibility spanning branches
+## Shared responsibility across branches
 
 Use this decision order:
 
@@ -107,7 +107,7 @@ The foundation design identifies the shared renewal responsibility. The shared d
 
 | Design | Owns | Governing context |
 | --- | --- | --- |
-| `design/renewal/renewal.md` | Common policy, cross-branch behavior, contracts, and responsibility allocation. | The foundation design and applicable project constraints. |
+| `renewal-policy/renewal-policy.md` | Common policy, cross-branch behavior, contracts, and responsibility allocation. | The foundation design and applicable project constraints. |
 | `src/backend/renewal/renewal.md` | Backend validation, processing, and failures within the common contract. | The shared renewal design and applicable backend ancestor constraints. |
 | `src/frontend/renewal/renewal.md` | Member interaction and presentation within the common behavior. | The shared renewal design and applicable frontend ancestor constraints. |
 | Artifact companions | Detailed contracts delegated to individual files. | Their local branch design and applicable shared decisions. |

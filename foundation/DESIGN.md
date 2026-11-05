@@ -22,7 +22,7 @@ DLD covers software project conception, requirements, architecture, design, real
 
 DLD draws on established software engineering knowledge and standards, including SWEBOK and applicable ISO/IEC/IEEE standards, without claiming mandatory conformance or requiring formal standards mappings.
 
-The current offering consists of four starter documents and a practical lifecycle guide. The starter contains a product README, workflow, rules template, and foundation design template. The guide explains how to apply them from project setup through delivery and evolution.
+The user-facing product distribution contains one self-contained methodology reference and one copyable four-document starter. The development distribution contains the complete maintained source needed to engineer DLD itself. Both distributions share the same DLD fundamentals and general reference guide; each has audience-specific guidance. The starter contains a product README, workflow, rules template, and foundation design template. The guide explains how to apply them from project setup through delivery and evolution.
 
 This repository also maintains its own design, workflow, rules, version, changelog, and license. The approach is independent of language, framework, and AI provider. It does not promise automatic implementation or synchronization when a document is edited.
 
@@ -34,7 +34,7 @@ DLD provides one comprehensive, selectively adoptable reference repository layou
 
 The development repository and the DLD distributions are separate: one project version and release tag identifies a stabilized source baseline and two outputs, a development distribution and a product distribution. A tag by itself is not verification or approval.
 
-Users read the workflow, copy the starter contents into their product repository, and develop the project with AI through its design documents.
+Users learn DLD from the product's common guide and adopter guide, copy only the starter contents into their project, and explicitly direct AI to read that project's foundation at session start. The installed workflow remains self-contained for ongoing project work; AI tools are not assumed to discover Markdown files automatically.
 
 The human and AI discuss the design and record decisions at appropriate scopes. The human approves designs; AI implements and verifies approved scope within delegated freedom. This cycle continues through delivery and maintenance.
 
@@ -42,7 +42,9 @@ The starter's foundation design remains a draft until the product's human approv
 
 ## Major areas and relationships
 
+- [product/README.md](../product/README.md) is the user-facing product distribution entry point.
 - [starter/](../starter/) is the user-facing product material. Its README introduces the resulting product; its workflow defines collaboration; its rules hold specific requirements; its foundation design establishes product direction.
+- [guide/methodology.md](../guide/methodology.md) teaches DLD fundamentals to both audiences; the [adoption guide](../guide/adoption.md) serves users and the [development guide](../guide/development.md) serves DLD contributors.
 - [guide/](../guide/README.md) explains application of the workflow through six repeatable stages. It identifies human and AI responsibilities, concrete actions, expected outputs, and readiness to proceed. Its examples and prompts are illustrative; they do not introduce product requirements or claim approval.
 - [examples/](../examples/README.md) records the requirements for a complete example; no completed example project is currently included.
 - This [workflow](WORKFLOW.md) defines how we maintain the method repository, and these [rules](RULES.md) hold any adopted repository-specific requirements.
@@ -60,13 +62,14 @@ The repository's `foundation/` governs this method; `starter/foundation/` suppli
 - The method version is this repository's product version. Design revisions advance independently, as do versions of products built using the method.
 - AI suggests proportionate commit checkpoints for coherent design baselines, verified implementation increments, and focused corrections. Suggestions identify the intended scope and preserve unrelated work. A suggestion does not authorize a commit; design approval, verification, release, and permission to push remain separate.
 - The project root and its `foundation/` directory are distinct. The latter holds project-wide workflow, rules, and top-level design; other scopes do not automatically belong inside it. Folder hierarchy normally expresses design hierarchy, with designs beside their realization and nested designs inheriting applicable ancestor constraints. Technical wrapper folders do not need a design merely because they contain other scopes.
-- For a responsibility spanning branches, use an existing common ancestor's design if the decision belongs at its level. Otherwise, a focused shared design may live separately, for example under `design/`. This is a cross-branch exception, not general freedom of placement. Each narrower branch design references the shared design and respects both shared and applicable local ancestor constraints; conflicts return to discussion. The shared design identifies participating branches. Each decision has one owner, and moves preserve decisions, approvals, and references.
+- For a responsibility spanning branches, use the lowest appropriate common owner, or an independently meaningful sibling scope if the physical ancestor does not own that responsibility. No generic global `design/` or `shared/` directory is required. Affected scopes reference the single owning design, retain applicable broader constraints, and preserve approvals and relationships when reorganized.
 
 - Approved design bodies describe current decisions in final-state voice; Git commits identify approved baselines and preserve superseded wording. Design-specific tags are not required; release tags identify published versions. Approval procedures belong in [WORKFLOW.md](WORKFLOW.md), while extended audit findings stay outside authoritative design bodies.
 
 ## Success criteria
 
-- Users can locate and copy the four starter documents without relying on additional materials.
+- Users can locate and copy the four starter documents without relying on additional materials or AI-specific instruction files; the project README explicitly directs AI to read its foundation each session.
+- Both distributions share the method fundamentals and general guide, with distinct product and developer introductions and no accidental internal-governance leakage.
 - Users can follow the guide from project setup through delivery, maintenance, and method updates. The guide references the starter's conventions and remains optional to copy into products.
 - The workflow explains the complete cycle from initial design through delivery and evolution.
 - Document responsibilities are distinct and consistent across the README, starter, and repository governance.

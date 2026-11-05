@@ -1,6 +1,6 @@
 # Repository Development Workflow
 
-This workflow defines how the human and AI develop and maintain Design-Led Development itself. The product is the method and its copyable starter.
+This is DLD's project-specific application of the same method adopted by users. Read the common [DLD fundamentals](../guide/methodology.md) and the [developer guide](../guide/development.md). This workflow defines how humans and AI develop and maintain DLD itself; the product distribution includes learning materials and a copyable project starter.
 
 ## Project foundation
 
@@ -24,9 +24,9 @@ AI works independently within approved scope and delegated freedom. It returns c
 
 Begin with the relevant design and its approval state. Keep whole-repository decisions in `DESIGN.md`; create focused design documents when a scope needs separate treatment.
 
-Folder hierarchy normally expresses design hierarchy. Keep designs beside their realization, with nested scopes respecting applicable ancestor constraints. This repository's `foundation/` holds project-wide governance, not every subordinate scope. Technical wrappers do not require their own design just because they contain other scopes.
+Folder hierarchy normally expresses design hierarchy. Keep designs beside their realization, with nested scopes respecting applicable ancestor constraints. This repository's `foundation/` holds project-wide governance, not every subordinate scope. Before any new AI session, explicitly direct the AI to read the foundation documents and relevant scoped designs; Markdown files are not guaranteed to be discovered automatically. Technical wrappers do not require their own design just because they contain other scopes.
 
-For a cross-branch responsibility, first use an existing common ancestor's design when the decision belongs at that level. If it would overload or distort that scope, allow a focused shared design outside the branches. It owns common decisions and links participating branch designs; narrower designs remain local and reference it. They must satisfy both local ancestor and shared constraints, with conflicts returned to discussion. This is a cross-branch exception, not an open-ended placement choice. Keep artifact designs adjacent and preserve decisions, approval history, and references when moving designs.
+For a cross-branch responsibility, use the nearest appropriate common owning scope or an independently meaningful sibling; do not introduce a generic global design container. The single owning design identifies affected scopes. Other scopes reference it, preserve applicable broader constraints, and return conflicts to discussion. Co-locate artifacts by ownership where meaningful, preserving decisions, approval history, and relationships when moving them.
 
 If an intermediate branch design has no meaningful decisions to own, link the responsible artifact designs and shared design directly while retaining applicable local ancestor constraints. A mechanical move preserves approval only when scope and governing constraints remain unchanged; changes of governing ancestor or responsibility must be resolved and approved as design changes.
 

@@ -15,6 +15,14 @@ to run the product.]
 
 [Describe current availability and known limitations.]
 
+## Begin or resume a human–AI session
+
+At the beginning of each AI session, explicitly instruct the AI:
+
+> Read `foundation/WORKFLOW.md`, `foundation/RULES.md`, and `foundation/DESIGN.md`, then the applicable scoped designs. Inspect the current project state, distinguish approved decisions from drafts, and follow DLD. Discuss any changes to approved design with me before realizing them.
+
+These files are the project's working authority within your AI tool's governing instructions and permissions; they are **not** guaranteed to be discovered automatically. Do not copy the DLD guide into this project merely to make the workflow work.
+
 ## Development
 
 This project follows Design-Led Development. Before making changes,
@@ -31,7 +39,7 @@ read:
 ## Method baseline
 
 Based on [Design-Led Development](https://github.com/3alkan/design-led-development).
-Release baseline: `0.1.3`.
+DLD source baseline: `@DLD_BASELINE@`.
 
 If adopting changes beyond that release, also record the source commit
 and any local adaptations here.

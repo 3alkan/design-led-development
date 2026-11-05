@@ -1,6 +1,6 @@
 # Build a project with AI
 
-This guide shows how to apply [Design-Led Development](../README.md) in your own project, from an initial idea through delivery and later changes.
+This guide shows how to apply [Design-Led Development](methodology.md) in a software project, from an initial idea through delivery and later changes. It is shared learning material in both the development and product distributions. Read [fundamentals](methodology.md) first; see the [adoption guide](adoption.md) for installation and session startup.
 
 The [workflow](../starter/foundation/WORKFLOW.md) defines the working method. This guide explains how to apply it. The [starter](../starter/) supplies the documents you bring into your product repository. Keep this guide in the method repository; you do not need to copy it into the product.
 
@@ -17,7 +17,7 @@ The [workflow](../starter/foundation/WORKFLOW.md) defines the working method. Th
 
 For a new project, begin at stage 1. For an existing project, use stage 1 to reconcile the documents, then identify the design and implementation gaps that matter next.
 
-These six chapters are practical application guidance, not an exhaustive lifecycle taxonomy. DLD covers the complete software project lifecycle, including operation, support, and retirement. See the [reference repository architecture](reference-repository-layout.md) for engineering artifact responsibilities. These stages repeat. You can deliver a small approved part while other areas remain under discussion. You do not need to finish the entire project's detailed design before implementing anything.
+These six chapters are repeatable practical activities, not the full software lifecycle taxonomy. DLD covers the complete software project lifecycle, including operation, support, and retirement. See the [reference repository architecture](reference-repository-layout.md) for engineering artifact responsibilities. These stages repeat. You can deliver a small approved part while other areas remain under discussion. You do not need to finish the entire project's detailed design before implementing anything.
 
 ## Keep the responsibilities clear
 
