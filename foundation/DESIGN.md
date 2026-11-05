@@ -1,7 +1,7 @@
 # Design-Led Development
 
 - Revision: 6
-- Status: Mixed
+- Status: Draft
 - Approval: Rev 3 approved by human (date not recorded).
 - Approval: Rev 4 approved by human 2026-11-03.
 - Approval: Rev 5 approved by human 2026-11-03.
@@ -77,7 +77,7 @@ The repository's `foundation/` governs this method; `starter/foundation/` suppli
 
 ## Pending changes — Draft revision 6
 
-This revision proposes the agreed F1–F4 philosophy and R1–R15 repository direction, including the naming migration and reference layout. Human approval of this exact repository revision has not yet been recorded. The Revision 5 baseline remains identifiable in Git. The approval sweep, revision status update, and release authorization must follow actual review.
+All substantive changes in revision 6 are proposed and are **not yet authoritative**. This revision proposes the agreed F1–F4 philosophy and R1–R15 repository direction, including the naming migration and reference layout. Human approval of this exact repository revision has not yet been recorded. The approved Revision 5 baseline remains identifiable in Git. The approval sweep, revision status update, and release authorization must follow actual review.
 
 ## Open questions
 
