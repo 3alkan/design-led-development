@@ -1,24 +1,43 @@
-# Developing DLD
+# Developing the DLD Methodology
 
-**Audience:** Contributors and AI maintaining DLD itself. The repository is a DLD project: its [Core](../../foundation/CORE.md) governs the method; [DESIGN](../../foundation/DESIGN.md) describes the DLD project; [RULES](../../foundation/RULES.md) holds additional adopted constraints.
+**Audience:** Contributors to the DLD development repository. This is project-specific guidance, not an extension of the [methodological Core](../../foundation/CORE.md).
 
-## Start a session
+## Establish the working authority
 
-Read Core, RULES, DESIGN, applicable scoped documents, and the current repository state. Identify the last approved design baseline separately from draft changes. Do not infer approval from a commit or from already implemented artifacts.
+Before consequential work, inspect [Core](../../foundation/CORE.md), the DLD project's [DESIGN](../../foundation/DESIGN.md) and [RULES](../../foundation/RULES.md), the active change scope, approval state, actual files, and relevant verification evidence.
 
-## Ownership of changes
+A draft design or implementation commit is not evidence of human approval. The project DESIGN may retain earlier approved revisions while its current revision is a proposal. Keep those boundaries accurate.
 
-- **Method changes:** Propose them in the canonical `foundation/CORE.md` and submit them to the human for approval under the project's design authority. Do not maintain a second Core in a guide.
-- **DLD product design:** Record project-specific outcomes, packaging architecture, and approved decisions in `foundation/DESIGN.md`.
-- **Additional DLD project constraints:** Record only actually adopted requirements in `foundation/RULES.md`.
-- **Learning materials:** Update user-facing explanations in `docs/guides/` and `docs/reference/`; ensure they agree with Core.
-- **Copyable templates:** Keep `starter/` free of DLD-development-specific decisions. Packaging inserts an exact copy of canonical Core.
-- **Demonstrations:** Place actual example projects under `examples/` when they exist.
+## Know which responsibility owns the change
 
-Review effects across both distributions without making their project-specific authorities identical. Preserve the approval history of existing decisions.
+| Change | Primary owner |
+| --- | --- |
+| What DLD requires of adopters | Canonical `foundation/CORE.md` |
+| DLD product, distributions, and development project intent | `foundation/DESIGN.md` |
+| Additional constraints adopted for developing DLD | `foundation/RULES.md` |
+| Explaining an already defined DLD behavior | `docs/` |
+| Reusable clean adopting-project templates | `starter/` |
+| Package assembly and validation | `.github/package.py` and project-owned packaging reference |
+| Illustrative uses of the method | `examples/` |
 
-## Validation and delivery
+A guide must not silently resolve a gap in Core by inventing a new requirement. If an explanation reveals ambiguity or a missing mandatory rule, propose a change to the governing Core instead.
 
-Run `python .github/package.py --check` and inspect the resulting product as an adopter would. Confirm internal links, correct inclusion/exclusion by audience, unchanged Core copies, clean templates, and useful documentation navigation. See the [packaging reference](../internal/packaging.md). Both development-only references are discoverable here without entering the shared product documentation index.
+## Review changes coherently
 
-Package validation is not proof of complete methodological effectiveness or human approval. Publish a version only after the applicable design and release decisions have actually been authorized.
+For a proposed change, identify its owner, possible effects on the starter, guidance, package output, and adoption behavior. Assess the affected scopes before consequential approval. Keep the method's proposed new text distinct from any existing approved version.
+
+When updating only explanations, avoid turning optional suggestions into commands that appear obligatory. Link to Core for authority; use concrete examples for understanding. Check both the adopter's view and the maintainer's view.
+
+## Packaging and evidence
+
+Run the repository's package check:
+
+```sh
+python .github/package.py --check
+```
+
+Review the assembled starter, ensure its Core equals the canonical Core byte-for-byte, inspect the product's optional documentation overlay, and check the development-only exclusions. See [packaging documentation](../internal/packaging.md).
+
+A passing package check supports only the properties it actually tests. It does not approve the methodology, the DLD project DESIGN, or a public release. Final merge, tagging, and publication require their own authorization.
+
+Keep current implementation state, known limitations, and handoff information discoverable so a later AI session can continue without reconstructing the entire project.
