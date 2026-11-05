@@ -10,7 +10,7 @@ jobs:
   distributions:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Checkout sources
         uses: actions/checkout@v4
-      - name: Build and validate development and product packages
-        run: python3 tools/package/build.py --check
+      - name: Build and validate two distributions
+        run: python3 .github/package.py --check

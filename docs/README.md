@@ -2,7 +2,7 @@
 
 This guide shows how to apply [Design-Led Development](../foundation/CORE.md) in a software project, from an initial idea through delivery and later changes. It is shared learning material in both the development and product distributions. Read [DLD Core](../foundation/CORE.md) first; see the [adoption guide](adoption.md) for installation and session startup.
 
-[DLD Core](../foundation/CORE.md) is the authoritative working method. This guide explains how to apply it. The distributed [starter](../starter/) supplies a frozen copy of Core and clean project templates. Keep this guide in the method repository; you do not need to copy it into the product.
+[DLD Core](../foundation/CORE.md) is the authoritative working method. This guide explains how to apply it. The distributed [starter](../starter/) supplies a frozen copy of Core and clean project templates. This guide is shipped with both DLD distributions. Copy only the starter contents into an adopting project.
 
 ## Choose your starting point
 

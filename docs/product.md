@@ -1,6 +1,6 @@
 # Design-Led Development — Product
 
-This is the **DLD user distribution**, for humans and AI applying Design-Led Development to their software projects. Its [DLD Core](foundation/CORE.md) is the authoritative, versioned methodology. [Documentation](docs/README.md) explains the method, its lifecycle, and repository architecture; the [adoption guide](docs/adoption.md) helps you start.
+This is the **DLD user distribution**, for humans and AI applying Design-Led Development to their software projects. Its [DLD Core](../foundation/CORE.md) is the authoritative, versioned methodology. [Documentation](README.md) explains the method, its lifecycle, and repository architecture; the [adoption guide](adoption.md) helps you start.
 
 ## Adopt DLD
 
@@ -15,7 +15,7 @@ my-project/
     └── RULES.md      # This project's additional adopted constraints
 ```
 
-The copied Core is not edited to express project preferences. Write project decisions in DESIGN and additional project constraints in RULES. Use the [reference layout](docs/reference-repository-layout.md) selectively as your project grows.
+The copied Core is not edited to express project preferences. Write project decisions in DESIGN and additional project constraints in RULES. Use the [reference layout](reference-repository-layout.md) selectively as your project grows.
 
 ## Work with AI
 
