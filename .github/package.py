@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import posixpath
 import re
 import subprocess
 import sys
@@ -25,6 +26,10 @@ STARTER_TEMPLATES = [
     "starter/foundation/DESIGN.md",
     "starter/foundation/RULES.md",
 ]
+# Optional documentation is distributed ready to copy into an adopting
+# project's docs/dld/ directory. It is not part of the minimum starter.
+OPTIONAL_DOCS = [*COMMON_DOCS, "docs/guides/adoption.md"]
+OPTIONAL_PREFIX = "optional/docs/dld/"
 COMMON = ["foundation/CORE.md", "VERSION", "CHANGELOG.md", "LICENSE", *COMMON_DOCS]
 PRODUCT_SOURCES = [*COMMON, "docs/guides/adoption.md", *STARTER_TEMPLATES]
 DEVELOPMENT_SOURCES = [
@@ -72,6 +77,7 @@ def package_files(kind: str, version: str, release: bool) -> dict[str, bytes]:
     # generated from the one canonical source, never maintained separately.
     files["starter/foundation/CORE.md"] = files["foundation/CORE.md"]
     if kind == "product":
+        files.update(optional_support())
         # The maintained product entry lives in docs/internal/ but is
         # distributed at the archive root. Rewrite only known relative paths.
         intro = source("docs/internal/product-readme.md").decode("utf-8")
@@ -86,6 +92,83 @@ def package_files(kind: str, version: str, release: bool) -> dict[str, bytes]:
                 "\n> **Unreleased source snapshot:** Not an approved or published DLD release.\n"
             ).encode()
     return files
+
+
+def optional_support() -> dict[str, bytes]:
+    """Build a copy-ready documentation overlay from the maintained guides.
+
+    In the adopter's project, copy optional/docs/dld/ to docs/dld/.
+    All local links are rewritten for that installed location.
+    """
+    source_to_installed = {
+        p: "docs/dld/" + p.removeprefix("docs/") for p in OPTIONAL_DOCS
+    }
+    source_to_installed.update({
+        "foundation/CORE.md": "foundation/CORE.md",
+        "CHANGELOG.md": "docs/dld/CHANGELOG.md",
+        "starter/README.md": "README.md",
+    })
+    result = {}
+    for source_path in OPTIONAL_DOCS:
+        target = source_to_installed[source_path]
+        text = source(source_path).decode("utf-8")
+        def rewrite(match):
+            href = match.group(1)
+            if href.startswith(("https://", "http://", "mailto:", "#")):
+                return match.group(0)
+            path, sep, fragment = href.partition("#")
+            if not path:
+                return match.group(0)
+            resolved = posixpath.normpath(posixpath.join(
+                posixpath.dirname(source_path), path
+            ))
+            if resolved not in source_to_installed:
+                raise ValueError(
+                    f"Optional support cannot resolve {source_path} -> {href}"
+                )
+            new_path = posixpath.relpath(
+                source_to_installed[resolved], posixpath.dirname(target)
+            )
+            return match.group(0).replace(
+                "](" + href + ")", "](" + new_path + (sep + fragment if sep else "") + ")"
+            )
+        text = LINK.sub(rewrite, text)
+        if source_path == "docs/README.md":
+            text = text.replace(
+                "This is the documentation home for",
+                "This optional, locally installed documentation supports"
+            )
+        result[OPTIONAL_PREFIX + source_path.removeprefix("docs/")] = text.encode("utf-8")
+    result[OPTIONAL_PREFIX + "CHANGELOG.md"] = source("CHANGELOG.md")
+    return result
+
+
+def check_optional_support(files: dict[str, bytes]) -> None:
+    """Validate optional docs as installed alongside the minimal starter."""
+    installed = {
+        path.removeprefix("optional/"): body
+        for path, body in files.items()
+        if path.startswith(OPTIONAL_PREFIX)
+    }
+    installed["foundation/CORE.md"] = files["starter/foundation/CORE.md"]
+    installed["README.md"] = files["starter/README.md"]
+    installed["foundation/DESIGN.md"] = files["starter/foundation/DESIGN.md"]
+    installed["foundation/RULES.md"] = files["starter/foundation/RULES.md"]
+    for source_path, body in installed.items():
+        if not source_path.endswith(".md"):
+            continue
+        for match in LINK.finditer(body.decode("utf-8")):
+            href = match.group(1)
+            if href.startswith(("https://", "http://", "mailto:", "#")):
+                continue
+            rel = href.split("#", 1)[0].split(" ", 1)[0]
+            if not rel:
+                continue
+            resolved = norm_link(source_path, rel)
+            if resolved not in installed and resolved + "/README.md" not in installed:
+                raise ValueError(
+                    f"Broken optional support link: {source_path} -> {href}"
+                )
 
 
 def norm_link(base: str, relative: str) -> str:
@@ -120,6 +203,7 @@ def check_package(kind: str, files: dict[str, bytes]) -> None:
             raise ValueError("Product contains development-only files.")
         if files["foundation/CORE.md"] != files["starter/foundation/CORE.md"]:
             raise ValueError("Adopted Core differs from canonical Core.")
+        check_optional_support(files)
     else:
         mandatory |= {"foundation/DESIGN.md", "foundation/RULES.md",
                       "docs/guides/development.md", ".github/package.py"}
@@ -130,6 +214,9 @@ def check_package(kind: str, files: dict[str, bytes]) -> None:
     if any(p.endswith("/WORKFLOW.md") for p in files):
         raise ValueError("WORKFLOW.md is superseded by DLD Core.")
     for path, data in files.items():
+        if path.startswith("optional/"):
+            # Checked in its intended installed project context instead.
+            continue
         if not path.endswith(".md"):
             continue
         txt = data.decode("utf-8")
