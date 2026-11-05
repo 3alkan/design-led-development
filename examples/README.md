@@ -1,6 +1,6 @@
 # Worked Examples
 
-Worked examples show how **Design-Led Development (DLD)** is applied to real or illustrative software projects. They complement the [shared methodology](../docs/methodology.md), [practical guide](../docs/README.md), and [reference repository layout](../docs/reference-repository-layout.md); they do not define new methodological rules.
+Worked examples show how **Design-Led Development (DLD)** is applied to real or illustrative software projects. They complement the [DLD Core](../foundation/CORE.md), [practical guide](../docs/README.md), and [reference repository layout](../docs/reference-repository-layout.md); they do not define new methodological rules.
 
 No completed worked example is currently included. This directory is maintained only when a useful example exists; an empty example is not required for adopting DLD.
 

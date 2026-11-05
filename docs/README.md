@@ -17,7 +17,7 @@ This guide shows how to apply [Design-Led Development](../foundation/CORE.md) in
 
 For a new project, begin at stage 1. For an existing project, use stage 1 to reconcile the documents, then identify the design and implementation gaps that matter next.
 
-These six chapters are repeatable practical activities, not the full software lifecycle taxonomy. DLD covers the complete software project lifecycle, including operation, support, and retirement. See the [reference repository architecture](reference-repository-layout.md) for engineering artifact responsibilities. These stages repeat. You can deliver a small approved part while other areas remain under discussion. You do not need to finish the entire project's detailed design before implementing anything.
+These six chapters are repeatable practical activities, not the full software lifecycle taxonomy. DLD covers the complete software project lifecycle, including operation, support, and retirement. See the [reference repository architecture](reference-repository-layout.md) for engineering artifact responsibilities. The activities recur as needed: an approved increment can be delivered while other areas remain under discussion.
 
 ## Keep the responsibilities clear
 

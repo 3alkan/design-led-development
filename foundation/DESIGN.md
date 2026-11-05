@@ -22,7 +22,7 @@ DLD covers software project conception, requirements, architecture, design, real
 
 DLD draws on established software engineering knowledge and standards, including SWEBOK and applicable ISO/IEC/IEEE standards, without claiming mandatory conformance or requiring formal standards mappings.
 
-The user-facing product distribution contains one self-contained methodology reference and one copyable four-document starter. The development distribution contains the complete maintained source needed to engineer DLD itself. Both distributions share the same DLD fundamentals and general reference guide; each has audience-specific guidance. The starter contains a project README, a version-frozen CORE, a rules template, and a foundation design template. The guide explains how to apply them from project setup through delivery and evolution.
+The user-facing product distribution contains the same authoritative DLD Core used for development, shared documentation, adopter guidance, and a clean four-document project starter. The development distribution contains DLD's own project design and rules, maintained sources, documentation, examples, and engineering infrastructure. Both distributions are assembled from one source baseline and share one version and release tag.
 
 This repository also maintains its own design, core, rules, version, changelog, and license. The approach is independent of language, framework, and AI provider. It does not promise automatic implementation or synchronization when a document is edited.
 
@@ -34,7 +34,7 @@ DLD provides one comprehensive, selectively adoptable reference repository layou
 
 The development repository is a DLD project itself, governed by this project-specific design and rules under the same frozen-version methodology as every adopter. The development repository and the DLD distributions are separate: one project version and release tag identifies a stabilized source baseline and two outputs, a development distribution and a product distribution. A tag by itself is not verification or approval.
 
-Users learn DLD from the product's common guide and adopter guide, copy only the starter contents into their project, and explicitly direct AI to read that project's foundation at session start. The installed workflow remains self-contained for ongoing project work; AI tools are not assumed to discover Markdown files automatically.
+Users learn DLD from the versioned Core and adopter documentation, then copy the starter contents into their projects. At each new AI session, they explicitly direct AI to read the adopted Core and applicable project design and rules. The installed Core is operationally self-contained; no external guide or automatic AI discovery is required to apply its instructions.
 
 The human and AI discuss the design and record decisions at appropriate scopes. The human approves designs; AI implements and verifies approved scope within delegated freedom. This cycle continues through delivery and maintenance.
 
@@ -42,10 +42,10 @@ The starter's foundation design remains a draft until the product's human approv
 
 ## Major areas and relationships
 
-- [product/README.md](../docs/product.md) is the user-facing product distribution entry point.
+- [docs/product.md](../docs/product.md) is maintained source for the product distribution's generated root README.
 - [starter/](../starter/) is the user-facing product material. Its README introduces the resulting product; its core defines the methodology; its rules hold specific requirements; its foundation design establishes product direction.
-- [docs/methodology.md](../docs/methodology.md) teaches DLD fundamentals to both audiences; the [adoption guide](../docs/adoption.md) serves users and the [development guide](../docs/development.md) serves DLD contributors.
-- [guide/](../docs/README.md) explains application of the workflow through six repeatable stages. It identifies human and AI responsibilities, concrete actions, expected outputs, and readiness to proceed. Its examples and prompts are illustrative; they do not introduce product requirements or claim approval.
+- [CORE.md](CORE.md) is the single authoritative methodology read by both audiences. [Adoption guidance](../docs/adoption.md) serves users and [development guidance](../docs/development.md) serves DLD contributors.
+- [docs/](../docs/README.md) explains how to apply Core through practical lifecycle activities. Its prompts and examples are illustrative; they do not introduce new authority or claim approval.
 - [examples/](../examples/README.md) records the requirements for a complete example; no completed example project is currently included.
 - The canonical [core](CORE.md) defines the methodology, and these [rules](RULES.md) hold adopted repository-specific requirements.
 - The repository [README](../README.md) introduces the method and explains adoption.
@@ -61,17 +61,17 @@ The repository's `foundation/CORE.md` is the maintained canonical methodology. I
 - Templates are starting points, not approvals or mandatory large forms.
 - The method version is this repository's product version. Design revisions advance independently, as do versions of products built using the method.
 - AI suggests proportionate commit checkpoints for coherent design baselines, verified implementation increments, and focused corrections. Suggestions identify the intended scope and preserve unrelated work. A suggestion does not authorize a commit; design approval, verification, release, and permission to push remain separate.
-- The project root and its `foundation/` directory are distinct. The latter holds project-wide core, rules, and top-level design; other scopes do not automatically belong inside it. Folder hierarchy normally expresses design hierarchy, with designs beside their realization and nested designs inheriting applicable ancestor constraints. Technical wrapper folders do not need a design merely because they contain other scopes.
+- The project root and its `foundation/` directory are distinct. The latter holds project-wide core, rules, and top-level design; other scopes do not automatically belong inside it. Design placement follows responsibility and the nearest appropriate owning scope; co-location with realization is preferred only when it preserves genuine ownership and applicable constraints. Technical wrapper folders do not need a design merely because they contain other scopes.
 - For a responsibility spanning branches, use the lowest appropriate common owner, or an independently meaningful sibling scope if the physical ancestor does not own that responsibility. No generic global `design/` or `shared/` directory is required. Affected scopes reference the single owning design, retain applicable broader constraints, and preserve approvals and relationships when reorganized.
 
 - Approved design bodies describe current decisions in final-state voice; Git commits identify approved baselines and preserve superseded wording. Design-specific tags are not required; release tags identify published versions. Approval procedures belong in [CORE.md](CORE.md), while extended audit findings stay outside authoritative design bodies.
 
 ## Success criteria
 
-- Users can locate and copy the four starter documents without relying on additional materials or AI-specific instruction files; the project README explicitly directs AI to read its foundation each session.
+- The assembled starter contains an exact copy of the versioned Core, a clean project README, and separate draft DESIGN and RULES templates, with no AI-specific instruction file; its README explicitly directs AI to read the foundation each session.
 - Both distributions share the method fundamentals and general guide, with distinct product and developer introductions and no accidental internal-governance leakage.
 - Users can follow the guide from project setup through delivery, maintenance, and method updates. The guide references the starter's conventions and remains optional to copy into products.
-- The workflow explains the complete cycle from initial design through delivery and evolution.
+- Core defines the complete method and working cycle; documentation teaches its application without competing methodological authority.
 - Document responsibilities are distinct and consistent across the README, starter, and repository governance.
 - Placeholder content cannot reasonably be mistaken for adopted rules or approved product design.
 - Local links resolve within the repository's defined contents and method version references agree.

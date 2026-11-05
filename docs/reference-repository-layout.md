@@ -20,8 +20,8 @@ project/
 ├── CHANGELOG.md              # Change and release overview, when applicable
 ├── VERSION                   # Optional; ecosystem manifests may own versioning
 ├── foundation/               # Project-wide authority
-│   ├── DESIGN.md             # Comprehensive project-wide abstract design
-│   ├── CORE.md           # Human–AI collaboration and delegated authority
+│   ├── CORE.md               # Frozen adopted DLD methodology
+│   ├── DESIGN.md             # Project-wide authoritative abstract design
 │   └── RULES.md              # Project-specific adopted constraints
 ├── src/                      # Implementation source where conventional
 ├── tests/                    # Shared / cross-scope executable tests
@@ -41,7 +41,7 @@ This tree is a catalogue of responsibilities, not an instruction to create empty
 
 ## Placement and relationships
 
-- `foundation/` owns the project-wide design and governance, not all detailed designs. A scoped design belongs at the nearest appropriate owning scope and may predate or outlive its implementation.
+- `foundation/CORE.md` defines the adopted, versioned DLD working method and is not customized within the project. `foundation/DESIGN.md` and `RULES.md` are project-specific; `foundation/` is not the home of every detailed design. A scoped design belongs at the nearest appropriate owning scope and may predate or outlive its implementation.
 - For shared decisions, use the nearest appropriate common owner or an independently meaningful sibling scope at that level; do not create a mandatory global `design/` or `shared/` folder.
 - `docs/` retains the conventional meaning of user, developer, and reference documentation; a Markdown file is not authoritative merely by residing in `docs/`.
 - `tests/` contains maintained executable tests and fixtures serving shared or cross-scope needs. Component tests may be co-located. `verification/` covers broader plans, assessment, validation, and evidence without duplicating tests; external CI evidence may be referenced.
@@ -52,7 +52,7 @@ This tree is a catalogue of responsibilities, not an instruction to create empty
 
 ## Product boundaries and packaging
 
-Each distributable has identifiable maintained inputs, an ecosystem-native or simple explicit assembly definition, and verifiable outputs. One repository may produce several products. DLD itself has one version and release tag with two distributions: **development** (materials to maintain DLD) and **product** (materials needed to use DLD). Do not copy the DLD development project's own `foundation/` into adopters' projects; the product's starter contains a separate, unapproved `foundation/` template for users.
+Each distributable has identifiable maintained inputs, an ecosystem-native or simple explicit assembly definition, and verifiable outputs. One repository may produce several products. DLD itself has one version and release tag with two distributions: **development** (materials to maintain DLD) and **product** (materials needed to use DLD). Do not copy the DLD development project's DESIGN or RULES into adopters' projects. Product assembly copies the canonical Core exactly into the starter's foundation and supplies clean, unapproved DESIGN and RULES templates.
 
 ## Extensions
 

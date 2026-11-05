@@ -35,7 +35,7 @@ While revision N is pending, inline `(Draft revision N: …)` markers may identi
 
 History has three distinct homes: **Git commits** preserve superseded text and approved design baselines; **findings/audit records** preserve longer investigation and session context outside design bodies; **one-line header approval records** identify who approved which revision and when. Do not paste audit narratives into approval fields or repeat rationale across design files.
 
-The sweep is performed after approval, not as a way of asserting approval for a pending proposal. Committing still requires the permissions defined by the project's workflow; if permission is unavailable, do not claim that the approved baseline has been committed. Request authorization or leave the Git step pending.
+The sweep is performed after approval, not as a way of asserting approval for a pending proposal. Committing still requires the permissions and authorization boundaries specified by DLD Core and applicable project rules; if permission is unavailable, do not claim that the approved baseline has been committed. Request authorization or leave the Git step pending.
 
 ## Preserve meaningful checkpoints
 
@@ -82,7 +82,7 @@ A design revision does not automatically require a product release. A method upd
 
 Read the method's [changelog](../CHANGELOG.md) and compare the baseline you adopted with the proposed update. Distinguish released entries from Unreleased changes. For adoption beyond a release, use the recorded source commit and local adaptation notes to identify the original contents.
 
-Propose relevant changes to your product's workflow and templates. Preserve product-specific rules and approved decisions; do not overwrite them by copying a new starter blindly.
+Review changes to the adopted Core version and project-specific rules or templates; do not edit the frozen Core to customize the project. Preserve product-specific rules and approved decisions; do not overwrite them by copying a new starter blindly.
 
 Obtain human approval for consequential changes to Core, rules, or design. Update the recorded method baseline and note any recommendations intentionally left out.
 

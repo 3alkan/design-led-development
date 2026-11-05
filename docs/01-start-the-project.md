@@ -27,7 +27,7 @@ Adapt the README's product name and description. Keep its release baseline. If a
 
 ## Establish the collaboration
 
-Read DLD Core with AI. Confirm that the human owns approval and that AI can act independently within delegated implementation freedom. Make any proposed changes to the working method explicit.
+Read DLD Core with AI. Confirm that the human owns approval and that AI can act independently within delegated implementation freedom. Project-specific constraints belong in RULES; changing DLD itself requires a separately versioned and approved Core, not an edit to the project's adopted copy.
 
 The copied Core is the versioned, immutable DLD method. Project DESIGN and RULES remain independent. Do not assume AI discovers the files automatically. Begin the conversation with a direct instruction such as:
 
