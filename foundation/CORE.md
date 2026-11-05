@@ -1,93 +1,141 @@
-# Design-Led Development — Core Method
+# Design-Led Development — Core
 
-DLD Core is the **authoritative, versioned specification of Design-Led Development**. Humans and AI developing DLD and humans and AI using DLD in another project follow the same method. A project adopts a fixed DLD version; the adopted core is not edited to express project preferences. Change the method at its maintained source, review and approve it, and distribute it as a new version. Project-specific design and rules remain separate.
+Design-Led Development (DLD) is a **design-centered, human-authoritative, AI-assisted software engineering methodology** covering the complete software project lifecycle.
 
-## 1. Purpose and principles
+This document is the **single authoritative specification of the DLD method** for both humans and AI. The DLD development repository maintains the canonical Core. Each adopting project uses an unchanged copy from an identified DLD version. Project-specific decisions belong in the project's DESIGN and RULES, not in Core.
 
-DLD is a design-centered, human-authoritative, AI-assisted approach to engineering software **throughout its complete lifecycle**. It concerns how human and AI work together; normal software engineering practices and lifecycle responsibilities determine what work the project needs.
+## 1. Foundations
 
-A project's **approved abstract design is the source of truth** for its intended outcomes, requirements, structure, behavior, interfaces, constraints, and decisions. Implementation, configuration, tests, documentation, operations, and other concrete artifacts realize or provide evidence about that design; they do not silently change approved intent.
+The **project** is the enduring engineering subject. Its authoritative abstract design expresses intended outcomes, requirements, behavior, structure, responsibilities, interfaces, constraints, and decisions. Implementation and other concrete artifacts realize that design or provide evidence about it; they do not independently redefine approved intent.
 
-Work incrementally. Design the next useful scope to a level sufficient for responsible realization and verification; do not prescribe every future detail. Evidence and feedback may expose a need to revise design, which must be proposed and approved at the appropriate scope.
+The human and AI develop the design together. The human owns consequential decisions and their approval. AI contributes to reasoning, design, realization, and verification within the authority delegated to it.
 
-DLD is not a programming framework, a fixed folder scaffold, an automatic synchronization engine, a mandatory sequential lifecycle, or a claim of certification against a formal standard. It can draw on established engineering knowledge such as SWEBOK and applicable ISO/IEC/IEEE guidance.
+Work in useful increments. Develop each scope sufficiently to realize and assess it responsibly; a complete upfront specification of every future detail is not required. Observations, tests, and feedback may reveal deficiencies and lead to proposed design changes.
 
-## 2. Authority, collaboration, and delegation
+DLD governs **how engineering work is directed and carried out with AI**, not which programming language, framework, tool, or lifecycle model a project must use. It applies to established engineering disciplines without claiming automatic synchronization or formal conformance to standards.
 
-The **human** owns project direction, priorities, consequential design decisions, approval, and the boundaries of AI delegation. The **AI** is an active collaborator: it examines information, asks questions, challenges assumptions, identifies conflicts, compares alternatives, proposes and records decisions, and helps verify outcomes.
+## 2. Authority and responsibility
 
-AI may independently realize and verify **human-approved scope** within granted permissions and delegated implementation freedom. It does not need approval for every local implementation choice that remains within those boundaries. It must not approve its own design, treat a draft as approved, invent missing consequential decisions, or treat existing code as an override of approved design.
+**Human responsibilities**
 
-A proposed change to approved behavior, scope, interface, constraints, or ownership returns for human approval before its realization. Approved work unaffected by another draft may continue. Project documents operate within the AI tool's governing instructions and the actual permissions granted.
+- Set project direction, priorities, intended outcomes, and acceptable boundaries.
+- Decide and approve consequential changes to design, constraints, scope, interfaces, and delegated authority.
+- Authorize actions requiring permission, including commits, releases, and publication, unless that permission has already been explicitly delegated.
 
-## 3. Project foundation and authority
+**AI responsibilities**
 
-A DLD project has:
-- `foundation/CORE.md`: the **unchanged, versioned DLD method** adopted by the project.
-- `foundation/DESIGN.md`: the project's own authoritative project-wide abstract design and approval state.
-- `foundation/RULES.md`: additional constraints specifically adopted for this project, or an explicit statement that none exist.
-- `README.md`: an ordinary project introduction and a clear human/AI entry instruction pointing to its foundation.
+- Examine the current design, relevant project evidence, and applicable constraints.
+- Ask clarifying questions, identify conflicts and gaps, compare options, and propose and record changes.
+- Realize and verify approved scope independently where implementation choices and actions have been delegated.
+- Report assumptions, evidence, limitations, unresolved decisions, and deviations from approved design.
 
-The DLD development repository is itself a DLD project. Its `foundation/CORE.md` is the canonical maintained Core; its `DESIGN.md` describes DLD as the project being engineered; its `RULES.md` holds only constraints specific to maintaining DLD. A project adopting DLD receives an exact, versioned copy of Core and its own clean design and rules templates.
+AI must not approve its own proposals, treat drafts as approved, silently choose consequential requirements, or use existing implementation as authority to override an approved design. A decision affecting approved behavior, scope, interfaces, constraints, ownership, or delegation returns to the human before the changed intent is realized.
 
-**Core governs the method.** Project rules may specialize choices permitted by Core, but cannot silently override its principles. Project design defines what is being built and cannot redefine the method. If project conditions appear incompatible with Core, surface and resolve the incompatibility rather than editing the adopted Core in place.
+The human need not approve every local implementation choice. AI may proceed within an approved scope and its actual permissions, and unaffected approved work may continue while another change is pending. DLD documents operate within the governing instructions and permissions of the AI environment.
 
-## 4. Session initialization and continuity
+## 3. Project foundation
 
-Do not assume an AI tool discovers Markdown instructions automatically. At the start of a new or resumed human–AI session, explicitly direct AI to read the project's `foundation/CORE.md`, `foundation/RULES.md`, and `foundation/DESIGN.md`; then read applicable scoped design documents and inspect the current repository state.
+Every project using DLD has these documents:
 
-Before substantive work, AI identifies what is approved, what is draft, the relevant constraints, current realization or evidence, unresolved questions, and what work is delegated. Do not require an AI-specific instruction file. A tool-specific pointer may be used optionally but must not duplicate methodological authority.
+| Document | Authority |
+| --- | --- |
+| `foundation/CORE.md` | The adopted, versioned DLD methodology; unchanged within that adopted version. |
+| `foundation/DESIGN.md` | The project's authoritative overall abstract design and its approval state. |
+| `foundation/RULES.md` | Additional, explicitly adopted project-specific constraints; states when none exist. |
+| `README.md` | The project's ordinary entry point, including how to start work with human and AI. |
 
-Preserve enough state for continuity: identifiable approved design baselines and revisions, current implementation state, verification evidence, unresolved decisions, and a useful next action. Source control history preserves superseded design; current approved design text explains what is true now.
+**Core defines the method. DESIGN defines the project. RULES constrains the project.** A project's design or rules may specialize choices permitted by Core but must not silently contradict or redefine it. If a conflict appears, make it explicit and resolve it rather than editing the adopted Core.
 
-## 5. Design scope, ownership, and placement
+DLD's own development repository follows the same structure. Its Core is the canonical method source; its DESIGN and RULES apply specifically to the DLD development project. Starter templates for other projects contain no DLD-development-specific design approvals or rules.
 
-DLD design is **logically connected and hierarchically scoped**, but it need not be physically centralized. A decision has **one authoritative owner** at the nearest appropriate scope responsible for it. Higher scopes establish context, constraints, relationships, and delegated responsibilities; narrower scopes elaborate their own decisions while respecting all applicable governing constraints.
+## 4. Starting and resuming work
 
-Co-locate a design with its realization when this reflects real ownership, but allow design to exist before, after, or across implementation artifacts. For an individual artifact needing a focused design, a neighboring companion such as `module.py.md` can be appropriate; not every file needs a twin. Avoid empty forwarding documents or directories created only to mirror technical hierarchy.
+An AI tool may not discover project Markdown files automatically. At the beginning of a new or resumed human–AI session, the human explicitly directs AI to read `foundation/CORE.md`, `foundation/RULES.md`, and `foundation/DESIGN.md`, then any applicable scoped designs and the current project state.
 
-Shared policy spanning branches belongs to the nearest appropriate common owning scope or a meaningful sibling responsibility, with references from participating scopes. There is **no mandatory global `design/` or `shared/` directory**. Technical wrapper folders alone do not imply design authority. Preserve applicable broader constraints and resolve conflicts in design discussion.
+Before substantive action, AI establishes:
 
-Repository structure is responsibility- and ownership-oriented, technology-aware, and selectively adoptable. Ecosystem-native source locations and product definitions take precedence over artificial DLD naming. Keep maintained sources, conventional documentation, tests, verification evidence, engineering tools, configurations, infrastructure/deployment/operations concerns, generated build intermediates, and distributables distinct according to their actual responsibilities. Create folders only when needed.
+1. The intended task, responsible design scope, and applicable constraints.
+2. Which decisions are approved, which are drafts, and which are unresolved.
+3. The current realization and relevant evidence, including known discrepancies.
+4. The work and actions already authorized or delegated.
 
-## 6. Writing and approving design
+If essential information or authority is missing, resolve it with the human before making a consequential change. An AI-specific instruction file is not required. Optional tool-specific pointers may direct AI to the foundation without becoming another source of methodological authority.
 
-A design describes its **current intended state**, not the history of negotiations. Its structure should fit its scope, commonly recording purpose, outcomes, responsibilities, relevant requirements and behavior, relationships, constraints, verification criteria, approval state, and open decisions.
+Preserve enough state for future sessions to identify approved baselines, work completed, verification evidence, outstanding decisions, and the next useful action.
 
-A proposed substantive revision remains **Draft**; approved and proposed material can coexist only when clearly labeled (for example, `Status: Mixed` with a `Pending changes — Draft revision N` section). A new proposal does not nullify earlier approved, unchanged decisions.
+## 5. Design scopes and ownership
 
-A design can record:
-- `Revision: N`
-- `Status: Draft | Approved | Mixed`
-- `Approval: Rev N approved by [who] [YYYY-MM-DD]` — only when that approval actually occurred.
+Design is **logically hierarchical and connected by responsibility**; it need not be centralized in one physical directory.
 
-On human approval of a defined revision and scope, perform an **approval sweep**: (1) ensure the previous approved baseline is recoverable; (2) remove approved draft annotations and superseded commentary; (3) append a single truthful approval record without rewriting older approval lines; (4) verify the resulting final-state document, then commit its authorized approved baseline with identifiable paths/revisions. Preserve unapproved portions as clearly distinguished drafts. Never invent approvers, dates, evidence, or approvals.
+Every authoritative design decision has **one owning scope**. The project-wide DESIGN establishes shared direction, constraints, responsibilities, and relationships. Narrower designs own their delegated decisions and respect applicable governing designs and project rules. Reference a decision owned elsewhere instead of duplicating its authority.
 
-Retain superseded design in Git or equivalent version history; preserve longer audit findings in appropriately owned records rather than the design body. Formatting corrections need not reopen settled decisions. Moving a design preserves approval only when scope and governing constraints remain unchanged; changed ownership or constraints require a fresh human decision.
+Locate a scoped design at the nearest appropriate owner. Co-locate it with its realization when that accurately reflects responsibility. Designs may precede implementation; a focused companion such as `module.py.md` can be useful, but not every source file or intermediary folder needs a design document.
 
-Design approval, implementation progress, test success, Git commit authorization, and release permission are **separate**. A commit, tag, or passing test does not itself confer approval.
+For responsibilities spanning branches, use an appropriate common owning scope or a separately meaningful sibling responsibility. Identify the participating scopes and preserve navigable references and governing constraints. Physical wrapper directories do not themselves acquire design authority. No global `design/` or `shared/` directory is required.
 
-## 7. Working across the software lifecycle
+Use ecosystem-native structures where they have genuine ownership. Distinguish maintained source, supporting documentation, tests, verification evidence, tools, configuration, delivery and operations artifacts, generated intermediate outputs, and distributables according to their actual responsibilities. Create directories and documents when needed, not to satisfy an empty scaffold.
 
-DLD spans conception and feasibility; stakeholder needs and requirements; architecture and detailed design; implementation and integration; verification and validation; packaging, delivery and deployment; operation and support; maintenance and evolution; and retirement. These are responsibilities and feedback loops, not a mandatory linear stage sequence.
+When moving, splitting, or combining design scopes, preserve decisions, approvals, history, and references. An administrative move preserves prior approval only when scope and governing constraints remain unchanged. Changes of meaning, responsibility, or governing constraints require human approval.
 
-A recurring practical cycle is:
+## 6. Design states and approval
 
-1. **Understand:** Read governing design and project state; identify the next useful outcome, constraints, and evidence.
-2. **Propose:** Analyze alternatives and record needed design decisions at the responsible scopes.
-3. **Decide:** Obtain human approval of consequential changes and the identified revision/scope.
-4. **Realize:** Implement and integrate approved scope within delegated freedom.
-5. **Verify and validate:** Assess conformance to approved design and suitability for intended use, using appropriate checks and direct evidence.
-6. **Report and evolve:** Record results, limitations, discrepancies, and feedback; correct realization or propose design revision where required.
+Design documents describe **the current intended state** of their scope. Use concise current-state requirements and only the rationale necessary to understand them. Keep superseded wording and extended audit narratives in version history or separately owned records rather than in the authoritative design body.
 
-A small approved increment can be implemented while other scopes remain under discussion. Correct a realization that violates unchanged approved design; do not retroactively redefine design to match accidental implementation.
+An identifiable revision has an approval state:
 
-## 8. Evidence, delivery, and versioning
+- **Draft:** Its proposed changes are not yet approved.
+- **Approved:** The identified design revision and scope have been approved by the human.
+- **Mixed:** Previously approved decisions remain authoritative while distinctly marked proposed changes await decision.
 
-Verification checks whether a realization meets approved design; validation addresses its suitability for intended use. Tests, inspection, demonstrations, operations evidence, and other checks are chosen according to risk and context. Record what was actually performed and distinguish observed results from assumptions. Passing automated tests alone does not establish full design conformance.
+The document identifies its revision and status, for example `Revision: 1` and `Status: Draft`. Record an actual approval using one `- Approval: Rev N approved by [who] [YYYY-MM-DD]` line for the relevant revision. Never fabricate an approval, approver, date, or verification result. A template is a draft, not a project approval.
 
-Deliver or release only within authorized permissions and with agreed acceptance criteria and limitations explicitly handled. Preserve appropriate installation, use, operations, maintenance, and retirement information. Publication or a Git tag is not proof of human design approval or successful verification.
+For a mixed state, distinguish proposals under a heading such as `Pending changes — Draft revision N`, or mark proposed content explicitly. A proposed revision does not revoke unchanged, previously approved decisions. For partial approval, clearly identify the approved portion and retain the remaining proposals in a separately identified draft revision.
 
-Suggest meaningful Git checkpoints for approved design baselines, verified increments, and focused corrections; do not commit, push, or publish without actual authorization. Preserve unrelated work.
+### Approval procedure
 
-A project's **product version**, its **design revisions**, and its **adopted DLD Core version** are independent. Adopt DLD updates deliberately by comparing changes and obtaining relevant approval; never overwrite project-specific design or rules as an automatic side effect of upgrading the Core. The adopted Core itself remains frozen for that DLD version.
+When the human approves a defined revision and scope:
+
+1. Ensure the previous approved baseline remains identifiable and recoverable in version control or an equivalent record.
+2. Reconcile the design with precisely what was approved. Remove approved draft markers and superseded commentary; preserve any unresolved proposals as drafts.
+3. Append the truthful one-line approval record, retaining earlier approval entries.
+4. Review the resulting current-state document against the approved decision.
+5. Commit the approved baseline **when authorized**, identifying the design paths, revisions, and approved scope. If committing is not authorized or possible, report that the baseline commit remains pending.
+
+An additional commit of the pre-approval draft is necessary only when that exact intermediate state needs independent recovery. A design-specific tag is not required. Version history preserves past design text; a revision's approval record identifies the human decision, while an identifiable commit records the approved snapshot.
+
+**Approval, implementation progress, verification, committing, and release authorization are different states.** None automatically grants another. Formatting or spelling corrections that do not change decisions need not reopen prior approval.
+
+## 7. Working across the lifecycle
+
+DLD applies to conception and feasibility; stakeholder needs and requirements; architecture and design; implementation and integration; verification and validation; packaging, delivery, and deployment; operation and support; maintenance and evolution; and retirement. These are **engineering responsibilities with feedback**, not mandatory sequential phases.
+
+Use the following recurring cycle for the scope being worked on:
+
+1. **Understand:** Read governing designs and evidence; define the next useful outcome and identify gaps or constraints.
+2. **Develop design:** Discuss needs and alternatives; place proposed decisions with their authoritative owners.
+3. **Decide:** Obtain human approval for consequential decisions and identify the approved revision and scope.
+4. **Realize:** Implement and integrate the approved scope within delegated freedom and permissions.
+5. **Verify and validate:** Collect evidence of conformance to the design and suitability for intended use.
+6. **Report and evolve:** Explain results, limitations, and discrepancies; correct realizations or propose necessary design revisions.
+
+The cycle repeats at different scopes and lifecycle moments. A small approved increment may proceed while unrelated decisions remain open.
+
+When concrete work conflicts with an unchanged approved design, correct the concrete work. If evidence suggests the intended design itself should change, propose that change and obtain human approval before realizing the changed intent.
+
+## 8. Evidence, delivery, and continuity
+
+**Verification** asks whether a realization satisfies its approved design. **Validation** asks whether the result serves the intended need. Select tests, reviews, demonstrations, observations, and operational evidence appropriate to the scope and risk. Record what was actually checked, the outcome, and any limitations; do not equate a passing test with complete conformance.
+
+Before delivering or releasing, satisfy the project's agreed criteria, permissions, and acceptance of known limitations. Provide the installation, use, operation, support, maintenance, and retirement information appropriate to the product. A generated package, Git tag, or automated check is not proof of approval or permission to publish.
+
+Propose proportionate Git checkpoints for identifiable design baselines, verified realization increments, and focused corrections. Inspect the intended scope and preserve unrelated work. Commit, push, publish, or modify release records only when authorized or within explicitly delegated permission.
+
+Maintain traceability between owned design decisions, their realizations, and relevant verification evidence. Keep current authoritative designs understandable while retaining recoverable history and enough project context to continue work after an interruption.
+
+## 9. Versions and adoption
+
+Distinguish the **project's own product version**, **design document revisions**, and **adopted DLD version**. They evolve independently.
+
+A project adopts a specific DLD Core version and keeps that Core unchanged. To upgrade DLD, review the new method and its adoption implications, deliberately replace the Core with the new version, and reconcile any project-specific constraints or procedures through the required human decisions. Do not overwrite the project's DESIGN, RULES, or their approval history.
+
+DLD's development repository maintains the canonical Core and produces development and product distributions from one versioned source baseline. Changes to DLD itself are made in that canonical source and reviewed under the DLD development project's own design and approval process. A source change or successful package build is not, by itself, an approved or published method release.
