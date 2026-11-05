@@ -2,27 +2,14 @@
 
 This file records changes to the Design-Led Development method and its starter. Products built using the method maintain their own changelogs.
 
-## Unreleased
+## Unreleased — planned v0.1.4
 
-### Proposed optional documentation integration (not approved or released)
-- Require that the minimal copied starter alone be sufficient for full DLD collaboration and compliance.
-- Distribute the complete adopter guides and reference documentation in the product, with an optional, version-matched, copy-ready `docs/dld/` overlay for projects that want local supporting knowledge.
-- Validate the optional overlay's links in its installed project layout without duplicating Core or imposing new mandatory documents.
-
-### Proposed foundation and documentation simplification (not approved or released)
-- Establish a single canonical, versioned DLD Core in `foundation/CORE.md`, shared without modification by development and adopters.
-- Remove `WORKFLOW.md`: consolidate the method and operating protocol into Core; keep DESIGN and RULES project-specific.
-- Organize documentation by responsibility under `docs/guides/`, `docs/reference/`, and `docs/internal/`, with an audience-neutral index; remove duplicated core procedures and stale template guidance.
-- Keep concrete examples under `examples/`, and assemble a clean project starter from one Core.
-- Maintain one version and two distributions, with the frozen Core identical in both.
-
-
-### Proposed (not yet approved or released)
-- Clarify lifecycle-wide, design-centered, human-authoritative DLD principles and standards-informed stance.
-- Propose the selectively adoptable reference layout, with single-authority nearest-scope placement.
-- Propose the `foundation/` and `DESIGN.md` migration and dual distribution boundaries under one release baseline.
-- Separate common methodology learning from adopter and contributor guidance; make the copied starter operationally self-contained without AI-specific files.
-- Add reviewed source allowlists and checks for development and product distribution archives.
+- Consolidate the versioned DLD methodology into one authoritative `foundation/CORE.md` with human approval, scope ownership, evidence, and continuity rules.
+- Maintain a clean four-file project starter; generate its Core directly from the canonical source.
+- Simplify supporting documentation to one optional project repository layout reference, maintained at `docs/supporting/repository-layout.md`.
+- Package a product with its own introduction, a single copyable starter (including Core), optional `supporting/` material, VERSION, CHANGELOG, and LICENSE.
+- Keep DLD-development governance and distribution assembly tooling out of the adopter product.
+- These changes are on a proposal branch and are not yet a published release.
 
 ## 0.1.3 — 2026-11-03
 

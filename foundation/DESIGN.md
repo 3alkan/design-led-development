@@ -21,7 +21,7 @@ The intended outcomes are:
 
 ## Project scope and boundaries
 
-The DLD development project owns the canonical Core source, its own project design and rules, the clean adopter starter, supporting documentation and examples, and the packaging and validation machinery needed to distribute them.
+The DLD development project owns the canonical Core source, its own project design and rules, the clean adopter starter, optional supporting reference material, and the packaging and validation machinery needed to distribute them.
 
 The project does not promise automatic design-to-implementation synchronization, a particular programming language or AI provider, a mandatory AI instruction file, or formal certification against an external engineering standard.
 
@@ -42,7 +42,7 @@ The project produces two distributions sharing the same versioned Core and DLD r
 | Distribution | Audience and contents |
 | --- | --- |
 | **Development** | DLD maintainers: canonical Core, this project's DESIGN and RULES, maintained documentation, starter sources, examples, packaging, and development infrastructure. |
-| **Product** | DLD adopters: the same Core, project-neutral starter, adopter-oriented guidance and references, version identity, changelog, and license. It excludes DLD development's own DESIGN, RULES, and internal packaging material. |
+| **Product** | DLD adopters: a project-neutral starter containing the sole distributed Core copy, optional supporting reference material, version identity, changelog, and license. It excludes DLD development's own DESIGN, RULES, and internal packaging material. |
 
 The distributions are assembled from an identifiable maintained source baseline. Successful assembly or automated checks provide evidence about the packages; neither substitutes for human authorization to release.
 
@@ -64,9 +64,7 @@ Adopters copy the starter into their own projects, then develop their own design
 
 ### Optional supporting documentation
 
-The product also provides explanatory documentation, lifecycle guidance, and a reference repository layout. This material MAY help adopters but MUST NOT add methodological obligations beyond Core.
-
-A ready-to-copy optional documentation overlay under `optional/docs/dld/` can be placed in an adopter's `docs/dld/`. Its links must resolve after installation, and it must not install a second Core or become a competing source of authority.
+The product provides one optional supporting reference on user-project repository organization, maintained at [`docs/supporting/repository-layout.md`](../docs/supporting/repository-layout.md). Packaging places it at `supporting/repository-layout.md`. Adopters MAY copy it into their own `docs/dld/` directory. Additional supporting material is introduced only when useful; none may add methodological obligations beyond Core.
 
 ## Responsibility and artifact ownership
 
@@ -76,14 +74,12 @@ A ready-to-copy optional documentation overlay under `optional/docs/dld/` can be
 | [`foundation/DESIGN.md`](DESIGN.md) | DLD development project's intended design and identified approval state. |
 | [`foundation/RULES.md`](RULES.md) | Additional adopted constraints specific to DLD development, if any. |
 | [`README.md`](../README.md) | Development repository entry point and navigation. |
-| [`docs/`](../docs/README.md) | Explanatory guides and references; includes adopter and development guidance. |
-| [`examples/`](../examples/README.md) | Non-authoritative demonstrations of the methodology, when available. |
+| [`docs/supporting/`](../docs/supporting/repository-layout.md) | Optional, non-authoritative material for DLD adopters; currently the repository layout reference. |
 | [`starter/`](../starter/README.md) | Project-neutral starter sources; packaging generates its Core copy. |
 | [`.github/package.py`](../.github/package.py) | Assembly and validation of development and product distributions. |
-| [`docs/internal/packaging.md`](../docs/internal/packaging.md) | DLD-project packaging design details and maintainer guidance. |
 | [`VERSION`](../VERSION), [`CHANGELOG.md`](../CHANGELOG.md), [`LICENSE`](../LICENSE) | Release version, release history, and licensing. |
 
-The [reference repository layout](../docs/organize.md) is optional guidance, not a mandatory scaffold. Physical placement does not create design authority. New artifacts and scopes are introduced only when their engineering responsibilities justify them.
+The [repository layout reference](../docs/supporting/repository-layout.md) is optional guidance, not a mandatory scaffold. Physical placement does not create design authority. New artifacts and scopes are introduced only when their engineering responsibilities justify them.
 
 Cross-cutting method changes are owned by Core. Changes to the DLD product, starter contract, and distribution relationships are owned here; implementation details remain with the corresponding packaging, documentation, and other engineering artifacts.
 
@@ -101,8 +97,8 @@ A candidate release is prepared by aligning the canonical Core, starter, documen
 - The project foundation and its approval history remain distinguishable from the templates given to adopters.
 - The minimal starter works with only its README, Core, draft DESIGN, and rules-empty RULES; no optional document or AI-specific file is required for compliance.
 - Both distributions use the same identified version and source baseline, include only their intended audience-specific materials, and preserve valid relative links.
-- The optional documentation overlay resolves correctly when installed beside the starter and does not create a second methodological authority.
-- The canonical Core, explanatory documents, starter, examples, and package behavior do not contradict one another.
+- The supporting reference can be copied into `docs/dld/` beside the starter without broken relative links or a second methodological authority.
+- The canonical Core, supporting reference, starter, and package behavior do not contradict one another.
 - Validation reports actual checks and limitations rather than inferring broad correctness from a successful build.
 - Releases reflect explicit human authorization and truthful version, approval, changelog, and evidence records.
 
