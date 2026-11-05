@@ -1,0 +1,16 @@
+name: Validate DLD distributions
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  distributions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Build and validate development and product packages
+        run: python3 tools/package/build.py --check
