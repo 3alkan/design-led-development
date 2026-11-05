@@ -4,15 +4,15 @@ This workflow defines how the human and AI develop and maintain Design-Led Devel
 
 ## Project foundation
 
-- [ROOT.md](ROOT.md) defines this repository's purpose, scope, overall design, and approval state.
+- [DESIGN.md](DESIGN.md) defines this repository's purpose, scope, overall design, and approval state.
 - [RULES.md](RULES.md) records adopted repository-specific requirements.
 - This document defines the working process.
 
-The [starter workflow](../starter/root/WORKFLOW.md) is distributed to users for their own projects. It is a separate artifact from this repository's workflow. Review the effect of changes across both scopes without assuming their contents must be identical.
+The [starter workflow](../starter/foundation/WORKFLOW.md) is distributed to users for their own projects. It is a separate artifact from this repository's workflow. Review the effect of changes across both scopes without assuming their contents must be identical.
 
 ## Human and AI responsibilities
 
-The human directs the method and approves consequential changes to design, workflow, and rules.
+The human directs the method and approves consequential changes to design, workflow, and rules. AI proposes design changes and may autonomously realize approved changes within delegated limits throughout the software lifecycle.
 
 Project authority remains within the AI tool's governing instructions and access permissions.
 
@@ -22,9 +22,9 @@ AI works independently within approved scope and delegated freedom. It returns c
 
 ## Design and approval
 
-Begin with the relevant design and its approval state. Keep whole-repository decisions in `ROOT.md`; create focused design documents when a scope needs separate treatment.
+Begin with the relevant design and its approval state. Keep whole-repository decisions in `DESIGN.md`; create focused design documents when a scope needs separate treatment.
 
-Folder hierarchy normally expresses design hierarchy. Keep designs beside their realization, with nested scopes respecting applicable ancestor constraints. This repository's `root/` holds project-wide governance, not every subordinate scope. Technical wrappers do not require their own design just because they contain other scopes.
+Folder hierarchy normally expresses design hierarchy. Keep designs beside their realization, with nested scopes respecting applicable ancestor constraints. This repository's `foundation/` holds project-wide governance, not every subordinate scope. Technical wrappers do not require their own design just because they contain other scopes.
 
 For a cross-branch responsibility, first use an existing common ancestor's design when the decision belongs at that level. If it would overload or distort that scope, allow a focused shared design outside the branches. It owns common decisions and links participating branch designs; narrower designs remain local and reference it. They must satisfy both local ancestor and shared constraints, with conflicts returned to discussion. This is a cross-branch exception, not an open-ended placement choice. Keep artifact designs adjacent and preserve decisions, approval history, and references when moving designs.
 

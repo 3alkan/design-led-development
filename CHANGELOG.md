@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+### Proposed (not yet approved or released)
+- Foundational philosophy and coordinated repository migration (pending review).
+
 This file records changes to the Design-Led Development method and its starter. Products built using the method maintain their own changelogs.
 
 ## Unreleased
@@ -30,7 +35,7 @@ Clarify design hierarchy and the cross-branch exception from [issue #2](https://
 
 ### Changed
 
-- Clarify the project root, the project-wide `root/` directory, and design hierarchy in response to [issue #2](https://github.com/3alkan/design-led-development/issues/2).
+- Clarify the project root, the project-wide `foundation/` directory, and design hierarchy in response to [issue #2](https://github.com/3alkan/design-led-development/issues/2).
 - Preserve folder hierarchy as the default design hierarchy, with designs beside implementation and nested scopes inheriting applicable ancestor constraints.
 - For cross-branch responsibilities, first use an existing common ancestor's design when appropriate. Allow a focused separate shared design only when the responsibility would overload or distort the ancestor's scope. Keep narrower branch designs local, respecting both shared and local ancestor constraints.
 - Demonstrate common policy and contracts in a shared design, narrower behavior in branch designs, and artifact designs beside individual files. Require navigable references without duplicated decision ownership; no general separate-placement exception is introduced.
@@ -62,7 +67,7 @@ Clarify commit checkpoint guidance from [issue #1](https://github.com/3alkan/des
 
 ### Adoption
 
-Merge the commit checkpoint section from `starter/root/WORKFLOW.md` into your project's workflow through the human approval process. Preserve project-specific decisions and update the method baseline in the product README to `0.1.1`. No product rules, implementation changes, or automatic committing permission are required.
+Merge the commit checkpoint section from `starter/foundation/WORKFLOW.md` into your project's workflow through the human approval process. Preserve project-specific decisions and update the method baseline in the product README to `0.1.1`. No product rules, implementation changes, or automatic committing permission are required.
 
 ### Validation and limitations
 
@@ -74,16 +79,16 @@ Initial release of the method, copyable starter, and practical guide. Git tag: `
 
 ### Starter
 
-- Replace the original top-level workflow with a rewritten workflow in `starter/root/WORKFLOW.md`, covering human–AI responsibilities, design organization and approval, realization, verification, delivery, and continuity.
+- Replace the original top-level workflow with a rewritten workflow in `starter/foundation/WORKFLOW.md`, covering human–AI responsibilities, design organization and approval, realization, verification, delivery, and continuity.
 - Add a product README template covering setup, usage, project status, development, releases, the adopted method baseline, and licensing.
 - Add a minimal rules template grouped by topic with stable identifiers, the requirement and its scope or conditions, and optional exceptions and reasons. Adopted rules apply without status fields.
-- Add a root design template covering purpose, users and outcomes, scope, overall design, major areas and relationships, shared decisions, success criteria, and open questions. Include revision and approval information without claiming product approval.
+- Add a foundation design template covering purpose, users and outcomes, scope, overall design, major areas and relationships, shared decisions, success criteria, and open questions. Include revision and approval information without claiming product approval.
 
 ### Repository
 
-- Add a practical guide covering project setup, root design, detailed designs, realization, verification and delivery, and ongoing evolution. Include adoption of existing projects, optional prompts and examples, and independent version records. Link it from the repository README and design.
+- Add a practical guide covering project setup, foundation design, detailed designs, realization, verification and delivery, and ongoing evolution. Include adoption of existing projects, optional prompts and examples, and independent version records. Link it from the repository README and design.
 - Add an examples index describing the expected scope and evidence for future worked projects.
-- Define this method repository's own design, workflow, and rules under `root/`, separately from the materials copied into products.
+- Define this method repository's own design, workflow, and rules under `foundation/`, separately from the materials copied into products.
 - Update the repository README around the copyable starter and its use.
 - Establish `VERSION` as the method's release baseline, independently of design revisions and the releases of products using it.
 

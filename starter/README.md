@@ -20,9 +20,9 @@ to run the product.]
 This project follows Design-Led Development. Before making changes,
 read:
 
-- [Workflow](root/WORKFLOW.md): how humans and AI work together.
-- [Rules](root/RULES.md): specific project requirements.
-- [Root design](root/ROOT.md): the project's overall design.
+- [Workflow](foundation/WORKFLOW.md): how humans and AI work together.
+- [Rules](foundation/RULES.md): specific project requirements.
+- [Foundation design](foundation/DESIGN.md): the project's overall design.
 
 ## Releases
 

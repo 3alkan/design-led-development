@@ -18,11 +18,11 @@ Avoid inventing a large document hierarchy in advance. Add a document when a res
 
 ## Understand the normal hierarchy
 
-The **project root** contains the product. Its **`root/` directory** holds project-wide workflow, rules, and top-level design. It is not the automatic physical parent of every design scope.
+The **project root** contains the product. Its **`foundation/` directory** holds project-wide workflow, rules, and top-level design. It is not the automatic physical parent of every design scope.
 
 **Folder hierarchy normally expresses design hierarchy.** A folder design owns its scope and delegates narrower responsibilities to nested designs, which inherit applicable ancestor constraints. Keep designs beside the realization they govern. Parents reference delegated scopes, and children identify applicable broader designs so readers can navigate the hierarchy.
 
-The project's top-level design is `root/ROOT.md`, even though its physical directory is beside other scopes. Technical wrappers such as `src/` or framework routes do not need design documents solely because they contain other folders. Follow the applicable design ancestors, without inventing authority for every physical directory.
+The project's top-level design is `foundation/DESIGN.md`, even though its physical directory is beside other scopes. Technical wrappers such as `src/` or framework routes do not need design documents solely because they contain other folders. Follow the applicable design ancestors, without inventing authority for every physical directory.
 
 ## Default: keep designs beside implementation
 
@@ -30,8 +30,8 @@ Start with meaningful scopes before choosing a framework. An early design-only s
 
 ```text
 project-name/
-├── root/
-│   └── ROOT.md
+├── foundation/
+│   └── DESIGN.md
 └── lending/
     ├── lending.md
     └── renewal/
@@ -44,10 +44,10 @@ If the approved implementation layout later introduces `src/`, reconcile placeme
 
 ```text
 project-name/
-├── root/
+├── foundation/
 │   ├── WORKFLOW.md
 │   ├── RULES.md
-│   └── ROOT.md
+│   └── DESIGN.md
 └── src/
     └── lending/
         ├── lending.md
@@ -61,7 +61,7 @@ project-name/
 
 Python, TypeScript, and `src/` are illustrative choices, not required technologies. Add artifact designs when the corresponding responsibilities need them; not every implementation file needs a companion.
 
-The root design defines the product and the responsibilities of lending. `lending.md` defines the lending lifecycle and the place of renewal within it. `renewal.md` owns the renewal behavior and policy. The artifact documents own their detailed contracts or interactions.
+The foundation design defines the product and the responsibilities of lending. `lending.md` defines the lending lifecycle and the place of renewal within it. `renewal.md` owns the renewal behavior and policy. The artifact documents own their detailed contracts or interactions.
 
 The renewal policy belongs in the renewal design. An eligibility artifact references that policy; it does not invent another copy. A form design defines the member's interaction without reassigning policy authority to the UI.
 
@@ -75,16 +75,16 @@ Use this decision order:
 2. For a responsibility shared across branches, use an existing common ancestor's design if the decision belongs at that ancestor's level.
 3. If the shared responsibility would overload or distort the ancestor's scope, introduce one focused shared design outside the branches. Record its responsibility and participating branches.
 
-For example, a project-wide privacy principle belongs in the root design. Detailed renewal policy spanning frontend and backend may need its own shared design rather than expanding the root document with feature details. Do not create `src/src.md` solely to obtain a physical common ancestor.
+For example, a project-wide privacy principle belongs in the foundation design. Detailed renewal policy spanning frontend and backend may need its own shared design rather than expanding the root document with feature details. Do not create `src/src.md` solely to obtain a physical common ancestor.
 
 This is a limited exception for cross-branch responsibilities. It does not permit arbitrary placement, require every non-artifact design under `design/`, or relocate unrelated module designs. Local hierarchies and adjacent artifact designs remain intact.
 
 ```text
 project-name/
-├── root/
+├── foundation/
 │   ├── WORKFLOW.md
 │   ├── RULES.md
-│   └── ROOT.md
+│   └── DESIGN.md
 ├── design/
 │   └── renewal/
 │       └── renewal.md
@@ -103,11 +103,11 @@ project-name/
             └── form.tsx
 ```
 
-The root design identifies the shared renewal responsibility. The shared design owns renewal policy, cross-branch contracts, and the allocation of responsibilities. Narrower designs in each branch explain how their branch fulfills those responsibilities.
+The foundation design identifies the shared renewal responsibility. The shared design owns renewal policy, cross-branch contracts, and the allocation of responsibilities. Narrower designs in each branch explain how their branch fulfills those responsibilities.
 
 | Design | Owns | Governing context |
 | --- | --- | --- |
-| `design/renewal/renewal.md` | Common policy, cross-branch behavior, contracts, and responsibility allocation. | The root design and applicable project constraints. |
+| `design/renewal/renewal.md` | Common policy, cross-branch behavior, contracts, and responsibility allocation. | The foundation design and applicable project constraints. |
 | `src/backend/renewal/renewal.md` | Backend validation, processing, and failures within the common contract. | The shared renewal design and applicable backend ancestor constraints. |
 | `src/frontend/renewal/renewal.md` | Member interaction and presentation within the common behavior. | The shared renewal design and applicable frontend ancestor constraints. |
 | Artifact companions | Detailed contracts delegated to individual files. | Their local branch design and applicable shared decisions. |

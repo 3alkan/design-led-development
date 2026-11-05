@@ -1,6 +1,6 @@
-# 2. Define the root design
+# 2. Define the foundation design
 
-Develop `root/ROOT.md` through conversation. It is the project's top-level design and should explain what the product is meant to become.
+Develop `foundation/DESIGN.md` through conversation. It is the project's top-level design and should explain what the product is meant to become.
 
 **Human:** Choose the purpose, priorities, boundaries, and intended outcomes.
 
@@ -10,7 +10,7 @@ Develop `root/ROOT.md` through conversation. It is the project's top-level desig
 
 Explain the problem in the user's terms before deciding how to build it. A useful opening prompt is:
 
-> Help me define the project in root/ROOT.md. Start with the problem, intended users, and outcomes. Identify what we know and the decisions we still need to make.
+> Help me define the project in foundation/DESIGN.md. Start with the problem, intended users, and outcomes. Identify what we know and the decisions we still need to make.
 
 For a lending service, an outcome might be that members can see their active loans and request an eligible renewal. Questions about eligibility, dates, and confirmation can then be assigned to more detailed scopes.
 

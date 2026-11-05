@@ -3,7 +3,7 @@
 This workflow defines how the human and AI work together to realize
 a project from beginning to end.
 
-Design is the project's source of truth. The human and AI develop
+The comprehensive abstract project design is the project's authoritative source of truth throughout the complete software lifecycle. The human and AI develop
 the design together, recording the project's purpose, behavior,
 structure, and constraints in Markdown documents.
 
@@ -11,21 +11,20 @@ The human directs the project and approves its design. AI contributes
 to design discussions, realizes approved designs, and verifies that
 the implementation fulfills them.
 
-Design continues to govern the project through implementation,
-delivery, maintenance, and future changes.
+Design continues to govern the project through conception, realization, verification, delivery, operation, maintenance, evolution, and retirement.
 
 ## Project foundation
 
 The project's working method, mandatory rules, and top-level design
-are recorded in three documents under `root/`:
+are recorded in three documents under `foundation/`:
 
 - `WORKFLOW.md` defines how the human and AI work together.
 - `RULES.md` defines project rules that must be followed.
-- `ROOT.md` defines the project's purpose, scope, intended outcomes,
+- `DESIGN.md` defines the project's purpose, scope, intended outcomes,
   and overall design.
 
 The project root is the directory containing the whole product.
-The `root/` directory inside it holds these project-wide documents;
+The `foundation/` directory inside it holds these project-wide documents;
 it is not automatically the container for other design or implementation
 scopes. Other scopes normally live alongside it or within source areas.
 
@@ -62,7 +61,7 @@ as authority to redefine the design.
 
 ## Organizing the design
 
-Design begins in `root/ROOT.md`, which establishes the project's
+Design begins in `foundation/DESIGN.md`, which establishes the project's
 overall purpose, scope, major responsibilities, and shared constraints.
 
 As the design develops, divide it into meaningful scopes. Each
@@ -77,7 +76,7 @@ detail in the parent or repeating shared decisions across documents.
 Folder hierarchy is the default expression of design hierarchy.
 Keep scope designs beside the implementation they govern. Nested
 designs inherit applicable constraints from their governing ancestors,
-starting with the project's top-level design in `root/ROOT.md`.
+starting with the project's top-level design in `foundation/DESIGN.md`.
 A folder's design document lives inside that folder and uses its
 name, such as `lending/lending.md` or `src/lending/lending.md`.
 
@@ -183,7 +182,7 @@ History has exactly three destinations: Git commits for superseded versions and 
 
 When reviewing designs, classify historical narration in the body, multi-line approval prose, and repeated rationale across files as `SEDIMENT` findings. Correct them without changing approved meaning or discarding pending work.
 
-A component design follows the same voice and approval format as the root design. For example, an approved component document can use:
+A component design follows the same voice and approval format as the foundation design. For example, an approved component document can use:
 
 ```markdown
 # Renewal component

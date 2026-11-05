@@ -20,6 +20,10 @@ For partial approval, use `Status: Mixed` and put remaining proposals under `## 
 
 [What does the project include? What is explicitly excluded?]
 
+## Lifecycle-relevant design
+
+[Describe approved project-wide requirements, constraints, operational and maintenance concerns, and other lifecycle knowledge at the proper scope; detailed scope designs live with their owners.]
+
 ## Overall design
 
 [Describe how the product should work and the intended experience.

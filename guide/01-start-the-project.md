@@ -13,15 +13,15 @@ Copy the **contents** of [starter/](../starter/) into your product repository:
 ```text
 project-name/
 ├── README.md
-└── root/
+└── foundation/
     ├── WORKFLOW.md
     ├── RULES.md
-    └── ROOT.md
+    └── DESIGN.md
 ```
 
 Keep existing source files and decisions if the project already exists. Compare documents before copying so that the starter does not overwrite established work. Existing behavior is useful evidence; discuss which behavior should become part of the approved design.
 
-Here, `project-name/` is the project root; `root/` holds its project-wide documents. Feature areas can begin alongside it before implementation exists. Keep their designs hierarchical and beside their realization. The [detailed design guide](03-develop-detailed-designs.md) explains how that structure develops and when a cross-branch responsibility needs a shared design.
+Here, `project-name/` is the project root; `foundation/` holds its project-wide documents. Feature areas can begin alongside it before implementation exists. Keep their designs hierarchical and beside their realization. The [detailed design guide](03-develop-detailed-designs.md) explains how that structure develops and when a cross-branch responsibility needs a shared design.
 
 Adapt the README's product name and description. Keep its release baseline. If adopting changes beyond that release, record the source commit and any local adaptations too; the release number alone does not identify unreleased contents.
 
@@ -31,7 +31,7 @@ Read the workflow with AI. Confirm that the human owns approval and that AI can 
 
 Do not assume the AI tool will discover these files automatically. Begin the conversation with a direct instruction such as:
 
-> Read root/WORKFLOW.md, root/RULES.md, and root/ROOT.md before working. Help me develop the design through discussion. Keep proposals distinct from decisions I approve, and implement only approved scope.
+> Read foundation/WORKFLOW.md, foundation/RULES.md, and foundation/DESIGN.md before working. Help me develop the design through discussion. Keep proposals distinct from decisions I approve, and implement only approved scope.
 
 Use your tool's project-instruction mechanism if available, pointing it to these documents without creating another competing copy of the method.
 
@@ -47,4 +47,4 @@ Formatting conventions belong here. Product behavior belongs in design. Collabor
 
 You should have a product repository, a shared understanding of collaboration, and a first statement of the problem. Unresolved product decisions can remain open.
 
-Next: [Define the root design](02-define-the-root-design.md).
+Next: [Define the foundation design](02-define-the-root-design.md).
