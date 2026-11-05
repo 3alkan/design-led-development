@@ -1,17 +1,5 @@
-# RULES
+# Project Rules
 
-<!--
-Template only: no project-specific rules have been adopted yet.
-Replace the placeholders with adopted rules. Every rule listed applies.
-Keep identifiers stable. Omit Exception and Reason when unnecessary.
--->
+No project-specific rules have been adopted yet.
 
-## 1. [Topic]
-
-### 1.1 [Rule title]
-
-[State the requirement, including its scope or conditions where needed.]
-
-Exception: [Optional exception.]
-
-Reason: [Optional reason.]
+[Replace this statement only when the human adopts an additional project constraint. Keep rules scoped and identifiable. The DLD working method is defined in the immutable, versioned `CORE.md`; do not repeat or override it here.]

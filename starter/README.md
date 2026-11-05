@@ -1,49 +1,31 @@
 # [Project name]
 
-[Describe the product, who it serves, and what it offers.]
+[Briefly state what this software project is for, who uses it, and its intended outcome.]
 
 ## Getting started
 
-[Explain prerequisites, installation, configuration, and how
-to run the product.]
+[Explain prerequisites, how to set up the project, and how to use its product.]
 
-## Usage
+## Work on this project with human and AI
 
-[Show how to use the product, with examples where helpful.]
+This project uses **Design-Led Development (DLD)**. Its `foundation/CORE.md` is the frozen methodology adopted for this project. `foundation/DESIGN.md` defines this project's approved intent; `foundation/RULES.md` holds any additional adopted constraints.
+
+**At the start of every new or resumed AI session, give this instruction:**
+
+> Read `foundation/CORE.md`, `foundation/RULES.md`, and `foundation/DESIGN.md`. Then read the applicable scoped designs and inspect the project state. Apply DLD Core; distinguish approved scope from drafts and return consequential design changes to me for approval before realizing them.
+
+AI tools are **not** guaranteed to discover these Markdown files automatically. No special agent file is required. If a tool has an optional project-instruction facility, it may point to these files without duplicating their authority.
 
 ## Project status
 
-[Describe current availability and known limitations.]
+[Describe availability, important limitations, and next useful work.]
 
-## Begin or resume a human–AI session
+## Versions and releases
 
-At the beginning of each AI session, explicitly instruct the AI:
+[Explain where this project's own releases and changes are recorded.]
 
-> Read `foundation/WORKFLOW.md`, `foundation/RULES.md`, and `foundation/DESIGN.md`, then the applicable scoped designs. Inspect the current project state, distinguish approved decisions from drafts, and follow DLD. Discuss any changes to approved design with me before realizing them.
-
-These files are the project's working authority within your AI tool's governing instructions and permissions; they are **not** guaranteed to be discovered automatically. Do not copy the DLD guide into this project merely to make the workflow work.
-
-## Development
-
-This project follows Design-Led Development. Before making changes,
-read:
-
-- [Workflow](foundation/WORKFLOW.md): how humans and AI work together.
-- [Rules](foundation/RULES.md): specific project requirements.
-- [Foundation design](foundation/DESIGN.md): the project's overall design.
-
-## Releases
-
-[Explain where to find product releases and their changes.]
-
-## Method baseline
-
-Based on [Design-Led Development](https://github.com/3alkan/design-led-development).
-DLD source baseline: `@DLD_BASELINE@`.
-
-If adopting changes beyond that release, also record the source commit
-and any local adaptations here.
+**Adopted DLD Core baseline:** `@DLD_BASELINE@`. Updates to DLD Core are deliberate changes; do not modify the adopted core in place or overwrite this project's approved design/rules.
 
 ## License
 
-[State the product's license and link to its license file.]
+[State this project's license and where to find it.]

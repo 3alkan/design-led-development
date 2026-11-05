@@ -1,6 +1,6 @@
 # Worked Examples
 
-Worked examples show how **Design-Led Development (DLD)** is applied to real or illustrative software projects. They complement the [shared methodology](../guide/methodology.md), [practical guide](../guide/README.md), and [reference repository layout](../guide/reference-repository-layout.md); they do not define new methodological rules.
+Worked examples show how **Design-Led Development (DLD)** is applied to real or illustrative software projects. They complement the [shared methodology](../docs/methodology.md), [practical guide](../docs/README.md), and [reference repository layout](../docs/reference-repository-layout.md); they do not define new methodological rules.
 
 No completed worked example is currently included. This directory is maintained only when a useful example exists; an empty example is not required for adopting DLD.
 
@@ -20,7 +20,7 @@ The **complete software project lifecycle** is DLD's scope, but an individual ex
 
 ## Structure and ownership
 
-Use the [reference layout](../guide/reference-repository-layout.md) selectively, respecting the example project's technology and responsibilities. Do not require generic `design/`, `shared/`, or other directories without an actual owner or need.
+Use the [reference layout](../docs/reference-repository-layout.md) selectively, respecting the example project's technology and responsibilities. Do not require generic `design/`, `shared/`, or other directories without an actual owner or need.
 
 Keep an example's own design authority within that example project. It does not govern the DLD methodology or other examples. The DLD development repository itself is also an application of DLD, with its own authoritative [foundation](../foundation/DESIGN.md).
 

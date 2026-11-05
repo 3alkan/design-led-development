@@ -4,6 +4,13 @@ This file records changes to the Design-Led Development method and its starter. 
 
 ## Unreleased
 
+### Proposed foundation simplification (not approved or released)
+- Establish a single canonical, versioned DLD Core in `foundation/CORE.md`, shared without modification by development and adopters.
+- Remove `WORKFLOW.md`: consolidate the method and operating protocol into Core; keep DESIGN and RULES project-specific.
+- Organize user and developer documentation under `docs/`, keep concrete examples under `examples/`, and assemble a clean project starter from one Core.
+- Maintain one version and two distributions, with the frozen Core identical in both.
+
+
 ### Proposed (not yet approved or released)
 - Clarify lifecycle-wide, design-centered, human-authoritative DLD principles and standards-informed stance.
 - Propose the selectively adoptable reference layout, with single-authority nearest-scope placement.
