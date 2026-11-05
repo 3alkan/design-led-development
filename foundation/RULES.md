@@ -1,5 +1,5 @@
-# RULES
+# Project Rules — DLD Development
 
-No additional repository-specific rules have been adopted.
+No additional DLD-development-project-specific rules have been adopted.
 
-The working process is defined in [WORKFLOW.md](WORKFLOW.md). Add specific requirements here only when adopted, using the topic and rule format in [the starter rules template](../starter/foundation/RULES.md).
+The common methodology and operating protocol are defined solely by [CORE.md](CORE.md). Project-specific constraints should be added here only when explicitly adopted; this file must not redefine or duplicate Core.

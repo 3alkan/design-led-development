@@ -22,17 +22,17 @@ DLD covers software project conception, requirements, architecture, design, real
 
 DLD draws on established software engineering knowledge and standards, including SWEBOK and applicable ISO/IEC/IEEE standards, without claiming mandatory conformance or requiring formal standards mappings.
 
-The user-facing product distribution contains one self-contained methodology reference and one copyable four-document starter. The development distribution contains the complete maintained source needed to engineer DLD itself. Both distributions share the same DLD fundamentals and general reference guide; each has audience-specific guidance. The starter contains a product README, workflow, rules template, and foundation design template. The guide explains how to apply them from project setup through delivery and evolution.
+The user-facing product distribution contains one self-contained methodology reference and one copyable four-document starter. The development distribution contains the complete maintained source needed to engineer DLD itself. Both distributions share the same DLD fundamentals and general reference guide; each has audience-specific guidance. The starter contains a project README, a version-frozen CORE, a rules template, and a foundation design template. The guide explains how to apply them from project setup through delivery and evolution.
 
-This repository also maintains its own design, workflow, rules, version, changelog, and license. The approach is independent of language, framework, and AI provider. It does not promise automatic implementation or synchronization when a document is edited.
+This repository also maintains its own design, core, rules, version, changelog, and license. The approach is independent of language, framework, and AI provider. It does not promise automatic implementation or synchronization when a document is edited.
 
 ## Overall design
 
 Human beings decide and approve consequential design choices; AI analyzes, challenges, and proposes. Once the applicable abstract design is approved, AI may autonomously realize and verify delegated work within the agreed constraints. A consequential change to approved design returns to human decision and approval.
 
-DLD provides one comprehensive, selectively adoptable reference repository layout, organized by engineering responsibility and nearest appropriate ownership. Each authoritative decision has a single owning scope. The reference is described in [the repository architecture guide](../guide/reference-repository-layout.md). Projects can adopt applicable portions and justified ecosystem-native extensions; implementation structure does not determine design authority.
+DLD provides one comprehensive, selectively adoptable reference repository layout, organized by engineering responsibility and nearest appropriate ownership. Each authoritative decision has a single owning scope. The reference is described in [the repository architecture guide](../docs/reference-repository-layout.md). Projects can adopt applicable portions and justified ecosystem-native extensions; implementation structure does not determine design authority.
 
-The development repository and the DLD distributions are separate: one project version and release tag identifies a stabilized source baseline and two outputs, a development distribution and a product distribution. A tag by itself is not verification or approval.
+The development repository is a DLD project itself, governed by this project-specific design and rules under the same frozen-version methodology as every adopter. The development repository and the DLD distributions are separate: one project version and release tag identifies a stabilized source baseline and two outputs, a development distribution and a product distribution. A tag by itself is not verification or approval.
 
 Users learn DLD from the product's common guide and adopter guide, copy only the starter contents into their project, and explicitly direct AI to read that project's foundation at session start. The installed workflow remains self-contained for ongoing project work; AI tools are not assumed to discover Markdown files automatically.
 
@@ -42,29 +42,29 @@ The starter's foundation design remains a draft until the product's human approv
 
 ## Major areas and relationships
 
-- [product/README.md](../product/README.md) is the user-facing product distribution entry point.
-- [starter/](../starter/) is the user-facing product material. Its README introduces the resulting product; its workflow defines collaboration; its rules hold specific requirements; its foundation design establishes product direction.
-- [guide/methodology.md](../guide/methodology.md) teaches DLD fundamentals to both audiences; the [adoption guide](../guide/adoption.md) serves users and the [development guide](../guide/development.md) serves DLD contributors.
-- [guide/](../guide/README.md) explains application of the workflow through six repeatable stages. It identifies human and AI responsibilities, concrete actions, expected outputs, and readiness to proceed. Its examples and prompts are illustrative; they do not introduce product requirements or claim approval.
+- [product/README.md](../docs/product.md) is the user-facing product distribution entry point.
+- [starter/](../starter/) is the user-facing product material. Its README introduces the resulting product; its core defines the methodology; its rules hold specific requirements; its foundation design establishes product direction.
+- [docs/methodology.md](../docs/methodology.md) teaches DLD fundamentals to both audiences; the [adoption guide](../docs/adoption.md) serves users and the [development guide](../docs/development.md) serves DLD contributors.
+- [guide/](../docs/README.md) explains application of the workflow through six repeatable stages. It identifies human and AI responsibilities, concrete actions, expected outputs, and readiness to proceed. Its examples and prompts are illustrative; they do not introduce product requirements or claim approval.
 - [examples/](../examples/README.md) records the requirements for a complete example; no completed example project is currently included.
-- This [workflow](WORKFLOW.md) defines how we maintain the method repository, and these [rules](RULES.md) hold any adopted repository-specific requirements.
+- The canonical [core](CORE.md) defines the methodology, and these [rules](RULES.md) hold adopted repository-specific requirements.
 - The repository [README](../README.md) introduces the method and explains adoption.
 - [VERSION](../VERSION) identifies the method baseline. [CHANGELOG.md](../CHANGELOG.md) explains changes and adoption.
 
-The repository's `foundation/` governs this method; `starter/foundation/` supplies documents for other projects. Their responsibilities and content can differ.
+The repository's `foundation/CORE.md` is the maintained canonical methodology. Its `DESIGN.md` and `RULES.md` apply specifically to developing DLD. The starter supplies clean project-specific DESIGN and RULES templates; its CORE copy is generated from the canonical file for each distribution.
 
 ## Shared design decisions
 
 - Design remains the source of truth throughout a project's life.
 - The human owns approval; AI actively contributes to design and independently realizes approved scope within delegated boundaries.
-- Workflow instructions belong in the workflow. Specific project requirements belong in rules, grouped by topic with stable identifiers and optional exceptions and reasons. Every adopted rule applies.
+- DLD methodology and its operating instructions belong in CORE. Project-specific requirements belong in rules, grouped by topic with stable identifiers and optional exceptions and reasons. Every adopted rule applies.
 - Templates are starting points, not approvals or mandatory large forms.
 - The method version is this repository's product version. Design revisions advance independently, as do versions of products built using the method.
 - AI suggests proportionate commit checkpoints for coherent design baselines, verified implementation increments, and focused corrections. Suggestions identify the intended scope and preserve unrelated work. A suggestion does not authorize a commit; design approval, verification, release, and permission to push remain separate.
-- The project root and its `foundation/` directory are distinct. The latter holds project-wide workflow, rules, and top-level design; other scopes do not automatically belong inside it. Folder hierarchy normally expresses design hierarchy, with designs beside their realization and nested designs inheriting applicable ancestor constraints. Technical wrapper folders do not need a design merely because they contain other scopes.
+- The project root and its `foundation/` directory are distinct. The latter holds project-wide core, rules, and top-level design; other scopes do not automatically belong inside it. Folder hierarchy normally expresses design hierarchy, with designs beside their realization and nested designs inheriting applicable ancestor constraints. Technical wrapper folders do not need a design merely because they contain other scopes.
 - For a responsibility spanning branches, use the lowest appropriate common owner, or an independently meaningful sibling scope if the physical ancestor does not own that responsibility. No generic global `design/` or `shared/` directory is required. Affected scopes reference the single owning design, retain applicable broader constraints, and preserve approvals and relationships when reorganized.
 
-- Approved design bodies describe current decisions in final-state voice; Git commits identify approved baselines and preserve superseded wording. Design-specific tags are not required; release tags identify published versions. Approval procedures belong in [WORKFLOW.md](WORKFLOW.md), while extended audit findings stay outside authoritative design bodies.
+- Approved design bodies describe current decisions in final-state voice; Git commits identify approved baselines and preserve superseded wording. Design-specific tags are not required; release tags identify published versions. Approval procedures belong in [CORE.md](CORE.md), while extended audit findings stay outside authoritative design bodies.
 
 ## Success criteria
 
@@ -80,7 +80,7 @@ The repository's `foundation/` governs this method; `starter/foundation/` suppli
 
 ## Pending changes — Draft revision 6
 
-All substantive changes in revision 6 are proposed and are **not yet authoritative**. This revision proposes the agreed F1–F4 philosophy and R1–R15 repository direction, the foundation naming migration, the shared-learning/adopter/contributor boundaries, and the assembly of both distributions. Human approval of this exact repository revision has not yet been recorded. The approved Revision 5 baseline remains identifiable in Git. The approval sweep, revision status update, and release authorization must follow actual review.
+All substantive changes in revision 6 are proposed and are **not yet authoritative**. This revision proposes the agreed F1–F4 philosophy and R1–R15 repository direction and the later foundation simplification: a single canonical versioned CORE; project-specific DESIGN and RULES; no WORKFLOW.md; docs and examples separated from the copyable starter; two distributions built from one source/version. Human approval of this exact repository revision has not yet been recorded. The approved Revision 5 baseline remains identifiable in Git. The approval sweep, revision status update, and release authorization must follow actual review.
 
 ## Open questions
 
