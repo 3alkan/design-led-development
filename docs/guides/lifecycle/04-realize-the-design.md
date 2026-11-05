@@ -1,27 +1,31 @@
-# 4. Realize the design
+# 4. Realize Approved Intent
 
-**Goal:** Produce a working increment that conforms to an approved design.
+**Optional learning chapter.** Realization can include code, configuration, documentation, integration, operations, or other concrete engineering outcomes.
 
-**Human:** Remain responsible for consequential decisions and any required permissions.
+## Establish the boundary before acting
 
-**AI:** Implement, integrate, and perform proportionate checks within approved scope.
+Review the active scope's approved design, governing constraints, actual implementation state, and permissions. AI can make local implementation choices within its delegation.
 
-## Establish the realization boundary
+For example, the human may approve the behavior of a submission endpoint without selecting every function name or internal parsing technique. AI may implement those local details provided they remain consistent with approved behavior and constraints.
 
-Before editing, read the applicable approved designs, project RULES, relevant existing artifacts, and constraints. Identify which technical choices were delegated.
+A practical AI request:
 
-> Implement the approved scope and its interfaces. Make local implementation choices within the delegated boundaries, verify the relevant behavior, and raise consequential conflicts before changing design intent.
+> Realize this approved scope within the applicable design and current permissions. Explain any consequential conflict rather than silently changing intent. Check relevant interfaces and report the evidence you actually obtain.
 
-Simplifying a helper or choosing an internal algorithm can be within delegated freedom. Changing an approved contract, user behavior, or safety constraint is a design decision requiring human review. If a tool or dependency cannot satisfy the design, return evidence and alternatives to discussion rather than silently redefining requirements.
+## Discover implementation constraints
 
-## Maintain design–realization consistency
+An existing library might fail to provide a required capability. That finding is evidence. AI can investigate alternatives, demonstrate the problem, and propose a changed design where necessary. It cannot quietly remove the requirement.
 
-Keep changed implementation and supporting artifacts traceable to their owning design scope. Inspect whether the realized behavior matches intended outcomes, interfaces, constraints, and failure handling. Fix implementation defects against unchanged design. If new evidence calls the design into question, propose a revision and wait for approval before implementing that changed intent.
+Similarly, if code violates unchanged approved design, correcting the code is ordinarily a realization correction rather than a new design decision, provided the correction remains within delegated authority.
 
-Use meaningful increments, preserving unrelated work. Report what was implemented, what was actually checked, and remaining gaps.
+## Integrate and observe
 
-## Outcome
+Check affected interfaces, dependent scopes, configuration, tests, and user-facing behavior. Maintain enough traceability to identify which design obligations the concrete result implements.
 
-A working increment with an explicit relationship to approved design and honestly reported limitations.
+Work in meaningful increments. A completed edit is not proof of correctness; report any checks not performed and any uncertainty that remains.
 
-**Continue:** [Verify and deliver](05-verify-and-deliver.md).
+## What the increment achieves
+
+A concrete increment exists or is in progress, with its governing intent and current verification limits identifiable.
+
+**Next example:** [Evaluate and deliver](05-verify-and-deliver.md).
