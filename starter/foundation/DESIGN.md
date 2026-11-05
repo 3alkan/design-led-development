@@ -3,34 +3,34 @@
 - Revision: 1
 - Status: Draft
 
-This is an **unapproved starting template**, not a human approval or recoverable approved baseline. Replace bracketed prompts with project-specific content; keep unresolved consequential decisions identifiable as drafts until approved.
+This file is the **unapproved initial project design**. Its prompts are not requirements or human-approved decisions. Replace them with the project's actual intended design; retain explicit draft boundaries until approval.
 
 ## Purpose and intended outcomes
 
-[Why does this project exist? Who does it serve, and what outcomes are intended?]
+[Why does this project exist, who does it serve, and what outcomes should it achieve?]
 
 ## Scope and boundaries
 
-[What engineering responsibilities belong to this project? What is explicitly outside its intended scope?]
+[What responsibilities and outcomes are in scope? What is explicitly outside scope? Identify material unknowns.]
 
-## Requirements and intended behavior
+## Requirements and constraints
 
-[What capabilities, behavior, and quality properties must the project deliver? State intended outcomes, not assumptions about existing code.]
+[Describe intended capabilities, observable behavior, quality needs, and governing constraints. Distinguish known intent from assumptions. Additional project rules belong in RULES.md.]
 
-## Architecture and design ownership
+## Design architecture and ownership
 
-[Identify significant responsibilities, logical design scopes, their governing relationships, and relevant cross-scope dependencies. Link to separate scoped designs when they become necessary; do not duplicate their owned decisions.]
+[Identify the important design scopes, their responsibilities, governing relationships, and significant shared interfaces or dependencies. Link to separately owned scoped designs when needed; do not duplicate their authoritative decisions.]
 
-## Governing decisions and constraints
+## Governing design decisions
 
-[Record project-wide design choices, applicable requirements, interfaces, and constraints that govern multiple scopes. Reference additional approved project rules in RULES.md instead of duplicating them.]
+[Record proposed project-level choices and their rationale where useful. Identify consequential choices requiring human approval. Do not represent inferred legacy behavior as approved intent.]
 
-## Verification and validation expectations
+## Verification and validation
 
-[Describe observable outcomes and acceptance conditions needed to assess whether the intended design is realized and useful.]
+[State the outcomes or acceptance conditions by which the realized design can be evaluated. Identify evidence needs and important limitations when known.]
 
-## Pending decisions and uncertainties
+## Open questions and proposed changes
 
-[Identify proposed choices, missing information, and consequential questions that still require human resolution. Do not present these as approved.]
+[List unresolved consequential decisions, relevant uncertainties, and proposals. Keep them distinguishable from approved intent.]
 
-<!-- On actual human approval: identify the approving human, exact approved scope/content and revision, record the decision truthfully, and preserve a recoverable baseline in accordance with Core. For partial approval, keep pending proposals separate. Remove this template comment when no longer useful. -->
+<!-- Approval is not a template operation. When an authorized human actually approves identified content, record the human, scope, revision, and approved content truthfully; preserve an identifiable recoverable baseline as Core requires. Partial approval must leave unresolved proposals distinct. Do not invent an approver, date, or approval. -->
