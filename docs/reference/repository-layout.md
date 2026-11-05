@@ -1,58 +1,60 @@
-# Reference Repository Layout
+# Repository Organization — Optional Reference
 
-This reference describes a **comprehensive catalogue of engineering responsibilities**, not a mandatory scaffold. Projects instantiate only responsibilities they actually need. It is informed by software engineering practice and standards, but is not a formal conformance specification.
+This page is a **decision aid**, not a DLD-required repository layout. The [adopted Core](../../foundation/CORE.md) establishes logical ownership and one authoritative owner per design decision. File and directory locations are representations of that ownership, not sources of authority.
 
-## How to use this reference
+## Start from responsibilities, not folders
 
-Use the [Core's scope and ownership principles](../../foundation/CORE.md#5-design-scopes-and-ownership) to determine which responsibility owns an artifact. The layout below is a catalogue, not a set of additional DLD rules.
+Ask: What must this project maintain, realize, verify, operate, or deliver? Who owns each responsibility? Which other scopes depend on it?
 
-Start with the engineering responsibilities the project actually has. Prefer ecosystem-native conventions for source and build configuration, keep authoritative designs and relevant evidence discoverable, and separate maintained sources from generated outputs. Add folders only when their ownership and purpose are meaningful.
+A small project might need only the four-file DLD foundation plus its ecosystem's usual source and test files. A larger system may justify distinct components, tools, configuration, operational documents, and generated outputs.
 
-## Reference structure
+## One illustrative catalogue
 
 ```text
 project/
-├── README.md                 # Entry point
-├── LICENSE                   # License, when applicable
-├── CHANGELOG.md              # Change and release overview, when applicable
-├── VERSION                   # Optional; ecosystem manifests may own versioning
-├── foundation/               # Project-wide authority
-│   ├── CORE.md               # Frozen adopted DLD methodology
-│   ├── DESIGN.md             # Project-wide authoritative abstract design
-│   └── RULES.md              # Project-specific adopted constraints
-├── src/                      # Implementation source where conventional
-├── tests/                    # Shared / cross-scope executable tests
-├── verification/             # Verification and validation plans and evidence
-├── docs/                     # Conventional explanatory/product documentation
-├── examples/                 # Examples and demonstrations
-├── tools/                    # Shared engineering utilities
-├── config/                   # Optional independently owned shared configuration
-├── infra/                    # Optional infrastructure definitions
-├── deploy/                   # Optional deployment definitions
-├── operations/               # Optional operations and recovery artifacts
-├── build/                    # Generated intermediate outputs (normally ignored)
-└── dist/                     # Generated distributables (normally ignored)
+├── README.md
+├── foundation/
+│   ├── CORE.md
+│   ├── DESIGN.md
+│   └── RULES.md
+├── src/                 # If conventional for this ecosystem
+├── tests/               # If tests have a shared owning responsibility
+├── docs/                # Optional explanation and product documentation
+├── tools/               # Optional maintained engineering utilities
+├── config/              # Optional shared configuration
+├── infra/               # Optional infrastructure source
+├── operations/          # Optional runbooks and support material
+├── build/               # Optional generated intermediate artifacts
+└── dist/                # Optional assembled deliverables
 ```
 
-This tree is a catalogue of responsibilities, not an instruction to create empty directories. Ecosystem-specific files such as `pyproject.toml`, `CMakeLists.txt`, and `.github/workflows/` remain where their tools expect them. Software source may exist outside `src/` in legitimate ecosystems.
+Only the foundation files shown above are the standardized DLD project foundation. **Do not create these other directories unless the project needs them.** Many ecosystems prefer `app/`, `packages/`, co-located tests, or tool-specific locations instead.
 
-## Placement and relationships
+## How to choose the owner
 
-- `foundation/CORE.md` defines the adopted, versioned DLD working method and is not customized within the project. `foundation/DESIGN.md` and `RULES.md` are project-specific; `foundation/` is not the home of every detailed design. A scoped design belongs at the nearest appropriate owning scope and may predate or outlive its implementation.
-- For shared decisions, use the nearest appropriate common owner or an independently meaningful sibling scope at that level; do not create a mandatory global `design/` or `shared/` folder.
-- `docs/` retains the conventional meaning of user, developer, and reference documentation; a Markdown file is not authoritative merely by residing in `docs/`.
-- `tests/` contains maintained executable tests and fixtures serving shared or cross-scope needs. Component tests may be co-located. `verification/` covers broader plans, assessment, validation, and evidence without duplicating tests; external CI evidence may be referenced.
-- `tools/` holds project-wide engineering utilities; a component-owned utility may stay with that component. Place configuration with its owner; `config/` is only for independently owned shared configuration.
-- `infra/`, `deploy/`, and `operations/` are separate responsibilities that can be co-located, grouped, or omitted according to project need.
-- Planning, risk, changes, incidents, support, and retirement records belong with their responsible scopes or external systems, with discoverable references. They must not be confused with the authoritative design.
-- `build/` and `dist/` distinguish generated intermediate artifacts from assembled product outputs. A distributable is not a verified, authorized release simply because it exists.
+A design about a module's private behavior can live close to that module. A shared protocol should have one appropriately responsible owner and be referenced by its consumers. A system-level constraint belongs where it governs the affected scope; copying it into multiple lower-level designs does not create independent authorities.
 
-## Distribution responsibilities
+An adjacent `module.py.md` may be useful when a file has meaningful independent design responsibilities. It is optional. A project may group several files under one owned design or use one file to realize decisions from several scopes.
 
-A project may produce one or more distributable artifacts. Identify the maintained inputs, ownership of assembly, output boundaries, and verification evidence for each distribution. A generated package is not automatically an approved or authorized release.
+Cross-scope interactions make a responsibility graph, not necessarily a directory tree. Preserve discoverable references and governing constraints as the project becomes more complex.
 
-DLD's own distribution process is documented separately for contributors in the development repository; an adopting project follows the packaging conventions appropriate to its technology and products.
+## Other common responsibilities
 
-## Extensions
+| Responsibility | Possible placement | Consideration |
+| --- | --- | --- |
+| Maintained implementation | Ecosystem-native source directories | Prefer the conventions of the language or framework |
+| Tests and fixtures | Co-located or `tests/` | Choose based on who owns their maintenance |
+| Verification evidence | CI artifacts, reports, scope records | Make relevant evidence discoverable; avoid duplicating it |
+| Configuration and secrets handling | Local scope, manifests, secure systems | Do not store secret values merely for documentation convenience |
+| Infrastructure and deployment | Tool-native files, `infra/`, `deploy/` | Separate ownership when it benefits operations |
+| User and maintainer documentation | `docs/` or product-native locations | Documentation is not authoritative just because it is Markdown |
+| Generated outputs | Ignored build paths or artifact storage | Distinguish products from maintained source |
+| Releases | Distribution and release systems | An artifact is not an approved release just because it exists |
 
-Add `apps/`, `packages/`, `assets/`, `schemas/`, `migrations/`, `vendor/`, `benchmarks/`, or other structures only where justified by an explicit engineering responsibility or toolchain convention. Identify the owner and relationships; avoid duplicate authority and needless empty folders.
+Planning, incidents, risk records, migrations, interfaces, schemas, licenses, and assets may each need independent scope ownership. Create them only as actual responsibilities emerge.
+
+## When restructuring
+
+Before moving or splitting designs, identify incoming and outgoing references, authoritative decisions, and approved boundaries. A location-only move need not change intent. Reassignment of decision authority or governing constraints is a consequential change.
+
+Use [the practical design guide](../guides/lifecycle/03-develop-detailed-designs.md) for a worked approach. The authoritative rules remain in Core.
