@@ -68,9 +68,10 @@ def package_files(kind: str, version: str, release: bool) -> dict[str, bytes]:
     files["starter/README.md"] = files["starter/README.md"].replace(
         MARKER.encode(), label.encode()
     )
+    # Both distributions include a complete, copyable starter; its Core is
+    # generated from the one canonical source, never maintained separately.
+    files["starter/foundation/CORE.md"] = files["foundation/CORE.md"]
     if kind == "product":
-        # The starter's Core is an exact copy, never a separately maintained file.
-        files["starter/foundation/CORE.md"] = files["foundation/CORE.md"]
         # This source lives under docs/ in the development repo. In the
         # product it is the root introduction, so resolve paths accordingly.
         intro = source("docs/product.md").decode("utf-8").replace(
@@ -100,6 +101,9 @@ def norm_link(base: str, relative: str) -> str:
 
 def check_package(kind: str, files: dict[str, bytes]) -> None:
     mandatory = set(COMMON)
+    mandatory.add("starter/foundation/CORE.md")
+    if files["foundation/CORE.md"] != files["starter/foundation/CORE.md"]:
+        raise ValueError("Generated starter Core differs from canonical Core.")
     if kind == "product":
         mandatory |= set(STARTER_TEMPLATES) | {
             "README.md", "docs/adoption.md", "starter/foundation/CORE.md"
