@@ -12,7 +12,7 @@ The [DLD Core](../foundation/CORE.md) is the complete authoritative specificatio
 | Begin a new project or introduce DLD to an existing one | [Adopt DLD](adopt.md) |
 | See how a human and AI work through an actual increment | [Work with DLD](work.md) |
 | Decide where designs and implementation artifacts belong | [Organize a project](organize.md) |
-| Improve the DLD methodology and its distributions | [Contribute to DLD](contribute.md) |
+| Improve the DLD methodology and its distributions | See the development repository's contributor documentation |
 
 A good first reading is **Core → Adopt → Work**, but readers can start with the question relevant to them. The pages are independent learning resources, not a mandatory workflow.
 
