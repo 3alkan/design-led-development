@@ -1,33 +1,35 @@
-# 6. Evolve and maintain the project
+# 6. Maintain, Change, and Resume
 
-**Goal:** Preserve project intent while responding to defects, changes, evidence, operation, and eventual retirement.
+**Optional learning chapter.** Projects evolve through defects, new needs, operational evidence, refactoring, and eventual retirement.
 
-**Human:** Prioritize changing needs and approve consequential revisions.
+## Decide what kind of change is needed
 
-**AI:** Identify affected scopes, compare realization with design, propose revisions, and verify approved changes.
+A bug can be a mismatch between concrete behavior and unchanged approved design. In that case, correct the realization.
 
-## Classify the change
+A requested change to an approved interface, governing requirement, or responsibility is different: identify its owning design, assess consequences, and obtain a human decision before realizing changed intent.
 
-When a problem or request arises, determine whether actual behavior violates **unchanged approved design** or the intended design itself must change.
+A useful prompt:
 
-> Identify the design scopes affected by this change, distinguish an implementation correction from a proposed design change, and show what approved work can continue unchanged.
+> Analyze this change against the currently approved design. Identify affected owning and dependent scopes, distinguish implementation defects from changed intent, and show which decisions need human approval.
 
-Correct the first case through realization. For the second, revise the appropriate authoritative design and obtain human approval before realizing the changed intent. Do not rewrite design merely to justify accidental implementation.
+## Follow effects across scopes
 
-## Preserve continuity
+A local-looking interface change can affect several consumers. Before consequential approval, assess reasonably discoverable material effects; after approval, propagate the change through affected designs and realizations. Report dependencies not yet assessed and propagation that is not yet verified.
 
-Maintain navigable references among owning designs, implementations, and relevant evidence. After a substantial increment, preserve meaningful, authorized commit checkpoints and clearly distinguish approved baselines, completed realization, verification results, remaining decisions, and next work.
+Do not describe an approved target state as already implemented. Keep those facts distinct.
 
-The [Core approval procedure](../../../foundation/CORE.md#6-design-states-and-approval) is authoritative for Draft, Mixed, partial approval, approval records, and final-state writing. A guide does not repeat or redefine that process.
+## Resume without reconstructing everything
 
-## Maintain independent versions
+A new AI session can begin with the project foundation, the active and governing scopes, the relevant approved state, and current realization evidence. Load additional dependencies only if the work reveals that they matter.
 
-A project's product release, each design revision, and the adopted DLD Core version describe different things. Updating one does not automatically update the others. Do not overwrite project-specific DESIGN, RULES, approvals, or history when adopting a newer DLD release.
+Useful handoff information includes the active scope, completed work, actual checks, known failures, unresolved decisions, pending authorization, and a suggested next action. This summary helps navigation but does not supersede approved design or current files.
 
-Review the method [changelog](../../../CHANGELOG.md) before upgrading. Preserve the existing Core until an appropriate new version is deliberately adopted. Use relevant evidence from operation and users when prioritizing maintenance or retirement.
+## Upgrade the method separately
 
-## Outcome
+The adopted Core version, a project design revision, and a product release version are different. A new DLD release does not automatically change a project's adopted Core. Review the [changelog](../../../CHANGELOG.md), assess adoption effects, and obtain deliberate human authorization before upgrading the methodology.
 
-The project can continue coherently through later increments and lifecycle responsibilities without losing approved intent.
+## What the increment achieves
 
-**Continue:** Return to the [appropriate activity](01-start-the-project.md) for the next scope.
+The project can continue with coherent design authority and a discoverable history, without assuming that every collaborator has read every artifact.
+
+**Continue:** Return to whichever [practical activity](01-start-the-project.md) fits the next need.
