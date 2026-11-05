@@ -1,4 +1,4 @@
-# Design-Led Development
+# Design-Led Development — Project Design
 
 - Revision: 6
 - Status: Draft
@@ -6,74 +6,113 @@
 - Approval: Rev 4 approved by human 2026-11-03.
 - Approval: Rev 5 approved by human 2026-11-03.
 
-## Purpose
+**Authority boundary:** This revision is a proposal for the DLD development project, not an approval of Revision 6. The approval entries above describe earlier historical revisions only. Their recoverable baselines remain the authority for those approvals. Neither this file nor a successful repository commit authorizes a methodology release.
 
-Develop and maintain **Design-Led Development (DLD)** as a coherent, versioned methodology that humans and AI can learn and apply throughout software projects. Its authoritative specification is [DLD Core](CORE.md).
+## Purpose and intended outcomes
 
-## Users and intended outcomes
+Develop, maintain, explain, and distribute **Design-Led Development (DLD)** as one coherent, versioned software engineering methodology for humans collaborating with AI. The method itself is defined exclusively in [DLD Core](CORE.md).
 
-DLD serves humans and AI who develop or maintain software projects together. Users must be able to understand the method, adopt a known version in a project, identify authoritative project decisions, and continue work across sessions and lifecycle activities.
+The intended outcomes are:
 
-DLD contributors must be able to evolve the methodology and its accompanying materials without creating independent, conflicting versions of Core.
+- Humans and AI can adopt an identified DLD version and practice it using a minimal, self-contained project foundation.
+- Contributors can evolve the methodology and its supporting materials without creating conflicting authorities or independently maintained Core variants.
+- Users can distinguish methodology requirements, a project's approved design, optional explanatory guidance, and actual verification or release evidence.
+- New and existing software projects can apply DLD incrementally, with clear human approval boundaries and continuity across AI sessions.
 
-## Scope
+## Project scope and boundaries
 
-This project maintains the canonical DLD Core, project-specific development governance, explanatory documentation, reusable starter artifacts, concrete examples when available, and the means to assemble and validate its distributions.
+The DLD development project owns the canonical Core source, its own project design and rules, the clean adopter starter, supporting documentation and examples, and the packaging and validation machinery needed to distribute them.
 
-DLD is independent of programming language, framework, and AI provider. The project does not promise automatic implementation, automatic design synchronization, or formal certification against an external engineering standard.
+The project does not promise automatic design-to-implementation synchronization, a particular programming language or AI provider, a mandatory AI instruction file, or formal certification against an external engineering standard.
+
+The methodology's normative behavior belongs in Core. This DESIGN specifies **the DLD product and development repository**, not additional rules for every adopting project.
 
 ## Product design
 
-The repository develops **one DLD method with one versioned Core** and produces two distributions from a common source baseline:
+### One method and one canonical Core
 
-- **Development distribution:** The maintained materials needed to develop DLD, including this project's DESIGN and RULES, canonical Core, documentation, examples, starter sources, and packaging infrastructure.
-- **Product distribution:** The shared Core, documentation for understanding and adopting DLD, and a clean, copyable project starter. The DLD development project's DESIGN and RULES are not part of the adopted project.
+[`foundation/CORE.md`](CORE.md) is the sole maintained authoritative source of the DLD methodology. Distribution copies MUST be derived from this source, never edited as competing method definitions.
 
-The two distributions share the same DLD version and release tag. Distribution assembly is reproducible from identified maintained sources; successful assembly alone does not constitute human approval or publication.
+For the planned next release, the canonical Core identifies **0.1.4**. The repository's [VERSION](../VERSION) and published release identity remain separate release-management facts; the proposed release is not published merely because Core names that target version.
 
-### Optional supporting materials
+### Two distributions from one source baseline
 
-The product distribution makes the full adopter-oriented guidance and reference material available separately from the minimal starter. An optional, ready-to-copy documentation overlay allows an adopter to add version-matched support material to the project's own documentation area without editing or duplicating Core, DESIGN, or RULES.
+The project produces two distributions sharing the same versioned Core and DLD release identity:
 
-The overlay preserves valid links after copying and is not needed for methodological compliance. A project's human and AI can operate using the starter alone; supporting material assists learning and less-common engineering decisions when requested.
+| Distribution | Audience and contents |
+| --- | --- |
+| **Development** | DLD maintainers: canonical Core, this project's DESIGN and RULES, maintained documentation, starter sources, examples, packaging, and development infrastructure. |
+| **Product** | DLD adopters: the same Core, project-neutral starter, adopter-oriented guidance and references, version identity, changelog, and license. It excludes DLD development's own DESIGN, RULES, and internal packaging material. |
 
-### Adopter's starter
+The distributions are assembled from an identifiable maintained source baseline. Successful assembly or automated checks provide evidence about the packages; neither substitutes for human authorization to release.
 
-The assembled starter contains a project README and a `foundation/` with an exact copy of the versioned Core, a draft DESIGN template, and a RULES template without pre-adopted project constraints.
+### Minimal adopter starter
 
-Users copy only the starter contents into their own projects. Their DESIGN and RULES then belong to those projects, while the adopted Core remains unchanged for that version. AI is explicitly directed through the project README to read its foundation at the start of a session.
+The distributed starter contains exactly the minimum standardized foundation:
 
-## Responsibilities and relationships
+```text
+README.md
+foundation/
+  CORE.md
+  DESIGN.md
+  RULES.md
+```
 
-- [`foundation/CORE.md`](CORE.md) is the sole maintained source of the DLD methodology. Copies inserted into distributions are derived from it, not separately edited.
-- [`foundation/DESIGN.md`](DESIGN.md) defines the DLD development project's intended outcomes, scope, and design; [`foundation/RULES.md`](RULES.md) contains any separately adopted constraints for this project.
-- [`docs/`](../docs/README.md) explains the common method and provides audience-specific [adoption](../docs/guides/adoption.md) and [development](../docs/guides/development.md) guidance. It does not establish competing methodological authority.
-- [`examples/`](../examples/README.md) contains concrete demonstrations of DLD, when available, without defining the method.
-- [`starter/`](../starter/README.md) maintains clean project-specific README, DESIGN, and RULES templates. Packaging inserts the canonical Core instead of maintaining a second source.
-- [`.github/package.py`](../.github/package.py) assembles and validates both distributions according to the [packaging specification](../docs/internal/packaging.md).
-- The repository [README](../README.md) is its entry point; [VERSION](../VERSION), [CHANGELOG](../CHANGELOG.md), and [LICENSE](../LICENSE) record method identity, changes, and licensing.
+Its `foundation/CORE.md` is generated byte-for-byte from the canonical Core. Its `DESIGN.md` begins as an explicitly unapproved project design template; its `RULES.md` records that no additional project-specific rules have been adopted. The README provides navigation and AI initialization guidance without becoming an independent authority.
 
-Use the [reference repository layout](../docs/reference/repository-layout.md) selectively. This development repository creates additional directories only for real responsibilities or required tooling conventions.
+Adopters copy the starter into their own projects, then develop their own designs and approved rules. They do not inherit the DLD development project's approvals or constraints. The starter alone is sufficient to apply the adopted DLD methodology without supplemental documentation, network access, or DLD repository access.
+
+### Optional supporting documentation
+
+The product also provides explanatory documentation, lifecycle guidance, and a reference repository layout. This material MAY help adopters but MUST NOT add methodological obligations beyond Core.
+
+A ready-to-copy optional documentation overlay under `optional/docs/dld/` can be placed in an adopter's `docs/dld/`. Its links must resolve after installation, and it must not install a second Core or become a competing source of authority.
+
+## Responsibility and artifact ownership
+
+| Owning location | Responsibility |
+| --- | --- |
+| [`foundation/CORE.md`](CORE.md) | Sole canonical methodology specification. |
+| [`foundation/DESIGN.md`](DESIGN.md) | DLD development project's intended design and identified approval state. |
+| [`foundation/RULES.md`](RULES.md) | Additional adopted constraints specific to DLD development, if any. |
+| [`README.md`](../README.md) | Development repository entry point and navigation. |
+| [`docs/`](../docs/README.md) | Explanatory guides and references; includes adopter and development guidance. |
+| [`examples/`](../examples/README.md) | Non-authoritative demonstrations of the methodology, when available. |
+| [`starter/`](../starter/README.md) | Project-neutral starter sources; packaging generates its Core copy. |
+| [`.github/package.py`](../.github/package.py) | Assembly and validation of development and product distributions. |
+| [`docs/internal/packaging.md`](../docs/internal/packaging.md) | DLD-project packaging design details and maintainer guidance. |
+| [`VERSION`](../VERSION), [`CHANGELOG.md`](../CHANGELOG.md), [`LICENSE`](../LICENSE) | Release version, release history, and licensing. |
+
+The [reference repository layout](../docs/reference/repository-layout.md) is optional guidance, not a mandatory scaffold. Physical placement does not create design authority. New artifacts and scopes are introduced only when their engineering responsibilities justify them.
+
+Cross-cutting method changes are owned by Core. Changes to the DLD product, starter contract, and distribution relationships are owned here; implementation details remain with the corresponding packaging, documentation, and other engineering artifacts.
+
+## Development and release approach
+
+DLD development follows the adopted Core's design-led cycle. For consequential changes, contributors assess relevant effects, prepare proposals, obtain the appropriate human approval, realize authorized changes, and report actual verification evidence.
+
+The project's supporting artifacts must remain consistent with the authoritative Core. Changes to Core's normative method are not established through edits to guides, starter templates, implementation scripts, or this project DESIGN.
+
+A candidate release is prepared by aligning the canonical Core, starter, documentation, packaging, changelog, and version identity, then validating both distributions. Commit creation, successful validation, approval of project design, and authorization to merge, tag, or publish are distinct events.
 
 ## Acceptance criteria
 
-- Core is the only authoritative DLD methodology; neither project-specific governance nor documentation independently redefines it.
-- The development repository operates as a DLD project using its own DESIGN and RULES under Core.
-- Both distributions contain identical canonical Core content and the same DLD version identity.
-- Each assembled starter is sufficient for full DLD compliance without supplemental documentation, network access, or DLD-development-specific approvals and rules.
-- The product includes optional, locally copyable supporting documentation whose links resolve after installation and whose content does not redefine Core.
-- Adoption requires no mandatory AI-provider-specific instruction file or access to the DLD development repository after copying the starter.
-- Package validation checks expected contents, shared Core identity, and relative document links.
-- Published versions and recorded approvals reflect actual authorized actions rather than inferred success from packaging or commits.
-- Documentation and maintained examples remain consistent with Core, and users can distinguish authoritative instructions from explanation.
+- Exactly one canonical maintained Core defines DLD; every distributed Core copy matches it byte-for-byte.
+- The project foundation and its approval history remain distinguishable from the templates given to adopters.
+- The minimal starter works with only its README, Core, draft DESIGN, and rules-empty RULES; no optional document or AI-specific file is required for compliance.
+- Both distributions use the same identified version and source baseline, include only their intended audience-specific materials, and preserve valid relative links.
+- The optional documentation overlay resolves correctly when installed beside the starter and does not create a second methodological authority.
+- The canonical Core, explanatory documents, starter, examples, and package behavior do not contradict one another.
+- Validation reports actual checks and limitations rather than inferring broad correctness from a successful build.
+- Releases reflect explicit human authorization and truthful version, approval, changelog, and evidence records.
 
 ## Pending changes — Draft revision 6
 
-This proposed revision consolidates the F1–F4 methodology direction and R1–R15 repository direction with the subsequently selected single-Core foundation, removal of `WORKFLOW.md`, responsibility-based repository layout, separated documentation and examples, clean starter, and dual distribution model.
+This proposed revision reorganizes the DLD development project's design around the ten-section Core v0.1.4, clean adopter starter, two distributions, optional support overlay, and the separation between method authority and project-specific product design.
 
-These changes remain **unapproved as Revision 6**. The earlier recorded approvals remain associated with their historical baselines; this document does not extend those approvals to the proposed architecture.
+Revision 6 remains **unapproved**. Its text does not extend the previously recorded approvals of Revisions 3–5. The proposed next release is **v0.1.4**, subject to completing release preparation and obtaining the necessary authorization.
 
 ## Open questions
 
-- What evidence from a complete project will demonstrate the methodology's effectiveness and identify necessary refinements?
-- What verification and adoption evidence is required before a stable 1.0 release?
+- What evidence from complete real-world projects will demonstrate DLD's usefulness and identify methodology improvements?
+- What additional adoption and verification evidence, if any, should be required before a future stable 1.0 release?
