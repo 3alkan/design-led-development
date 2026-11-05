@@ -1,73 +1,72 @@
-# Design-Led Development
+# Design-Led Development (DLD)
 
-**DLD is a design-centered, human-authoritative, AI-assisted software engineering methodology for the complete software project lifecycle.** The comprehensive abstract project design is the authoritative representation of project intent, requirements, structure, behavior, constraints, and decisions; implementation is one realization, not the project itself.
+**Design-Led Development (DLD)** is a design-centered, human-authoritative, AI-assisted software engineering methodology spanning the complete software project lifecycle. The project's approved abstract design expresses its intent, requirements, responsibilities, behavior, constraints, and decisions. Concrete artifacts realize or provide evidence about that design; they do not silently replace its authority.
 
-Humans decide and approve design; AI proposes, analyzes, and may autonomously realize approved scope. DLD is standards-informed without claiming formal conformance. The approach brings together project management, human–AI roles and permissions, and project realization. The intended outcome is a working product with the design knowledge needed to maintain and evolve it.
+Humans make and approve consequential design decisions. AI helps develop and assess designs and may independently realize and verify approved scope within delegated boundaries. DLD is technology- and AI-provider-independent and informed by established software engineering practices without claiming formal standards compliance.
 
-## Learning and distributions
+## About this repository
 
-Start with the shared [DLD fundamentals](guide/methodology.md). This **development repository itself follows DLD**: its [foundation design](foundation/DESIGN.md), [workflow](foundation/WORKFLOW.md), and [rules](foundation/RULES.md) govern its evolution. Contributors use the [development guide](guide/development.md); adopters use the [product introduction](product/README.md) and [adoption guide](guide/adoption.md).
+**This is the development repository for DLD itself**, not the directory a user copies into a software project.
 
-Both distributions share the fundamentals and general lifecycle/reference guide. The development distribution also includes engineering sources and contributor instructions; the product distribution includes a self-contained user introduction and copyable starter. No AI-specific instruction file is required: AI is explicitly directed to read the project foundation at session start.
+DLD is developed **using DLD**. This repository has its own project-wide design, workflow, and rules in `foundation/`, just as an adopting project does. The method applies across conception, requirements, architecture, implementation, verification, delivery, operation, maintenance, evolution, and retirement.
 
-## Reference architecture
+The repository maintains the method, its documentation, the copyable project starter, packaging definitions, and supporting engineering artifacts. One approved and stabilized source baseline is intended to produce two distributions under **one version and release tag**:
 
-DLD defines a [comprehensive, selectively adoptable software repository layout](guide/reference-repository-layout.md) with a `foundation/` scope, conventional documentation and source boundaries, and distinct testing, verification, build, and distribution responsibilities. It separates DLD's development repository from two release distributions: development and product. One version/tag governs both distributions; current tagged release information below remains unchanged until a new release is authorized.
+| Distribution | Audience | Contents |
+| --- | --- | --- |
+| **Development** | People and AI maintaining DLD | DLD's own project foundation, maintained sources, shared learning material, contributor guidance, and engineering tools. |
+| **Product** | People and AI applying DLD to other projects | Shared learning material, adoption guidance, reference repository architecture, and a self-contained starter. |
 
-## Begin or resume development with AI
+Both distributions teach the same DLD methodology. Their audience-specific guides and project-specific operating instructions have distinct responsibilities.
 
-At the beginning of a new AI session, explicitly instruct AI to read `foundation/WORKFLOW.md`, `foundation/RULES.md`, `foundation/DESIGN.md`, then the applicable scoped designs and the current repository state. Distinguish draft decisions from the last approved baseline. This is the same DLD onboarding mechanism used by adopters, with DLD-specific instructions in the [development guide](guide/development.md).
+## Start here
 
-## Use DLD in another project
+**To develop DLD:** Read the [shared fundamentals](guide/methodology.md) and [development guide](guide/development.md). This repository is governed by its [design](foundation/DESIGN.md), [workflow](foundation/WORKFLOW.md), and [rules](foundation/RULES.md).
 
-1. Read the [workflow](starter/foundation/WORKFLOW.md), then follow the [practical guide](guide/README.md) to apply it from project setup through delivery and evolution.
-2. Copy the **contents** of [starter/](starter/) into your product repository. For an existing project, reconcile these documents with existing files before copying.
-3. Adapt the product README and develop the project's top-level design in `foundation/DESIGN.md` with AI.
-4. Add adopted project-specific requirements to `foundation/RULES.md`. Group them by topic, keep identifiers stable, and include exceptions and reasons where helpful. Remove template placeholders.
-5. Approve the relevant design, then implement and verify it in manageable increments. Repeat as the project evolves.
+**To use DLD in another project:** Begin with the [product introduction](product/README.md) and [adoption guide](guide/adoption.md). Copy only the contents of [starter/](starter/) into the target project, reconciling any existing files. The starter's `foundation/` then belongs to that project, not to this DLD repository.
 
-The starting product structure is:
+**To understand repository organization:** Read the [reference repository layout](guide/reference-repository-layout.md). It is a comprehensive, selectively adoptable responsibility catalogue, not a requirement to create every directory.
 
-```text
-project-name/
-├── README.md
-└── foundation/
-    ├── WORKFLOW.md
-    ├── RULES.md
-    └── DESIGN.md
+## Working on DLD with AI
+
+At the start of a new or resumed AI session, explicitly direct AI to:
+
+> Read `foundation/WORKFLOW.md`, `foundation/RULES.md`, and `foundation/DESIGN.md`; then read applicable scoped designs and inspect the current repository state. Distinguish approved decisions from draft changes and work only within authorized scope. Bring consequential design changes back for human approval.
+
+Do not assume an AI tool automatically discovers Markdown instructions. No `AGENTS.md` is required. The [development guide](guide/development.md) provides DLD-specific contributor practices; the [workflow](foundation/WORKFLOW.md) governs this project's collaboration and approval process.
+
+## Repository contents
+
+| Location | Responsibility |
+| --- | --- |
+| [`foundation/`](foundation/DESIGN.md) | Authoritative project-wide design and working governance for developing DLD itself. |
+| [`guide/`](guide/README.md) | Shared methodology, lifecycle guidance, reference architecture, and separate adopter/developer guides. |
+| [`starter/`](starter/README.md) | Copyable, self-contained operating documents for an adopter's software project. |
+| [`product/`](product/README.md) | Maintained entry content for the user-facing product distribution. |
+| [`examples/`](examples/README.md) | Worked examples, when available, showing DLD applied in practice. |
+| [`tools/package/`](tools/package/README.md) | Distribution assembly definitions and validation. |
+| [`CHANGELOG.md`](CHANGELOG.md) | Method changes and adoption implications. |
+| [`VERSION`](VERSION) | Method version identity. |
+| [`LICENSE`](LICENSE) | Repository license. |
+
+The guide, starter, and product entry content are **maintained sources**. Generated packages belong in `dist/` and are normally not tracked. The development repository's `foundation/` is not copied into the user-facing product; the adopter receives the separate starter template.
+
+## Build and validate distributions
+
+The packaging process uses Python's standard library:
+
+```sh
+python tools/package/build.py --check
 ```
 
-| Document | Responsibility |
-| --- | --- |
-| `README.md` | Introduces the product and explains how to use it. |
-| `foundation/WORKFLOW.md` | Defines how the human and AI work together. |
-| `foundation/RULES.md` | Records specific project requirements; every adopted rule applies. |
-| `foundation/DESIGN.md` | Defines the product's overall design, revision, and approval state. |
+It assembles and checks both distributions from explicitly selected maintained sources. See [packaging instructions](tools/package/README.md) for package boundaries and release safeguards.
 
-The starter contains templates, not an approved product design or pre-adopted project rules. Adapt them through discussion with the human.
+Successful packaging does not itself establish human design approval, completed verification of the methodology, or authorization to publish a release.
 
-The project root is `project-name/`; its `foundation/` directory holds project-wide documents. Folder hierarchy normally expresses design hierarchy. A responsibility spanning branches can use a focused shared design when it does not fit the common ancestor's scope; narrower designs remain in their branches. See [design placement](guide/03-develop-detailed-designs.md) for examples.
+## Versioning and current status
 
-## Repository structure
+The last documented published DLD release is **`v0.1.3`**. See the [changelog](CHANGELOG.md) for its scope and adoption guidance.
 
-- [starter/](starter/) contains the four documents users copy into their projects.
-- [guide/](guide/README.md) explains how to use the method throughout a project's life, with prompts, examples, and readiness checks.
-- [examples/](examples/README.md) describes the intended worked examples; no complete example project is included in this release.
-- [foundation/](foundation/DESIGN.md) contains the design, workflow, and rules governing development of this method itself.
-- [CHANGELOG.md](CHANGELOG.md) records method changes and adoption guidance.
-- [VERSION](VERSION) identifies the method baseline.
-- [LICENSE](LICENSE) contains this repository's license.
+This branch contains a **proposed architectural revision under review**. Its changes are not a published release or a new human-approved design baseline. The project-wide design records its own revision and approval history, independently of DLD's release version. Software projects adopting DLD maintain their own versions, design approvals, and release histories.
 
-## Development and versioning
-
-Before changing this repository, read its [foundation design](foundation/DESIGN.md), [workflow](foundation/WORKFLOW.md), and [rules](foundation/RULES.md).
-
-The last documented published method release is `0.1.3`, identified by Git tag `v0.1.3`. It introduces final-state writing, approval sweeps, and consistent audit and baseline records. See the changelog for adoption guidance.
-
-The method has not yet been validated through a complete real project. Feedback from that use will inform later releases.
-
-Use a tagged version when adopting the method so you can identify the source baseline. Read the [changelog](CHANGELOG.md) before adopting later versions and preserve your project's own rules and design decisions.
-
-The method is this repository's product, so it has one release version. Its design documents have independent revisions. Products built using the starter maintain their own versions and release histories.
-
-See the [repository workflow](foundation/WORKFLOW.md) for change and release practices.
+DLD has not yet been validated through a complete real-world software project. Claims about its effectiveness must be supported by actual use and evidence.
