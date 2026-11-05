@@ -1,8 +1,8 @@
-# Reference Repository Layout (Candidate v1)
+# Reference Repository Layout
 
-This guide describes a **comprehensive reference**, not a required scaffold. Projects instantiate only responsibilities they actually need. It is informed by software engineering practice and standards, but is not a formal conformance specification.
+This reference describes a **comprehensive catalogue of engineering responsibilities**, not a mandatory scaffold. Projects instantiate only responsibilities they actually need. It is informed by software engineering practice and standards, but is not a formal conformance specification.
 
-## Architectural rules
+## How to use this reference
 
 1. One authoritative owner per design decision, located at the nearest appropriate scope encompassing its responsibility. Other scopes reference rather than duplicate it.
 2. Organize primarily by engineering responsibility; co-locate scoped designs, realizations, and tests when meaningful. Cross-scope relationships may be explicit links instead of directory nesting.
@@ -50,7 +50,7 @@ This tree is a catalogue of responsibilities, not an instruction to create empty
 - Planning, risk, changes, incidents, support, and retirement records belong with their responsible scopes or external systems, with discoverable references. They must not be confused with the authoritative design.
 - `build/` and `dist/` distinguish generated intermediate artifacts from assembled product outputs. A distributable is not a verified, authorized release simply because it exists.
 
-## Product boundaries and packaging
+## Distribution boundaries
 
 Each distributable has identifiable maintained inputs, an ecosystem-native or simple explicit assembly definition, and verifiable outputs. One repository may produce several products. DLD itself has one version and release tag with two distributions: **development** (materials to maintain DLD) and **product** (materials needed to use DLD). Do not copy the DLD development project's DESIGN or RULES into adopters' projects. Product assembly copies the canonical Core exactly into the starter's foundation and supplies clean, unapproved DESIGN and RULES templates.
 

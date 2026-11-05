@@ -17,9 +17,9 @@ Both audiences use **the same versioned Core**, not independently maintained met
 
 ## Start here
 
-- **Develop DLD:** Read [Core](foundation/CORE.md), [development guidance](docs/development.md), [project design](foundation/DESIGN.md), and [project rules](foundation/RULES.md).
-- **Use DLD in your project:** Read the [product introduction](docs/product.md) and [adoption guide](docs/adoption.md). Only the generated starter contents belong in your project.
-- **Learn DLD:** Begin with [Core](foundation/CORE.md), then explore the [documentation](docs/README.md) and [reference repository layout](docs/reference-repository-layout.md).
+- **Develop DLD:** Read [Core](foundation/CORE.md), [development guidance](docs/guides/development.md), [project design](foundation/DESIGN.md), and [project rules](foundation/RULES.md).
+- **Use DLD in your project:** Read the [product introduction](docs/internal/product-readme.md) and [adoption guide](docs/guides/adoption.md). Only the generated starter contents belong in your project.
+- **Learn DLD:** Begin with [Core](foundation/CORE.md), then explore the [documentation](docs/README.md) and [reference repository layout](docs/reference/repository-layout.md).
 
 At the start of each new or resumed AI session in this repository, explicitly ask AI to read `foundation/CORE.md`, `foundation/RULES.md`, and `foundation/DESIGN.md`, followed by applicable scoped designs and the repository state. Do not assume automatic discovery or create a mandatory AI-specific instruction file.
 
@@ -36,7 +36,7 @@ At the start of each new or resumed AI session in this repository, explicitly as
 | [`VERSION`](VERSION) | DLD release version, independent of design revisions or adopter project versions. |
 | [`LICENSE`](LICENSE) | License for the distributed DLD materials. |
 
-Generated packages under `dist/` are ignored. This is a deliberately small development repository; the [reference layout](docs/reference-repository-layout.md) is a **selectively adoptable general reference**, not a list of directories DLD itself must create.
+Generated packages under `dist/` are ignored. This is a deliberately small development repository; the [reference layout](docs/reference/repository-layout.md) is a **selectively adoptable general reference**, not a list of directories DLD itself must create.
 
 ## Package validation
 
@@ -44,7 +44,7 @@ Generated packages under `dist/` are ignored. This is a deliberately small devel
 python .github/package.py --check
 ```
 
-The script assembles and checks both distributions from the same version. Packaging does not itself approve a design or publish a release; see [development guidance](docs/development.md).
+The script assembles and checks both distributions from the same version. Packaging does not itself approve a design or publish a release; see [development guidance](docs/guides/development.md).
 
 ## Version and status
 

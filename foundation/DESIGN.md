@@ -41,13 +41,13 @@ Users copy only the starter contents into their own projects. Their DESIGN and R
 
 - [`foundation/CORE.md`](CORE.md) is the sole maintained source of the DLD methodology. Copies inserted into distributions are derived from it, not separately edited.
 - [`foundation/DESIGN.md`](DESIGN.md) defines the DLD development project's intended outcomes, scope, and design; [`foundation/RULES.md`](RULES.md) contains any separately adopted constraints for this project.
-- [`docs/`](../docs/README.md) explains the common method and provides audience-specific [adoption](../docs/adoption.md) and [development](../docs/development.md) guidance. It does not establish competing methodological authority.
+- [`docs/`](../docs/README.md) explains the common method and provides audience-specific [adoption](../docs/guides/adoption.md) and [development](../docs/guides/development.md) guidance. It does not establish competing methodological authority.
 - [`examples/`](../examples/README.md) contains concrete demonstrations of DLD, when available, without defining the method.
 - [`starter/`](../starter/README.md) maintains clean project-specific README, DESIGN, and RULES templates. Packaging inserts the canonical Core instead of maintaining a second source.
-- [`.github/package.py`](../.github/package.py) assembles and validates both distributions according to the [packaging specification](../docs/packaging.md).
+- [`.github/package.py`](../.github/package.py) assembles and validates both distributions according to the [packaging specification](../docs/internal/packaging.md).
 - The repository [README](../README.md) is its entry point; [VERSION](../VERSION), [CHANGELOG](../CHANGELOG.md), and [LICENSE](../LICENSE) record method identity, changes, and licensing.
 
-Use the [reference repository layout](../docs/reference-repository-layout.md) selectively. This development repository creates additional directories only for real responsibilities or required tooling conventions.
+Use the [reference repository layout](../docs/reference/repository-layout.md) selectively. This development repository creates additional directories only for real responsibilities or required tooling conventions.
 
 ## Acceptance criteria
 

@@ -1,28 +1,34 @@
-# Build a project with AI
+# DLD Documentation
 
-This guide shows how to apply [Design-Led Development](../foundation/CORE.md) in a software project, from an initial idea through delivery and later changes. It is shared learning material in both the development and product distributions. Read [DLD Core](../foundation/CORE.md) first; see the [adoption guide](adoption.md) for installation and session startup.
+This is the documentation home for **Design-Led Development (DLD)**. [DLD Core](../foundation/CORE.md) is the authoritative specification for humans and AI; documents here explain its use, offer examples, or describe how DLD itself is maintained. Documentation does not independently define or change the methodology.
 
-[DLD Core](../foundation/CORE.md) is the authoritative working method. This guide explains how to apply it. The distributed [starter](../starter/) supplies a frozen copy of Core and clean project templates. This guide is shipped with both DLD distributions. Copy only the starter contents into an adopting project.
+## Choose your path
 
-## Choose your starting point
+| I want to… | Start here |
+| --- | --- |
+| Understand what DLD is and how it works | [DLD Core](../foundation/CORE.md) |
+| Apply DLD to a new or existing project | [Adoption guide](guides/adoption.md) |
+| Work through a complete development increment | [Practical lifecycle guide](guides/lifecycle/01-start-the-project.md) |
+| Decide where engineering artifacts belong | [Repository layout reference](reference/repository-layout.md) |
+| Contribute changes to DLD itself | [Development guide](guides/development.md) |
+| Understand how the two distributions are assembled | [Packaging reference](internal/packaging.md) |
 
-| Stage | Work you do together | Result |
-| --- | --- | --- |
-| [1. Start the project](01-start-the-project.md) | Set up the documents and establish how to collaborate. | A usable starting repository. |
-| [2. Define the foundation design](02-define-the-foundation-design.md) | Turn the idea into a clear project direction. | An identified, approved design scope. |
-| [3. Develop detailed designs](03-develop-detailed-designs.md) | Resolve the next increment at appropriate levels. | Designs sufficient to implement that increment. |
-| [4. Realize the design](04-realize-the-design.md) | Implement approved decisions and handle new evidence. | A working increment with visible limitations. |
-| [5. Verify and deliver](05-verify-and-deliver.md) | Assess conformance and prepare the product for use. | A verified delivery and operating information. |
-| [6. Evolve the project](06-evolve-the-project.md) | Manage changes, resume work, and adopt method updates. | A maintainable product with preserved intent. |
+## Practical lifecycle guide
 
-For a new project, begin at stage 1. For an existing project, use stage 1 to reconcile the documents, then identify the design and implementation gaps that matter next.
+The chapters form an example **repeatable learning path**, not mandatory waterfall stages. Start wherever the project needs work.
 
-These six chapters are repeatable practical activities, not the full software lifecycle taxonomy. DLD covers the complete software project lifecycle, including operation, support, and retirement. See the [reference repository architecture](reference-repository-layout.md) for engineering artifact responsibilities. The activities recur as needed: an approved increment can be delivered while other areas remain under discussion.
+1. [Start a project](guides/lifecycle/01-start-the-project.md)
+2. [Define its foundation design](guides/lifecycle/02-define-the-foundation-design.md)
+3. [Develop scoped designs](guides/lifecycle/03-develop-detailed-designs.md)
+4. [Realize an approved design](guides/lifecycle/04-realize-the-design.md)
+5. [Verify, validate, and deliver](guides/lifecycle/05-verify-and-deliver.md)
+6. [Evolve and maintain](guides/lifecycle/06-evolve-the-project.md)
 
-## Keep the responsibilities clear
+## Documentation boundaries
 
-The human sets direction and approves consequential decisions. AI helps reason about the design, records decisions, implements approved scope, and verifies the result. Local implementation choices can be delegated without requiring approval of every helper function.
+- **Core** answers *what DLD requires*; it is shared, versioned, and authoritative.
+- **Guides** answer *how to apply DLD to a task or audience*; their prompts are examples, not approvals or new rules.
+- **Reference** helps choose suitable engineering structures; its directory catalogue is not a mandatory scaffold.
+- **Internal documentation** describes how DLD's maintained source becomes distributable artifacts. It is for contributors, not adopters.
 
-`CORE.md` holds the DLD method, `RULES.md` holds adopted project-specific requirements, and `DESIGN.md` holds the overall product design. Keep the product README focused on the product and its use.
-
-Prompts, directory trees, and records in this guide are illustrative. Adapt them to the project; they supply no approval, actual verification evidence, or product requirements.
+The **product distribution** contains Core, this documentation index, the adoption and practical guides, and the repository reference. The **development distribution** additionally contains development and internal documentation. Only the generated `starter/` contents are copied into a user's own project.
