@@ -18,7 +18,7 @@ Avoid inventing a large document hierarchy in advance. Add a document when a res
 
 ## Understand the normal hierarchy
 
-The **project root** contains the product. Its **`foundation/` directory** holds project-wide workflow, rules, and top-level design. It is not the automatic physical parent of every design scope.
+The **project root** contains the product. Its **`foundation/` directory** holds project-wide Core, project rules, and top-level design. It is not the automatic physical parent of every design scope.
 
 **Ownership and scope determine design authority.** Folder hierarchy can express scope composition, and a scope design delegates narrower responsibilities where appropriate. Co-locate designs with their realizations when it serves ownership; physical nesting alone does not create authority. Parents reference delegated scopes, and children identify applicable broader designs so readers can navigate the hierarchy.
 
@@ -45,7 +45,7 @@ If the approved implementation layout later introduces `src/`, reconcile design 
 ```text
 project-name/
 ├── foundation/
-│   ├── WORKFLOW.md
+│   ├── CORE.md
 │   ├── RULES.md
 │   └── DESIGN.md
 └── src/
@@ -77,7 +77,7 @@ For example, a project-level privacy rule belongs to `foundation/DESIGN.md`, whi
 project-name/
 ├── foundation/
 │   ├── DESIGN.md
-│   ├── WORKFLOW.md
+│   ├── CORE.md
 │   └── RULES.md
 ├── renewal-policy/
 │   └── renewal-policy.md

@@ -21,7 +21,7 @@ project/
 ├── VERSION                   # Optional; ecosystem manifests may own versioning
 ├── foundation/               # Project-wide authority
 │   ├── DESIGN.md             # Comprehensive project-wide abstract design
-│   ├── WORKFLOW.md           # Human–AI collaboration and delegated authority
+│   ├── CORE.md           # Human–AI collaboration and delegated authority
 │   └── RULES.md              # Project-specific adopted constraints
 ├── src/                      # Implementation source where conventional
 ├── tests/                    # Shared / cross-scope executable tests

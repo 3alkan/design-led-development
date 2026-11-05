@@ -66,7 +66,7 @@ Update affected links when designs move or split. Preserve decisions and approva
 
 When finishing a work session, leave an identifiable account of current approved scope, completed work, checks, unresolved questions, and the next intended work. Use existing project records where practical rather than creating mandatory paperwork for every session.
 
-At the next session, instruct AI to read the applicable workflow, rules, designs, and current repository state. A previous chat's conclusion is not evidence that the files remain unchanged.
+At the next session, instruct AI to read the applicable Core, rules, designs, and current repository state. A previous chat's conclusion is not evidence that the files remain unchanged.
 
 ## Keep three records independent
 
@@ -84,7 +84,7 @@ Read the method's [changelog](../CHANGELOG.md) and compare the baseline you adop
 
 Propose relevant changes to your product's workflow and templates. Preserve product-specific rules and approved decisions; do not overwrite them by copying a new starter blindly.
 
-Obtain human approval for consequential changes to workflow, rules, or design. Update the recorded method baseline and note any recommendations intentionally left out.
+Obtain human approval for consequential changes to Core, rules, or design. Update the recorded method baseline and note any recommendations intentionally left out.
 
 ## Continue the cycle
 

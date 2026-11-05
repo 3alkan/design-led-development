@@ -14,7 +14,7 @@ Copy the **contents** of [starter/](../starter/) into your product repository:
 project-name/
 ├── README.md
 └── foundation/
-    ├── WORKFLOW.md
+    ├── CORE.md
     ├── RULES.md
     └── DESIGN.md
 ```
@@ -27,11 +27,11 @@ Adapt the README's product name and description. Keep its release baseline. If a
 
 ## Establish the collaboration
 
-Read the workflow with AI. Confirm that the human owns approval and that AI can act independently within delegated implementation freedom. Make any proposed changes to the working method explicit.
+Read DLD Core with AI. Confirm that the human owns approval and that AI can act independently within delegated implementation freedom. Make any proposed changes to the working method explicit.
 
-Do not assume the AI tool will discover these files automatically. Begin the conversation with a direct instruction such as:
+The copied Core is the versioned, immutable DLD method. Project DESIGN and RULES remain independent. Do not assume AI discovers the files automatically. Begin the conversation with a direct instruction such as:
 
-> Read foundation/WORKFLOW.md, foundation/RULES.md, and foundation/DESIGN.md before working. Help me develop the design through discussion. Keep proposals distinct from decisions I approve, and implement only approved scope.
+> Read foundation/CORE.md, foundation/RULES.md, and foundation/DESIGN.md before working. Help me develop the design through discussion. Keep proposals distinct from decisions I approve, and implement only approved scope.
 
 Use your tool's project-instruction mechanism if available, pointing it to these documents without creating another competing copy of the method.
 
@@ -41,7 +41,7 @@ The starter rules file is a format template. Remove its placeholders. If no proj
 
 Add a rule only when the human has adopted its requirement. Group rules by topic and keep identifiers stable. Include scope or conditions in the requirement and add exceptions or reasons where useful. There are no enabled/disabled status fields: every adopted rule applies.
 
-Formatting conventions belong here. Product behavior belongs in design. Collaboration procedures belong in the workflow.
+Formatting conventions belong here. Product behavior belongs in design. Collaboration procedures belong in DLD Core.
 
 ## Ready to continue
 
