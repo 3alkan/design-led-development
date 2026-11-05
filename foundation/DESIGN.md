@@ -1,12 +1,14 @@
 # Design-Led Development — Project Design
 
 - Revision: 6
-- Status: Draft
+- Status: Approved
 - Approval: Rev 3 approved by human (date not recorded).
 - Approval: Rev 4 approved by human 2026-11-03.
 - Approval: Rev 5 approved by human 2026-11-03.
+- Approval: Rev 6, entire present DLD development project DESIGN, approved by the human requester in the 2026-11-05 conversation ('approve drafts' after whole-repository corrections); the starter project DESIGN remains an unapproved template.
+- Approved design-body baseline: Git commit `cea65edf70438719f39a1f10ec8445fd4eedaca2` (`foundation/DESIGN.md`, Revision 6).
 
-**Authority boundary:** This revision is a proposal for the DLD development project, not an approval of Revision 6. The approval entries above describe earlier historical revisions only. Their recoverable baselines remain the authority for those approvals. Neither this file nor a successful repository commit authorizes a methodology release.
+**Authority boundary:** Revision 6 is approved for the DLD development project's design scope; open questions remain unresolved and do not establish approved new commitments. Its approval is based on the human's explicit instruction in this conversation, not inferred from a commit. Earlier approval entries remain historical. DESIGN approval does not authorize a merge, tag, distribution publication, or methodology release.
 
 ## Purpose and intended outcomes
 
@@ -108,11 +110,9 @@ The maintained [`scripts/package.ps1`](../scripts/package.ps1) is a PowerShell 7
 - Validation reports actual checks and limitations rather than inferring broad correctness from a successful build.
 - Releases reflect explicit human authorization and truthful version, approval, changelog, and evidence records.
 
-## Pending changes — Draft revision 6
+## Approved revision 6
 
-This proposed revision reorganizes the DLD development project's design around the ten-section Core v0.1.4, clean adopter starter, two distributions, optional support overlay, and the separation between method authority and project-specific product design.
-
-Revision 6 remains **unapproved**. Its text does not extend the previously recorded approvals of Revisions 3–5. The proposed next release is **v0.1.4**, subject to completing release preparation and obtaining the necessary authorization.
+Human-approved scope: the present DLD development project DESIGN, including the versioned Core architecture, project-neutral starter, two distributions, licensing boundaries, optional supporting materials, and packaging responsibilities. The exact reviewed design body is recoverable at Git commit `cea65edf70438719f39a1f10ec8445fd4eedaca2`; the approval record and status are captured in this subsequent commit. Approval does not grant operational permission to publish v0.1.4.
 
 ## Open questions
 
