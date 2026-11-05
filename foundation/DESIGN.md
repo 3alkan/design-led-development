@@ -64,7 +64,7 @@ Adopters copy the starter into their own projects, then develop their own design
 
 ### Optional supporting documentation
 
-The product provides one optional supporting reference on user-project repository organization, maintained at [`docs/supporting/repository-layout.md`](../docs/supporting/repository-layout.md). Packaging places it at `supporting/repository-layout.md`. Adopters MAY copy it into their own `docs/dld/` directory. Additional supporting material is introduced only when useful; none may add methodological obligations beyond Core.
+The product provides one optional supporting reference on adopting-project repository organization, maintained at [`docs/supporting/repository-layout.md`](../docs/supporting/repository-layout.md). Packaging places it at `supporting/repository-layout.md`. Adopters MAY copy it into their own `docs/dld/` directory. Additional supporting material is introduced only when useful; none may add methodological obligations beyond Core.
 
 ## Responsibility and artifact ownership
 

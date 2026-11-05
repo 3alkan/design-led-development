@@ -10,12 +10,12 @@ This is the **DLD development repository**, itself governed as a DLD project by 
 | --- | --- |
 | [`foundation/`](foundation/CORE.md) | Canonical methodology Core and this project's own DESIGN and RULES |
 | [`starter/`](starter/README.md) | Project-neutral adoption templates; the Core copy is taken from the canonical source when assembling a product |
-| [`docs/supporting/`](docs/supporting/repository-layout.md) | Optional supporting resources, currently a user-project repository-layout reference |
+| [`docs/supporting/`](docs/supporting/repository-layout.md) | Optional supporting resources, currently a adopting-project repository-layout reference |
 | [`VERSION`](VERSION) | Release version identity |
 | [`CHANGELOG.md`](CHANGELOG.md) | Historical changes and adoption implications |
 | [`LICENSE`](LICENSE) | License |
 
-The [repository-layout reference](docs/supporting/repository-layout.md) is optional: a DLD user project needs only its README and adopted foundation.
+The [repository-layout reference](docs/supporting/repository-layout.md) is optional: an adopting project needs only its README and adopted foundation.
 
 ## Intended distributions
 

@@ -1,4 +1,4 @@
-# User-Project Repository Layout — Reference
+# Adopting Project Repository Layout — Reference
 
 **Optional DLD supporting material.** This is a practical starting point, not a mandatory scaffold. The adopted `foundation/CORE.md` governs DLD; this reference offers ways to organize engineering artifacts. No international software engineering standard prescribes one universal repository directory tree.
 
@@ -61,6 +61,3 @@ Start from the project's **technology conventions**, then increase separation as
 
 A generated package is not necessarily an approved release. A passing test is not evidence for an unrelated claim. Physical directory structure does not replace approval, verification, or design ownership.
 
-## 5. Reference basis
-
-Software lifecycle responsibilities are informed by [ISO/IEC/IEEE 12207:2026](https://www.iso.org/standard/90219.html), which describes processes rather than repository names. For concrete layout conventions, consult the relevant ecosystem's maintainers; for example, the [Python Packaging User Guide](https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/) discusses trade-offs between `src/` and flat package layouts, and [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) explains the role of repository README files. Choose appropriate practices instead of treating illustrative folder names as universal standards.
