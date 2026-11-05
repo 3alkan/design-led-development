@@ -20,7 +20,7 @@ Avoid inventing a large document hierarchy in advance. Add a document when a res
 
 The **project root** contains the product. Its **`foundation/` directory** holds project-wide workflow, rules, and top-level design. It is not the automatic physical parent of every design scope.
 
-**Folder hierarchy normally expresses design hierarchy.** A folder design owns its scope and delegates narrower responsibilities to nested designs, which inherit applicable ancestor constraints. Keep designs beside the realization they govern. Parents reference delegated scopes, and children identify applicable broader designs so readers can navigate the hierarchy.
+**Ownership and scope determine design authority.** Folder hierarchy can express scope composition, and a scope design delegates narrower responsibilities where appropriate. Co-locate designs with their realizations when it serves ownership; physical nesting alone does not create authority. Parents reference delegated scopes, and children identify applicable broader designs so readers can navigate the hierarchy.
 
 The project's top-level design is `foundation/DESIGN.md`, even though its physical directory is beside other scopes. Technical wrappers such as `src/` or framework routes do not need design documents solely because they contain other folders. Follow the applicable design ancestors, without inventing authority for every physical directory.
 
@@ -40,7 +40,7 @@ project-name/
 
 These scope folders can become implementation folders. They do not prescribe a final source layout or require empty implementation files.
 
-If the approved implementation layout later introduces `src/`, reconcile placement with it. Moving designs with their implementation areas preserves the normal hierarchy. Responsibilities spanning branches follow nearest appropriate ownership as explained below. One possible result is:
+If the approved implementation layout later introduces `src/`, reconcile design ownership and references with it. Moving a design is appropriate only when its ownership and governing constraints remain coherent. Responsibilities spanning branches follow nearest appropriate ownership as explained below. One possible result is:
 
 ```text
 project-name/
@@ -69,54 +69,36 @@ A folder document uses its folder's name. A file companion retains the complete 
 
 ## Shared responsibility across branches
 
-Use this decision order:
+A design that governs multiple components belongs at the **nearest appropriate common owning scope**, or at a separately identified responsibility within the common parent if that parent is merely a technical wrapper. Avoid a generic top-level `design/` or `shared/` directory created solely to hold otherwise unrelated decisions.
 
-1. Keep a scope design within its implementation branch when the responsibility fits there.
-2. For a responsibility shared across branches, use an existing common ancestor's design if the decision belongs at that ancestor's level.
-3. If the shared responsibility would overload or distort the ancestor's scope, introduce one focused shared design outside the branches. Record its responsibility and participating branches.
-
-For example, a project-wide privacy principle belongs in the foundation design. Detailed renewal policy spanning frontend and backend may need its own shared design rather than expanding the root document with feature details. Do not create `src/src.md` solely to obtain a physical common ancestor.
-
-This is a limited exception for cross-branch responsibilities. It does not permit arbitrary placement, require every non-artifact design under `design/`, or relocate unrelated module designs. Local hierarchies and adjacent artifact designs remain intact.
+For example, a project-level privacy rule belongs to `foundation/DESIGN.md`, while a renewal policy governing both backend and frontend might be an independently meaningful project-level responsibility:
 
 ```text
 project-name/
 ├── foundation/
+│   ├── DESIGN.md
 │   ├── WORKFLOW.md
-│   ├── RULES.md
-│   └── DESIGN.md
-├── design/
-│   └── renewal/
-│       └── renewal.md
+│   └── RULES.md
+├── renewal-policy/
+│   └── renewal-policy.md
 └── src/
     ├── backend/
     │   ├── backend.md
     │   └── renewal/
     │       ├── renewal.md
-    │       ├── eligibility.py.md
     │       └── eligibility.py
     └── frontend/
         ├── frontend.md
         └── renewal/
             ├── renewal.md
-            ├── form.tsx.md
             └── form.tsx
 ```
 
-The foundation design identifies the shared renewal responsibility. The shared design owns renewal policy, cross-branch contracts, and the allocation of responsibilities. Narrower designs in each branch explain how their branch fulfills those responsibilities.
+Here `renewal-policy/renewal-policy.md` is the **single authority** for the common policy and contracts. The backend and frontend designs reference it, own their local behavior, and respect other governing constraints. The foundation identifies the responsibility without duplicating its detailed policy.
 
-| Design | Owns | Governing context |
-| --- | --- | --- |
-| `renewal-policy/renewal-policy.md` | Common policy, cross-branch behavior, contracts, and responsibility allocation. | The foundation design and applicable project constraints. |
-| `src/backend/renewal/renewal.md` | Backend validation, processing, and failures within the common contract. | The shared renewal design and applicable backend ancestor constraints. |
-| `src/frontend/renewal/renewal.md` | Member interaction and presentation within the common behavior. | The shared renewal design and applicable frontend ancestor constraints. |
-| Artifact companions | Detailed contracts delegated to individual files. | Their local branch design and applicable shared decisions. |
+Other valid placements are possible, including a common component scope owning its subordinate branches. The decision is based on responsibility, not a mandatory directory name. Where a direct link is useful, the backend design might point to `../../../renewal-policy/renewal-policy.md`; the policy design might link to `../src/backend/renewal/renewal.md`. These are illustrative paths within the example project, not links in this guide.
 
-Keep the relationships navigable. The shared design links to both branch designs. Each branch design links back to the shared design and identifies its local design ancestors. For example, the backend renewal design can reference `../backend.md` and `../../../design/renewal/renewal.md`; the shared design can reference `../../src/backend/renewal/renewal.md`. These paths illustrate links inside the example project, not files in this guide repository.
-
-Branch designs must satisfy both shared and applicable local ancestor constraints. A conflict returns to design discussion; neither silently overrides the other. Reference shared policy instead of copying it into each branch.
-
-Create a narrower branch design when it has meaningful decisions to own. An empty document that merely forwards readers elsewhere is unnecessary. If none is needed, the shared design links directly to the responsible artifact designs, and those reference the shared design and applicable local ancestors. Other frontend-only or backend-only modules continue to use the normal folder hierarchy.
+Create a design document when it owns meaningful decisions. An empty forwarding document is not needed. Preserve reciprocal discoverability, the approved decision owner, and relationships when reorganizing.
 
 ## Reconcile placement as implementation develops
 
@@ -124,7 +106,7 @@ Choose an arrangement for the relevant scope through design discussion. Do not m
 
 When a source layout introduces wrappers such as `src/` or framework routes:
 
-1. Identify where each designed responsibility will be realized. Preserve folder hierarchy by default; use the common-ancestor decision order for cross-branch responsibilities.
+1. Identify where each designed responsibility will be realized. Respect nearest appropriate scope ownership; use ecosystem-native source locations when appropriate.
 2. Preserve the original documents' decisions, revision and approval records, and recoverable history. Use a Git move or an equivalent traceable change when appropriate.
 3. Update parent references, child references, incoming links, and mappings to implementation artifacts. Remove obsolete authoritative copies.
 4. Check that no scope or approved constraint was lost during the move. Propose and approve any changes in meaning separately.

@@ -80,7 +80,7 @@ The repository's `foundation/` governs this method; `starter/foundation/` suppli
 
 ## Pending changes — Draft revision 6
 
-All substantive changes in revision 6 are proposed and are **not yet authoritative**. This revision proposes the agreed F1–F4 philosophy and R1–R15 repository direction, including the naming migration and reference layout. Human approval of this exact repository revision has not yet been recorded. The approved Revision 5 baseline remains identifiable in Git. The approval sweep, revision status update, and release authorization must follow actual review.
+All substantive changes in revision 6 are proposed and are **not yet authoritative**. This revision proposes the agreed F1–F4 philosophy and R1–R15 repository direction, the foundation naming migration, the shared-learning/adopter/contributor boundaries, and the assembly of both distributions. Human approval of this exact repository revision has not yet been recorded. The approved Revision 5 baseline remains identifiable in Git. The approval sweep, revision status update, and release authorization must follow actual review.
 
 ## Open questions
 

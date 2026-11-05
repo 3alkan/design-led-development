@@ -47,4 +47,4 @@ Formatting conventions belong here. Product behavior belongs in design. Collabor
 
 You should have a product repository, a shared understanding of collaboration, and a first statement of the problem. Unresolved product decisions can remain open.
 
-Next: [Define the foundation design](02-define-the-root-design.md).
+Next: [Define the foundation design](02-define-the-foundation-design.md).

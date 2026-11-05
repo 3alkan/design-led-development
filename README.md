@@ -14,6 +14,10 @@ Both distributions share the fundamentals and general lifecycle/reference guide.
 
 DLD defines a [comprehensive, selectively adoptable software repository layout](guide/reference-repository-layout.md) with a `foundation/` scope, conventional documentation and source boundaries, and distinct testing, verification, build, and distribution responsibilities. It separates DLD's development repository from two release distributions: development and product. One version/tag governs both distributions; current tagged release information below remains unchanged until a new release is authorized.
 
+## Begin or resume development with AI
+
+At the beginning of a new AI session, explicitly instruct AI to read `foundation/WORKFLOW.md`, `foundation/RULES.md`, `foundation/DESIGN.md`, then the applicable scoped designs and the current repository state. Distinguish draft decisions from the last approved baseline. This is the same DLD onboarding mechanism used by adopters, with DLD-specific instructions in the [development guide](guide/development.md).
+
 ## Use DLD in another project
 
 1. Read the [workflow](starter/foundation/WORKFLOW.md), then follow the [practical guide](guide/README.md) to apply it from project setup through delivery and evolution.

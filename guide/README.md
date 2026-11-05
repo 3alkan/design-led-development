@@ -9,7 +9,7 @@ The [workflow](../starter/foundation/WORKFLOW.md) defines the working method. Th
 | Stage | Work you do together | Result |
 | --- | --- | --- |
 | [1. Start the project](01-start-the-project.md) | Set up the documents and establish how to collaborate. | A usable starting repository. |
-| [2. Define the foundation design](02-define-the-root-design.md) | Turn the idea into a clear project direction. | An identified, approved design scope. |
+| [2. Define the foundation design](02-define-the-foundation-design.md) | Turn the idea into a clear project direction. | An identified, approved design scope. |
 | [3. Develop detailed designs](03-develop-detailed-designs.md) | Resolve the next increment at appropriate levels. | Designs sufficient to implement that increment. |
 | [4. Realize the design](04-realize-the-design.md) | Implement approved decisions and handle new evidence. | A working increment with visible limitations. |
 | [5. Verify and deliver](05-verify-and-deliver.md) | Assess conformance and prepare the product for use. | A verified delivery and operating information. |

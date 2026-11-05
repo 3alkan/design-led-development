@@ -8,6 +8,8 @@ This file records changes to the Design-Led Development method and its starter. 
 - Clarify lifecycle-wide, design-centered, human-authoritative DLD principles and standards-informed stance.
 - Propose the selectively adoptable reference layout, with single-authority nearest-scope placement.
 - Propose the `foundation/` and `DESIGN.md` migration and dual distribution boundaries under one release baseline.
+- Separate common methodology learning from adopter and contributor guidance; make the copied starter operationally self-contained without AI-specific files.
+- Add reviewed source allowlists and checks for development and product distribution archives.
 
 ## 0.1.3 — 2026-11-03
 

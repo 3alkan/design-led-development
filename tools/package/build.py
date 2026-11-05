@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import argparse
-import os
 import re
 import subprocess
 import sys
@@ -16,7 +15,7 @@ GUIDE_COMMON = [
     "guide/methodology.md",
     "guide/reference-repository-layout.md",
     "guide/01-start-the-project.md",
-    "guide/02-define-the-root-design.md",
+    "guide/02-define-the-foundation-design.md",
     "guide/03-develop-detailed-designs.md",
     "guide/04-realize-the-design.md",
     "guide/05-verify-and-deliver.md",
