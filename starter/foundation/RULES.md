@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: CC0-1.0 -->
 # Project Rules
 
 No additional project-specific rules have been adopted.

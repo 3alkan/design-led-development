@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: CC0-1.0 -->
 # [Project name]
 
 [State the project's purpose and intended users in a few sentences.]

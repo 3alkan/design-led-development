@@ -4,6 +4,8 @@ This file records changes to the Design-Led Development method and its starter. 
 
 ## Unreleased — planned v0.1.4
 
+- Clarify licensing: GPLv3 for DLD Core and supporting materials; CC0-1.0 for the three freely reusable starter templates (excluding the generated Core copy).
+
 - Consolidate the versioned DLD methodology into one authoritative `foundation/CORE.md` with human approval, scope ownership, evidence, and continuity rules.
 - Maintain a clean four-file project starter; generate its Core directly from the canonical source.
 - Simplify supporting documentation to one optional project repository layout reference, maintained at `docs/supporting/repository-layout.md`.
