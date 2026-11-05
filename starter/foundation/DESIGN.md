@@ -1,36 +1,36 @@
-# [Project name]
+# [Project name] — Project Design
 
 - Revision: 1
 - Status: Draft
 
-## Purpose
+This is an **unapproved starting template**, not a human approval or recoverable approved baseline. Replace bracketed prompts with project-specific content; keep unresolved consequential decisions identifiable as drafts until approved.
 
-[Why this project exists and what problem it addresses.]
+## Purpose and intended outcomes
 
-## Users and intended outcomes
+[Why does this project exist? Who does it serve, and what outcomes are intended?]
 
-[Who the project serves and what outcomes it must enable.]
+## Scope and boundaries
 
-## Scope
+[What engineering responsibilities belong to this project? What is explicitly outside its intended scope?]
 
-[What the project includes and excludes.]
+## Requirements and intended behavior
 
-## Intended behavior
+[What capabilities, behavior, and quality properties must the project deliver? State intended outcomes, not assumptions about existing code.]
 
-[The project-wide behavior, capabilities, and experience to be delivered.]
+## Architecture and design ownership
 
-## Responsibilities and relationships
+[Identify significant responsibilities, logical design scopes, their governing relationships, and relevant cross-scope dependencies. Link to separate scoped designs when they become necessary; do not duplicate their owned decisions.]
 
-[Major areas of responsibility, their relationships, and links to separately owned designs where applicable.]
+## Governing decisions and constraints
 
-## Constraints and shared decisions
+[Record project-wide design choices, applicable requirements, interfaces, and constraints that govern multiple scopes. Reference additional approved project rules in RULES.md instead of duplicating them.]
 
-[Project-wide requirements, constraints, and decisions governing multiple scopes. Reference project rules rather than duplicating them.]
+## Verification and validation expectations
 
-## Acceptance criteria
+[Describe observable outcomes and acceptance conditions needed to assess whether the intended design is realized and useful.]
 
-[Observable conditions by which the intended outcomes can be assessed.]
+## Pending decisions and uncertainties
 
-## Open questions
+[Identify proposed choices, missing information, and consequential questions that still require human resolution. Do not present these as approved.]
 
-[Consequential questions that remain unresolved.]
+<!-- On actual human approval: identify the approving human, exact approved scope/content and revision, record the decision truthfully, and preserve a recoverable baseline in accordance with Core. For partial approval, keep pending proposals separate. Remove this template comment when no longer useful. -->
