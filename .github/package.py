@@ -76,7 +76,11 @@ def package_files(kind: str, version: str, release: bool) -> dict[str, bytes]:
         # product it is the root introduction, so resolve paths accordingly.
         intro = source("docs/product.md").decode("utf-8").replace(
             "../foundation/", "foundation/"
-        ).replace("../docs/", "docs/").replace("../starter/", "starter/")\n        # docs/product.md is installed as root README.md; same-directory\n        # links from its source must be retargeted to docs/.\n        for target in ("README.md", "adoption.md", "reference-repository-layout.md"):\n            intro = intro.replace("](" + target + ")", "](docs/" + target + ")")
+        ).replace("../docs/", "docs/").replace("../starter/", "starter/")
+        # docs/product.md is installed as root README.md; same-directory
+        # links from its source must be retargeted to docs/.
+        for target in ("README.md", "adoption.md", "reference-repository-layout.md"):
+            intro = intro.replace("](" + target + ")", "](docs/" + target + ")")
         files["README.md"] = intro.encode("utf-8")
         if not release:
             files["README.md"] += (
