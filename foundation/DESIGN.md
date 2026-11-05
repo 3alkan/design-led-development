@@ -64,7 +64,7 @@ Adopters copy the starter into their own projects, then develop their own design
 
 ### Licensing boundaries
 
-The canonical Core, supporting materials, and DLD development documentation are GPLv3-covered. The three maintained, project-customizable starter templates (`starter/README.md`, `starter/foundation/DESIGN.md`, and `starter/foundation/RULES.md`) are CC0-1.0, allowing unrestricted reuse by adopting projects. The generated Core copy retains its GPLv3 licensing; adopting DLD does not impose a license on independently created project work.
+The canonical Core, supporting materials, and DLD development documentation are GPLv3-covered under [`LICENSE`](../LICENSE). The three maintained, project-customizable starter templates (`starter/README.md`, `starter/foundation/DESIGN.md`, and `starter/foundation/RULES.md`) are CC0-1.0 under [`LICENSE-CC0`](../LICENSE-CC0), allowing unrestricted reuse by adopting projects. The generated Core copy retains its GPLv3 licensing; adopting DLD does not impose a license on independently created project work.
 
 ### Optional supporting documentation
 
@@ -80,7 +80,7 @@ The product provides one optional supporting reference on adopting-project repos
 | [`README.md`](../README.md) | Development repository entry point and navigation. |
 | [`docs/supporting/`](../docs/supporting/repository-layout.md) | Optional, non-authoritative material for DLD adopters; currently the repository layout reference. |
 | [`starter/`](../starter/README.md) | Project-neutral starter sources; packaging generates its Core copy. |
-| [`VERSION`](../VERSION), [`CHANGELOG.md`](../CHANGELOG.md), [`LICENSE`](../LICENSE) | Release version, release history, and licensing. |
+| [`VERSION`](../VERSION), [`CHANGELOG.md`](../CHANGELOG.md), [`LICENSE`](../LICENSE), [`LICENSE-CC0`](../LICENSE-CC0) | Release version, release history, and licensing. |
 
 The [repository layout reference](../docs/supporting/repository-layout.md) is optional guidance, not a mandatory scaffold. Physical placement does not create design authority. New artifacts and scopes are introduced only when their engineering responsibilities justify them.
 
