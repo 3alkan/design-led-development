@@ -1,32 +1,31 @@
 # DLD Documentation
 
-This is the documentation home for **Design-Led Development (DLD)**. [DLD Core](../foundation/CORE.md) is the authoritative specification for humans and AI; documents here explain its use, offer examples, or describe how DLD itself is maintained. Documentation does not independently define or change the methodology.
+The documentation in this directory helps people **understand and apply Design-Led Development (DLD)**. It is entirely optional. The [versioned DLD Core](../foundation/CORE.md) alone specifies the method; guides and references here cannot add obligations or approve project decisions.
 
-## Choose your path
+## Find what you need
 
-| I want to… | Start here |
+| Goal | Resource |
 | --- | --- |
-| Understand what DLD is and how it works | [DLD Core](../foundation/CORE.md) |
-| Apply DLD to a new or existing project | [Adoption guide](guides/adoption.md) |
-| Work through a complete development increment | [Practical lifecycle guide](guides/lifecycle/01-start-the-project.md) |
-| Decide where engineering artifacts belong | [Repository layout reference](reference/repository-layout.md) |
+| Understand the method's actual requirements | [Core](../foundation/CORE.md) |
+| Apply DLD in a new or existing project | [Adoption guide](guides/adoption.md) |
+| Follow a concrete learning path | [Practical working guide](guides/lifecycle/01-start-the-project.md) |
+| Consider file and responsibility placement | [Repository-layout reference](reference/repository-layout.md) |
 
-## Practical lifecycle guide
+## Practical working guide
 
-The chapters form an example **repeatable learning path**, not mandatory waterfall stages. Start wherever the project needs work.
+These chapters follow one illustrative journey through an increment. **They are not mandatory phases, approvals, or a substitute for the recurring operating cycle in Core.** Start with whichever activity is relevant.
 
-1. [Start a project](guides/lifecycle/01-start-the-project.md)
-2. [Define its foundation design](guides/lifecycle/02-define-the-foundation-design.md)
-3. [Develop scoped designs](guides/lifecycle/03-develop-detailed-designs.md)
-4. [Realize an approved design](guides/lifecycle/04-realize-the-design.md)
-5. [Verify, validate, and deliver](guides/lifecycle/05-verify-and-deliver.md)
-6. [Evolve and maintain](guides/lifecycle/06-evolve-the-project.md)
+1. [Establish the project and context](guides/lifecycle/01-start-the-project.md)
+2. [Develop project-level intent](guides/lifecycle/02-define-the-foundation-design.md)
+3. [Refine owned design scopes](guides/lifecycle/03-develop-detailed-designs.md)
+4. [Realize approved intent](guides/lifecycle/04-realize-the-design.md)
+5. [Evaluate and deliver outcomes](guides/lifecycle/05-verify-and-deliver.md)
+6. [Maintain, change, and resume](guides/lifecycle/06-evolve-the-project.md)
 
-## Documentation boundaries
+## How these documents relate to Core
 
-- **Core** answers *what DLD requires*; it is shared, versioned, and authoritative.
-- **Guides** answer *how to apply DLD to a task or audience*; their prompts are examples, not approvals or new rules.
-- **Reference** helps choose suitable engineering structures; its directory catalogue is not a mandatory scaffold.
-- **Internal documentation** describes how DLD's maintained source becomes distributable artifacts. It is for contributors, not adopters.
+**Core** defines what DLD requires. **Guides** explain possible ways to work. **References** offer examples and trade-offs. Nothing in these pages establishes an alternative design authority. In case of disagreement, follow the project's adopted Core and applicable approved designs, and report the inconsistency.
 
-The **product distribution** contains Core, this documentation index, the adoption and practical guides, and the repository reference. The **development distribution** additionally includes contributor guidance and internal packaging documentation. Only the generated `starter/` contents are needed in a user's own project. The product also provides optional, version-matched support documentation at `optional/docs/dld/`, ready to copy into the project's `docs/dld/` directory whenever local reference material is useful. Installing it does not change the adopted Core.
+The minimal DLD starter does not require this directory, an AI instruction file, or internet access. A product distribution may include an optional documentation overlay for local, version-matched reference material. Installing it never changes the adopted method or the project's own DESIGN and RULES.
+
+For maintainers of DLD itself, the development repository separately includes a contributor guide and internal packaging documents. They do not form part of an adopting project's methodological authority.
