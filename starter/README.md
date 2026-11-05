@@ -1,27 +1,35 @@
 # [Project name]
 
-[Briefly describe the project, its purpose, and who it serves.]
+[State the project's purpose and intended users in a few sentences.]
 
 ## Getting started
 
-[Add instructions to use, build, or operate this project when applicable.]
+[Add only the setup, usage, or operational instructions that are currently needed.]
 
 ## Design-Led Development
 
-This project uses **Design-Led Development (DLD)**.
+This project follows **Design-Led Development (DLD)**.
 
-- [CORE.md](foundation/CORE.md) is the adopted DLD methodology and remains unchanged for its identified version.
-- [DESIGN.md](foundation/DESIGN.md) defines project-level intended design and identifies its approval state.
-- [RULES.md](foundation/RULES.md) contains additional approved project constraints, or states that none have been adopted.
+| Foundation file | Responsibility |
+| --- | --- |
+| [CORE.md](foundation/CORE.md) | The unchanged, adopted DLD methodology. |
+| [DESIGN.md](foundation/DESIGN.md) | Project-level intended design, owning scopes, and approval state. |
+| [RULES.md](foundation/RULES.md) | Additional human-approved project rules, or a statement that none exist. |
 
 **Adopted DLD version:** `@DLD_BASELINE@`
 
-### Starting or resuming work with AI
+The README provides navigation; it does not establish independent methodological or design authority. Draft designs and proposed rules are not approved simply because they are present in the repository.
 
-When the AI tool does not automatically read project instructions, explicitly direct it:
+### Working with AI
 
-> Read `foundation/CORE.md`, `foundation/DESIGN.md`, and `foundation/RULES.md`. For the task at hand, identify the governing and active design scopes, their approvals, relevant dependencies, actual realization state, and available evidence. Load additional scope context as needed rather than reconstructing the whole project. Distinguish approved decisions from drafts, establish your delegation and permissions, and bring consequential unresolved choices to me before realizing changed intent. Follow Core and report uncertainty and verification limits accurately.
+At the start of a new or resumed AI session, ensure the AI has read the foundation. When the tool does not automatically discover project instructions, explicitly provide this direction:
 
-For ongoing work, use the relevant scoped designs and discoverable handoff information to reconstruct sufficient context. An AI-specific instruction file or persistent AI memory system is not required.
+> Read `foundation/CORE.md`, `foundation/DESIGN.md`, and `foundation/RULES.md`. Follow the adopted DLD Core. Establish the task's active scope, applicable governing designs, approvals, constraints, current realization, available evidence, and actual delegation and permissions. Load relevant dependencies progressively; do not reconstruct unrelated project history. Distinguish approved intent from drafts, missing decisions, and legacy behavior. Propose consequential changes for human approval before realizing them. Report completed work, verification limits, and unresolved matters truthfully.
 
-The project may begin with a draft design. Draft content is not approved merely because it appears in the foundation. Project-specific decisions and rules belong in their respective authoritative files, not in Core.
+For ongoing work, consult scoped designs and discoverable handoff information relevant to the task. Handoffs and AI memory assist navigation but do not override approved design or actual project state.
+
+### Adopting and evolving the project
+
+Start with a draft project design and approve consequential intent only when ready. Existing projects may reconcile their implementation with authoritative design one scope at a time. Add scoped designs and supporting artifacts when their responsibilities justify them; no additional DLD folder scaffold is required.
+
+Keep the adopted Core unchanged until a deliberately authorized methodology upgrade. Record project-specific design decisions in their owning designs and additional approved constraints in RULES.
