@@ -6,9 +6,9 @@ This is the **DLD product distribution**, intended for humans and AI using DLD o
 
 ## Learn the method
 
-1. Read [DLD fundamentals](guide/methodology.md) for the principles and human–AI responsibilities.
-2. Read [adoption instructions](guide/adoption.md) to start a new project or adapt an existing one.
-3. Use the [practical lifecycle guide](guide/README.md) and [reference repository layout](guide/reference-repository-layout.md) as needed.
+1. Read [DLD fundamentals](../guide/methodology.md) for the principles and human–AI responsibilities.
+2. Read [adoption instructions](../guide/adoption.md) to start a new project or adapt an existing one.
+3. Use the [practical lifecycle guide](../guide/README.md) and [reference repository layout](../guide/reference-repository-layout.md) as needed.
 
 The guide supports learning and adoption; it does **not** need to be copied into each software project.
 
@@ -46,4 +46,4 @@ Humans direct and approve consequential design decisions. AI helps design, ident
 - `VERSION` — DLD method baseline; your own project has a separate version and design revision history.
 - `LICENSE` — Licensing terms for the distributed materials.
 
-This package and the matching **development distribution** come from one DLD source baseline. A package produced from an unreleased revision is not a published or approved method release. Read the [adoption guide](guide/adoption.md) before changing a project's DLD baseline.
+This package and the matching **development distribution** come from one DLD source baseline. A package produced from an unreleased revision is not a published or approved method release. Read the [adoption guide](../guide/adoption.md) before changing a project's DLD baseline.
