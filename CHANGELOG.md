@@ -13,7 +13,7 @@ This file records changes to the Design-Led Development method and its starter. 
 - Simplify supporting documentation to one optional project repository layout reference, maintained at `docs/supporting/repository-layout.md`.
 - Package a product with its own introduction, a single copyable starter (including Core), optional `supporting/` material, VERSION, CHANGELOG, and LICENSE.
 - Keep DLD-development governance and distribution assembly tooling out of the adopter product.
-- These changes are on a proposal branch and are not yet a published release.
+- Candidate release preparation does not itself authorize publication; full executable packaging validation remains subject to actual execution evidence.
 
 ## 0.1.3 — 2026-11-03
 

@@ -33,7 +33,7 @@ The methodology's normative behavior belongs in Core. This DESIGN specifies **th
 
 [`foundation/CORE.md`](CORE.md) is the sole maintained authoritative source of the DLD methodology. Distribution copies MUST be derived from this source, never edited as competing method definitions.
 
-For the planned next release, the canonical Core identifies **0.1.4**. The repository's [VERSION](../VERSION) and published release identity remain separate release-management facts; the proposed release is not published merely because Core names that target version.
+For the planned next release, the canonical Core identifies **0.1.4**. The repository's [VERSION](../VERSION) is aligned to the candidate method version during release preparation; an aligned version does not mean that version has been published.
 
 ### Two distributions from one source baseline
 
@@ -44,7 +44,7 @@ The project produces two distributions sharing the same versioned Core and DLD r
 | **Development** | DLD maintainers: canonical Core, this project's DESIGN and RULES, maintained optional supporting material and starter sources, with a local PowerShell packaging script. |
 | **Product** | DLD adopters: a project-neutral starter containing the sole distributed Core copy, optional supporting reference material, version identity, changelog, and license. It excludes DLD development's own DESIGN, RULES, and internal packaging material. |
 
-The distributions are assembled from an identifiable maintained source baseline. Successful assembly or automated checks provide evidence about the packages; neither substitutes for human authorization to release.
+The distributions are assembled from an identifiable maintained source baseline. The product uses explicit file mapping, a versioned enclosing ZIP directory, and includes supporting materials without requiring their installation in adopting projects. Successful assembly or automated checks provide evidence about the packages; neither substitutes for human authorization to release.
 
 ### Minimal adopter starter
 
@@ -94,7 +94,7 @@ DLD development follows the adopted Core's design-led cycle. For consequential c
 
 The project's supporting artifacts must remain consistent with the authoritative Core. Changes to Core's normative method are not established through edits to guides, starter templates, implementation scripts, or this project DESIGN.
 
-The maintained [`scripts/package.ps1`](../scripts/package.ps1) performs local product assembly and structural and integrity verification. It requires `VERSION` to equal the canonical Core version, stages outputs before replacement, and produces a ZIP and SHA-256 checksum. A candidate release additionally requires review and authorization. Before that release, align the canonical Core, starter, supporting material, changelog, and version identity, then validate the assembled distributions. Commit creation, successful validation, approval of project design, and authorization to merge, tag, or publish are distinct events.
+The maintained [`scripts/package.ps1`](../scripts/package.ps1) is a PowerShell 7 standard-library-only, argument-free local assembly script. It requires `VERSION` to equal the canonical Core version, uses an explicit product file mapping, and produces a versioned ZIP (with a single enclosing version directory) and a SHA-256 checksum. It validates source and assembled files, byte-identical Core copies, local links, archive entries, and checksums; ZIP ordering, timestamps, and metadata are controlled for reproducibility within a stable packaging environment. It stages and validates outputs inside ignored `build/` before replacing the latest successful build, with recovery attempted on replacement failure. The script does not modify maintained source files. A candidate release additionally requires review and authorization. Before release, align the canonical Core, starter, supporting material, changelog, and version identity, then validate the assembled distributions. Where executable validation has not actually run, its result must remain expressly unverified. Commit creation, successful validation, approval of project design, and authorization to merge, tag, or publish are distinct events.
 
 ## Acceptance criteria
 
@@ -104,6 +104,7 @@ The maintained [`scripts/package.ps1`](../scripts/package.ps1) performs local pr
 - Both distributions use the same identified version and source baseline, include only their intended audience-specific materials, and preserve valid relative links.
 - The supporting reference can be copied into `docs/dld/` beside the starter without broken relative links or a second methodological authority.
 - The canonical Core, supporting reference, starter, and package behavior do not contradict one another.
+- ZIP creation is repeatable for identical inputs and packaging environments; unsuccessful builds do not knowingly replace valid outputs, and all filesystem writes remain confined to `build/`.
 - Validation reports actual checks and limitations rather than inferring broad correctness from a successful build.
 - Releases reflect explicit human authorization and truthful version, approval, changelog, and evidence records.
 

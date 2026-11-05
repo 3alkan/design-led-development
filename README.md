@@ -2,7 +2,7 @@
 
 DLD is a **design-centered, human-authoritative, AI-assisted software engineering methodology** spanning the software development lifecycle. Its [Core](foundation/CORE.md) is the sole authoritative specification of the method.
 
-This is the **DLD development repository**, itself governed as a DLD project by [DESIGN](foundation/DESIGN.md) and [RULES](foundation/RULES.md). The proposed next method version is **0.1.4**; the repository's current [VERSION](VERSION) remains **0.1.3** until release preparation.
+This is the **DLD development repository**, itself governed as a DLD project by [DESIGN](foundation/DESIGN.md) and [RULES](foundation/RULES.md). The proposed next method version is **0.1.4**; the repository's [VERSION](VERSION) is being aligned to **0.1.4** as an unreleased release candidate; version alignment is not publication.
 
 ## Repository
 
@@ -27,8 +27,8 @@ Following DLD or using the CC0 starter templates does not by itself impose GPLv3
 
 ## Intended distributions
 
-The development repository maintains the canonical Core and project-specific governance. The intended **product distribution** contains a product introduction, a copyable starter with a generated Core copy, optional supporting material, VERSION, CHANGELOG, and LICENSE.
+The development repository maintains the canonical Core and project-specific governance. The intended **product distribution** contains a product introduction, a copyable starter with a generated Core copy, optional supporting material, VERSION, CHANGELOG, LICENSE, and LICENSE-CC0.
 
-The local [PowerShell packaging script](scripts/package.ps1) assembles and validates the proposed product with no external modules. Run `pwsh -File scripts/package.ps1` after preparing a matching `VERSION` and Core version. The current `VERSION` is intentionally still 0.1.3, so packaging refuses the 0.1.4 draft Core until release preparation. An assembled package is not a published release.
+The local [PowerShell packaging script](scripts/package.ps1) assembles and validates the proposed product with no external modules. Run `pwsh -File scripts/package.ps1` after preparing a matching `VERSION` and Core version. Packaging requires `VERSION` to match the version declared in the frozen Core. Successful assembly is not itself evidence of release authorization. An assembled package is not a published release.
 
 When beginning human–AI work on DLD itself, load the project's Core, DESIGN, RULES, and relevant current scope and evidence. Neither a commit nor an assembled product constitutes approval or release authorization.
