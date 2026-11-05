@@ -1,51 +1,47 @@
-# 3. Develop scoped designs
+# 3. Refine Owned Design Scopes
 
-**Goal:** Make one useful increment implementable without prematurely designing the entire system.
+**Optional learning chapter.** Decompose only as far as the next engineering task requires.
 
-**Human:** Decide consequential behavior, interfaces, and trade-offs.
+## Find the owning responsibility
 
-**AI:** Propose meaningful boundaries and record decisions with their correct owners.
+Suppose the project now needs a submission form, an API for receiving submissions, and a reviewer view. These might be distinct responsibilities, but their relationships do not require a new file or directory for every imagined component.
 
-## Identify the next responsibility
+Ask AI:
 
-Describe the outcome to be realized and ask AI which scopes are responsible, what the approved foundation already decides, and which consequential decisions remain open.
+> Identify the relevant design owners and dependencies for this increment. Show which decisions are already approved, which are delegated implementation choices, and which consequential choices still need human approval.
 
-> Identify the design scopes needed for this increment. Distinguish existing governing decisions, local responsibilities, and unresolved choices. Avoid creating scopes with no decisions to own.
+Place an authoritative decision at the narrowest scope capable of governing all its relevant effects. A shared submission contract should have one owner even if frontend and backend both use it.
 
-## Place decisions by ownership
+## Design enough to realize
 
-The project-wide `foundation/DESIGN.md` governs the overall project. A component or feature design belongs at the **nearest appropriate owning scope**; physical nesting does not itself create authority.
+For each active responsibility, clarify inputs, outcomes, boundaries, interfaces, failure behavior, constraints, and acceptance conditions. Link to governing scopes rather than copying their approval text.
 
-For example:
+A possible arrangement—not a required scaffold—could be:
 
 ```text
 project/
-├── foundation/
-│   ├── CORE.md
-│   ├── DESIGN.md
-│   └── RULES.md
-└── lending/
-    ├── lending.md
-    └── renewal/
-        └── renewal.md
+  foundation/
+    CORE.md
+    DESIGN.md
+    RULES.md
+  submission/
+    submission-design.md
+  review/
+    review-design.md
 ```
 
-Here `lending.md` can own the lending area; `renewal.md` owns renewal-specific decisions. Later, implementation can be organized under ecosystem-native source directories while preserving actual ownership and governing references.
+These documents might instead be co-located with implementation or consolidated under fewer design artifacts. Logical ownership matters more than matching directories.
 
-For a responsibility spanning frontend and backend, place its common policy with an appropriate shared **responsibility**, not necessarily in the physical common directory. Both sides reference the single owning policy. Avoid generic `design/` or `shared/` containers created only to satisfy a convention.
+## Check cross-scope effects
 
-A specific implementation file may benefit from a neighboring `.md` companion, but DLD does not require every file to have one. Do not create empty forwarding documents.
+Before approval, assess reasonably discoverable effects on dependent scopes, interfaces, realization, and relevant tests. A human may approve a coherent multi-scope change in one decision if its boundary is explicit.
 
-## Prepare for realization
+Unresolved dependencies remain visible. Do not assume approval of one design automatically covers any later discovered consequential changes.
 
-Record significant inputs, expected outcomes, contracts, constraints, failure behavior, and observable acceptance criteria. Make delegated implementation freedom explicit. Human approval is needed for consequential design changes; use [Core](../../../foundation/CORE.md#6-design-states-and-approval) for the approval process.
+See the optional [repository-layout reference](../../reference/repository-layout.md) for alternative placements.
 
-When designs move, preserve decisions, approval history, incoming/outgoing references, and governing constraints. A changed scope or authority requires review rather than automatically carrying over approval.
+## What the increment achieves
 
-See the [repository reference](../../reference/repository-layout.md) for wider engineering responsibilities.
+The team can identify which approved intent governs realization, what choices remain local, and what evidence will matter.
 
-## Outcome
-
-AI can explain what will be realized, which approved decisions apply, and what remains delegated.
-
-**Continue:** [Realize the design](04-realize-the-design.md).
+**Next example:** [Realize approved intent](04-realize-the-design.md).
