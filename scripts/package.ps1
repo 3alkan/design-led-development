@@ -33,7 +33,7 @@ function Assert-Product([string] $Root, [string[]] $Expected) {
     foreach ($relative in $Expected | Where-Object { $_.EndsWith('.md') }) {
         $file = Join-Path $Root $relative
         foreach ($match in [regex]::Matches([IO.File]::ReadAllText($file),
-                '!?\\[[^\\]]*\\]\\((?<target>[^)]+)\\)')) {
+                '!?\[[^\]]*\]\((?<target>[^)]+)\)')) {
             $target = $match.Groups['target'].Value.Trim()
             if (-not $target -or $target.StartsWith('#') -or
                 $target -match '^[a-zA-Z][a-zA-Z0-9+.-]*:' -or $target.StartsWith('//')) { continue }

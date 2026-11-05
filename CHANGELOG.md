@@ -4,6 +4,8 @@ This file records changes to the Design-Led Development method and its starter. 
 
 ## Unreleased — planned v0.1.4
 
+- Add a dependency-free PowerShell 7 product assembly script with explicit file mapping, staged validation, a reproducible versioned ZIP, and a SHA-256 checksum; add a dedicated product README source.
+
 - Clarify licensing: GPLv3 for DLD Core and supporting materials; CC0-1.0 for the three freely reusable starter templates (excluding the generated Core copy), including a full offline CC0 legal text.
 
 - Consolidate the versioned DLD methodology into one authoritative `foundation/CORE.md` with human approval, scope ownership, evidence, and continuity rules.

@@ -29,6 +29,6 @@ Following DLD or using the CC0 starter templates does not by itself impose GPLv3
 
 The development repository maintains the canonical Core and project-specific governance. The intended **product distribution** contains a product introduction, a copyable starter with a generated Core copy, optional supporting material, VERSION, CHANGELOG, and LICENSE.
 
-Distribution assembly and validation tooling are **not yet present in this minimal repository layout**. The proposed product organization is project design, not a claim that a package has been built or published.
+The local [PowerShell packaging script](scripts/package.ps1) assembles and validates the proposed product with no external modules. Run `pwsh -File scripts/package.ps1` after preparing a matching `VERSION` and Core version. The current `VERSION` is intentionally still 0.1.3, so packaging refuses the 0.1.4 draft Core until release preparation. An assembled package is not a published release.
 
 When beginning human–AI work on DLD itself, load the project's Core, DESIGN, RULES, and relevant current scope and evidence. Neither a commit nor an assembled product constitutes approval or release authorization.
