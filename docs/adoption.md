@@ -5,7 +5,7 @@ This guide is for **humans and AI using DLD**, rather than contributors developi
 ## New project
 
 1. Copy **the contents of** `starter/` from this distribution into the project root, keeping `foundation/` as a project-wide scope. Adapt the project `README.md`.
-2. Give AI the session-start instruction shown in the [product introduction](product.md). Do not assume AI discovered the files automatically.
+2. Give AI the session-start instruction defined by [DLD Core](../foundation/CORE.md#4-session-initialization-and-continuity). Do not assume AI discovered the files automatically.
 3. Discuss and draft `foundation/DESIGN.md`: why this project exists, intended outcomes, scope, constraints, and key responsibilities. Do not treat template text as an approval.
 4. Review `foundation/RULES.md`; replace placeholders with explicitly adopted rules, or state that none have yet been adopted.
 5. Identify the next useful scope and its governing designs. Human approval precedes implementation of consequential design. AI can realize and verify approved increments under delegated freedom.
