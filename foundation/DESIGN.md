@@ -1,10 +1,12 @@
 # Design-Led Development — Project Design
 
 - Revision: 7
-- Status: Draft — final reconciliation for human-approved release-candidate design
+- Status: Approved
 - Approval history: Revisions 3–5 approved previously; Revision 6 approved by human on 2026-11-06 (recorded in commit `fedfd151b3ee63a7e0c62522706ec3262baab86c`).
 - Revision 6 approved design-body baseline: `cea65edf70438719f39a1f10ec8445fd4eedaca2`.
-- Revision 7 version-policy amendment: explicitly approved by human on 2026-11-06; final entire Revision 7 approval record follows this reconciliation.
+- Approval: Revision 7, entire present DLD development project DESIGN, explicitly authorized by the human project owner on 2026-11-06, following project-design reconciliation.
+- Revision 7 approved design-body baseline: Git commit `4eeef39275bce2ef14eaa475adb13b38f1001e16` (`foundation/DESIGN.md`, Revision 7).
+- Approval boundary: This approval covers the current project design, including the dual-version distribution policy and product ownership. The future-looking questions at the end remain questions, not newly approved requirements. Approval does not authorize merge, tagging, or release publication.
 
 ## Purpose and intended outcomes
 
