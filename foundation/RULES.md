@@ -1,7 +1,10 @@
 # DLD Development — Project Rules
 
 - Revision: 1
-- Status: Draft
+- Status: Approved
+- Approval: Human project owner explicitly requested adoption of UTF-8 without BOM and LF as DLD development rules on 2026-11-06, for rule TXT-001.
+- Approved rule-body baseline: Git commit `7b0d5cc14a0840f21b9592545c61e0d3e846572d` (`foundation/RULES.md`, Revision 1).
+
 
 ## TXT-001 — Maintained text encoding and line endings
 
