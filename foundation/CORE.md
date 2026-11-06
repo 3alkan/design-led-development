@@ -1,6 +1,6 @@
 # Design-Led Development — Core
 
-**DLD Version: 0.1.4**
+**DLD Version: 0.1.4**  
 **Methodology Version: 0.1.4**
 
 Design-Led Development (DLD) is a **design-centered, human-authoritative, AI-assisted software engineering methodology** applicable throughout the software development lifecycle (SDLC). This Core is intended to be the complete authoritative specification of the DLD method for humans and AI. A project can apply it with its minimal foundation alone; supporting guides, templates, tools, and examples are optional.
