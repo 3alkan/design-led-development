@@ -2,7 +2,7 @@
 
 This file records changes to the Design-Led Development method and its starter. Products built using the method maintain their own changelogs.
 
-## Unreleased — planned v0.1.4
+## 0.1.4 — Release candidate (not yet published)
 
 - Establish **DLD Version** (every DLD distribution release) and **Methodology Version** (the latest release with normative methodology changes) in the canonical/distributed Core; record both in the starter README. For this release both are 0.1.4. Packaging checks the release identity and carries the methodology identifier forward.
 
@@ -13,9 +13,10 @@ This file records changes to the Design-Led Development method and its starter. 
 - Consolidate the versioned DLD methodology into one authoritative `foundation/CORE.md` with human approval, scope ownership, evidence, and continuity rules.
 - Maintain a clean four-file project starter; generate its Core directly from the canonical source.
 - Simplify supporting documentation to one optional project repository layout reference, maintained at `docs/supporting/repository-layout.md`.
-- Package a product with its own introduction, a single copyable starter (including Core), optional `supporting/` material, VERSION, CHANGELOG, and LICENSE.
+- Package a product with its own introduction, a single copyable starter (including Core), optional `supporting/` material, VERSION, CHANGELOG, LICENSE, and LICENSE-CC0.
 - Keep DLD-development governance and distribution assembly tooling out of the adopter product.
-- Candidate release preparation does not itself authorize publication; full executable packaging validation remains subject to actual execution evidence.
+- Packaging script operation was reported successful by the project maintainer on 2026-11-06. Individual test cases and reproducibility evidence were not independently observed in this review; no broader verification claim is implied.
+- The release candidate remains unpublished. Final release date and tag are recorded only when publication is authorized.
 
 ## 0.1.3 — 2026-11-03
 

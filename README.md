@@ -2,7 +2,7 @@
 
 DLD is a **design-centered, human-authoritative, AI-assisted software engineering methodology** spanning the software development lifecycle. Its [Core](foundation/CORE.md) is the sole authoritative specification of the method.
 
-This is the **DLD development repository**, itself governed as a DLD project by [DESIGN](foundation/DESIGN.md) and [RULES](foundation/RULES.md). The unreleased candidate has **DLD Version 0.1.4** and **Methodology Version 0.1.4**, both declared in [Core](foundation/CORE.md). The repository's [VERSION](VERSION) identifies the DLD Version. Version alignment is not publication.
+This is the **DLD development repository**, itself governed as a DLD project by [DESIGN](foundation/DESIGN.md) and [RULES](foundation/RULES.md). The v0.1.4 release candidate has **DLD Version 0.1.4** and **Methodology Version 0.1.4**, both declared in [Core](foundation/CORE.md). The repository's [VERSION](VERSION) identifies the DLD Version. Version alignment is not publication.
 
 ## Repository
 
