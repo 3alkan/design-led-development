@@ -2,7 +2,7 @@
 
 This file records changes to the Design-Led Development method and its starter. Products built using the method maintain their own changelogs.
 
-## 0.1.4 — Release candidate (not yet published)
+## 0.1.4 — 2026-11-06
 
 - Establish **DLD Version** (every DLD distribution release) and **Methodology Version** (the latest release with normative methodology changes) in the canonical/distributed Core; record both in the starter README. For this release both are 0.1.4. Packaging checks the release identity and carries the methodology identifier forward.
 
@@ -15,8 +15,8 @@ This file records changes to the Design-Led Development method and its starter. 
 - Simplify supporting documentation to one optional project repository layout reference, maintained at `docs/supporting/repository-layout.md`.
 - Package a product with its own introduction, a single copyable starter (including Core), optional `supporting/` material, VERSION, CHANGELOG, LICENSE, and LICENSE-CC0.
 - Keep DLD-development governance and distribution assembly tooling out of the adopter product.
-- Packaging script operation was reported successful by the project maintainer on 2026-11-06. Individual test cases and reproducibility evidence were not independently observed in this review; no broader verification claim is implied.
-- The release candidate remains unpublished. Final release date and tag are recorded only when publication is authorized.
+- Packaging script operation was reported successful by the project maintainer on 2026-11-06. Detailed test cases and reproducibility checks were not independently observed in this review; no broader verification claim is implied.
+- Release tag: `v0.1.4`. Publication and GitHub Release assets are separate from this source-history entry.
 
 ## 0.1.3 — 2026-11-03
 
