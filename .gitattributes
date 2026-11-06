@@ -1,0 +1,3 @@
+# Normalize recognized text files to LF in the repository and working tree.
+# Git attributes do not validate UTF-8 or remove a BOM; TXT-001 governs encoding.
+* text=auto eol=lf
