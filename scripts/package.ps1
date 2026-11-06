@@ -80,12 +80,283 @@ try {
     $version = [IO.File]::ReadAllText((Join-Path $repo 'VERSION')).Trim()
     if ($version -cnotmatch '^\d+\.\d+\.\d+$') { throw "Invalid VERSION: $version" }
     $core = [IO.File]::ReadAllText((Join-Path $repo 'foundation/CORE.md'))
-    $coreMatch = [regex]::Match($core,
-        '(?m)^\*\*DLD Core version: (?<v>\d+\.\d+\.\d+)\*\*\s*$')
-    if (-not $coreMatch.Success) { throw 'Core version not found.' }
-    $coreVersion = $coreMatch.Groups['v'].Value
+    $releaseMatch = [regex]::Match($core,
+        '(?m)^\*\*DLD Version:\s*(?<v>\d+\.\d+\.\d+)\*\*\s*
+
+    Assert-ManagedPath $build $true
+    [IO.Directory]::CreateDirectory($build) | Out-Null
+    $stage = Join-Path $build ('.package-stage-' + [guid]::NewGuid().ToString('N'))
+    $product = Join-Path $stage 'product'
+    [IO.Directory]::CreateDirectory($product) | Out-Null
+    foreach ($source in $files.Keys) {
+        $dest = Join-Path $product $files[$source]
+        [IO.Directory]::CreateDirectory((Split-Path $dest -Parent)) | Out-Null
+        [IO.File]::Copy((Join-Path $repo $source),$dest,$true)
+    }
+    $template = Join-Path $product 'starter/README.md'
+    $templateText = [IO.File]::ReadAllText($template)
+    if (-not $templateText.Contains('@DLD_BASELINE@') -or
+        -not $templateText.Contains('@DLD_METHODOLOGY@')) {
+        throw 'Missing DLD Version or Methodology Version placeholder.'
+    }
+    $rendered = $templateText.Replace('@DLD_BASELINE@',$version).
+        Replace('@DLD_METHODOLOGY@',$methodVersion)
+    [IO.File]::WriteAllText($template,$rendered,[Text.UTF8Encoding]::new($false))
+    Assert-Product $product $names
+    $a = (Get-FileHash -LiteralPath (Join-Path $repo 'foundation/CORE.md') -Algorithm SHA256).Hash
+    $b = (Get-FileHash -LiteralPath (Join-Path $product 'starter/foundation/CORE.md') -Algorithm SHA256).Hash
+    if ($a -cne $b) { throw 'Core is not byte-identical.' }
+    foreach ($name in $names) {
+        $content = [IO.File]::ReadAllText((Join-Path $product $name))
+        if ($content.Contains('@DLD_BASELINE@') -or $content.Contains('@DLD_METHODOLOGY@')) {
+            throw "Unresolved placeholder: $name"
+        }
+    }
+
+    $prefix = "dld-v$version"
+    $zipName = "$prefix.zip"
+    $sumName = "$zipName.sha256"
+    $zipPath = Join-Path $stage $zipName
+    $fileStream = [IO.File]::Open($zipPath,[IO.FileMode]::CreateNew)
+    try {
+        $zip = [IO.Compression.ZipArchive]::new($fileStream,
+            [IO.Compression.ZipArchiveMode]::Create,$true,[Text.Encoding]::UTF8)
+        try {
+            foreach ($name in @($names | Sort-Object -CaseSensitive)) {
+                $entry = $zip.CreateEntry("$prefix/$($name.Replace('\','/'))",
+                    [IO.Compression.CompressionLevel]::NoCompression)
+                $entry.LastWriteTime = [DateTimeOffset]::new(1980,1,1,0,0,0,[TimeSpan]::Zero)
+                $entry.ExternalAttributes = 0
+                $output = $entry.Open()
+                try {
+                    $input = [IO.File]::OpenRead((Join-Path $product $name))
+                    try { $input.CopyTo($output) } finally { $input.Dispose() }
+                } finally { $output.Dispose() }
+            }
+        } finally { $zip.Dispose() }
+    } finally { $fileStream.Dispose() }
+
+    $zip = [IO.Compression.ZipFile]::OpenRead($zipPath)
+    try {
+        $expected = @($names | ForEach-Object { "$prefix/$($_.Replace('\','/'))" } |
+            Sort-Object -CaseSensitive)
+        $actual = @($zip.Entries | ForEach-Object { $_.FullName } | Sort-Object -CaseSensitive)
+        if ($actual.Count -ne $expected.Count -or
+            [string]::Join([char]10,$actual) -cne [string]::Join([char]10,$expected)) {
+            throw 'ZIP entry list does not match product manifest.'
+        }
+        foreach ($entry in $zip.Entries) {
+            $relative = $entry.FullName.Substring($prefix.Length+1)
+            $stream = $entry.Open()
+            try {
+                $sha = [Security.Cryptography.SHA256]::Create()
+                try { $entryHash = [Convert]::ToHexString($sha.ComputeHash($stream)) }
+                finally { $sha.Dispose() }
+            } finally { $stream.Dispose() }
+            $fileHash = (Get-FileHash -LiteralPath (Join-Path $product $relative) -Algorithm SHA256).Hash
+            if ($entryHash -cne $fileHash) { throw "Invalid ZIP entry: $relative" }
+        }
+    } finally { $zip.Dispose() }
+
+    $digest = (Get-FileHash -LiteralPath $zipPath -Algorithm SHA256).Hash.ToLowerInvariant()
+    [IO.File]::WriteAllText((Join-Path $stage $sumName),
+        ($digest + '  ' + $zipName + [char]10),[Text.UTF8Encoding]::new($false))
+    if ((Get-FileHash -LiteralPath $zipPath -Algorithm SHA256).Hash.ToLowerInvariant() -cne $digest) {
+        throw 'Checksum verification failed.'
+    }
+
+    $managed = @('product',$zipName,$sumName)
+    $obsolete = @(Get-ChildItem -LiteralPath $build -File -Force | Where-Object {
+        $_.Name -cmatch '^dld-v\d+\.\d+\.\d+\.zip(\.sha256)?$' -and
+        $_.Name -cnotin @($zipName,$sumName)
+    } | ForEach-Object { $_.Name })
+    foreach ($name in @($managed + $obsolete)) {
+        Assert-ManagedPath (Join-Path $build $name) ($name -eq 'product')
+    }
+    $backup = Join-Path $stage '.previous'
+    [IO.Directory]::CreateDirectory($backup) | Out-Null
+    $prior = [Collections.Generic.List[string]]::new()
+    $new = [Collections.Generic.List[string]]::new()
+    try {
+        foreach ($name in @($managed + $obsolete)) {
+            $path = Join-Path $build $name
+            if (Test-Path -LiteralPath $path) {
+                Move-Item -LiteralPath $path -Destination (Join-Path $backup $name)
+                $prior.Add($name)
+            }
+        }
+        foreach ($name in $managed) {
+            Move-Item -LiteralPath (Join-Path $stage $name) -Destination (Join-Path $build $name)
+            $new.Add($name)
+        }
+    } catch {
+        $reason = $_
+        foreach ($name in $new) {
+            Remove-Item -LiteralPath (Join-Path $build $name) -Recurse -Force -ErrorAction Continue
+        }
+        foreach ($name in $prior) {
+            $saved = Join-Path $backup $name
+            if (Test-Path -LiteralPath $saved) {
+                Move-Item -LiteralPath $saved -Destination (Join-Path $build $name) -ErrorAction Continue
+            }
+        }
+        if (@(Get-ChildItem -LiteralPath $backup -Force).Count -gt 0) { $keepStage = $true }
+        throw "Replacement failed; rollback attempted: $reason"
+    }
+    Write-Host "Validated DLD product $version"
+    Write-Host "ZIP: $(Join-Path $build $zipName)"
+    Write-Host "SHA-256: $digest"
+} catch {
+    Write-Error ("DLD packaging failed: " + $_.Exception.Message) -ErrorAction Continue
+    exit 1
+} finally {
+    if ($stage -and -not $keepStage -and (Test-Path -LiteralPath $stage)) {
+        Remove-Item -LiteralPath $stage -Recurse -Force -ErrorAction SilentlyContinue
+    }
+}
+)
+    $methodMatch = [regex]::Match($core,
+        '(?m)^\*\*Methodology Version:\s*(?<v>\d+\.\d+\.\d+)\*\*\s*
+
+    Assert-ManagedPath $build $true
+    [IO.Directory]::CreateDirectory($build) | Out-Null
+    $stage = Join-Path $build ('.package-stage-' + [guid]::NewGuid().ToString('N'))
+    $product = Join-Path $stage 'product'
+    [IO.Directory]::CreateDirectory($product) | Out-Null
+    foreach ($source in $files.Keys) {
+        $dest = Join-Path $product $files[$source]
+        [IO.Directory]::CreateDirectory((Split-Path $dest -Parent)) | Out-Null
+        [IO.File]::Copy((Join-Path $repo $source),$dest,$true)
+    }
+    $template = Join-Path $product 'starter/README.md'
+    $templateText = [IO.File]::ReadAllText($template)
+    if (-not $templateText.Contains('@DLD_BASELINE@')) { throw 'Missing version placeholder.' }
+    [IO.File]::WriteAllText($template,$templateText.Replace('@DLD_BASELINE@',$version),
+        [Text.UTF8Encoding]::new($false))
+    Assert-Product $product $names
+    $a = (Get-FileHash -LiteralPath (Join-Path $repo 'foundation/CORE.md') -Algorithm SHA256).Hash
+    $b = (Get-FileHash -LiteralPath (Join-Path $product 'starter/foundation/CORE.md') -Algorithm SHA256).Hash
+    if ($a -cne $b) { throw 'Core is not byte-identical.' }
+    foreach ($name in $names) {
+        if ([IO.File]::ReadAllText((Join-Path $product $name)).Contains('@DLD_BASELINE@')) {
+            throw "Unresolved placeholder: $name"
+        }
+    }
+
+    $prefix = "dld-v$version"
+    $zipName = "$prefix.zip"
+    $sumName = "$zipName.sha256"
+    $zipPath = Join-Path $stage $zipName
+    $fileStream = [IO.File]::Open($zipPath,[IO.FileMode]::CreateNew)
+    try {
+        $zip = [IO.Compression.ZipArchive]::new($fileStream,
+            [IO.Compression.ZipArchiveMode]::Create,$true,[Text.Encoding]::UTF8)
+        try {
+            foreach ($name in @($names | Sort-Object -CaseSensitive)) {
+                $entry = $zip.CreateEntry("$prefix/$($name.Replace('\','/'))",
+                    [IO.Compression.CompressionLevel]::NoCompression)
+                $entry.LastWriteTime = [DateTimeOffset]::new(1980,1,1,0,0,0,[TimeSpan]::Zero)
+                $entry.ExternalAttributes = 0
+                $output = $entry.Open()
+                try {
+                    $input = [IO.File]::OpenRead((Join-Path $product $name))
+                    try { $input.CopyTo($output) } finally { $input.Dispose() }
+                } finally { $output.Dispose() }
+            }
+        } finally { $zip.Dispose() }
+    } finally { $fileStream.Dispose() }
+
+    $zip = [IO.Compression.ZipFile]::OpenRead($zipPath)
+    try {
+        $expected = @($names | ForEach-Object { "$prefix/$($_.Replace('\','/'))" } |
+            Sort-Object -CaseSensitive)
+        $actual = @($zip.Entries | ForEach-Object { $_.FullName } | Sort-Object -CaseSensitive)
+        if ($actual.Count -ne $expected.Count -or
+            [string]::Join([char]10,$actual) -cne [string]::Join([char]10,$expected)) {
+            throw 'ZIP entry list does not match product manifest.'
+        }
+        foreach ($entry in $zip.Entries) {
+            $relative = $entry.FullName.Substring($prefix.Length+1)
+            $stream = $entry.Open()
+            try {
+                $sha = [Security.Cryptography.SHA256]::Create()
+                try { $entryHash = [Convert]::ToHexString($sha.ComputeHash($stream)) }
+                finally { $sha.Dispose() }
+            } finally { $stream.Dispose() }
+            $fileHash = (Get-FileHash -LiteralPath (Join-Path $product $relative) -Algorithm SHA256).Hash
+            if ($entryHash -cne $fileHash) { throw "Invalid ZIP entry: $relative" }
+        }
+    } finally { $zip.Dispose() }
+
+    $digest = (Get-FileHash -LiteralPath $zipPath -Algorithm SHA256).Hash.ToLowerInvariant()
+    [IO.File]::WriteAllText((Join-Path $stage $sumName),
+        ($digest + '  ' + $zipName + [char]10),[Text.UTF8Encoding]::new($false))
+    if ((Get-FileHash -LiteralPath $zipPath -Algorithm SHA256).Hash.ToLowerInvariant() -cne $digest) {
+        throw 'Checksum verification failed.'
+    }
+
+    $managed = @('product',$zipName,$sumName)
+    $obsolete = @(Get-ChildItem -LiteralPath $build -File -Force | Where-Object {
+        $_.Name -cmatch '^dld-v\d+\.\d+\.\d+\.zip(\.sha256)?$' -and
+        $_.Name -cnotin @($zipName,$sumName)
+    } | ForEach-Object { $_.Name })
+    foreach ($name in @($managed + $obsolete)) {
+        Assert-ManagedPath (Join-Path $build $name) ($name -eq 'product')
+    }
+    $backup = Join-Path $stage '.previous'
+    [IO.Directory]::CreateDirectory($backup) | Out-Null
+    $prior = [Collections.Generic.List[string]]::new()
+    $new = [Collections.Generic.List[string]]::new()
+    try {
+        foreach ($name in @($managed + $obsolete)) {
+            $path = Join-Path $build $name
+            if (Test-Path -LiteralPath $path) {
+                Move-Item -LiteralPath $path -Destination (Join-Path $backup $name)
+                $prior.Add($name)
+            }
+        }
+        foreach ($name in $managed) {
+            Move-Item -LiteralPath (Join-Path $stage $name) -Destination (Join-Path $build $name)
+            $new.Add($name)
+        }
+    } catch {
+        $reason = $_
+        foreach ($name in $new) {
+            Remove-Item -LiteralPath (Join-Path $build $name) -Recurse -Force -ErrorAction Continue
+        }
+        foreach ($name in $prior) {
+            $saved = Join-Path $backup $name
+            if (Test-Path -LiteralPath $saved) {
+                Move-Item -LiteralPath $saved -Destination (Join-Path $build $name) -ErrorAction Continue
+            }
+        }
+        if (@(Get-ChildItem -LiteralPath $backup -Force).Count -gt 0) { $keepStage = $true }
+        throw "Replacement failed; rollback attempted: $reason"
+    }
+    Write-Host "Validated DLD product $version"
+    Write-Host "ZIP: $(Join-Path $build $zipName)"
+    Write-Host "SHA-256: $digest"
+} catch {
+    Write-Error ("DLD packaging failed: " + $_.Exception.Message) -ErrorAction Continue
+    exit 1
+} finally {
+    if ($stage -and -not $keepStage -and (Test-Path -LiteralPath $stage)) {
+        Remove-Item -LiteralPath $stage -Recurse -Force -ErrorAction SilentlyContinue
+    }
+}
+)
+    if (-not $releaseMatch.Success -or -not $methodMatch.Success) {
+        throw 'Core DLD Version or Methodology Version not found.'
+    }
+    $coreVersion = $releaseMatch.Groups['v'].Value
+    $methodVersion = $methodMatch.Groups['v'].Value
     if ($version -cne $coreVersion) {
-        throw "Version mismatch: VERSION=$version; CORE=$coreVersion. Sources unchanged."
+        throw "Version mismatch: VERSION=$version; Core DLD Version=$coreVersion. Sources unchanged."
+    }
+    # A methodology version is a previously released or the current DLD release.
+    $current = [version]$coreVersion
+    if ([version]$methodVersion -gt $current) {
+        throw "Methodology Version $methodVersion cannot exceed DLD Version $coreVersion."
     }
 
     Assert-ManagedPath $build $true

@@ -1,14 +1,15 @@
 # Design-Led Development — Project Design
 
-- Revision: 6
-- Status: Approved
+- Revision: 7
+- Status: Mixed (Revision 6 approved; Version-policy update approved in scope; other Revision 7 content not collectively approved)
 - Approval: Rev 3 approved by human (date not recorded).
 - Approval: Rev 4 approved by human 2026-11-03.
 - Approval: Rev 5 approved by human 2026-11-03.
 - Approval: Rev 6, entire present DLD development project DESIGN, approved by the human requester in the 2026-11-05 conversation ('approve drafts' after whole-repository corrections); the starter project DESIGN remains an unapproved template.
 - Approved design-body baseline: Git commit `cea65edf70438719f39a1f10ec8445fd4eedaca2` (`foundation/DESIGN.md`, Revision 6).
+- Approval: Version-policy amendment in Revision 7 explicitly chosen and authorized by the human in the 2026-11-06 conversation; the containing commit preserves this bounded change.
 
-**Authority boundary:** Revision 6 is approved for the DLD development project's design scope; open questions remain unresolved and do not establish approved new commitments. Its approval is based on the human's explicit instruction in this conversation, not inferred from a commit. Earlier approval entries remain historical. DESIGN approval does not authorize a merge, tag, distribution publication, or methodology release.
+**Authority boundary:** Revision 6 remains the approved DLD development design baseline at the recorded Git commit. The human explicitly chose the unified DLD Version + Methodology Version policy in the 2026-11-06 conversation and authorized its application; this bounded Revision 7 amendment is approved, without claiming collective approval of all subsequent Revision 7 text. Open questions remain unresolved. Neither approval authorizes a merge, tag, distribution publication, or methodology release.
 
 ## Purpose and intended outcomes
 
@@ -35,7 +36,7 @@ The methodology's normative behavior belongs in Core. This DESIGN specifies **th
 
 [`foundation/CORE.md`](CORE.md) is the sole maintained authoritative source of the DLD methodology. Distribution copies MUST be derived from this source, never edited as competing method definitions.
 
-For the planned next release, the canonical Core identifies **0.1.4**. The repository's [VERSION](../VERSION) is aligned to the candidate method version during release preparation; an aligned version does not mean that version has been published.
+For the planned v0.1.4 release, the canonical Core declares **DLD Version 0.1.4** and **Methodology Version 0.1.4**. DLD Version identifies every complete DLD release; Methodology Version is the DLD Version of the last normative methodology change and remains stable across non-methodology-only releases. They share a single DLD release sequence. The repository's [VERSION](../VERSION) must equal Core's DLD Version; an aligned candidate version does not mean it has been published.
 
 ### Two distributions from one source baseline
 
@@ -50,7 +51,7 @@ The distributions are assembled from an identifiable maintained source baseline.
 
 ### Minimal adopter starter
 
-The distributed starter contains exactly the minimum standardized foundation:
+The distributed starter contains exactly the minimum standardized foundation and records both adopted DLD Version and Methodology Version:
 
 ```text
 README.md
@@ -96,23 +97,23 @@ DLD development follows the adopted Core's design-led cycle. For consequential c
 
 The project's supporting artifacts must remain consistent with the authoritative Core. Changes to Core's normative method are not established through edits to guides, starter templates, implementation scripts, or this project DESIGN.
 
-The maintained [`scripts/package.ps1`](../scripts/package.ps1) is a PowerShell 7 standard-library-only, argument-free local assembly script. It requires `VERSION` to equal the canonical Core version, uses an explicit product file mapping, and produces a versioned ZIP (with a single enclosing version directory) and a SHA-256 checksum. It validates source and assembled files, byte-identical Core copies, local links, archive entries, and checksums; ZIP ordering, timestamps, and metadata are controlled for reproducibility within a stable packaging environment. It stages and validates outputs inside ignored `build/` before replacing the latest successful build, with recovery attempted on replacement failure. The script does not modify maintained source files. A candidate release additionally requires review and authorization. Before release, align the canonical Core, starter, supporting material, changelog, and version identity, then validate the assembled distributions. Where executable validation has not actually run, its result must remain expressly unverified. Commit creation, successful validation, approval of project design, and authorization to merge, tag, or publish are distinct events.
+The maintained [`scripts/package.ps1`](../scripts/package.ps1) is a PowerShell 7 standard-library-only, argument-free local assembly script. It requires `VERSION` to equal the canonical Core's DLD Version, checks that Methodology Version is not newer, and renders both into the starter README, uses an explicit product file mapping, and produces a versioned ZIP (with a single enclosing version directory) and a SHA-256 checksum. It validates source and assembled files, byte-identical Core copies, local links, archive entries, and checksums; ZIP ordering, timestamps, and metadata are controlled for reproducibility within a stable packaging environment. It stages and validates outputs inside ignored `build/` before replacing the latest successful build, with recovery attempted on replacement failure. The script does not modify maintained source files. A candidate release additionally requires review and authorization. Before release, align the canonical Core, starter, supporting material, changelog, and version identity, then validate the assembled distributions. Where executable validation has not actually run, its result must remain expressly unverified. Commit creation, successful validation, approval of project design, and authorization to merge, tag, or publish are distinct events.
 
 ## Acceptance criteria
 
 - Exactly one canonical maintained Core defines DLD; every distributed Core copy matches it byte-for-byte.
 - The project foundation and its approval history remain distinguishable from the templates given to adopters.
 - The minimal starter works with only its README, Core, draft DESIGN, and rules-empty RULES; no optional document or AI-specific file is required for compliance.
-- Both distributions use the same identified version and source baseline, include only their intended audience-specific materials, and preserve valid relative links.
+- Both distributions use the same DLD Version and source baseline, carry the correct Methodology Version, include only their intended audience-specific materials, and preserve valid relative links.
 - The supporting reference can be copied into `docs/dld/` beside the starter without broken relative links or a second methodological authority.
 - The canonical Core, supporting reference, starter, and package behavior do not contradict one another.
 - ZIP creation is repeatable for identical inputs and packaging environments; unsuccessful builds do not knowingly replace valid outputs, and all filesystem writes remain confined to `build/`.
 - Validation reports actual checks and limitations rather than inferring broad correctness from a successful build.
 - Releases reflect explicit human authorization and truthful version, approval, changelog, and evidence records.
 
-## Approved revision 6
+## Approved revision 6 and scoped revision 7 amendment
 
-Human-approved scope: the present DLD development project DESIGN, including the versioned Core architecture, project-neutral starter, two distributions, licensing boundaries, optional supporting materials, and packaging responsibilities. The exact reviewed design body is recoverable at Git commit `cea65edf70438719f39a1f10ec8445fd4eedaca2`; the approval record and status are captured in this subsequent commit. Approval does not grant operational permission to publish v0.1.4.
+Human-approved scope: the present DLD development project DESIGN, including the versioned Core architecture, project-neutral starter, two distributions, licensing boundaries, optional supporting materials, and packaging responsibilities. The exact reviewed design body is recoverable at Git commit `cea65edf70438719f39a1f10ec8445fd4eedaca2`; the approval record and status are captured in this subsequent commit. Approval does not grant operational permission to publish v0.1.4. The subsequent bounded Revision 7 change introduces two release identifiers: DLD Version (every distribution release) and Methodology Version (the latest DLD release with a normative methodology change). Their values are both 0.1.4 in this release candidate.
 
 ## Open questions
 

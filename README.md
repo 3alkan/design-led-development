@@ -2,7 +2,7 @@
 
 DLD is a **design-centered, human-authoritative, AI-assisted software engineering methodology** spanning the software development lifecycle. Its [Core](foundation/CORE.md) is the sole authoritative specification of the method.
 
-This is the **DLD development repository**, itself governed as a DLD project by [DESIGN](foundation/DESIGN.md) and [RULES](foundation/RULES.md). The proposed next method version is **0.1.4**; the repository's [VERSION](VERSION) is **0.1.4**, prepared as an unreleased release candidate. Version alignment is not publication.
+This is the **DLD development repository**, itself governed as a DLD project by [DESIGN](foundation/DESIGN.md) and [RULES](foundation/RULES.md). The unreleased candidate has **DLD Version 0.1.4** and **Methodology Version 0.1.4**, both declared in [Core](foundation/CORE.md). The repository's [VERSION](VERSION) identifies the DLD Version. Version alignment is not publication.
 
 ## Repository
 
@@ -11,7 +11,7 @@ This is the **DLD development repository**, itself governed as a DLD project by 
 | [`foundation/`](foundation/CORE.md) | Canonical methodology Core and this project's own DESIGN and RULES |
 | [`starter/`](starter/README.md) | Project-neutral adoption templates; the Core copy is taken from the canonical source when assembling a product |
 | [`docs/supporting/`](docs/supporting/repository-layout.md) | Optional supporting resources, currently an adopting-project repository-layout reference |
-| [`VERSION`](VERSION) | Release version identity |
+| [`VERSION`](VERSION) | DLD Version: identity of the complete distribution; Core separately records Methodology Version |
 | [`CHANGELOG.md`](CHANGELOG.md) | Historical changes and adoption implications |
 | [`LICENSE`](LICENSE), [`LICENSE-CC0`](LICENSE-CC0) | Full GPLv3 and CC0-1.0 license texts; file applicability explained below |
 
@@ -29,6 +29,6 @@ Following DLD or using the CC0 starter templates does not by itself impose GPLv3
 
 The development repository maintains the canonical Core and project-specific governance. The intended **product distribution** contains a product introduction, a copyable starter with a generated Core copy, optional supporting material, VERSION, CHANGELOG, LICENSE, and LICENSE-CC0.
 
-The local [PowerShell packaging script](scripts/package.ps1) assembles and validates the proposed product with no external modules. Run `pwsh -File scripts/package.ps1` after preparing a matching `VERSION` and Core version. Packaging requires `VERSION` to match the version declared in the frozen Core. Successful assembly is not itself evidence of release authorization. An assembled package is not a published release.
+The local [PowerShell packaging script](scripts/package.ps1) assembles and validates the proposed product with no external modules. Run `pwsh -File scripts/package.ps1` after aligning `VERSION` with Core's **DLD Version**. Packaging also reads Core's **Methodology Version** and renders both identifiers into the adopter starter. Successful assembly is not itself evidence of release authorization. An assembled package is not a published release.
 
 When beginning human–AI work on DLD itself, load the project's Core, DESIGN, RULES, and relevant current scope and evidence. Neither a commit nor an assembled product constitutes approval or release authorization.

@@ -13,7 +13,7 @@ The starter is complete for DLD's required project foundation. The optional `sup
 
 ## Version and licensing
 
-VERSION identifies the distribution version. Adopting projects retain their own release identities.
+`VERSION` identifies the **DLD Version**, the complete distribution release. The adopted `starter/foundation/CORE.md` also identifies its **Methodology Version**, the last DLD release with normative methodology changes. Both identifiers are recorded in the starter README. Adopting projects maintain their own product release identities independently.
 
 - DLD Core and supporting material: GPLv3 (LICENSE).
 - Customizable starter README, DESIGN, and RULES templates: CC0-1.0 (LICENSE-CC0).

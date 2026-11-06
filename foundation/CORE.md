@@ -1,6 +1,7 @@
 # Design-Led Development — Core
 
-**DLD Core version: 0.1.4**
+**DLD Version: 0.1.4**
+**Methodology Version: 0.1.4**
 
 Design-Led Development (DLD) is a **design-centered, human-authoritative, AI-assisted software engineering methodology** applicable throughout the software development lifecycle (SDLC). This Core is intended to be the complete authoritative specification of the DLD method for humans and AI. A project can apply it with its minimal foundation alone; supporting guides, templates, tools, and examples are optional.
 
@@ -184,8 +185,12 @@ A new project adopts DLD by establishing the foundation and progressively develo
 
 An existing project MAY adopt DLD incrementally through **scoped reconciliation**. Existing code, documentation, configuration, and observed behavior are evidence of the current system, not automatically approved design. For each scope requiring consequential work, participants MUST examine relevant evidence, identify uncertainties and dependencies, establish intended design sufficiently for the work, and obtain required human approval. Reconciled and unreconciled areas MUST remain distinguishable. Existing operation MAY continue outside a reconciliation effort, subject to other governing obligations.
 
-### 10.2 Method version integrity
+### 10.2 DLD release and methodology version integrity
 
-Each project MUST identify its adopted DLD Core version and retain that Core unchanged during ordinary project evolution. New DLD versions do not automatically alter a project's authority. An upgrade MUST be deliberate and human-authorized, with material implications for project design, rules, and existing approvals assessed before adoption.
+**DLD Version** identifies a complete official DLD distribution baseline, including its Core and accompanying starter and supporting materials. It changes with every DLD release. **Methodology Version** identifies the most recent DLD release that introduced a normative change to the methodology. It changes when normative methodology requirements change, but remains unchanged for releases containing only packaging, starter, supporting-material, or editorial corrections that preserve the method's normative meaning. A DLD release has one release sequence, not independently numbered methodology releases. The Methodology Version MUST identify an actual DLD Version and MUST NOT refer to a future DLD release.
 
-The adopted DLD method version, project design revisions, and project product or release versions are separate identities. A methodology upgrade MUST NOT silently overwrite project-specific DESIGN, RULES, or their approval history. Project-specific additions belong in their owned design or rules, not through editing the adopted Core.
+Both identifiers MUST appear in the canonical and distributed Core. Their equality indicates that the release established a methodology version; inequality indicates that the release retains the normative methodology of an earlier DLD release. Sharing a Methodology Version is a statement about normative methodology, not a guarantee of identical Core file bytes, identical distribution contents, or compatibility with every project-specific design.
+
+Each adopting project MUST identify its adopted DLD Version and Methodology Version, and retain its adopted Core unchanged during ordinary project evolution. DLD releases do not automatically alter a project's authority. Upgrading the adopted Core or DLD distribution MUST be deliberate and human-authorized, with material implications for project design, rules, and existing approvals assessed before adoption.
+
+The DLD Version, Methodology Version, project design revisions, and the adopting project's own product or release versions are distinct identities. A DLD upgrade MUST NOT silently overwrite project-specific DESIGN, RULES, or their approval history. Project-specific additions belong in their owned design or rules, not through editing the adopted Core.

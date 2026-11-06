@@ -17,7 +17,8 @@ This project follows **Design-Led Development (DLD)**.
 | [DESIGN.md](foundation/DESIGN.md) | Project-level intended design, owning scopes, and approval state. |
 | [RULES.md](foundation/RULES.md) | Additional human-approved project rules, or a statement that none exist. |
 
-**Adopted DLD version:** `@DLD_BASELINE@`
+**Adopted DLD Version:** `@DLD_BASELINE@`  
+**Adopted Methodology Version:** `@DLD_METHODOLOGY@`
 
 The README provides navigation; it does not establish independent methodological or design authority. Draft designs and proposed rules are not approved simply because they are present in the repository.
 
