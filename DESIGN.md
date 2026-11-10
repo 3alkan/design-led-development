@@ -25,8 +25,6 @@ The repository maintains one canonical source for each normative component. Deve
 
 The [product manifest](product.toml) defines which maintained source files appear in the distribution and their destinations. In particular, development uses [its own context registry](dld/CONTEXT-REGISTRY.md), while the product receives a separate [project-neutral registry](product-files/CONTEXT-REGISTRY.md). Both refer to the same normative components without duplicating their authority.
 
-The [historical archive](old/) preserves earlier project material for reference, not as a competing current specification.
-
 ## Design invariants
 
 1. The contract is the general collaboration authority; the methodology adds compatible software engineering requirements without redefining it.

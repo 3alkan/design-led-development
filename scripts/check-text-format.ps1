@@ -3,7 +3,7 @@
 .SYNOPSIS
   Validate TXT-001 (UTF-8 without BOM and LF) in tracked maintained text.
 .DESCRIPTION
-  Requires PowerShell 7, .NET and Git. Historical old/ content is excluded.
+  Requires PowerShell 7 and Git.
 #>
 param([string] $RepositoryRoot = (Split-Path $PSScriptRoot -Parent))
 
@@ -62,14 +62,9 @@ function Get-TextViolations([byte[]] $Bytes, [string] $Name) {
 function Test-RepositoryText([string] $Root) {
     $rootPath = [IO.Path]::GetFullPath($Root)
     $checked = 0
-    $excluded = 0
     $failed = 0
     foreach ($name in @(Get-TrackedPaths $rootPath)) {
         $relative = $name.Replace('\', '/')
-        if ($relative.StartsWith('old/', [StringComparison]::Ordinal)) {
-            $excluded++
-            continue
-        }
         $path = Join-Path $rootPath $relative
         if (-not [IO.File]::Exists($path)) { continue }
         $checked++
@@ -79,7 +74,7 @@ function Test-RepositoryText([string] $Root) {
             Write-Host "FAIL $relative : $($problems -join ', ')" -ForegroundColor Red
         }
     }
-    Write-Host "TXT-001: $checked files checked; $excluded historical files excluded; $failed failures."
+    Write-Host "TXT-001: $checked files checked; $failed failures."
     return ($failed -eq 0)
 }
 

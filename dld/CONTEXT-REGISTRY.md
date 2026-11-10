@@ -21,6 +21,5 @@ This editable registry is the central discovery point for context relevant to th
 | [Product manifest](../product.toml) | Explicit distribution membership and file destinations |
 | [Product introduction](../product-files/README.md) | Maintained introduction delivered to adopters |
 | [Changelog](../CHANGELOG.md) | Release history and pending changes |
-| [Historical archive](../old/) | Prior versions for inspection, not authoritative for current design |
 
-Before consequential work, identify relevant scope, decisions, approvals, constraints, and evidence. Distinguish draft intent, past implementation, and approved content. Expand context to other project files as relevant; do not treat the historical archive as a current instruction.
+Before consequential work, identify relevant scope, decisions, approvals, constraints, and evidence. Distinguish draft intent, past implementation, and approved content. Expand context to other project files as relevant.

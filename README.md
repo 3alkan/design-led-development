@@ -13,7 +13,6 @@ This repository develops Design-Led Development (DLD), a human-governed, AI-assi
 - [product-files/](product-files/): additional product-specific maintained inputs.
 - [product.toml](product.toml): the sole specification of product file membership and destinations.
 - [scripts/](scripts/): validation and reproducible product assembly.
-- [old/](old/): historical reference, not authoritative for the new design.
 
 DLD development uses its own contract and methodology; its development-specific files are not automatically product files. The manifest defines the distribution, including mapping the neutral editable adopter registry into `dld/CONTEXT-REGISTRY.md`.
 
@@ -32,7 +31,7 @@ DLD uses two licenses with distinct purposes:
 - **GPLv3** ([LICENSE](LICENSE)) covers the normative [collaboration contract](dld/CONTRACT.md) and [DLD methodology](dld/DLD.md). Changes or redistribution of these texts are subject to GPLv3; their copies are not intended to be locally modified as part of ordinary DLD adoption.
 - **CC0 1.0** ([LICENSE-CC0](LICENSE-CC0)) covers the adopter-editable [context registry](dld/CONTEXT-REGISTRY.md), the [supporting materials](dld/supporting/), and the distributed product introduction maintained at [product-files/README.md](product-files/README.md). These may be copied and adapted freely.
 
-Other development repository files and the historical `old/` material are **not automatically CC0**. Their licensing follows their applicable notices and license terms; this policy does not retroactively relicense older releases.
+Other development repository files are **not automatically CC0**. Their licensing follows applicable notices and license terms; this policy does not retroactively relicense earlier releases.
 
 **Using DLD does not require licensing an adopting project's independently developed code or documents under GPLv3.** Redistributing or modifying GPLv3-covered DLD texts is a separate licensing matter. The two full license texts accompany the distribution.
 
