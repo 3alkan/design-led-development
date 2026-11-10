@@ -1,6 +1,6 @@
-# Explicit product composition and destination paths.
-# Source paths are relative to the development repository.
-# Destination paths are relative to the assembled product root.
+# Product manifest. Source paths are relative to the development repository;
+# destinations are relative to the assembled product root.
+# A file omitted here is not distributed.
 
 [product]
 name = "DLD"
@@ -11,7 +11,7 @@ source = "product-files/README.md"
 destination = "README.md"
 
 [[files]]
-source = "dld/CONTEXT-REGISTRY.md"
+source = "product-files/CONTEXT-REGISTRY.md"
 destination = "dld/CONTEXT-REGISTRY.md"
 
 [[files]]

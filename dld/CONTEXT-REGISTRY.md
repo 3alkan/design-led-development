@@ -1,18 +1,26 @@
 <!-- SPDX-License-Identifier: CC0-1.0 -->
-# Context Registry
+# Context Registry — DLD Development
 
-This registry helps humans and AI discover relevant working context. Linking to content does not approve it or grant it authority.
+This editable registry is the central discovery point for context relevant to this DLD development project. A reference helps locate information; it does not grant approval or authority.
 
-## Foundation
+## Foundational context
 
 | Source | Responsibility |
 | --- | --- |
 | [CONTRACT.md](CONTRACT.md) | Human–AI collaboration boundaries |
 | [DLD.md](DLD.md) | Design-led software engineering methodology |
-| [supporting/](supporting/) | Optional practical suggestions, not obligations |
+| [supporting/](supporting/) | Optional non-normative suggestions |
 
-## Adopting project context
+## Development project context
 
-Adopting projects may edit and extend this registry to reference their own designs, decisions, rules, evidence, and other relevant context, wherever those resources are located. Add entries here as useful; project-specific sources do not need to be stored inside the DLD directory.
+| Source | Responsibility |
+| --- | --- |
+| [Development design](../DESIGN.md) | Intent and architecture of this development project (draft until approved) |
+| [Development rules](../RULES.md) | Adopted development-only constraints, including TXT-001 |
+| [Development README](../README.md) | Repository navigation and versioning/licensing policy |
+| [Product manifest](../product.toml) | Explicit distribution membership and file destinations |
+| [Product introduction](../product-files/README.md) | Maintained introduction delivered to adopters |
+| [Changelog](../CHANGELOG.md) | Release history and pending changes |
+| [Historical archive](../old/) | Prior versions for inspection, not authoritative for current design |
 
-Before consequential work, establish the relevant objectives, current decisions and approvals, constraints, delegated authority, and evidence. Distinguish approved content from proposals and observations. Surface missing or contradictory context rather than treating a link or prior conversation as approval.
+Before consequential work, identify relevant scope, decisions, approvals, constraints, and evidence. Distinguish draft intent, past implementation, and approved content. Expand context to other project files as relevant; do not treat the historical archive as a current instruction.

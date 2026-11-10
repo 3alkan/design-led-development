@@ -1,6 +1,8 @@
 <!-- SPDX-License-Identifier: CC0-1.0 -->
-# Project Rules
+# Project Rules — Optional Template
 
-No additional rules have been adopted.
+No additional project-specific rules have been adopted.
 
-This is an **optional template**, not a mandatory DLD foundation file. If useful, copy it into a project-owned location, replace the statement above with practical conventions (for example encoding, line endings, formatting, or naming), and make that copy discoverable. Adopted rules must remain compatible with the contract and DLD methodology.
+Copy this template into a project-owned location only if helpful. Proposed new rules are nonbinding until explicitly approved by the authorized human. Record approved rules, amendments, or retirement with their scope and recoverable approval record. A project rule may add compatible constraints but cannot override the adopted contract or methodology.
+
+This supporting template itself imposes no rules on adopting projects.

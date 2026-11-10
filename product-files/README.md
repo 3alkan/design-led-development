@@ -1,18 +1,24 @@
 <!-- SPDX-License-Identifier: CC0-1.0 -->
 # Design-Led Development (DLD)
 
-DLD is a design-centered, human-authoritative, AI-assisted software engineering methodology.
+DLD is a design-centered, human-authoritative, AI-assisted methodology for the software development lifecycle. It can be adopted incrementally in new or existing software projects.
 
-## Getting started
+## Adopt DLD
 
-Use the `dld/` folder alongside your project's own files. Read the [Context Registry](dld/CONTEXT-REGISTRY.md), [Human–AI Collaboration Contract](dld/CONTRACT.md), and [DLD Methodology](dld/DLD.md). Add project-specific designs, decisions, and other relevant documents wherever appropriate, and register them in `dld/CONTEXT-REGISTRY.md` to make them discoverable.
+1. Copy the distributed `dld/` folder into your project or reconcile it with an existing installation.
+2. Read the unchanged [Collaboration Contract](dld/CONTRACT.md) and [DLD Methodology](dld/DLD.md).
+3. Edit [Context Registry](dld/CONTEXT-REGISTRY.md) to reference your project's design, decisions, rules, evidence, and other relevant information wherever located.
+4. Establish sufficient project design and obtain human approval for consequential intent before realizing it; distinguish drafts from approved decisions.
+5. For each new or resumed work scope, discover governing context progressively, check applicable delegation and permissions, and report evidence and unfinished work truthfully.
 
-[Supporting materials](dld/supporting/) are optional practical suggestions. The supplied rulebook is an optional template, not an adopted obligation.
+The included [supporting materials](dld/supporting/) are optional practical suggestions. The [project rules template](dld/supporting/RULES.md) is not an adopted requirement; copy and adapt it only when useful. Project-specific sources need not live inside `dld/`.
 
-Keep distributed CONTRACT and DLD texts unchanged until deliberately upgrading to a later release.
+## Version and adoption
 
-## Licensing and status
+[VERSION](VERSION) identifies the DLD distribution baseline, not the adopting project's own product version. Keep adopted `CONTRACT.md` and `DLD.md` unchanged until deliberately upgrading the adopted DLD version. A new release does not automatically change a project's decisions or approvals.
 
-CONTRACT and DLD are under GPLv3. This introduction, the context registry, and included supporting materials are under CC0 1.0. See [LICENSE](LICENSE) and [LICENSE-CC0](LICENSE-CC0). Following the methodology does not itself apply GPLv3 to an independently developed project's code.
+## Licensing and release status
 
-This is draft material, not an authorized product release.
+The contract and methodology are GPLv3-covered; the context registry, this README, and the supporting materials are CC0 1.0. Read [LICENSE](LICENSE) and [LICENSE-CC0](LICENSE-CC0). Independently developed project code and documents do not become GPLv3-covered merely by using DLD.
+
+Packaging, a version string, or a checksum does not itself establish release approval or authenticate the publisher. Confirm the release source and provenance separately.

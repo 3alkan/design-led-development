@@ -1,9 +1,9 @@
 <!-- SPDX-License-Identifier: CC0-1.0 -->
-# Repository Layout — Optional Suggestions
+# Repository Layout — Optional Reference
 
-DLD does not prescribe a universal directory tree. Prefer ecosystem conventions and add structures only when a real responsibility needs them.
+DLD does not prescribe a universal repository tree. Begin with your language and framework conventions and add maintained locations only when they serve a real responsibility. This material is practical guidance, not an obligation.
 
-## Illustrative start
+## Small start
 
 ```text
 project/
@@ -13,24 +13,37 @@ project/
 │   ├── CONTRACT.md
 │   ├── DLD.md
 │   └── supporting/
-└── ...project-specific files
+└── ...project files
 ```
 
-The project may maintain its design, implementation, rules, and evidence outside the DLD folder. Register or link relevant project context through project-owned entry points.
+Use the editable `dld/CONTEXT-REGISTRY.md` to locate design, decisions, rules, evidence, and dependencies maintained elsewhere in the project. Optional supporting files may be omitted where their license and adoption workflow permit.
 
-## Common options
+## Extend by responsibility
 
-| Responsibility | Typical location | When useful |
-| --- | --- | --- |
-| Implementation | `src/`, `app/`, `packages/`, framework defaults | Follow the language and framework |
-| Tests | `tests/`, colocated tests | Keep verification near ownership |
-| Design | `DESIGN.md`, `docs/`, scoped Markdown | When intent and decisions need durable ownership |
-| Developer documentation | `docs/`, module READMEs | When explanations exceed the entry point |
-| Build and CI | `scripts/`, `tools/`, native CI paths | When repeatable automation is needed |
-| Configuration | Manifests, `config/` | When configuration has separate responsibility |
-| Infrastructure and operations | `infra/`, `deploy/`, `operations/` | When deployed systems need it |
-| Generated outputs | `build/`, `dist/` | When generated files should be separated |
+| Responsibility | Common choices |
+| --- | --- |
+| Code and components | `src/`, `app/`, `lib/`, `packages/`, ecosystem defaults |
+| Tests and fixtures | `tests/`, co-located tests |
+| Verification and validation evidence | CI artifacts, reports, `verification/` |
+| Project and developer documentation | `DESIGN.md`, `docs/`, component-local Markdown |
+| Examples and demonstrations | `examples/`, `samples/` |
+| Schemas and data evolution | `schemas/`, `migrations/`, ecosystem defaults |
+| Assets and localization | `assets/`, `resources/`, `public/`, `locales/` |
+| Configuration and environment | Manifests, `config/`, environment-specific configuration |
+| Build, CI, and releases | `scripts/`, `tools/`, CI-native files |
+| Deployment and infrastructure | `deploy/`, `infra/`, platform-native manifests |
+| Operations, security, support | `operations/`, runbooks, policies, incident records |
+| Dependencies and third-party code | Lockfiles, manifests, `vendor/` |
+| Generated work and distributions | `build/`, `dist/`, external artifact storage |
 
-Avoid creating empty directories for speculative future needs. Link to the single owner of a decision rather than duplicating its authority. The optional [rulebook](RULES.md) can be copied and customized.
+Keep secrets out of tracked configuration. Avoid retaining generated reports when a durable link to the evidence suffices. Legal and community files may be useful but are not extra DLD foundation requirements.
 
-**Everything here is practical guidance, not an obligation.**
+## Adapt to the project
+
+A small script may need little more than its source and focused tests. Libraries benefit from package-native metadata and examples; applications from framework-native layouts; embedded work from hardware interfaces and validation evidence; services from deployment and operations information; and monorepos from clearly owned components and shared interfaces. High-assurance or regulated work may need more explicit risk, traceability, verification, and retention evidence.
+
+## Extend safely
+
+Identify the responsibility and its owner, follow existing conventions, and keep authoritative design in one logical ownership location. Designs may be co-located with implementation or owned at a shared scope. Link related design, realization, and evidence through the context registry and scoped references rather than duplicating decisions.
+
+When moving or splitting scopes, preserve or reconcile approvals, governing constraints, and dependencies. Start small and grow only as useful. A successful test or assembled package never substitutes for the relevant approvals or evidence.
