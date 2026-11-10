@@ -14,6 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Test validator
-        run: python3 -m unittest discover -s scripts -p 'test-text-format.py' -v
+        run: python3 scripts/test-text-format.py -v
       - name: Check maintained text files
         run: python3 scripts/check-text-format.py
