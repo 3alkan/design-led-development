@@ -1,18 +1,23 @@
 # Design-Led Development — Development Repository
 
-This repository develops Design-Led Development (DLD), a human-governed, AI-assisted software engineering methodology. The **v0.1.5** release is prepared on this branch but has not been published.
+This repository develops Design-Led Development (DLD), a human-governed, AI-assisted software engineering methodology. The repository contains a prepared **v0.1.5** baseline; publication requires a separate release authorization. Development work on branches is not automatically included in that release.
 
 ## Sources and responsibilities
 
 - [dld/CONTRACT.md](dld/CONTRACT.md): foundational human–AI collaboration contract.
 - [dld/DLD.md](dld/DLD.md): engineering methodology built on that contract.
 - [dld/CONTEXT-REGISTRY.md](dld/CONTEXT-REGISTRY.md): editable context registry for DLD development; the clean adopter registry comes from [product-files/CONTEXT-REGISTRY.md](product-files/CONTEXT-REGISTRY.md).
-- [DESIGN.md](DESIGN.md): development project architecture and pending approval state.
+- [DESIGN.md](DESIGN.md): overall design authority and scope navigation; scope designs sit close to their realizations.
+- [TRACEABILITY.md](TRACEABILITY.md): maintained-artifact ownership and reconciliation gaps.
+- [dld/collaboration.md](dld/collaboration.md) and [dld/methodology.md](dld/methodology.md): contract and methodology abstract designs.
+- [product-files/adoption.md](product-files/adoption.md): adopter materials design.
+- [scripts/assembly.md](scripts/assembly.md) and [scripts/quality.md](scripts/quality.md): distribution and verification designs.
+- [release-policy.md](release-policy.md): repository governance and release design.
 - [RULES.md](RULES.md): conventions for DLD development only.
-- [dld/supporting/](dld/supporting/): optional practical suggestions.
-- [product-files/](product-files/): additional product-specific maintained inputs.
+- [dld/supporting/](dld/supporting): optional practical suggestions.
+- [product-files/](product-files): additional product-specific maintained inputs.
 - [product.toml](product.toml): the sole specification of product file membership and destinations.
-- [scripts/](scripts/): validation and reproducible product assembly.
+- [scripts/](scripts): validation and reproducible product assembly.
 
 DLD development uses its own contract and methodology; its development-specific files are not automatically product files. The manifest defines the distribution, including mapping the neutral editable adopter registry into `dld/CONTEXT-REGISTRY.md`.
 
@@ -29,7 +34,7 @@ The root [VERSION](VERSION) is the current version identifier and is also select
 DLD uses two licenses with distinct purposes:
 
 - **GPLv3** ([LICENSE](LICENSE)) covers the normative [collaboration contract](dld/CONTRACT.md) and [DLD methodology](dld/DLD.md). Changes or redistribution of these texts are subject to GPLv3; their copies are not intended to be locally modified as part of ordinary DLD adoption.
-- **CC0 1.0** ([LICENSE-CC0](LICENSE-CC0)) covers the adopter-editable [context registry](dld/CONTEXT-REGISTRY.md), the [supporting materials](dld/supporting/), and the distributed product introduction maintained at [product-files/README.md](product-files/README.md). These may be copied and adapted freely.
+- **CC0 1.0** ([LICENSE-CC0](LICENSE-CC0)) covers the adopter-editable [context registry](dld/CONTEXT-REGISTRY.md), the [supporting materials](dld/supporting), and the distributed product introduction maintained at [product-files/README.md](product-files/README.md). These may be copied and adapted freely.
 
 Other development repository files are **not automatically CC0**. Their licensing follows applicable notices and license terms; this policy does not retroactively relicense earlier releases.
 

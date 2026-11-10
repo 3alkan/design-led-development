@@ -19,16 +19,16 @@ Normative sources are maintained once and distributed unchanged. Adopters own th
 
 ## Scope architecture
 
-These are logical responsibility boundaries. Scope designs are located near their realizations where practical; project-level choices govern cross-scope interactions.
+The design follows a responsibility hierarchy. Root decisions govern the entire project; subordinate scopes own increasingly local intent. Each decision belongs to the narrowest coherent governing scope, and dependent scopes reference that owner. Cross-scope dependencies need not be ancestor relationships. Designs are maintained near realizations where practical, using meaningful filenames instead of a mandatory naming suffix.
 
 | Scope | Abstract design | Principal realizations |
 | --- | --- | --- |
-| Collaboration contract | [Contract design](dld/CONTRACT.design.md) | `dld/CONTRACT.md` |
-| DLD methodology | [Methodology design](dld/DLD.design.md) | `dld/DLD.md` |
-| Adoption and context | [Adoption design](product-files/DESIGN.md) | Registries, product README, supporting materials |
-| Distribution | [Distribution design](scripts/PACKAGE.design.md) | `product.toml`, `scripts/package.ps1` |
-| Verification and validation | [Assurance design](scripts/TEST.design.md) | `scripts/test.ps1`, `scripts/check-text-format.ps1` |
-| Release and governance | [Release design](RELEASE.design.md) | Version, licenses, changelog, development README and configuration |
+| Collaboration contract | [Contract design](dld/collaboration.md) | `dld/CONTRACT.md` |
+| DLD methodology | [Methodology design](dld/methodology.md) | `dld/DLD.md` |
+| Adoption and context | [Adoption design](product-files/adoption.md) | Registries, product README, supporting materials |
+| Distribution | [Distribution design](scripts/assembly.md) | `product.toml`, `scripts/package.ps1` |
+| Verification and validation | [Assurance design](scripts/quality.md) | `scripts/test.ps1`, `scripts/check-text-format.ps1` |
+| Release and governance | [Release design](release-policy.md) | Version, licenses, changelog, development README and configuration |
 
 The [traceability register](TRACEABILITY.md) assigns an owner to every maintained artifact.
 
@@ -41,6 +41,8 @@ The [traceability register](TRACEABILITY.md) assigns an owner to every maintaine
 5. Select the distribution explicitly through [product.toml](product.toml); preserve reproducibility, link integrity, and auditable file membership.
 6. Separate verification, validation, human design approval, code integration, and publication.
 7. Keep scope ownership and material dependencies discoverable while avoiding redundant design authorities.
+8. Every maintained realization is governed by an identifiable design scope. One scope may cover multiple artifacts; file-level detail is created only when justified by independent responsibility.
+9. Make consequential design decisions and approvals before implementing changed product intent. During reconciliation, treat implemented behavior as evidence and proposed design as pending authority.
 
 ## Scope dependencies
 

@@ -13,7 +13,7 @@ The contract governs participants and authority, not a software lifecycle, repos
 | ID | Intended requirement | Product realization |
 | --- | --- | --- |
 | C-01 | Reserve objectives, consequential decisions, and delegation boundaries to humans; AI cannot infer approval. | Human authority |
-| C-02 | Allow AI initiative and autonomous action only within established permission; ambiguous consequential action requires direction. | Bounded autonomy |
+| C-02 | Allow AI initiative and autonomous action only within established permission; recognize delegation limited by scope, action, or condition, and require direction when authority is ambiguous. | Bounded autonomy |
 | C-03 | Require accurate representation of evidence, actions, decisions, and uncertainty. | Integrity |
 | C-04 | Encourage analysis, challenges, risk identification, and alternatives rather than passive agreement. | Constructive judgment |
 | C-05 | Require truthful reporting of outcomes, failures, unverified work, and unfinished work. | Accountability |

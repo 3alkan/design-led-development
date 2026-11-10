@@ -16,12 +16,12 @@ This editable registry is the central discovery point for context relevant to th
 | Source | Responsibility |
 | --- | --- |
 | [Development design](../DESIGN.md) | Project-level architecture and governing scope decisions (proposed) |
-| [Contract scope design](CONTRACT.design.md) | Intended contract behavior and constraints |
-| [Methodology scope design](DLD.design.md) | Intended methodology and approval model |
-| [Adoption scope design](../product-files/DESIGN.md) | Context, adopter guidance, and supporting materials |
-| [Distribution scope design](../scripts/PACKAGE.design.md) | Manifest, packaging, and reproducibility |
-| [Assurance scope design](../scripts/TEST.design.md) | Verification, validation, and evidence |
-| [Release scope design](../RELEASE.design.md) | Release identity, licensing, and repository governance |
+| [Contract scope design](collaboration.md) | Intended contract behavior and constraints |
+| [Methodology scope design](methodology.md) | Intended methodology and approval model |
+| [Adoption scope design](../product-files/adoption.md) | Context, adopter guidance, and supporting materials |
+| [Distribution scope design](../scripts/assembly.md) | Manifest, packaging, and reproducibility |
+| [Assurance scope design](../scripts/quality.md) | Verification, validation, and evidence |
+| [Release scope design](../release-policy.md) | Release identity, licensing, and repository governance |
 | [Traceability register](../TRACEABILITY.md) | Artifact ownership and reconciliation status |
 | [Development rules](../RULES.md) | Adopted development-only constraints, including TXT-001 |
 | [Development README](../README.md) | Repository navigation and versioning/licensing policy |
