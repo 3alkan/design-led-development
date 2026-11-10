@@ -11,10 +11,6 @@ This file records the ongoing history of Design-Led Development (DLD). The v0.1.
 
 This entry documents work in progress, not an approved or published release.
 
----
-
-This file records changes to the Design-Led Development method and its starter. Products built using the method maintain their own changelogs.
-
 ## 0.1.4 — 2026-11-06
 
 - Establish **DLD Version** (every DLD distribution release) and **Methodology Version** (the latest release with normative methodology changes) in the canonical/distributed Core; record both in the starter README. For this release both are 0.1.4. Packaging checks the release identity and carries the methodology identifier forward.

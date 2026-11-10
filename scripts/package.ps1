@@ -244,7 +244,9 @@ function Invoke-DldPackage([string] $Root) {
     }
 }
 
-try { Invoke-DldPackage $RepositoryRoot } catch {
-    Write-Error "DLD packaging failed: $_"
-    exit 1
+if ($MyInvocation.InvocationName -ne '.') {
+    try { Invoke-DldPackage $RepositoryRoot } catch {
+        Write-Error "DLD packaging failed: $_"
+        exit 1
+    }
 }

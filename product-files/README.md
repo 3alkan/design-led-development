@@ -20,5 +20,3 @@ The included [supporting materials](dld/supporting/) are optional practical sugg
 ## Licensing and release status
 
 The contract and methodology are GPLv3-covered; the context registry, this README, and the supporting materials are CC0 1.0. Read [LICENSE](LICENSE) and [LICENSE-CC0](LICENSE-CC0). Independently developed project code and documents do not become GPLv3-covered merely by using DLD.
-
-Packaging, a version string, or a checksum does not itself establish release approval or authenticate the publisher. Confirm the release source and provenance separately.

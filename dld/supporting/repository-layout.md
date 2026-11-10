@@ -16,7 +16,7 @@ project/
 └── ...project files
 ```
 
-Use the editable `dld/CONTEXT-REGISTRY.md` to locate design, decisions, rules, evidence, and dependencies maintained elsewhere in the project. Optional supporting files may be omitted where their license and adoption workflow permit.
+Use the editable `dld/CONTEXT-REGISTRY.md` to locate design, decisions, rules, evidence, and dependencies maintained elsewhere in the project. Supporting materials are optional.
 
 ## Extend by responsibility
 
@@ -46,4 +46,4 @@ A small script may need little more than its source and focused tests. Libraries
 
 Identify the responsibility and its owner, follow existing conventions, and keep authoritative design in one logical ownership location. Designs may be co-located with implementation or owned at a shared scope. Link related design, realization, and evidence through the context registry and scoped references rather than duplicating decisions.
 
-When moving or splitting scopes, preserve or reconcile approvals, governing constraints, and dependencies. Start small and grow only as useful. A successful test or assembled package never substitutes for the relevant approvals or evidence.
+When moving or splitting scopes, preserve or reconcile approvals, governing constraints, and dependencies. Start small and grow only as useful.
