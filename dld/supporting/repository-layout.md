@@ -16,7 +16,7 @@ project/
 └── ...project files
 ```
 
-Use the editable `dld/CONTEXT-REGISTRY.md` to locate design, decisions, rules, evidence, and dependencies maintained elsewhere in the project. Supporting materials are optional.
+Use the editable `dld/CONTEXT-REGISTRY.md` to locate design, decisions, rules, evidence, and dependencies maintained elsewhere in the project.
 
 ## Extend by responsibility
 

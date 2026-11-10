@@ -15,7 +15,7 @@ This repository develops Design-Led Development (DLD), a human-governed, AI-assi
 - [scripts/](scripts/): validation and reproducible product assembly.
 - [old/](old/): historical reference, not authoritative for the new design.
 
-DLD development uses its own contract and methodology; its development-specific files are not automatically product files. The manifest defines the distribution, including mapping the neutral editable adopter registry into `dld/CONTEXT-REGISTRY.md`. Nothing here implies release or design approval merely because it has been committed.
+DLD development uses its own contract and methodology; its development-specific files are not automatically product files. The manifest defines the distribution, including mapping the neutral editable adopter registry into `dld/CONTEXT-REGISTRY.md`.
 
 ## Versioning
 
