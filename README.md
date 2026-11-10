@@ -50,4 +50,3 @@ pwsh -NoProfile -File scripts/package.ps1
 
 The packager reads the intentionally small, explicit `product.toml` mapping and writes `build/product/`, `build/dld-v<VERSION>.zip`, and a matching SHA-256 checksum. It checks source paths, output membership, relative Markdown links, ZIP entries, and archive contents. It stages changes before replacing previous successful outputs. The `build/` directory is ignored by Git.
 
-Validation is currently **local and manual**, not enforced by GitHub Actions. Package creation is not approval to merge, tag, or publish.
