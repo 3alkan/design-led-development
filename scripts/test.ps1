@@ -23,6 +23,29 @@ Assert (@(Get-TextViolations ([byte[]](0,255,13)) 'image.dat').Count -eq 0) 'bin
 $root = Split-Path $PSScriptRoot -Parent
 Assert (Test-RepositoryText $root) 'current tracked text'
 
+# Verify the repository-wide GPL default and the explicit CC0 exceptions.
+$cc0Paths = @(
+    'dld/CONTEXT-REGISTRY.md',
+    'dld/supporting/RULES.md',
+    'dld/supporting/repository-layout.md',
+    'product-files/CONTEXT-REGISTRY.md',
+    'product-files/README.md'
+)
+$withoutHeader = @('LICENSE', 'LICENSE-CC0', 'VERSION')
+foreach ($path in @(Get-SourceFiles $root)) {
+    $relative = [IO.Path]::GetRelativePath($root, $path).Replace([char]92, [char]47)
+    if ($relative -in $withoutHeader) { continue }
+    $license = if ($relative -in $cc0Paths) { 'CC0-1.0' } else { 'GPL-3.0-only' }
+    $firstLine = [IO.File]::ReadLines($path) | Select-Object -First 1
+    $expected = if ($relative.EndsWith('.md')) {
+        "<!-- SPDX-License-Identifier: $license -->"
+    } else {
+        "# SPDX-License-Identifier: $license"
+    }
+    Assert ($firstLine -ceq $expected) "license notice: $relative (expected $license)"
+}
+
+
 # Assemble a temporary three-file product without modifying the repository's build outputs.
 $fixture = Join-Path ([IO.Path]::GetTempPath()) ('dld-package-test-' + [guid]::NewGuid().ToString('N'))
 try {

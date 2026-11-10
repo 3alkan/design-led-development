@@ -31,7 +31,7 @@ Maintain DLD's identity, licensing, development rules, and release history. Sepa
 
 ## Acceptance
 
-The distribution contains the correct version, changelog, full license texts and intended notices. Every original maintained file has an unambiguous GPL-3.0-only or explicit CC0-1.0 assignment, with appropriate SPDX notice where supported. Development references do not appear in adopter-facing sources. Repository build outputs are ignored. A release is not claimed published before the tag and release exist.
+The distribution contains the correct version, changelog, full license texts and intended notices. Every original maintained file has an unambiguous GPL-3.0-only or explicit CC0-1.0 assignment, with appropriate SPDX notice where supported. Local tests MUST enforce the file notice classification and explicit exception list. Development references do not appear in adopter-facing sources. Repository build outputs are ignored. A release is not claimed published before the tag and release exist.
 
 ## Reconciliation
 
