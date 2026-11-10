@@ -31,7 +31,8 @@ try {
     [IO.File]::WriteAllText((Join-Path $fixture 'product-files/README.md'),
         "# Example" + [char]10 + "[Method](dld/DLD.md)" + [char]10, $utf8)
     [IO.File]::WriteAllText((Join-Path $fixture 'dld/DLD.md'), "# Method" + [char]10, $utf8)
-    [IO.File]::WriteAllText((Join-Path $fixture 'VERSION'), "0.1.5-dev.1" + [char]10, $utf8)
+    $fixtureVersion = [IO.File]::ReadAllText((Join-Path $root 'VERSION')).Trim()
+    [IO.File]::WriteAllText((Join-Path $fixture 'VERSION'), $fixtureVersion + [char]10, $utf8)
     $manifest = @'
 [product]
 name = "DLD"
@@ -52,7 +53,7 @@ destination = "VERSION"
     [IO.File]::WriteAllText((Join-Path $fixture 'product.toml'), $manifest + [char]10, $utf8)
 
     Invoke-DldPackage $fixture
-    $archive = Join-Path $fixture 'build/dld-v0.1.5-dev.1.zip'
+    $archive = Join-Path $fixture ("build/dld-v$fixtureVersion.zip")
     $checksum = "$archive.sha256"
     Assert ([IO.File]::Exists($archive) -and [IO.File]::Exists($checksum)) 'package and checksum generated'
     $originalHash = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash

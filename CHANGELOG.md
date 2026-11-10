@@ -2,7 +2,7 @@
 
 This file records the ongoing history of Design-Led Development (DLD). The v0.1.5 work continues the existing v0.1.4 release series.
 
-## 0.1.5 — Unreleased (development: 0.1.5-dev.1)
+## 0.1.5 — Prepared for release
 
 - Reorganize the DLD foundation around a human–AI contract and a design-led software engineering methodology.
 - Provide a project-editable context registry, optional supporting materials, and separate development and adopter registry sources.
@@ -10,7 +10,7 @@ This file records the ongoing history of Design-Led Development (DLD). The v0.1.
 - Validate maintained text formatting (TXT-001) and provide local packaging tests.
 - Adopt SemVer-style versions while preserving the release history through v0.1.4.
 
-This entry documents work in progress, not an approved or published release.
+This version is prepared for publication; the release date and tag are pending.
 
 ## 0.1.4 — 2026-11-06
 

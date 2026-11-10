@@ -178,11 +178,10 @@ function Invoke-DldPackage([string] $Root) {
                 $relative = $entry.FullName.Substring(("dld-v$version/").Length)
                 $entryStream = $entry.Open()
                 try {
-                    $hash = [Security.Cryptography.SHA256]::HashData($entryStream)
+                    $entryHash = (Get-FileHash -InputStream $entryStream -Algorithm SHA256).Hash
                 } finally { $entryStream.Dispose() }
-                $fileHash = [Security.Cryptography.SHA256]::HashData(
-                    [IO.File]::ReadAllBytes((Join-Path $product $relative)))
-                if ([Convert]::ToHexString($hash) -cne [Convert]::ToHexString($fileHash)) {
+                $fileHash = (Get-FileHash -LiteralPath (Join-Path $product $relative) -Algorithm SHA256).Hash
+                if ($entryHash -cne $fileHash) {
                     throw "Archive payload mismatch: $relative"
                 }
             }
