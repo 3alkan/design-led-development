@@ -1,7 +1,7 @@
-<!-- SPDX-License-Identifier: GPL-3.0-only -->
-# Project Rules — Optional Example
+<!-- SPDX-License-Identifier: CC0-1.0 -->
+# Project Rules — Optional Template
 
 No additional project-specific rules have been adopted.
 
-Use this as guidance when writing separate project-owned rules; it is not an editable DLD product template. Proposed new rules are nonbinding until explicitly approved by the authorized human. Record approved rules, amendments, or retirement with their scope and recoverable approval record. A project rule may add compatible constraints but cannot override the adopted contract or methodology.
+Copy this template to a project-owned location and edit the copy when additional rules are useful. Keep the distributed DLD template unchanged. Proposed new rules are nonbinding until explicitly approved by an authorized human. Record approved rules, amendments, or retirement with their scope and recoverable approval record. A project rule may add compatible constraints but cannot override the adopted contract or methodology.
 

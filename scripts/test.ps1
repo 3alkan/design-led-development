@@ -24,7 +24,10 @@ $root = Split-Path $PSScriptRoot -Parent
 Assert (Test-RepositoryText $root) 'current tracked text'
 
 # Verify the repository-wide GPL default and the explicit CC0 exceptions.
-$cc0Paths = @('product-files/CONTEXT-REGISTRY.md')
+$cc0Paths = @(
+    'product-files/CONTEXT-REGISTRY.md',
+    'dld/supporting/RULES.md'
+)
 $withoutHeader = @('LICENSE', 'LICENSE-CC0', 'VERSION')
 foreach ($path in @(Get-SourceFiles $root)) {
     $relative = [IO.Path]::GetRelativePath($root, $path).Replace([char]92, [char]47)

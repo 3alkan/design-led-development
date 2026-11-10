@@ -11,7 +11,7 @@ DLD is a design-centered, human-authoritative, AI-assisted methodology for the s
 4. Establish sufficient project design and obtain human approval for consequential intent before realizing it; distinguish drafts from approved decisions.
 5. For each new or resumed work scope, discover governing context progressively, check applicable delegation and permissions, and report evidence and unfinished work truthfully.
 
-The included [supporting materials](dld/supporting/) are optional practical suggestions, including a [minimal-core design-document example](dld/supporting/design-document.md). The [project rules example](dld/supporting/RULES.md) is not an adopted requirement; establish project-owned rules separately when useful. Project-specific sources need not live inside `dld/`.
+The included [supporting materials](dld/supporting/) are optional practical suggestions, including a [minimal-core design-document example](dld/supporting/design-document.md). The [project rules template](dld/supporting/RULES.md) is not an adopted requirement; when useful, copy it to a project-owned location, adapt that copy, and obtain human approval for binding rules. Keep the distributed original as the template. Project-specific sources need not live inside `dld/`.
 
 ## Version and adoption
 
@@ -19,4 +19,4 @@ The included [supporting materials](dld/supporting/) are optional practical sugg
 
 ## Licensing and release status
 
-Only the editable context registry is CC0-1.0. The contract, methodology, this README, and the optional supporting materials are GPL-3.0-only. DLD adoption intends those GPL-covered product documents to remain unchanged until a deliberate upgrade, although GPLv3 grants modification and redistribution rights subject to its terms. Read [LICENSE](LICENSE) and [LICENSE-CC0](LICENSE-CC0). Independently developed project code and documents do not become GPLv3-covered merely by using DLD.
+The editable context registry and copyable project-rules template are CC0-1.0. The contract, methodology, this README, and the other optional supporting materials are GPL-3.0-only. DLD adoption intends those GPL-covered product documents to remain unchanged until a deliberate upgrade, although GPLv3 grants modification and redistribution rights subject to its terms. Read [LICENSE](LICENSE) and [LICENSE-CC0](LICENSE-CC0). Independently developed project code and documents do not become GPLv3-covered merely by using DLD.
