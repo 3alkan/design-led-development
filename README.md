@@ -22,7 +22,7 @@ The [context registry](dld/CONTEXT-REGISTRY.md) locates development context; [tr
 
 ## Validate and assemble
 
-Requires **PowerShell 7**; no Git checkout or external PowerShell modules are required.
+Requires **PowerShell 7**; no additional modules or external tools are required.
 
 Run from the repository root:
 
