@@ -13,8 +13,6 @@ This registry helps humans and AI discover relevant working context. Linking to 
 
 ## Adopting project context
 
-Designs, decisions, project rules, evidence, and other knowledge may live anywhere appropriate in the adopting project. Use its README or project-owned registry to discover them; they need not be stored in the DLD directory.
+Adopting projects may edit and extend this registry to reference their own designs, decisions, rules, evidence, and other relevant context, wherever those resources are located. Add entries here as useful; project-specific sources do not need to be stored inside the DLD directory.
 
 Before consequential work, establish the relevant objectives, current decisions and approvals, constraints, delegated authority, and evidence. Distinguish approved content from proposals and observations. Surface missing or contradictory context rather than treating a link or prior conversation as approval.
-
-This registry can remain unchanged when DLD is adopted: project-specific references should be maintained in project-owned files.
