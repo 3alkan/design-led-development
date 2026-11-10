@@ -1,40 +1,50 @@
 # DLD Development — Project Design
 
-**Status:** Draft — pending an explicit approval of this version's content.
+**Status:** Draft
 
 ## Purpose
 
-Maintain and distribute DLD as one coherent, versioned methodology for humans and AI collaborating on software engineering. This development repository adopts its own [contract](dld/CONTRACT.md) and [methodology](dld/DLD.md). The historical `old/` directory is reference material, not a governing source.
+Develop and distribute Design-Led Development (DLD) as a coherent, versioned methodology for software engineering with human–AI collaboration. This document governs the design of the DLD development project, not the projects adopting DLD.
 
-## Product boundary
+## Product architecture
 
-The distributed product provides the immutable adopted contract and methodology, an **editable context registry**, optional guidance, a product introduction, and release/license metadata. Adopters own their project-specific designs, rules, approvals, and implementation. Supporting suggestions cannot introduce normative obligations.
+The product separates four responsibilities:
 
-The development registry at [dld/CONTEXT-REGISTRY.md](dld/CONTEXT-REGISTRY.md) references this development project. The product's neutral initial registry is maintained separately at [product-files/CONTEXT-REGISTRY.md](product-files/CONTEXT-REGISTRY.md); the distribution maps it to `dld/CONTEXT-REGISTRY.md`. Keeping two audience-specific registries prevents development-only governance and links from leaking into adopter copies. Changes to their common foundational references must remain consistent.
-
-## Artifact ownership
-
-| Location | Responsibility |
+| Component | Responsibility |
 | --- | --- |
-| `dld/CONTRACT.md` | General human–AI contract |
-| `dld/DLD.md` | Normative DLD method, extending the contract |
-| `dld/CONTEXT-REGISTRY.md` | This development project's context navigation |
-| `DESIGN.md` and `RULES.md` | Development-specific design and approved additional constraints |
-| `product-files/` | Product-only maintained sources, including the neutral registry and introduction |
-| `dld/supporting/` | Optional guidance and editable templates |
-| `product.toml` | Authoritative product source-to-destination mapping |
-| `scripts/` | Local assembly and validation tooling |
-| `VERSION`, `CHANGELOG.md` and license texts | Release identity, continuity, and licensing |
-| `old/` | Historical reference, retained unchanged |
+| [Contract](dld/CONTRACT.md) | General human–AI collaboration boundaries; normative |
+| [Methodology](dld/DLD.md) | Design-led software engineering practices under the contract; normative |
+| Context registry | Editable discovery of project-specific design, rules, decisions, and evidence; non-normative |
+| [Supporting materials](dld/supporting/) | Optional examples and templates; non-normative |
 
-## Releases and assurance
+Adopters retain their own design, implementation, decisions, and rules. The contract and methodology are adopted unchanged until a deliberate upgrade; the registry and supporting materials may be customized.
 
-The next release target is `0.1.5`, continuing `0.1.4`. Development snapshots use SemVer-style prereleases, for example `0.1.5-dev.1`. A single version identifies the DLD distribution; there is no independent methodology version sequence. Adopting projects version their own products independently.
+## Development and distribution
 
-A distribution must be assembled only from `product.toml` inputs, without automatically including development-only files. Its links, source equivalence, version, archive membership, and checksum should be checked. Reproducible packaging and preservation of previous successful outputs are goals of the packaging implementation. Passing checks, approval of method content, Git merge, and release publication are separate acts.
+The repository maintains one canonical source for each normative component. Development-specific design, rules, and other internal materials are separate from the adopter distribution.
 
-## Open work
+The [product manifest](product.toml) defines which maintained source files appear in the distribution and their destinations. In particular, development uses [its own context registry](dld/CONTEXT-REGISTRY.md), while the product receives a separate [project-neutral registry](product-files/CONTEXT-REGISTRY.md). Both refer to the same normative components without duplicating their authority.
 
-- Validate a complete product assembly on a supported environment.
-- Exercise adoption on a representative independent project.
-- Review and explicitly approve the final v0.1.5 methodology and release content before publication.
+The [historical archive](old/) preserves earlier project material for reference, not as a competing current specification.
+
+## Design invariants
+
+1. The contract is the general collaboration authority; the methodology adds compatible software engineering requirements without redefining it.
+2. Each normative component has one canonical maintained source. Distributed copies preserve that source unchanged.
+3. Adopter-editable material does not create or alter normative DLD obligations.
+4. Development-specific context and constraints do not enter the adopter distribution.
+5. Distribution contents and destinations are explicitly selected by the manifest, never inferred from directory contents.
+6. The development project and adopting projects retain separate designs, decisions, and release identities.
+
+## Acceptance criteria
+
+An assembled distribution is consistent with this design when:
+
+- It contains exactly the manifest-selected files at their declared destinations.
+- Its contract and methodology match their canonical sources.
+- Its initial registry is project-neutral, editable, and points to the distributed normative files.
+- Its internal references resolve within the distribution.
+- Its version and license files accompany the selected content.
+- Its archive is reproducible from the same inputs, with a verifiable checksum.
+
+Release approval is governed separately from product assembly.
