@@ -18,7 +18,7 @@ Start with the [project design](DESIGN.md), then follow the relevant scope:
 | Verification and validation | [Quality](scripts/quality.md) | [Tests](scripts/test.ps1) and [text validator](scripts/check-text-format.ps1) |
 | Release and repository governance | [Release policy](release-policy.md) | [Version](VERSION), [changelog](CHANGELOG.md), licensing, and repository configuration |
 
-The [context registry](dld/CONTEXT-REGISTRY.md) locates development context; [traceability](TRACEABILITY.md) records artifact ownership. Scope designs remain proposed for reconciliation.
+The [context registry](dld/CONTEXT-REGISTRY.md) locates governing context. Scope designs identify their governed realizations and remain proposed for reconciliation.
 
 ## Validate and assemble
 

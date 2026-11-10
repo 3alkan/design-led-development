@@ -22,7 +22,6 @@ This editable registry is the central discovery point for context relevant to th
 | [Distribution scope design](../scripts/assembly.md) | Manifest, packaging, and reproducibility |
 | [Assurance scope design](../scripts/quality.md) | Verification, validation, and evidence |
 | [Release scope design](../release-policy.md) | Release identity, licensing, and repository governance |
-| [Traceability register](../TRACEABILITY.md) | Artifact ownership and reconciliation status |
 | [Development rules](../RULES.md) | Adopted development-only constraints, including TXT-001 |
 | [Development README](../README.md) | Repository navigation and versioning/licensing policy |
 | [Product manifest](../product.toml) | Explicit distribution membership and file destinations |

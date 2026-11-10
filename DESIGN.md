@@ -20,8 +20,6 @@ Scope boundaries follow engineering responsibility. The linked scope designs own
 | Verification and validation | [Assurance design](scripts/quality.md) | `scripts/test.ps1`, `scripts/check-text-format.ps1` |
 | Release and governance | [Release design](release-policy.md) | Version, licenses, changelog, development README and configuration |
 
-The [traceability register](TRACEABILITY.md) assigns an owner to every maintained artifact.
-
 ## Project requirements
 
 1. Maintain one canonical contract and methodology source; distribute each unchanged.
