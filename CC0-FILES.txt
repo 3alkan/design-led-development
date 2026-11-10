@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: GPL-3.0-only
+# Explicit CC0-1.0 exceptions, one development-repository-relative source path per line.
+# All other original DLD files default to GPL-3.0-only.
+# Entries are exact file paths, not directories or wildcard patterns.
+# Change this list only as an authorized licensing decision.
+
+product-files/CONTEXT-REGISTRY.md
+dld/supporting/RULES.md

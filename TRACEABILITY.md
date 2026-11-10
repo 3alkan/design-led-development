@@ -38,6 +38,7 @@ This register maps maintained artifacts to the abstract scope that governs them.
 | `CHANGELOG.md` | [Release and governance](release-policy.md) | Release change history |
 | `LICENSE` | [Release and governance](release-policy.md) | GPLv3 license text |
 | `LICENSE-CC0` | [Release and governance](release-policy.md) | CC0 license text |
+| `CC0-FILES.txt` | [Release and governance](release-policy.md) | Authoritative CC0 source-file exception list |
 
 ## Requirement-to-realization review
 

@@ -14,7 +14,7 @@ Maintain DLD's identity, licensing, development rules, and release history. Sepa
 | R-01 | Maintain a single DLD distribution version, shared by contract and methodology; adopting projects version themselves independently. | [VERSION](VERSION), [README](README.md) |
 | R-02 | Use SemVer-style version identifiers, with `v`-prefixed release tags and optional numbered prereleases. | README; package filename |
 | R-03 | Maintain release history without rewriting earlier releases to match the current architecture. | [CHANGELOG.md](CHANGELOG.md) |
-| R-04 | Default all original development materials, including abstract designs, scripts, governance, and normative product documents, to GPL-3.0-only; reserve CC0-1.0 exclusively for end-user files intentionally meant to be edited, including a copyable rules template. Preserve original terms for third-party works and license texts. | [LICENSE](LICENSE), [LICENSE-CC0](LICENSE-CC0), source notices, README |
+| R-04 | Default all original repository materials to GPL-3.0-only; record intentional CC0-1.0 end-user-customizable exceptions in a single explicit source-file list. Preserve original terms for third-party works and license texts. | [CC0-FILES.txt](CC0-FILES.txt), [LICENSE](LICENSE), [LICENSE-CC0](LICENSE-CC0), source notices |
 | R-05 | Document development purpose, navigation, installation/build commands, and release policy separately from normative product content. | README |
 | R-06 | Keep developer-owned design and rules outside the distribution unless explicitly selected as product material. | [DESIGN.md](DESIGN.md), [RULES.md](RULES.md), manifest |
 | R-07 | Use standard repository metadata for text defaults and generated output exclusion. | [editor config](.editorconfig), [Git attributes](.gitattributes), [Git ignore](.gitignore) |
@@ -27,7 +27,7 @@ Maintain DLD's identity, licensing, development rules, and release history. Sepa
 - **R-D3:** Releases are assembled and verified before an authorized tag/publication operation.
 - **R-D4:** Text-format rule TXT-001 is development governance; it does not become an additional adopter obligation.
 - **R-D5:** Use SPDX identifiers on maintained original sources where the file format permits comments. LICENSE and LICENSE-CC0 keep their original license text; VERSION remains a machine-readable version token.
-- **R-D6:** The two explicit CC0-1.0 exceptions are `product-files/CONTEXT-REGISTRY.md` (distributed as `dld/CONTEXT-REGISTRY.md`) and `dld/supporting/RULES.md`. The context registry is edited in place by adopters; the rules template is copied and adapted to a project-owned location, without modifying the distributed original. Other original sources, including the development registry, product introduction, reference guidance, and scope designs, are GPL-3.0-only. Intended customization practices are distinct from legal modification rights.
+- **R-D6:** [CC0-FILES.txt](CC0-FILES.txt) is the authoritative, exact-path exception list for CC0-1.0 source files. All other original source files default to GPL-3.0-only, including this exception list. CC0 is reserved for materials DLD specifically intends adopters to customize. Source paths, not relocated distribution destinations, are listed. Adding or removing an exception is a consequential licensing decision requiring approval; the local validator checks the list against each source's SPDX notice. Intended customization practices are distinct from legal modification rights.
 
 ## Realization and acceptance
 
