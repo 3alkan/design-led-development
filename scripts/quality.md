@@ -3,11 +3,11 @@
 
 **Status:** Proposed for reconciliation
 
-## Intent and boundary
+## Responsibility and boundary
 
 Provide evidence of technical conformance and product suitability. This scope verifies the maintained development sources and assembled DLD distribution; it does not authorize publication or replace human review of the methodology.
 
-## Requirements
+## Intended design and requirements
 
 | ID | Intended requirement | Realization / evidence |
 | --- | --- | --- |
@@ -19,15 +19,16 @@ Provide evidence of technical conformance and product suitability. This scope ve
 | V-06 | Distinguish automated technical verification from human review of contract/methodology coverage and representative-project adoption validation. | Design review and adoption evidence |
 | V-07 | Record outcomes and unverified areas truthfully; never equate a passing build with product usefulness or approval. | Test results and review records |
 | V-08 | Check that all maintained source files have the required GPL-3.0-only notice, except explicitly designated CC0 files and non-noticeable license/version artifacts. | `scripts/test.ps1`; release policy |
+| V-09 | Review scope designs for the agreed essential information while allowing references and inherited context instead of imposing section headings. | Human design review; [optional guide](../dld/supporting/design-document.md) |
 
-## Design decisions
+## Decisions and rationale
 
 - **V-D1:** Checks run locally in PowerShell 7; the current project does not depend on hosted CI.
 - **V-D2:** TXT-001 checks maintained sources rather than Git's index, so downloaded source archives work.
 - **V-D3:** Run functional packaging tests in a temporary directory; generated release artifacts belong to distribution, not test code.
 - **V-D4:** Maintain one compact test script until the test suite warrants separate ownership.
 
-## Acceptance and limitations
+## Realization and acceptance
 
 `scripts/test.ps1`, `scripts/check-text-format.ps1`, and `scripts/package.ps1` must exit successfully on supported input. Negative tests must fail where intended. Checks should cover the requirements above; any untested condition remains an explicit coverage gap, not an assumed success. Human readability and adoption usefulness require independent review or representative use.
 

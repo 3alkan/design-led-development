@@ -3,11 +3,11 @@
 
 **Status:** Proposed for reconciliation
 
-## Intent and boundary
+## Responsibility and boundary
 
 Define a design-authoritative, human-governed, AI-assisted method for the complete software engineering lifecycle, under the [contract design](collaboration.md). The deliverable is [DLD.md](DLD.md), not the project-specific designs that adopters create.
 
-## Requirements
+## Intended design and requirements
 
 | ID | Intended requirement | Product realization |
 | --- | --- | --- |
@@ -27,8 +27,9 @@ Define a design-authoritative, human-governed, AI-assisted method for the comple
 | M-14 | Favor scope-local design placement and meaningful names; do not prescribe a physical hierarchy, suffix, or document count. | §2 |
 | M-15 | Require sufficient approved design before consequential realization while allowing authorized exploration and prototypes. | §§1, 3 |
 | M-16 | Support progressively deeper decomposition only when independent responsibility or change isolation warrants it. | §2 |
+| M-17 | Require sufficient scope identity, intended outcomes, consequential decisions with rationale, governed realizations, and conformity criteria, allowing inheritance and references without mandatory document format. | §2 |
 
-## Design decisions
+## Decisions and rationale
 
 - **M-D1:** The methodology specializes, rather than duplicates, the general contract.
 - **M-D2:** Model ownership as a hierarchy of coherent responsibility scopes; dependencies may form a cross-scope graph. Prefer the narrowest suitable owner for each decision, with inheritance of applicable ancestor decisions.
@@ -37,8 +38,9 @@ Define a design-authoritative, human-governed, AI-assisted method for the comple
 - **M-D3:** Design approval is scoped and recorded, but no particular approval-record tool is imposed.
 - **M-D4:** One recurring engineering cycle spans SDLC responsibilities instead of prescribing Waterfall or Agile.
 - **M-D5:** Supporting materials and the editable registry assist adoption but do not impose methodology obligations.
+- **M-D8:** Standardize design information sufficiency, not document presentation; offer a minimal-core, expandable Markdown example as optional CC0 guidance.
 
-## Acceptance
+## Realization and acceptance
 
 Review each requirement against the corresponding section of [DLD.md](DLD.md). Confirm that approval, design authority, ownership, evidence, change impact, and continuity remain operationally understandable. A representative adopting-project exercise is required to validate usefulness; textual coverage alone is verification, not validation.
 

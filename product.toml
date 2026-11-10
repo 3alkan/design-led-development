@@ -32,6 +32,10 @@ source = "dld/supporting/repository-layout.md"
 destination = "dld/supporting/repository-layout.md"
 
 [[files]]
+source = "dld/supporting/design-document.md"
+destination = "dld/supporting/design-document.md"
+
+[[files]]
 source = "VERSION"
 destination = "VERSION"
 

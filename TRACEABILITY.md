@@ -24,6 +24,7 @@ This register maps maintained artifacts to the abstract scope that governs them.
 | `product-files/README.md` | [Adoption](product-files/adoption.md) | Adopter introduction and instructions |
 | `dld/supporting/RULES.md` | [Adoption](product-files/adoption.md) | Optional project rules template |
 | `dld/supporting/repository-layout.md` | [Adoption](product-files/adoption.md) | Optional repository layout guidance |
+| `dld/supporting/design-document.md` | [Adoption](product-files/adoption.md) | Optional minimal-core design document guidance |
 | `product.toml` | [Distribution](scripts/assembly.md) | Product file source/destination manifest |
 | `scripts/package.ps1` | [Distribution](scripts/assembly.md) | Reproducible product assembly |
 | `scripts/test.ps1` | [Assurance](scripts/quality.md) | Local regression and fixture checks |
@@ -43,8 +44,8 @@ This register maps maintained artifacts to the abstract scope that governs them.
 | Design | Requirements | Implemented in | Evidence or outstanding check |
 | --- | --- | --- | --- |
 | Contract | C-01–C-07 | `dld/CONTRACT.md` | Section-by-section human content review |
-| Methodology | M-01–M-16 | `dld/DLD.md` | Content review and representative adoption validation |
-| Adoption | A-01–A-07 | Product README, both registries, supporting material | Product link checks; practical adoption exercise remains |
+| Methodology | M-01–M-17 | `dld/DLD.md` | Content review and representative adoption validation |
+| Adoption | A-01–A-08 | Product README, both registries, supporting material | Product link checks; practical adoption exercise remains |
 | Distribution | P-01–P-09 | Manifest and packaging script | Packager and tests; negative-case coverage should be extended |
 | Assurance | V-01–V-07 | Validator and tests; human review process | TXT-001 tests and packaging fixture; external validity requires review |
 | Release | R-01–R-08 | Metadata, licenses, development configuration | Manifest review, licensing review, actual release authorization |

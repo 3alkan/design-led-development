@@ -3,13 +3,13 @@
 
 **Status:** Proposed for reconciliation
 
-## Intent and boundary
+## Responsibility and boundary
 
 Provide a general, portable agreement governing human–AI collaboration in any domain. This scope defines the intended content and properties of the contract; the contractual obligations delivered to adopters are realized in [CONTRACT.md](CONTRACT.md).
 
 The contract governs participants and authority, not a software lifecycle, repository practice, or tool.
 
-## Requirements
+## Intended design and requirements
 
 | ID | Intended requirement | Product realization |
 | --- | --- | --- |
@@ -21,13 +21,13 @@ The contract governs participants and authority, not a software lifecycle, repos
 | C-06 | Distinguish approving an idea from authorizing an actual external action; respect superior constraints. | Actual permissions |
 | C-07 | Permit domain-specific extensions only when compatible with the contract; unresolved conflicts return to humans. | Extension |
 
-## Design decisions
+## Decisions and rationale
 
 - **C-D1:** One compact human–AI contract applies across domains; DLD adds software-engineering-specific obligations separately.
 - **C-D2:** The contract specifies behavioral boundaries rather than a mandatory interaction protocol or decision-record format.
 - **C-D3:** The maintained contract is a normative, GPLv3-covered product source; adoption does not require changing its text.
 
-## Acceptance
+## Realization and acceptance
 
 Review the delivered contract against C-01–C-07. Each requirement must be expressed without introducing software-engineering-specific procedure. The contract must be directly usable by the methodology without conflicting obligations.
 

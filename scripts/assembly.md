@@ -3,11 +3,11 @@
 
 **Status:** Proposed for reconciliation
 
-## Intent and boundary
+## Responsibility and boundary
 
 Transform maintained DLD product sources into a reproducible, verifiable distribution without including development-only material. [product.toml](../product.toml) owns file membership and destinations; [package.ps1](package.ps1) realizes assembly.
 
-## Requirements
+## Intended design and requirements
 
 | ID | Intended requirement | Realization |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ Transform maintained DLD product sources into a reproducible, verifiable distrib
 | P-08 | Preserve previous successful managed outputs when validation fails; stage before replacement and attempt rollback on replacement errors. | Build staging and rollback |
 | P-09 | Work locally with PowerShell 7 and built-in platform functionality; no CI service dependency. | `scripts/package.ps1` |
 
-## Design decisions
+## Decisions and rationale
 
 - **P-D1:** One TOML manifest, with a deliberately small supported grammar, is the product-membership authority. This is not a general-purpose TOML parser.
 - **P-D2:** Stage assembled files in `build/`; the working product, ZIP, and checksum are generated outputs, not repository sources.
@@ -29,7 +29,7 @@ Transform maintained DLD product sources into a reproducible, verifiable distrib
 - **P-D4:** The archive uses `dld-v<VERSION>/` as its top-level directory, while `build/product/` contains the unwrapped product tree.
 - **P-D5:** Fail before replacing good outputs where possible. Multi-file output replacement is best-effort transactional rather than filesystem-atomic.
 
-## Acceptance
+## Realization and acceptance
 
 The assembled file set must equal the manifest destinations exactly; product copies match source bytes; no product-local Markdown links are broken. Repeated packaging of identical inputs must produce identical SHA-256 digests. Invalid manifests, broken links, and unsafe paths must fail without replacing previously valid outputs. A real PowerShell 7 run is needed to establish execution evidence.
 

@@ -15,6 +15,8 @@ A **project** contains identifiable **scopes** of engineering responsibility. Sc
 
 Each authoritative decision MUST have one identifiable owning scope: the narrowest scope able to govern it coherently. A decision spanning subordinate scopes belongs to their narrowest suitable shared ancestor when it truly governs them together; otherwise an identifiable owning scope governs it and affected scopes reference that authority. Subordinate scopes MUST respect applicable ancestor decisions without duplicating them. Cross-scope dependencies MAY connect any scopes and MUST remain discoverable without forcing unrelated decisions upward.
 
+Each scope's authoritative design MUST provide or reference sufficient information to identify its responsibility and boundary, intended outcomes and constraints, consequential decisions and their rationale, governed realizations, and criteria for evaluating conformity. Applicable information MAY be inherited from governing scopes or distributed among related design artifacts without repeating authority. DLD does not prescribe document headings, media, formats, or templates.
+
 Every maintained realization MUST have an identifiable governing design scope, which MAY cover one artifact, several artifacts, or a subsystem. Decompose designs only as far as responsibility and change isolation justify; individual realization files need not each have a separate design document. Design documents SHOULD be maintained near the realizations they govern where practical. Their authority comes from declared ownership and approval, not filenames or a prescribed directory layout.
 
 ## 3. Decisions and approval

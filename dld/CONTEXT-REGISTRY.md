@@ -9,7 +9,7 @@ This editable registry is the central discovery point for context relevant to th
 | --- | --- |
 | [CONTRACT.md](CONTRACT.md) | Human–AI collaboration boundaries |
 | [DLD.md](DLD.md) | Design-led software engineering methodology |
-| [supporting/](supporting) | Optional non-normative suggestions |
+| [supporting/](supporting) | Optional non-normative suggestions, including [design-document guidance](supporting/design-document.md) |
 
 ## Development project context
 

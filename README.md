@@ -20,6 +20,8 @@ Start with the [project design](DESIGN.md) for overall intent, scope ownership, 
 | Verification and validation | [Quality](scripts/quality.md) | [Tests](scripts/test.ps1) and [text validator](scripts/check-text-format.ps1) |
 | Release and repository governance | [Release policy](release-policy.md) | [Version](VERSION), [changelog](CHANGELOG.md), licensing, and repository configuration |
 
+Every scope design must contain or reference sufficient governing information, but DLD does not mandate document headings. The [optional design-document guide](dld/supporting/design-document.md) illustrates a compact, expandable form used as a starting point for this repository's scope designs.
+
 The [development context registry](dld/CONTEXT-REGISTRY.md) helps discover governing sources. [Traceability](TRACEABILITY.md) records artifact ownership and reconciliation coverage. Design approval is separate from implementation completion; the scope designs on this working branch remain proposed for reconciliation.
 
 ## Validate and assemble

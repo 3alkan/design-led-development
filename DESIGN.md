@@ -44,6 +44,7 @@ The [traceability register](TRACEABILITY.md) assigns an owner to every maintaine
 7. Keep scope ownership and material dependencies discoverable while avoiding redundant design authorities.
 8. Every maintained realization is governed by an identifiable design scope. One scope may cover multiple artifacts; file-level detail is created only when justified by independent responsibility.
 9. Make consequential design decisions and approvals before implementing changed product intent. During reconciliation, treat implemented behavior as evidence and proposed design as pending authority.
+10. Require sufficient information to establish scope, intent, consequential choices and rationale, governed realizations and acceptance; allow inherited context and optional presentation forms.
 
 ## Scope dependencies
 

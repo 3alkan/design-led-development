@@ -28,6 +28,7 @@ $cc0Paths = @(
     'dld/CONTEXT-REGISTRY.md',
     'dld/supporting/RULES.md',
     'dld/supporting/repository-layout.md',
+    'dld/supporting/design-document.md',
     'product-files/CONTEXT-REGISTRY.md',
     'product-files/README.md'
 )
