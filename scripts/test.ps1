@@ -42,7 +42,7 @@ foreach ($line in [IO.File]::ReadAllLines($cc0File)) {
         -not $pattern.StartsWith('*')) "safe CC0 exception pattern: $entry"
     # * matches within one path segment. A trailing / includes all descendants.
     $regex = '^' + [Regex]::Escape($pattern).Replace('\*', '[^/]*')
-    $regex += $(if ($isDirectory) { '/.+' } else { '
+    $regex += $(if ($isDirectory) { '/.+' } else { '\z' })
     $cc0Patterns.Add([pscustomobject]@{
         Entry = $entry
         Regex = [Regex]::new($regex, [Text.RegularExpressions.RegexOptions]::CultureInvariant)
