@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
 # DLD Development Rules
 
 ## TXT-001 — Maintained text encoding and line endings
