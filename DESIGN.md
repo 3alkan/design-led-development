@@ -19,7 +19,7 @@ Normative sources are maintained once and distributed unchanged. Adopters own th
 
 ## Scope architecture
 
-These are logical responsibility boundaries, not required directory boundaries. Each subordinate scope owns its decisions; project-level choices govern cross-scope interactions.
+These are logical responsibility boundaries. Scope designs are located near their realizations where practical; project-level choices govern cross-scope interactions.
 
 | Scope | Abstract design | Principal realizations |
 | --- | --- | --- |

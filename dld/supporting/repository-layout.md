@@ -44,6 +44,6 @@ A small script may need little more than its source and focused tests. Libraries
 
 ## Extend safely
 
-Identify the responsibility and its owner, follow existing conventions, and keep authoritative design in one logical ownership location. Designs may be co-located with implementation or owned at a shared scope. Link related design, realization, and evidence through the context registry and scoped references rather than duplicating decisions.
+Identify the responsibility and its owner, follow existing conventions, and keep authoritative design in one logical ownership location. Prefer keeping scope design close to the implementation it governs, so the scope can be understood and changed in isolation. Keep cross-scope decisions with their governing owner. Link related design, realization, and evidence through the context registry and scoped references rather than duplicating decisions.
 
 When moving or splitting scopes, preserve or reconcile approvals, governing constraints, and dependencies. Start small and grow only as useful.

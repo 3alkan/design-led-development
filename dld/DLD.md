@@ -13,7 +13,7 @@ Here, **MUST** means required, **MUST NOT** prohibited, **SHOULD** recommended w
 
 A **project** contains identifiable **scopes** of engineering responsibility. **Design** describes intended outcomes, requirements, behavior, architecture, interfaces, constraints, and decisions. **Realization** is concrete work or artifacts implementing design. **Evidence** supports or challenges a claim about design or realization.
 
-Each authoritative decision MUST have one identifiable owning scope. Shared decisions need one governing owner; dependent scopes reference it rather than duplicate authority. Governing relationships and material dependencies MUST remain discoverable. Scopes need not correspond to directories or individual files.
+Each authoritative decision MUST have one identifiable owning scope. Shared decisions need one governing owner; dependent scopes reference it rather than duplicate authority. Governing relationships and material dependencies MUST remain discoverable. Scope designs SHOULD be maintained near their realizations where practical, making ownership, isolation, and navigation easier. Shared decisions belong with their governing scope; no directory layout is mandatory.
 
 ## 3. Decisions and approval
 

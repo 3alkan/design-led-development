@@ -13,7 +13,7 @@ Define a design-authoritative, human-governed, AI-assisted method for the comple
 | M-01 | Make approved abstract design authoritative over intended engineering outcomes; keep realizations and observations as evidence. | §1 |
 | M-02 | Support sufficient incremental design, without a required tool, technology, repository layout, or sequential lifecycle model. | §§1, 4, 7 |
 | M-03 | Define project, scope, design, realization, and evidence with discoverable ownership and dependencies. | §2 |
-| M-04 | Require one owning scope per authoritative decision, including shared decisions. | §2 |
+| M-04 | Require one owning scope per authoritative decision, including shared decisions; favor proximity between scope design and realization without prescribing a tree. | §2 |
 | M-05 | Define when changed intent is consequential and requires authorized human approval before realization; permit bounded local execution. | §3 |
 | M-06 | Preserve distinguishable proposals, approval records identifying approver/content/scope/revision, and recoverable baselines. | §3 |
 | M-07 | Permit project-owned binding rules subject to compatible, recorded approval. | §3 |
@@ -26,7 +26,7 @@ Define a design-authoritative, human-governed, AI-assisted method for the comple
 ## Design decisions
 
 - **M-D1:** The methodology specializes, rather than duplicates, the general contract.
-- **M-D2:** Conceptual scopes are responsibility boundaries; folder layout and filenames are not normative.
+- **M-D2:** Conceptual scopes are responsibility boundaries. Prefer placing scope design near the realization it governs to simplify ownership, isolation, and navigation; keep shared decisions at their owning scope without mandating a layout.
 - **M-D3:** Design approval is scoped and recorded, but no particular approval-record tool is imposed.
 - **M-D4:** One recurring engineering cycle spans SDLC responsibilities instead of prescribing Waterfall or Agile.
 - **M-D5:** Supporting materials and the editable registry assist adoption but do not impose methodology obligations.
