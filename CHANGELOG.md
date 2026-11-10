@@ -4,10 +4,11 @@ This file records the ongoing history of Design-Led Development (DLD). The v0.1.
 
 ## 0.1.5 — Unreleased (development: 0.1.5-dev.1)
 
-- Redesign the DLD distribution around a general human–AI contract and a design-led software engineering methodology.
-- Introduce an adopter-editable context registry and optional supporting materials.
-- Define explicit product file mapping and separate development-only resources.
-- Adopt SemVer-style versions, with numbered development prereleases; preserve historical release records.
+- Reorganize the DLD foundation around a human–AI contract and a design-led software engineering methodology.
+- Provide a project-editable context registry, optional supporting materials, and separate development and adopter registry sources.
+- Define product contents through `product.toml` and assemble them using local PowerShell tooling.
+- Validate maintained text formatting (TXT-001) and provide local packaging tests.
+- Adopt SemVer-style versions while preserving the release history through v0.1.4.
 
 This entry documents work in progress, not an approved or published release.
 
