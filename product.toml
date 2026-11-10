@@ -1,0 +1,47 @@
+# Explicit product composition and destination paths.
+# Source paths are relative to the development repository.
+# Destination paths are relative to the assembled product root.
+
+[product]
+name = "DLD"
+version_file = "VERSION"
+
+[[files]]
+source = "product-files/README.md"
+destination = "README.md"
+
+[[files]]
+source = "dld/CONTEXT-REGISTRY.md"
+destination = "dld/CONTEXT-REGISTRY.md"
+
+[[files]]
+source = "dld/CONTRACT.md"
+destination = "dld/CONTRACT.md"
+
+[[files]]
+source = "dld/DLD.md"
+destination = "dld/DLD.md"
+
+[[files]]
+source = "dld/supporting/RULES.md"
+destination = "dld/supporting/RULES.md"
+
+[[files]]
+source = "dld/supporting/repository-layout.md"
+destination = "dld/supporting/repository-layout.md"
+
+[[files]]
+source = "VERSION"
+destination = "VERSION"
+
+[[files]]
+source = "CHANGELOG.md"
+destination = "CHANGELOG.md"
+
+[[files]]
+source = "LICENSE"
+destination = "LICENSE"
+
+[[files]]
+source = "LICENSE-CC0"
+destination = "LICENSE-CC0"
