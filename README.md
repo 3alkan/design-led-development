@@ -38,7 +38,7 @@ Other development repository files and the historical `old/` material are **not 
 
 ## Assemble and check
 
-Requires **PowerShell 7**, **Git** (for tracked-file validation), and built-in **.NET** APIs. No Python, third-party PowerShell modules, or CI service is required.
+Requires PowerShell 7. Text validation also uses Git.
 
 From the repository root:
 
