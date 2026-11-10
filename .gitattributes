@@ -1,0 +1,5 @@
+# Normalize maintained text to LF when Git checks it out or adds it.
+* text=auto eol=lf
+
+# Historical archive is intentionally preserved without normalization.
+old/** -text

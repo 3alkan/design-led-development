@@ -1,0 +1,19 @@
+name: Text format (TXT-001)
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate UTF-8 and LF
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test validator
+        run: python3 -m unittest discover -s scripts -p 'test-text-format.py' -v
+      - name: Check maintained text files
+        run: python3 scripts/check-text-format.py
