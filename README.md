@@ -38,16 +38,16 @@ Other development repository files and the historical `old/` material are **not 
 
 ## Assemble and check
 
-Requires Python 3.11+ and Git, without third-party Python packages. From the repository root:
+Requires **PowerShell 7**, **Git** (for tracked-file validation), and built-in **.NET** APIs. No Python, third-party PowerShell modules, or CI service is required.
 
-```sh
-python3 scripts/check-text-format.py
-python3 scripts/test-text-format.py
-python3 scripts/test-package.py
-python3 scripts/package.py
+From the repository root:
+
+```powershell
+pwsh -NoProfile -File scripts/test.ps1
+pwsh -NoProfile -File scripts/check-text-format.ps1
+pwsh -NoProfile -File scripts/package.ps1
 ```
 
-The packager reads `product.toml` and writes a manifest-limited `build/product/` tree, deterministic `build/dld-v<VERSION>.zip`, and adjacent SHA-256 checksum. It validates destination uniqueness, safe paths, expected files, product-local Markdown links, archive entries, and content equivalence. Errors during preparation preserve previously successful outputs. Only the files explicitly mapped in the manifest belong to the product.
+The packager reads the intentionally small, explicit `product.toml` mapping and writes `build/product/`, `build/dld-v<VERSION>.zip`, and a matching SHA-256 checksum. It checks source paths, output membership, relative Markdown links, ZIP entries, and archive contents. It stages changes before replacing previous successful outputs. The `build/` directory is ignored by Git.
 
-Packaging success is not methodology approval, release authorization, or proof of publisher authenticity. A published release requires a distinct human authorization.
-
+Validation is currently **local and manual**, not enforced by GitHub Actions. Package creation is not approval to merge, tag, or publish.
