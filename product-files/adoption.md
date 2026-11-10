@@ -25,7 +25,7 @@ This scope owns the adopter introduction, editable registry template, and option
 ## Decisions and rationale
 
 - **A-D1:** The development registry and product registry are separate source files because their audiences differ; distribution maps the neutral source to the conventional `dld/CONTEXT-REGISTRY.md` destination.
-- **A-D2:** The context registry is edited in place; the rules template is copied into project ownership before editing. Licensing exceptions are governed by [CC0-FILES.txt](../CC0-FILES.txt).
+- **A-D2:** The context registry is edited in place; the rules template is copied into project ownership before editing. Each source file declares its license through SPDX.
 - **A-D3:** No starter project design or rules are automatically approved or prescribed.
 - **A-D4:** Supporting materials, including the design-document example, remain optional.
 

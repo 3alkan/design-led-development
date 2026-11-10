@@ -38,4 +38,4 @@ The [product manifest](product.toml) selects the distributed files and destinati
 
 [VERSION](VERSION) identifies the DLD distribution, not an adopter's project version. See [release policy](release-policy.md) and [CHANGELOG.md](CHANGELOG.md); packaging, merging, and publishing are separate decisions.
 
-Original repository files default to [GPL-3.0-only](LICENSE). [CC0-FILES.txt](CC0-FILES.txt) defines the adopter-customizable exceptions: the context registry and copyable rules template. See [LICENSE-CC0](LICENSE-CC0). Independently developed adopter work is not GPL-covered merely by using DLD.
+Each source file declares its license in its SPDX header. Most use [GPL-3.0-only](LICENSE); adopter-customizable files use [CC0-1.0](LICENSE-CC0). Independently developed adopter work is not GPL-covered merely by using DLD.

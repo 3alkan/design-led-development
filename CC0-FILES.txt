@@ -1,7 +1,0 @@
-# SPDX-License-Identifier: GPL-3.0-only
-# CC0 exceptions; all other original files default to GPL-3.0-only.
-# Repository-relative exact paths, directory/, and segment * patterns are supported.
-# Each match needs an explicit CC0 notice. Changes require human approval.
-
-product-files/CONTEXT-REGISTRY.md
-dld/supporting/RULES.md

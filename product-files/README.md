@@ -19,4 +19,4 @@ The [supporting materials](dld/supporting/) are optional. For project-specific r
 
 ## Licensing and release status
 
-The editable context registry and copyable project-rules template are CC0-1.0. The contract, methodology, this README, and the other optional supporting materials are GPL-3.0-only. DLD adoption intends those GPL-covered product documents to remain unchanged until a deliberate upgrade, although GPLv3 grants modification and redistribution rights subject to its terms. Read [LICENSE](LICENSE) and [LICENSE-CC0](LICENSE-CC0). Independently developed project code and documents do not become GPLv3-covered merely by using DLD.
+Each file identifies its license in an SPDX header: the editable context registry and project-rules template use CC0-1.0; other original product documents use GPL-3.0-only. See [LICENSE](LICENSE) and [LICENSE-CC0](LICENSE-CC0). GPLv3 permits modification and redistribution subject to its terms, although DLD recommends deliberate upgrades of normative documents. Independently developed project work is not GPL-covered merely by using DLD.
