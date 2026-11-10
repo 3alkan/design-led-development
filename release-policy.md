@@ -27,12 +27,9 @@ Maintain DLD's identity, licensing, development rules, and release history. Sepa
 - **R-D3:** Releases are assembled and verified before an authorized tag/publication operation.
 - **R-D4:** Text-format rule TXT-001 is development governance; it does not become an additional adopter obligation.
 - **R-D5:** Use SPDX identifiers on maintained original sources where the file format permits comments. LICENSE and LICENSE-CC0 keep their original license text; VERSION remains a machine-readable version token.
-- **R-D6:** [CC0-FILES.txt](CC0-FILES.txt) is the authoritative exception list, supporting exact source paths, recursive directory entries, and limited filename wildcards for CC0-1.0 source files. All other original source files default to GPL-3.0-only, including this exception list. CC0 is reserved for materials DLD specifically intends adopters to customize. Patterns apply to development source paths, not relocated distribution destinations. Every matched source requires an explicit CC0 SPDX notice; patterns cannot silently relicense newly added files. Adding or removing an exception is a consequential licensing decision requiring approval; the local validator checks the list against each source's SPDX notice. Intended customization practices are distinct from legal modification rights.
+- **R-D6:** [CC0-FILES.txt](CC0-FILES.txt) governs exceptions for end-user-customizable sources; all other original files default to GPL-3.0-only. The validator checks source-file notices against the listed patterns. Exception changes require human approval.
 
 ## Realization and acceptance
 
-The distribution contains the correct version, changelog, full license texts and intended notices. Every original maintained file has an unambiguous GPL-3.0-only or explicit CC0-1.0 assignment, with appropriate SPDX notice where supported. Local tests MUST enforce the file notice classification and explicit exception list. Development references do not appear in adopter-facing sources. Repository build outputs are ignored. A release is not claimed published before the tag and release exist.
+Check version, changelog, license texts, source notices, and product membership. Local tests MUST enforce licensing assignments. Exclude development-only references from adopter files and generated outputs from source control. Publication requires authorization.
 
-## Reconciliation
-
-Current published history is evidence, not a retroactive approval record for reconstructed requirements. This design remains proposed until approved.

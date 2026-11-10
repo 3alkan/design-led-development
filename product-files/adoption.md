@@ -25,14 +25,11 @@ This scope owns the adopter introduction, editable registry template, and option
 ## Decisions and rationale
 
 - **A-D1:** The development registry and product registry are separate source files because their audiences differ; distribution maps the neutral source to the conventional `dld/CONTEXT-REGISTRY.md` destination.
-- **A-D2:** CC0-1.0 applies only to the adopter-editable context registry and copyable project-rules template. The development registry, adopter introduction, other supporting references, normative sources, and their abstract designs are GPL-3.0-only. The original distributed rules template is guidance, while its project-owned copy may be edited and adopted through human approval.
+- **A-D2:** The context registry is edited in place; the rules template is copied into project ownership before editing. Licensing exceptions are governed by [CC0-FILES.txt](../CC0-FILES.txt).
 - **A-D3:** No starter project design or rules are automatically approved or prescribed.
-- **A-D4:** Supporting materials are kept few and optional; the agreed minimal-core design guide addresses a demonstrated documentation need while remaining optional.
+- **A-D4:** Supporting materials, including the design-document example, remain optional.
 
 ## Realization and acceptance
 
 An extracted product must open at its own README. All links from the delivered registry and introduction must resolve inside the distribution. No developer-specific navigation or local governance may appear in the adopter registry. A representative adoption must demonstrate that the adopter can link project-owned design and rules without altering the normative DLD files.
 
-## Reconciliation
-
-Requirements and decisions are derived from existing adopter-facing sources and product mappings and await explicit design approval.

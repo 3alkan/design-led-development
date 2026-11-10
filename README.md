@@ -7,9 +7,7 @@ This is the **development repository** for DLD. For the documents delivered to a
 
 ## How this repository is organized
 
-Development follows DLD itself: design is organized by engineering responsibility, with scope-specific designs maintained near the artifacts they govern. Designs can govern multiple files; names and directory boundaries alone do not establish authority.
-
-Start with the [project design](DESIGN.md) for overall intent, scope ownership, and dependencies. Then follow the relevant scope:
+Start with the [project design](DESIGN.md), then follow the relevant scope:
 
 | Responsibility | Abstract design | Realization |
 | --- | --- | --- |
@@ -20,9 +18,7 @@ Start with the [project design](DESIGN.md) for overall intent, scope ownership, 
 | Verification and validation | [Quality](scripts/quality.md) | [Tests](scripts/test.ps1) and [text validator](scripts/check-text-format.ps1) |
 | Release and repository governance | [Release policy](release-policy.md) | [Version](VERSION), [changelog](CHANGELOG.md), licensing, and repository configuration |
 
-Every scope design must contain or reference sufficient governing information, but DLD does not mandate document headings. The [optional design-document guide](dld/supporting/design-document.md) illustrates a compact, expandable form used as a starting point for this repository's scope designs.
-
-The [development context registry](dld/CONTEXT-REGISTRY.md) helps discover governing sources. [Traceability](TRACEABILITY.md) records artifact ownership and reconciliation coverage. Design approval is separate from implementation completion; the scope designs on this working branch remain proposed for reconciliation.
+The [context registry](dld/CONTEXT-REGISTRY.md) locates development context; [traceability](TRACEABILITY.md) records artifact ownership. Scope designs remain proposed for reconciliation.
 
 ## Validate and assemble
 
@@ -40,6 +36,6 @@ The [product manifest](product.toml) selects the distributed files and destinati
 
 ## Versioning and licensing
 
-[VERSION](VERSION) identifies the current DLD product baseline; it is not an adopting project's version. See [release policy](release-policy.md) for versioning and publication decisions and [CHANGELOG.md](CHANGELOG.md) for release history. A merge, successful package build, tag, and GitHub Release are distinct events.
+[VERSION](VERSION) identifies the DLD distribution, not an adopter's project version. See [release policy](release-policy.md) and [CHANGELOG.md](CHANGELOG.md); packaging, merging, and publishing are separate decisions.
 
-**GPL-3.0-only covers original repository content by default**, including the development registry, abstract designs, normative documents, scripts, adopter introduction, and supporting reference guidance. **CC0-1.0 applies only to source files explicitly listed in [CC0-FILES.txt](CC0-FILES.txt)**. Currently those are the [product context registry](product-files/CONTEXT-REGISTRY.md), distributed as `dld/CONTEXT-REGISTRY.md`, and the [optional project-rules template](dld/supporting/RULES.md), which is intended to be copied and adapted as a separate project-owned file. Other distributed DLD files are intended to remain unchanged until a deliberate upgrade; GPLv3 nonetheless grants recipients rights to modify and redistribute GPL-covered material subject to its terms. See [LICENSE](LICENSE), [LICENSE-CC0](LICENSE-CC0), and the file notices. The license texts and third-party works retain their applicable terms. Using DLD does not by itself require licensing independently developed project work under GPLv3.
+Original repository files default to [GPL-3.0-only](LICENSE). [CC0-FILES.txt](CC0-FILES.txt) defines the adopter-customizable exceptions: the context registry and copyable rules template. See [LICENSE-CC0](LICENSE-CC0). Independently developed adopter work is not GPL-covered merely by using DLD.

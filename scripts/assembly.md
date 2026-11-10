@@ -33,6 +33,3 @@ Transform maintained DLD product sources into a reproducible, verifiable distrib
 
 The assembled file set must equal the manifest destinations exactly; product copies match source bytes; no product-local Markdown links are broken. Repeated packaging of identical inputs must produce identical SHA-256 digests. Invalid manifests, broken links, and unsafe paths must fail without replacing previously valid outputs. A real PowerShell 7 run is needed to establish execution evidence.
 
-## Reconciliation
-
-The existing implementation is evidence for the requirements. Some defensive checks and rollback mechanics are local design choices; the intended behavioral guarantees above require explicit acceptance.

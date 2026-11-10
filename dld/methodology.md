@@ -33,17 +33,14 @@ Define a design-authoritative, human-governed, AI-assisted method for the comple
 
 - **M-D1:** The methodology specializes, rather than duplicates, the general contract.
 - **M-D2:** Model ownership as a hierarchy of coherent responsibility scopes; dependencies may form a cross-scope graph. Prefer the narrowest suitable owner for each decision, with inheritance of applicable ancestor decisions.
-- **M-D6:** Keep designs close to realizations when practical. Meaningful document names are preferred over obligatory `DESIGN` filenames or `.design` suffixes; ownership and references establish authority.
-- **M-D7:** File-level design is permissible but not the compulsory unit of design. Create another design scope only when independent decisions, responsibilities, or isolation warrant it.
 - **M-D3:** Design approval is scoped and recorded, but no particular approval-record tool is imposed.
 - **M-D4:** One recurring engineering cycle spans SDLC responsibilities instead of prescribing Waterfall or Agile.
 - **M-D5:** Supporting materials and the editable registry assist adoption but do not impose methodology obligations.
-- **M-D8:** Standardize design information sufficiency, not document presentation; offer a minimal-core, expandable Markdown example as optional CC0 guidance.
+- **M-D6:** Keep designs close to realizations when practical. Meaningful document names are preferred over obligatory `DESIGN` filenames or `.design` suffixes; ownership and references establish authority.
+- **M-D7:** File-level design is permissible but not the compulsory unit of design. Create another design scope only when independent decisions, responsibilities, or isolation warrant it.
+- **M-D8:** Standardize design information sufficiency, not document presentation; offer a minimal-core, expandable Markdown example as optional guidance.
 
 ## Realization and acceptance
 
 Review each requirement against the corresponding section of [DLD.md](DLD.md). Confirm that approval, design authority, ownership, evidence, change impact, and continuity remain operationally understandable. A representative adopting-project exercise is required to validate usefulness; textual coverage alone is verification, not validation.
 
-## Reconciliation
-
-These requirements express intended behavior inferred from the current implementation and earlier approved high-level project principles. Their detailed scope remains proposed until explicit approval.

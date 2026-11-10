@@ -32,6 +32,3 @@ Provide evidence of technical conformance and product suitability. This scope ve
 
 `scripts/test.ps1`, `scripts/check-text-format.ps1`, and `scripts/package.ps1` must exit successfully on supported input. Negative tests must fail where intended. Checks should cover the requirements above; any untested condition remains an explicit coverage gap, not an assumed success. Human readability and adoption usefulness require independent review or representative use.
 
-## Reconciliation
-
-The current validator and tests implement part of this scope. This file documents the intended assurance obligations; documented tests are not claims that they ran in the current session.
