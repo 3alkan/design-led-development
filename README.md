@@ -23,3 +23,15 @@ DLD uses [Semantic Versioning](https://semver.org/) syntax: `MAJOR.MINOR.PATCH[-
 The next release target is `0.1.5` (Git release tag `v0.1.5` when approved and published). Until then, a numbered prerelease such as `0.1.5-dev.1` identifies a development snapshot; subsequent deliberately numbered snapshots use `-dev.2`, `-dev.3`, and so on. A release candidate, if used, takes the form `0.1.5-rc.1`. A development version is not an approved release, and not every commit increments the number.
 
 The root [VERSION](VERSION) is the current version identifier and is also selected for distribution by `product.toml`. Release history continues in [CHANGELOG.md](CHANGELOG.md). Existing versions through `v0.1.4` retain their historical identities; a future published version omits the prerelease suffix. The leading `v` is used for tags, not in `VERSION`.
+
+## Licensing
+
+DLD uses two licenses with distinct purposes:
+
+- **GPLv3** ([LICENSE](LICENSE)) covers the normative [collaboration contract](dld/CONTRACT.md) and [DLD methodology](dld/DLD.md). Changes or redistribution of these texts are subject to GPLv3; their copies are not intended to be locally modified as part of ordinary DLD adoption.
+- **CC0 1.0** ([LICENSE-CC0](LICENSE-CC0)) covers the adopter-editable [context registry](dld/CONTEXT-REGISTRY.md), the [supporting materials](dld/supporting/), and the distributed product introduction maintained at [product-files/README.md](product-files/README.md). These may be copied and adapted freely.
+
+Other development repository files and the historical `old/` material are **not automatically CC0**. Their licensing follows their applicable notices and license terms; this policy does not retroactively relicense older releases.
+
+**Using DLD does not require licensing an adopting project's independently developed code or documents under GPLv3.** Redistributing or modifying GPLv3-covered DLD texts is a separate licensing matter. The two full license texts accompany the distribution.
+
