@@ -1,48 +1,58 @@
 # DLD Development — Project Design
 
-**Status:** Draft
+**Status:** Proposed for reconciliation
 
 ## Purpose
 
-Develop and distribute Design-Led Development (DLD) as a coherent, versioned methodology for software engineering with human–AI collaboration. This document governs the design of the DLD development project, not the projects adopting DLD.
+Develop, verify, and distribute Design-Led Development (DLD) as a coherent, versioned human–AI software engineering methodology. The development project adopts its own [contract](dld/CONTRACT.md) and [methodology](dld/DLD.md). This document governs the development project, not an adopting project's design.
 
 ## Product architecture
 
-The product separates four responsibilities:
+| Component | Responsibility | Authority |
+| --- | --- | --- |
+| [Contract](dld/CONTRACT.md) | General human–AI collaboration boundaries | Normative |
+| [Methodology](dld/DLD.md) | Design-led software engineering obligations under the contract | Normative |
+| [Context registry](product-files/CONTEXT-REGISTRY.md) | Editable discovery of adopting-project sources | Non-normative |
+| [Supporting materials](dld/supporting/) | Optional examples and templates | Non-normative |
 
-| Component | Responsibility |
-| --- | --- |
-| [Contract](dld/CONTRACT.md) | General human–AI collaboration boundaries; normative |
-| [Methodology](dld/DLD.md) | Design-led software engineering practices under the contract; normative |
-| Context registry | Editable discovery of project-specific design, rules, decisions, and evidence; non-normative |
-| [Supporting materials](dld/supporting/) | Optional examples and templates; non-normative |
+Normative sources are maintained once and distributed unchanged. Adopters own their project-specific designs, rules, decisions, and implementations.
 
-Adopters retain their own design, implementation, decisions, and rules. The contract and methodology are adopted unchanged until a deliberate upgrade; the registry and supporting materials may be customized.
+## Scope architecture
 
-## Development and distribution
+These are logical responsibility boundaries, not required directory boundaries. Each subordinate scope owns its decisions; project-level choices govern cross-scope interactions.
 
-The repository maintains one canonical source for each normative component. Development-specific design, rules, and other internal materials are separate from the adopter distribution.
+| Scope | Abstract design | Principal realizations |
+| --- | --- | --- |
+| Collaboration contract | [Contract design](design/contract.md) | `dld/CONTRACT.md` |
+| DLD methodology | [Methodology design](design/methodology.md) | `dld/DLD.md` |
+| Adoption and context | [Adoption design](design/adoption.md) | Registries, product README, supporting materials |
+| Distribution | [Distribution design](design/distribution.md) | `product.toml`, `scripts/package.ps1` |
+| Verification and validation | [Assurance design](design/assurance.md) | `scripts/test.ps1`, `scripts/check-text-format.ps1` |
+| Release and governance | [Release design](design/release.md) | Version, licenses, changelog, development README and configuration |
 
-The [product manifest](product.toml) defines which maintained source files appear in the distribution and their destinations. In particular, development uses [its own context registry](dld/CONTEXT-REGISTRY.md), while the product receives a separate [project-neutral registry](product-files/CONTEXT-REGISTRY.md). Both refer to the same normative components without duplicating their authority.
+The [traceability register](design/traceability.md) assigns an owner to every maintained artifact.
 
-## Design invariants
+## Governing requirements
 
-1. The contract is the general collaboration authority; the methodology adds compatible software engineering requirements without redefining it.
-2. Each normative component has one canonical maintained source. Distributed copies preserve that source unchanged.
-3. Adopter-editable material does not create or alter normative DLD obligations.
-4. Development-specific context and constraints do not enter the adopter distribution.
-5. Distribution contents and destinations are explicitly selected by the manifest, never inferred from directory contents.
-6. The development project and adopting projects retain separate designs, decisions, and release identities.
+1. Keep general collaboration requirements in the contract; place software-engineering-specific obligations in the methodology without contradicting the contract.
+2. Make approved abstract design the engineering authority for each scope; distinguish it from existing implementation and from unapproved proposals.
+3. Preserve a single maintained source for each normative component and distribute its contents unchanged.
+4. Keep adopter-editable context independent of normative DLD and development-only governance.
+5. Select the distribution explicitly through [product.toml](product.toml); preserve reproducibility, link integrity, and auditable file membership.
+6. Separate verification, validation, human design approval, code integration, and publication.
+7. Keep scope ownership and material dependencies discoverable while avoiding redundant design authorities.
+
+## Scope dependencies
+
+- The contract constrains the methodology and all development work.
+- The methodology governs how the development project changes its design and realizations.
+- Adoption depends on contract and methodology content but cannot modify normative obligations.
+- Distribution consumes canonical product files and adopter-specific sources.
+- Assurance evaluates source constraints, product correctness, and adoption suitability.
+- Release governance establishes identity and policy for the verified distribution.
 
 ## Acceptance criteria
 
-An assembled distribution is consistent with this design when:
+The project design is reconciled when every maintained implementation and supporting artifact has an identifiable owner, intended requirements, and an acceptance path; cross-scope rules do not conflict; and product assembly matches the manifest with a reproducible, verifiable result.
 
-- It contains exactly the manifest-selected files at their declared destinations.
-- Its contract and methodology match their canonical sources.
-- Its initial registry is project-neutral, editable, and points to the distributed normative files.
-- Its internal references resolve within the distribution.
-- Its version and license files accompany the selected content.
-- Its archive is reproducible from the same inputs, with a verifiable checksum.
-
-Release approval is governed separately from product assembly.
+Approval of this design and each consequential scope choice must be recorded explicitly. The existing code and its history are evidence for reconciliation, not proof of prior design approval.
