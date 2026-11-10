@@ -47,7 +47,7 @@ This register maps maintained artifacts to the abstract scope that governs them.
 | Methodology | M-01–M-17 | `dld/DLD.md` | Content review and representative adoption validation |
 | Adoption | A-01–A-08 | Product README, both registries, supporting material | Product link checks; practical adoption exercise remains |
 | Distribution | P-01–P-09 | Manifest and packaging script | Packager and tests; negative-case coverage should be extended |
-| Assurance | V-01–V-07 | Validator and tests; human review process | TXT-001 tests and packaging fixture; external validity requires review |
+| Assurance | V-01–V-09 | Validator and tests; human review process | TXT-001 tests and packaging fixture; external validity requires review |
 | Release | R-01–R-08 | Metadata, licenses, development configuration | Manifest review, licensing review, actual release authorization |
 
 ## Reconciliation state
