@@ -11,7 +11,7 @@ DLD is a design-centered, human-authoritative, AI-assisted methodology for the s
 4. Establish sufficient project design and obtain human approval for consequential intent before realizing it; distinguish drafts from approved decisions.
 5. For each new or resumed work scope, discover governing context progressively, check applicable delegation and permissions, and report evidence and unfinished work truthfully.
 
-The included [supporting materials](dld/supporting/) are optional practical suggestions, including a [minimal-core design-document example](dld/supporting/design-document.md). The [project rules template](dld/supporting/RULES.md) is not an adopted requirement; when useful, copy it to a project-owned location, adapt that copy, and obtain human approval for binding rules. Keep the distributed original as the template. Project-specific sources need not live inside `dld/`.
+The [supporting materials](dld/supporting/) are optional. For project-specific rules, copy and adapt the [rules template](dld/supporting/RULES.md); binding rules require human approval. An optional [design-document example](dld/supporting/design-document.md) is also available. Keep project-owned sources separate from the distributed DLD files.
 
 ## Version and adoption
 
