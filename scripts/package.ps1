@@ -89,11 +89,13 @@ function Expand-ProductMapping([string] $Root, [string] $Source, [string] $Desti
         $files = @($found.ToArray())
     } else {
         # A single * is permitted only in the final filename segment.
-        if ($Source -cnotmatch '^(?<dir>(?:[A-Za-z0-9_.-]+/)*)(?<name>[A-Za-z0-9_.-]*\*[A-Za-z0-9_.-]*)
+        $wildcardExpression = '^(?<dir>(?:[A-Za-z0-9_.-]+/)*)(?<name>[A-Za-z0-9_.-]*\*[A-Za-z0-9_.-]*)\z'
+        $sourceMatch = [Regex]::Match($Source, $wildcardExpression)
+        if (-not $sourceMatch.Success) {
             throw "Unsupported source wildcard: $Source"
         }
-        $origin = $Matches['dir'].TrimEnd('/')
-        $filenamePattern = $Matches['name']
+        $origin = $sourceMatch.Groups['dir'].Value.TrimEnd('/')
+        $filenamePattern = $sourceMatch.Groups['name'].Value
         if (-not $origin) { throw "Wildcard source requires a parent directory: $Source" }
         Assert-SafeRelativePath $origin
         $directory = Join-Path $Root $origin
