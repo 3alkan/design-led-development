@@ -1,36 +1,22 @@
 #Requires -Version 7.0
 <#
 .SYNOPSIS
-  Validate TXT-001 (UTF-8 without BOM and LF) in tracked maintained text.
-.DESCRIPTION
-  Requires PowerShell 7 and Git.
+  Validate TXT-001 (UTF-8 without BOM and LF) in maintained text.
 #>
 param([string] $RepositoryRoot = (Split-Path $PSScriptRoot -Parent))
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
-function Get-TrackedPaths([string] $Root) {
-    $start = [Diagnostics.ProcessStartInfo]::new()
-    $start.FileName = 'git'
-    $start.ArgumentList.Add('-C')
-    $start.ArgumentList.Add($Root)
-    $start.ArgumentList.Add('ls-files')
-    $start.ArgumentList.Add('--cached')
-    $start.ArgumentList.Add('--full-name')
-    $start.ArgumentList.Add('-z')
-    $start.RedirectStandardOutput = $true
-    $start.RedirectStandardError = $true
-    $start.UseShellExecute = $false
-    $process = [Diagnostics.Process]::Start($start)
-    try {
-        $output = $process.StandardOutput.ReadToEnd()
-        $errorText = $process.StandardError.ReadToEnd()
-        $process.WaitForExit()
-        if ($process.ExitCode -ne 0) { throw "git ls-files failed: $errorText" }
-        return @($output.Split([char]0) | Where-Object { $_ -ne '' })
-    } finally {
-        $process.Dispose()
+function Get-SourceFiles([string] $Directory, [bool] $IsRoot = $true) {
+    foreach ($item in Get-ChildItem -LiteralPath $Directory -Force) {
+        if ($item.Attributes -band [IO.FileAttributes]::ReparsePoint) { continue }
+        if ($item.PSIsContainer) {
+            if ($IsRoot -and $item.Name -in @('.git', 'build')) { continue }
+            Get-SourceFiles $item.FullName $false
+        } else {
+            $item.FullName
+        }
     }
 }
 
@@ -63,10 +49,8 @@ function Test-RepositoryText([string] $Root) {
     $rootPath = [IO.Path]::GetFullPath($Root)
     $checked = 0
     $failed = 0
-    foreach ($name in @(Get-TrackedPaths $rootPath)) {
-        $relative = $name.Replace('\', '/')
-        $path = Join-Path $rootPath $relative
-        if (-not [IO.File]::Exists($path)) { continue }
+    foreach ($path in @(Get-SourceFiles $rootPath)) {
+        $relative = [IO.Path]::GetRelativePath($rootPath, $path).Replace('\\', '/')
         $checked++
         $problems = @(Get-TextViolations ([IO.File]::ReadAllBytes($path)) $relative)
         if ($problems.Count -gt 0) {

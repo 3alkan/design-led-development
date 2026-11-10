@@ -37,7 +37,7 @@ Other development repository files are **not automatically CC0**. Their licensin
 
 ## Assemble and check
 
-Requires PowerShell 7. Text validation also uses Git.
+Requires PowerShell 7.
 
 From the repository root:
 
