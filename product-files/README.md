@@ -5,7 +5,7 @@ DLD is a design-centered, human-authoritative, AI-assisted software engineering 
 
 ## Getting started
 
-Use the `dld/` folder alongside your project's own files. Read the [Context Registry](dld/CONTEXT-REGISTRY.md), [Human–AI Collaboration Contract](dld/CONTRACT.md), and [DLD Methodology](dld/DLD.md). Add project-specific designs and decisions in project-owned locations and make them discoverable from your project entry point.
+Use the `dld/` folder alongside your project's own files. Read the [Context Registry](dld/CONTEXT-REGISTRY.md), [Human–AI Collaboration Contract](dld/CONTRACT.md), and [DLD Methodology](dld/DLD.md). Add project-specific designs, decisions, and other relevant documents wherever appropriate, and register them in `dld/CONTEXT-REGISTRY.md` to make them discoverable.
 
 [Supporting materials](dld/supporting/) are optional practical suggestions. The supplied rulebook is an optional template, not an adopted obligation.
 
