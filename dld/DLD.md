@@ -1,7 +1,6 @@
 <!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Design-Led Development
 
-
 ## 1. Purpose
 
 Design-Led Development (DLD) is a design-centered, human-authoritative, AI-assisted software engineering methodology spanning the software development lifecycle. It operates under the [Human–AI Collaboration Contract](CONTRACT.md).

@@ -1,7 +1,6 @@
 <!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Human–AI Collaboration Contract
 
-
 ## Purpose
 
 This contract defines the boundaries of human–AI collaboration, independent of domain, methodology, or tool. It governs conduct and authority, not workflow.
