@@ -1,86 +1,67 @@
 <!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Design-Led Development
 
-**Status:** Draft (target release: 0.1.5)
+**Status:** Draft
 
-## 1. Purpose and authority
+## 1. Purpose
 
-Design-Led Development (DLD) is a design-centered, human-authoritative, AI-assisted software engineering methodology for the full software development lifecycle. It extends the [Human–AI Collaboration Contract](CONTRACT.md); it does not override that contract.
+Design-Led Development (DLD) is a design-centered, human-authoritative, AI-assisted software engineering methodology spanning the software development lifecycle. It operates under the [Human–AI Collaboration Contract](CONTRACT.md).
 
-**Approved abstract design governs intended engineering outcomes.** Realizations and observations reveal what exists, not automatically what should exist. DLD is incremental: establish sufficient approved intent for the active consequential work, not a complete speculative design of the entire project. This methodology does not mandate a lifecycle schedule, framework, tool, AI provider, or repository layout.
+**Approved abstract design governs intended engineering outcomes.** Implementations and observations are evidence of what exists, not automatic authority over what should exist. Design only enough for the work at hand; extend it as the project evolves.
 
-In this document **MUST** expresses an obligation; **MUST NOT** a prohibition; **SHOULD** a recommendation for which a justified alternative is possible; and **MAY** a permitted choice.
+Here, **MUST** means required, **MUST NOT** prohibited, **SHOULD** recommended with justified alternatives permitted, and **MAY** optional.
 
-## 2. Concepts and ownership
+## 2. Design and ownership
 
-- **Project:** the enduring subject of engineering work.
-- **Scope:** a responsibility boundary, potentially with governing and dependent scopes.
-- **Design:** abstract intended outcomes, requirements, behavior, structure, interfaces, constraints, responsibilities, and decisions.
-- **Decision:** a selected direction, authoritative only for its approved content and scope.
-- **Realization:** concrete work or artifacts expressing design, such as code, configuration, tests, or operational results.
-- **Evidence:** an identifiable observation or result supporting or challenging a scoped claim.
-- **Approval:** an explicit human decision accepting identified content as governing intent.
-- **Baseline:** an identifiable, recoverable state of approved content and its approval boundary.
+A **project** contains identifiable **scopes** of engineering responsibility. **Design** describes intended outcomes, requirements, behavior, architecture, interfaces, constraints, and decisions. **Realization** is concrete work or artifacts implementing design. **Evidence** supports or challenges a claim about design or realization.
 
-Each authoritative design decision MUST have one identifiable owning scope, normally the narrowest scope that can govern it coherently. Shared decisions need one governing owner; dependent scopes refer to that owner rather than create competing authorities. Relationships needed for impact assessment and context discovery MUST remain findable. Logical scopes need not match physical folders; co-located design files are permitted, not required.
+Each authoritative decision MUST have one identifiable owning scope. Shared decisions need one governing owner; dependent scopes reference it rather than duplicate authority. Governing relationships and material dependencies MUST remain discoverable. Scopes need not correspond to directories or individual files.
 
-## 3. Consequential decisions and delegation
+## 3. Decisions and approval
 
-Humans approve consequential design choices and determine AI delegation. AI SHOULD actively investigate alternatives, challenge assumptions, and expose material trade-offs. Within established design and delegation, AI MAY choose local approaches and perform authorized implementation and assessment.
+A design decision is **consequential** when it introduces unapproved intent or materially changes approved outcomes, requirements, constraints, interfaces, externally relevant behavior, responsibilities, or delegation. Assess significance by impact and risk, not by labels such as “refactor.”
 
-A decision is **consequential** when it introduces unapproved intent; materially changes approved outcomes, requirements, constraints, externally relevant behavior, interfaces, ownership, or commitments; or changes or exceeds delegated authority. Risk, impact, and reversibility SHOULD inform this test; labels such as “refactor” or “fix” do not settle it.
+Consequential design changes MUST be approved by an authorized human before realizing the changed intent. AI MAY investigate and propose changes beforehand, and implement approved intent within delegated boundaries. Unclear authority or approval boundaries MUST be resolved before consequential action.
 
-Before realizing consequential changed intent, AI MUST obtain a human decision identifying the affected content and scope. Proposals and investigation MAY proceed before approval. If the boundary is unclear, raise the uncertainty before consequential action.
+Approved and proposed content MUST remain distinguishable; partial approval does not cover unresolved choices. Each approval MUST have a discoverable record identifying the approver, accepted scope, content, and revision, with an identifiable, recoverable baseline. A commit or document status alone does not prove approval. Previously approved intent remains governing until changed through approval.
 
-**Design approval and permission to act are separate.** Approval does not automatically authorize commits, pushes, deployments, purchases, publication, or release. Actual tool permissions and operational authorization still apply.
+Project-specific rules MAY add compatible constraints. Binding rule changes require the same human approval and recoverability as design changes.
 
-## 4. Approval and recoverable design
+## 4. Engineering cycle
 
-Drafts and unapproved proposals MUST remain distinguishable from approved content. Partial approval applies only to its identified subset; it does not approve unresolved dependencies or adjacent choices. Unapproved changes MUST NOT silently supersede an earlier approved baseline.
+DLD applies to planning, requirements, design, implementation, integration, verification, validation, delivery, operations, maintenance, and retirement. These responsibilities recur and overlap; DLD prescribes no sequential lifecycle model.
 
-Every consequential approval MUST have a truthful, discoverable record identifying the approving human, accepted scope, content, and revision. The corresponding approved content and approval boundary MUST be preserved in an identifiable, recoverable baseline. A commit or document status can help preserve a baseline, but neither itself proves human approval. Do not fabricate approvals or historical records.
+For each relevant scope:
 
-Design documents SHOULD state current intended decisions rather than accumulate obsolete debate in their normative body; preserve relevant change and approval history separately or through version control. Scope relocation or reorganization MUST preserve or explicitly reconcile affected authority, approvals, and dependencies. A change that alters governing intent or ownership requires the appropriate human decision.
+1. **Understand** its objective, governing design, approvals, dependencies, constraints, permissions, realization, and evidence.
+2. **Design** or refine intended outcomes and affected decisions.
+3. **Decide** consequential proposals through human approval.
+4. **Realize** authorized work consistent with approved design.
+5. **Verify and validate** conformance and intended outcomes.
+6. **Report and evolve** results, gaps, unfinished work, and needed corrections or design revisions.
 
-Project-specific rules MAY be added at project-owned locations and MUST remain compatible with the contract and DLD. Consequential introduction, alteration, and retirement of binding project rules require human approval and recoverable records. No particular filename is required for project design or rules.
+Use this cycle proportionately, not as mandatory steps for every small action.
 
-## 5. Recurring engineering responsibilities
+## 5. Alignment, change, and evidence
 
-DLD applies to conception, requirements, design, implementation, integration, verification, validation, delivery, operation, maintenance, evolution, and retirement. These are responsibilities, not mandatory consecutive gates.
+Realization MUST remain consistent with approved design. If they conflict, correct the realization or seek approval to revise the design; observed behavior MUST NOT silently redefine intent.
 
-At a proportionate granularity, work typically recurs through:
+Before consequential changes, assess reasonably discoverable effects on governing and dependent scopes, interfaces, constraints, realization, and verification needs. Disclose material uncertainty. After approval, propagate changes to affected designs and realizations, distinguishing approved intent from incomplete or unverified implementation. Newly discovered consequential effects outside the approval boundary require human resolution.
 
-1. **Understand:** establish active scope, applicable authoritative design, approvals, constraints, dependencies, current realization, delegation, and evidence.
-2. **Design:** investigate options and express intended outcomes and decisions in their owning scopes.
-3. **Decide:** have humans resolve consequential choices and identify delegated local decisions.
-4. **Realize:** implement or perform work within approved intent and actual permission.
-5. **Verify and validate:** assess conformance and intended outcomes with appropriate evidence.
-6. **Report and evolve:** communicate results, gaps, unresolved decisions, and needed corrections or design revisions.
+**Verification** checks conformance to approved design; **validation** checks whether outcomes meet intended needs. Perform proportionate checks within available capabilities. Claims of completion or quality MUST be supported by identifiable evidence, with failures, unperformed checks, and limitations reported accurately.
 
-These responsibilities MAY overlap or repeat. They are not a fixed workflow. Regardless of order, consequential changed intent MUST NOT be realized without the required decision.
+## 6. Context and continuity
 
-## 6. Realization, evidence, and change impact
+Before consequential work, reconstruct sufficient authoritative context for the active scope. Start with the contract, methodology, applicable project design, approvals, and constraints; expand to relevant dependencies and history as needed.
 
-Realizations MUST remain consistent with applicable approved design. If realization disagrees, correct it or propose a design change for human approval; do not silently promote observed behavior to design authority.
+The editable [Context Registry](CONTEXT-REGISTRY.md) helps locate project-owned design, rules, decisions, and evidence wherever they reside. Registration aids discovery but does not confer authority.
 
-**Verification** asks whether realization conforms to approved design. **Validation** asks whether outcomes satisfy intended needs. Perform assessments proportionate to the task and agreed acceptance conditions, within available capabilities, and report unperformed checks and limitations. A completed or quality claim MUST have identifiable supporting evidence for its actual scope; a passing check does not establish unrelated claims.
+Keep material open decisions, incomplete work, inconsistencies, and evidence discoverable across handoffs. Summaries and AI memory supplement, but do not replace, authoritative project records.
 
-Before consequential design changes, assess reasonably discoverable material effects on governing and dependent scopes, interfaces, constraints, realizations, and assurance. Disclose uncertainty and impacts not yet evaluated. After approval, propagate the change to affected authoritative designs and realizations while distinguishing approved target, completed work, and outstanding or unverified work. Effects beyond the approved boundary return for human resolution.
+## 7. Adoption and evolution
 
-Delivery, operation, and retirement require relevant project criteria and actual authorization. A successful build, Git tag, or distribution package is not human approval to publish.
+New projects MAY begin with draft design. Existing projects MAY reconcile their current implementation with approved intent one scope at a time; distinguish reconciled from unreconciled areas.
 
-## 7. Context and continuity
+Adopters keep their distributed contract and methodology unchanged during ordinary project work. Their designs, rules, and context remain project-owned. Adopting a newer DLD version requires a deliberate human decision and assessment of affected approvals and design.
 
-Before new or resumed consequential work, establish sufficient relevant governing context. Load it **progressively**: start with the contract, methodology, project-owned context registry, governing design, and active scope; expand to dependencies and history as required. Do not reconstruct unrelated history merely because it exists.
-
-Maintain discoverable records of significant unfinished work, approvals, unresolved choices, material inconsistencies, and evidence across handoffs. Summaries and AI memory aid navigation, but MUST NOT replace authoritative design, present repository state, or actual approval and permissions.
-
-The [Context Registry](CONTEXT-REGISTRY.md) is editable by adopters and should be extended with their relevant project sources wherever located. Registering a document makes it discoverable, not automatically approved.
-
-## 8. Adoption and evolution
-
-New projects MAY begin with draft design and approve only the consequential intent needed for current work. Existing projects MAY reconcile one scope at a time: existing code and documentation are evidence, not automatic approval. Distinguish reconciled from unreconciled scopes.
-
-Adopting projects keep the distributed contract and methodology unchanged in ordinary use and add their own design, rules, and context. A DLD version upgrade is deliberate and human-authorized, with material effects on existing design and approvals reviewed. Projects retain independent product versions.
-
-The DLD distribution's version is in its `VERSION` file. The methodology shares that release lineage; no separate methodology version identifier is required. The release version is not a project design approval, and changing a version number does not automatically change a project's adopted method. [Supporting materials](supporting/) are optional guidance, never additional methodology obligations.
+DLD does not prescribe a technology, repository layout, or AI provider. [Supporting materials](supporting/) are optional guidance, not additional obligations.
