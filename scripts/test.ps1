@@ -23,18 +23,40 @@ Assert (@(Get-TextViolations ([byte[]](0,255,13)) 'image.dat').Count -eq 0) 'bin
 $root = Split-Path $PSScriptRoot -Parent
 Assert (Test-RepositoryText $root) 'current tracked text'
 
-# Verify the repository-wide GPL default against the single exception list.
+# Verify GPL-by-default against the CC0 exception patterns.
 $cc0File = Join-Path $root 'CC0-FILES.txt'
 Assert ([IO.File]::Exists($cc0File)) 'CC0 exception list exists'
-$cc0Paths = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+$cc0Patterns = [Collections.Generic.List[object]]::new()
+$seenPatterns = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 foreach ($line in [IO.File]::ReadAllLines($cc0File)) {
     $entry = $line.Trim()
     if (-not $entry -or $entry.StartsWith('#')) { continue }
-    Assert ($entry -cmatch '^[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)* = @('LICENSE', 'LICENSE-CC0', 'VERSION')
+    Assert ($entry -cmatch '^[A-Za-z0-9_.*/-]+$' -and
+        -not $entry.StartsWith('/') -and
+        -not $entry.Contains('**') -and
+        -not ($entry -split '/' | Where-Object { $_ -in @('.', '..', '') -and $_ -ne '' })) "valid CC0 exception pattern: $entry"
+    Assert ($seenPatterns.Add($entry)) "unique CC0 exception pattern: $entry"
+    $isDirectory = $entry.EndsWith('/')
+    $pattern = if ($isDirectory) { $entry.TrimEnd('/') } else { $entry }
+    Assert ($pattern.Length -gt 0 -and -not $pattern.Contains('//') -and
+        -not $pattern.StartsWith('*')) "safe CC0 exception pattern: $entry"
+    # * matches within one path segment. A trailing / includes all descendants.
+    $regex = '^' + [Regex]::Escape($pattern).Replace('\*', '[^/]*')
+    $regex += if ($isDirectory) { '/.+' } else { '$' }
+    $cc0Patterns.Add([pscustomobject]@{
+        Entry = $entry
+        Regex = [Regex]::new($regex, [Text.RegularExpressions.RegexOptions]::CultureInvariant)
+        Count = 0
+    })
+}
+Assert ($cc0Patterns.Count -gt 0) 'CC0 exception list contains at least one rule'
+$withoutHeader = @('LICENSE', 'LICENSE-CC0', 'VERSION')
 foreach ($path in @(Get-SourceFiles $root)) {
     $relative = [IO.Path]::GetRelativePath($root, $path).Replace([char]92, [char]47)
     if ($relative -in $withoutHeader) { continue }
-    $license = if ($cc0Paths.Contains($relative)) { 'CC0-1.0' } else { 'GPL-3.0-only' }
+    $matched = @($cc0Patterns | Where-Object { $_.Regex.IsMatch($relative) })
+    foreach ($rule in $matched) { $rule.Count++ }
+    $license = if ($matched.Count -gt 0) { 'CC0-1.0' } else { 'GPL-3.0-only' }
     $firstLine = [IO.File]::ReadLines($path) | Select-Object -First 1
     $expected = if ($relative.EndsWith('.md')) {
         "<!-- SPDX-License-Identifier: $license -->"
@@ -43,7 +65,9 @@ foreach ($path in @(Get-SourceFiles $root)) {
     }
     Assert ($firstLine -ceq $expected) "license notice: $relative (expected $license)"
 }
-
+foreach ($rule in $cc0Patterns) {
+    Assert ($rule.Count -gt 0) "CC0 exception matches a maintained source: $($rule.Entry)"
+}
 
 # Assemble a temporary three-file product without modifying the repository's build outputs.
 $fixture = Join-Path ([IO.Path]::GetTempPath()) ('dld-package-test-' + [guid]::NewGuid().ToString('N'))

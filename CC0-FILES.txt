@@ -1,8 +1,12 @@
 # SPDX-License-Identifier: GPL-3.0-only
-# Explicit CC0-1.0 exceptions, one development-repository-relative source path per line.
-# All other original DLD files default to GPL-3.0-only.
-# Entries are exact file paths, not directories or wildcard patterns.
-# Change this list only as an authorized licensing decision.
+# CC0-1.0 exceptions relative to the development repository root.
+# Other original files default to GPL-3.0-only.
+# Supported: exact file paths, directory/ (recursive), and * within a path segment.
+# Examples: product-files/template.md, templates/, templates/*.md
+# No **, parent traversal, or absolute paths. Each rule must match a source.
+# Every matched file must explicitly declare CC0-1.0; new files never inherit
+# CC0 silently by merely appearing under a listed directory or wildcard.
+# Changing a rule requires an authorized licensing decision.
 
 product-files/CONTEXT-REGISTRY.md
 dld/supporting/RULES.md

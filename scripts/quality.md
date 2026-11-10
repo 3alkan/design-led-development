@@ -18,7 +18,7 @@ Provide evidence of technical conformance and product suitability. This scope ve
 | V-05 | Test reproducible archives, broken-link rejection, and preservation of prior outputs after failed validation. | Packaging tests |
 | V-06 | Distinguish automated technical verification from human review of contract/methodology coverage and representative-project adoption validation. | Design review and adoption evidence |
 | V-07 | Record outcomes and unverified areas truthfully; never equate a passing build with product usefulness or approval. | Test results and review records |
-| V-08 | Check maintained sources against the single CC0 exception list; all other original files require GPL-3.0-only notices, except license/version artifacts. Reject duplicate, invalid or missing exception paths. | [CC0-FILES.txt](../CC0-FILES.txt), `scripts/test.ps1`; release policy |
+| V-08 | Check maintained sources against the single CC0 exception list; all other original files require GPL-3.0-only notices, except license/version artifacts. Reject duplicate, invalid or unmatched patterns, and require an explicit CC0 notice on every matched source. | [CC0-FILES.txt](../CC0-FILES.txt), `scripts/test.ps1`; release policy |
 | V-09 | Review scope designs for the agreed essential information while allowing references and inherited context instead of imposing section headings. | Human design review; [optional guide](../dld/supporting/design-document.md) |
 
 ## Decisions and rationale
