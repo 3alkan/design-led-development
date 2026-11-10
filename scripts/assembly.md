@@ -11,8 +11,8 @@ Transform maintained DLD product sources into a reproducible, verifiable distrib
 
 | ID | Intended requirement | Realization |
 | --- | --- | --- |
-| P-01 | Select source-to-destination file mappings explicitly; no implicit recursive inclusion. | `product.toml`, manifest parser |
-| P-02 | Reject incomplete, duplicate, missing, unsafe or linked source paths and conflicting destinations. | Manifest/source checks |
+| P-01 | Select distribution entries explicitly; support individual files, recursive directory mappings, and filename wildcards, with predictable expansion. | `product.toml`, manifest parser |
+| P-02 | Reject incomplete, duplicate, missing, unsafe or linked sources, unmatched patterns, and conflicting destinations. | Manifest/source checks |
 | P-03 | Assemble only the selected files, preserving their bytes at declared destinations. | Staged product tree, membership check |
 | P-04 | Validate local Markdown references against the assembled layout and prevent escaping the product boundary. | Product link check |
 | P-05 | Use the root version identifier to name the versioned ZIP and one containing directory; include the selected version file. | Version parsing, ZIP creation |
@@ -23,7 +23,7 @@ Transform maintained DLD product sources into a reproducible, verifiable distrib
 
 ## Decisions and rationale
 
-- **P-D1:** One TOML manifest, with a deliberately small supported grammar, is the product-membership authority. This is not a general-purpose TOML parser.
+- **P-D1:** One TOML manifest is the product-membership authority. Exact files map to files; a source ending in `/` recursively maps its contents into a destination ending in `/`; a filename pattern containing one `*` maps matching immediate files into a destination ending in `/`. Preserve subpaths under a directory, sort expansions deterministically, reject overlaps and link traversal. This is not a general-purpose TOML or glob parser.
 - **P-D2:** Stage assembled files in `build/`; the working product, ZIP, and checksum are generated outputs, not repository sources.
 - **P-D3:** ZIP entry content is stored without compression to make deterministic output simple; compression ratio is not an acceptance goal.
 - **P-D4:** The archive uses `dld-v<VERSION>/` as its top-level directory, while `build/product/` contains the unwrapped product tree.

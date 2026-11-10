@@ -107,6 +107,69 @@ destination = "VERSION"
     Invoke-DldPackage $fixture
     Assert ((Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash -ceq $originalHash) 'reproducible archive'
 
+    # Expand recursive directories and filename wildcards with preserved relative paths.
+    $extras = Join-Path $fixture 'extras'
+    [IO.Directory]::CreateDirectory((Join-Path $extras 'nested')) | Out-Null
+    [IO.File]::WriteAllText((Join-Path $extras 'top.md'), "Top" + [char]10, $utf8)
+    [IO.File]::WriteAllText((Join-Path $extras 'other.txt'), "Other" + [char]10, $utf8)
+    [IO.File]::WriteAllText((Join-Path $extras 'nested/child.md'), "Child" + [char]10, $utf8)
+    $baseManifest = [IO.File]::ReadAllText((Join-Path $fixture 'product.toml'))
+    $dirMap = @'
+
+[[files]]
+source = "extras/"
+destination = "examples/"
+'@
+    [IO.File]::WriteAllText((Join-Path $fixture 'product.toml'), $baseManifest + $dirMap, $utf8)
+    Invoke-DldPackage $fixture
+    Assert ([IO.File]::Exists((Join-Path $fixture 'build/product/examples/nested/child.md'))) 'recursive directory expansion'
+    $directoryHash = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash
+    Invoke-DldPackage $fixture
+    Assert ((Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash -ceq $directoryHash) 'recursive archive reproducible'
+
+    $wildcardMap = @'
+
+[[files]]
+source = "extras/*.md"
+destination = "selected/"
+'@
+    [IO.File]::WriteAllText((Join-Path $fixture 'product.toml'), $baseManifest + $wildcardMap, $utf8)
+    Invoke-DldPackage $fixture
+    Assert ([IO.File]::Exists((Join-Path $fixture 'build/product/selected/top.md'))) 'wildcard file selected'
+    Assert (-not [IO.File]::Exists((Join-Path $fixture 'build/product/selected/nested/child.md'))) 'wildcard nonrecursive'
+    Assert (-not [IO.File]::Exists((Join-Path $fixture 'build/product/selected/other.txt'))) 'wildcard filters extension'
+
+    $validHash = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash
+    foreach ($invalid in @(
+        $baseManifest + $dirMap + $dirMap,
+        $baseManifest + $dirMap + @'
+
+[[files]]
+source = "extras/top.md"
+destination = "examples/top.md"
+'@,
+        $baseManifest + @'
+
+[[files]]
+source = "extras/*.pdf"
+destination = "selected/"
+'@,
+        $baseManifest + @'
+
+[[files]]
+source = "extras/**"
+destination = "selected/"
+'@
+    )) {
+        [IO.File]::WriteAllText((Join-Path $fixture 'product.toml'), $invalid, $utf8)
+        $rejected = $false
+        try { Invoke-DldPackage $fixture } catch { $rejected = $true }
+        Assert $rejected 'invalid or overlapping expansion rejected'
+        Assert ((Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash -ceq $validHash) 'invalid expansion preserves output'
+    }
+    [IO.File]::WriteAllText((Join-Path $fixture 'product.toml'), $baseManifest, $utf8)
+
+
     [IO.File]::WriteAllText((Join-Path $fixture 'product-files/README.md'),
         "[Missing](not-found.md)" + [char]10, $utf8)
     $rejected = $false

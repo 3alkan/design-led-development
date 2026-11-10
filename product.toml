@@ -1,7 +1,10 @@
 # SPDX-License-Identifier: GPL-3.0-only
 # Product manifest. Source paths are relative to the development repository;
 # destinations are relative to the assembled product root.
-# A file omitted here is not distributed.
+# Exact files map to files. Source directories ending / are recursive;
+# filename patterns such as folder/*.md select immediate files.
+# These grouped sources require destination ending / and retain relative paths.
+# Omitted files are not distributed.
 
 [product]
 name = "DLD"

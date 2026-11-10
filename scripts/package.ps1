@@ -23,6 +23,89 @@ function Assert-SafeRelativePath([string] $Value) {
     if ($Value -cnotmatch '^[a-zA-Z0-9_./-]+$') { throw "Unsafe relative path: $Value" }
 }
 
+function Assert-SafeMappingPath([string] $Value, [bool] $Grouped) {
+    $path = if ($Grouped) { $Value.TrimEnd('/') } else { $Value }
+    Assert-SafeRelativePath $path
+}
+
+function Assert-SourceNotLinked([string] $Root, [string] $Path) {
+    $base = [IO.Path]::GetFullPath($Root).TrimEnd([IO.Path]::DirectorySeparatorChar)
+    $candidate = [IO.Path]::GetFullPath($Path)
+    if (-not $candidate.StartsWith($base + [IO.Path]::DirectorySeparatorChar,
+        [StringComparison]::OrdinalIgnoreCase)) {
+        throw "Source escapes repository: $Path"
+    }
+    $cursor = $candidate
+    while ($cursor -ne $base) {
+        $item = Get-Item -LiteralPath $cursor -Force -ErrorAction Stop
+        if ($item.Attributes -band [IO.FileAttributes]::ReparsePoint) {
+            throw "Linked source path: $cursor"
+        }
+        $cursor = Split-Path $cursor -Parent
+    }
+}
+
+function Expand-ProductMapping([string] $Root, [string] $Source, [string] $Destination) {
+    # Exact file: file-to-file. Directory ending /: recursively copy contents.
+    # A final filename segment with *: match immediate files, not subdirectories.
+    $directoryMode = $Source.EndsWith('/')
+    $wildcardMode = $Source.Contains('*')
+    if ($directoryMode -and $wildcardMode) { throw "Ambiguous source pattern: $Source" }
+    if (-not $directoryMode -and -not $wildcardMode) {
+        Assert-SafeRelativePath $Source
+        Assert-SafeRelativePath $Destination
+        $sourceFile = Join-Path $Root $Source
+        if (-not [IO.File]::Exists($sourceFile)) { throw "Missing source: $Source" }
+        Assert-SourceNotLinked $Root $sourceFile
+        return ,([pscustomobject]@{ source=$Source; destination=$Destination })
+    }
+
+    if (-not $Destination.EndsWith('/')) {
+        throw "Directory or wildcard mapping requires destination ending in /: $Destination"
+    }
+    Assert-SafeMappingPath $Destination $true
+    $origin = ''
+    $files = @()
+    if ($directoryMode) {
+        Assert-SafeMappingPath $Source $true
+        $origin = $Source.TrimEnd('/')
+        $directory = Join-Path $Root $origin
+        if (-not [IO.Directory]::Exists($directory)) { throw "Missing source directory: $Source" }
+        Assert-SourceNotLinked $Root $directory
+        $files = @(Get-ChildItem -LiteralPath $directory -Recurse -File -Force)
+    } else {
+        # A single * is permitted only in the final filename segment.
+        if ($Source -cnotmatch '^(?<dir>(?:[A-Za-z0-9_.-]+/)*)' +
+            '(?<name>[A-Za-z0-9_.-]*\*[A-Za-z0-9_.-]*)$') {
+            throw "Unsupported source wildcard: $Source"
+        }
+        $origin = $Matches['dir'].TrimEnd('/')
+        $filenamePattern = $Matches['name']
+        if (-not $origin) { throw "Wildcard source requires a parent directory: $Source" }
+        Assert-SafeRelativePath $origin
+        $directory = Join-Path $Root $origin
+        if (-not [IO.Directory]::Exists($directory)) { throw "Missing source directory: $origin" }
+        Assert-SourceNotLinked $Root $directory
+        $matcher = [Regex]::new('^' + [Regex]::Escape($filenamePattern).Replace('\*','[^/]*') + '$',
+            [Text.RegularExpressions.RegexOptions]::CultureInvariant)
+        $files = @(Get-ChildItem -LiteralPath $directory -File -Force |
+            Where-Object { $matcher.IsMatch($_.Name) })
+    }
+
+    if ($files.Count -eq 0) { throw "Source pattern matches no files: $Source" }
+    $result = [Collections.Generic.List[object]]::new()
+    foreach ($file in $files) {
+        Assert-SourceNotLinked $Root $file.FullName
+        $relative = [IO.Path]::GetRelativePath((Join-Path $Root $origin), $file.FullName).Replace('\','/')
+        Assert-SafeRelativePath $relative
+        $resolvedSource = "$origin/$relative"
+        $resolvedDestination = "$Destination$relative"
+        Assert-SafeRelativePath $resolvedDestination
+        $result.Add([pscustomobject]@{ source=$resolvedSource; destination=$resolvedDestination })
+    }
+    return @($result | Sort-Object destination -CaseSensitive)
+}
+
 function Read-ProductManifest([string] $Root) {
     $manifest = Join-Path $Root 'product.toml'
     $versionFile = $false
@@ -56,33 +139,39 @@ function Read-ProductManifest([string] $Root) {
             if ($key -cnotin @('source', 'destination') -or $current.ContainsKey($key)) {
                 throw "Unexpected or duplicate mapping field: $key"
             }
-            Assert-SafeRelativePath $value
+            if (-not $value) { throw "Empty mapping field: $key" }
             $current[$key] = $value
         } else { throw 'Manifest field outside a section' }
     }
     if (-not $versionFile -or $records.Count -eq 0) { throw 'Incomplete manifest' }
 
+    $expanded = [Collections.Generic.List[object]]::new()
     $destinations = [Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
     foreach ($item in $records) {
         if ($item.Count -ne 2 -or -not $item.ContainsKey('source') -or
             -not $item.ContainsKey('destination')) { throw 'Incomplete file mapping' }
-        if (-not $destinations.Add($item.destination)) { throw "Duplicate destination: $($item.destination)" }
-        $source = Join-Path $Root $item.source
-        if (-not [IO.File]::Exists($source) -or (Get-Item -LiteralPath $source).Attributes -band
-            [IO.FileAttributes]::ReparsePoint) {
-            throw "Missing or linked source: $($item.source)"
-        }
-        $directory = Split-Path $source -Parent
-        while ($directory -ne $Root) {
-            if ((Get-Item -LiteralPath $directory).Attributes -band
-                [IO.FileAttributes]::ReparsePoint) { throw "Linked source directory: $directory" }
-            $directory = Split-Path $directory -Parent
+        foreach ($file in @(Expand-ProductMapping $Root $item.source $item.destination)) {
+            if (-not $destinations.Add($file.destination)) {
+                throw "Duplicate destination: $($file.destination)"
+            }
+            $expanded.Add($file)
         }
     }
     if (-not $destinations.Contains('README.md') -or -not $destinations.Contains('VERSION')) {
         throw 'Manifest must include README.md and VERSION'
     }
-    return @($records.ToArray())
+    # A file must never be an ancestor of another file's destination.
+    foreach ($file in $expanded) {
+        $parents = $file.destination.Split('/')
+        $relative = ''
+        for ($i = 0; $i -lt $parents.Length - 1; $i++) {
+            $relative = if ($relative) { "$relative/$($parents[$i])" } else { $parents[$i] }
+            if ($destinations.Contains($relative)) {
+                throw "File/directory destination collision: $relative"
+            }
+        }
+    }
+    return @($expanded.ToArray() | Sort-Object destination -CaseSensitive)
 }
 
 function Assert-Product([string] $Product, [object[]] $Files, [string] $Version) {
