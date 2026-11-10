@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: CC0-1.0 -->
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Context Registry — DLD Development
 
 This editable registry is the central discovery point for context relevant to this DLD development project. A reference helps locate information; it does not grant approval or authority.

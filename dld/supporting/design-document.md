@@ -1,7 +1,7 @@
-<!-- SPDX-License-Identifier: CC0-1.0 -->
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Design Document — Optional Guide
 
-This is a small, expandable starting point for an abstract design. It is **not** a required DLD template. Rename, merge, reorder, or omit headings as appropriate; use prose, tables, models, diagrams, or references wherever they express the design more clearly.
+This is a small, expandable reference example for an abstract design. It is **not** a required DLD template or a DLD product file that adopters are expected to edit. Rename, merge, reorder, or omit headings as appropriate; use prose, tables, models, diagrams, or references wherever they express the design more clearly.
 
 What matters is that the authoritative design of a scope, including relevant inherited and referenced information, is sufficient to identify:
 

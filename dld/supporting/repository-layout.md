@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: CC0-1.0 -->
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Repository Layout — Optional Reference
 
 DLD does not prescribe a universal repository tree. Begin with your language and framework conventions and add maintained locations only when they serve a real responsibility. This material is practical guidance, not an obligation.
