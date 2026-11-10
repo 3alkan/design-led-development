@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Adoption and Context Scope — Design
 
 **Status:** Proposed for reconciliation
@@ -23,7 +24,7 @@ This scope owns the adopter introduction, editable registry template, and option
 ## Design decisions
 
 - **A-D1:** The development registry and product registry are separate source files because their audiences differ; distribution maps the neutral source to the conventional `dld/CONTEXT-REGISTRY.md` destination.
-- **A-D2:** Adoption materials use CC0 so they can be tailored; normative source copies remain GPLv3.
+- **A-D2:** The adopter introduction, editable registries, and optional supporting files use explicit CC0-1.0 notices so they can be tailored; normative sources and this development-only abstract design remain GPL-3.0-only.
 - **A-D3:** No starter project design or rules are automatically approved or prescribed.
 - **A-D4:** Supporting materials are kept few and optional; further materials require a demonstrated need.
 

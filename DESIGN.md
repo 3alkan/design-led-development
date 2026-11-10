@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
 # DLD Development — Project Design
 
 **Status:** Proposed for reconciliation

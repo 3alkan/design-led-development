@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Methodology Scope — Design
 
 **Status:** Proposed for reconciliation

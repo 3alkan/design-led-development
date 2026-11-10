@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Distribution Scope — Design
 
 **Status:** Proposed for reconciliation

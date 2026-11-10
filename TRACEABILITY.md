@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Development Traceability Register
 
 **Status:** Reconciliation inventory — not an approval record

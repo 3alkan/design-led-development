@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Design-Led Development
 
 Design-Led Development (DLD) is a design-centered, human-authoritative, AI-assisted methodology for the software development lifecycle. Approved abstract design governs intended outcomes; concrete realizations are developed and verified against it.
@@ -39,4 +40,4 @@ The [product manifest](product.toml) selects the distributed files and destinati
 
 [VERSION](VERSION) identifies the current DLD product baseline; it is not an adopting project's version. See [release policy](release-policy.md) for versioning and publication decisions and [CHANGELOG.md](CHANGELOG.md) for release history. A merge, successful package build, tag, and GitHub Release are distinct events.
 
-The normative [contract](dld/CONTRACT.md) and [methodology](dld/DLD.md) are covered by [GPLv3](LICENSE). The adopter-editable registry, [adopter introduction](product-files/README.md), and optional supporting materials use [CC0 1.0](LICENSE-CC0). Other development files are not automatically CC0. Using DLD does not by itself require an adopting project to license its independently developed work under GPLv3.
+**GPL-3.0-only is the default for original development repository material**, including abstract designs, normative documents, scripts, manifests, and governance files. The explicitly identified **CC0-1.0 exceptions** are the editable context registries (`dld/CONTEXT-REGISTRY.md` and `product-files/CONTEXT-REGISTRY.md`), [adopter introduction](product-files/README.md), and [optional supporting materials](dld/supporting/). See the [GPLv3 license](LICENSE), [CC0 legal text](LICENSE-CC0), and individual SPDX notices. The license texts themselves and any third-party works retain their own terms. Using DLD does not by itself require an adopting project to license independently developed work under GPLv3.

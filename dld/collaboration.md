@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Contract Scope — Design
 
 **Status:** Proposed for reconciliation
