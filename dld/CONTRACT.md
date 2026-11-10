@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Human–AI Collaboration Contract
 
 **Status:** Draft

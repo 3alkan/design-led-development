@@ -6,15 +6,16 @@ This repository develops Design-Led Development (DLD), a human-governed, AI-assi
 
 - [dld/CONTRACT.md](dld/CONTRACT.md): foundational human–AI collaboration contract.
 - [dld/DLD.md](dld/DLD.md): engineering methodology built on that contract.
-- [dld/CONTEXT-REGISTRY.md](dld/CONTEXT-REGISTRY.md): discovery of DLD and project context.
+- [dld/CONTEXT-REGISTRY.md](dld/CONTEXT-REGISTRY.md): editable context registry for DLD development; the clean adopter registry comes from [product-files/CONTEXT-REGISTRY.md](product-files/CONTEXT-REGISTRY.md).
+- [DESIGN.md](DESIGN.md): development project architecture and pending approval state.
 - [RULES.md](RULES.md): conventions for DLD development only.
 - [dld/supporting/](dld/supporting/): optional practical suggestions.
 - [product-files/](product-files/): additional product-specific maintained inputs.
 - [product.toml](product.toml): the sole specification of product file membership and destinations.
-- [scripts/](scripts/): packaging automation when implemented.
+- [scripts/](scripts/): validation and reproducible product assembly.
 - [old/](old/): historical reference, not authoritative for the new design.
 
-DLD development uses its own contract and methodology; its development-specific files are not automatically product files. The manifest defines the distribution. Nothing here implies release or design approval merely because it has been committed.
+DLD development uses its own contract and methodology; its development-specific files are not automatically product files. The manifest defines the distribution, including mapping the neutral editable adopter registry into `dld/CONTEXT-REGISTRY.md`. Nothing here implies release or design approval merely because it has been committed.
 
 ## Versioning
 
@@ -34,4 +35,19 @@ DLD uses two licenses with distinct purposes:
 Other development repository files and the historical `old/` material are **not automatically CC0**. Their licensing follows their applicable notices and license terms; this policy does not retroactively relicense older releases.
 
 **Using DLD does not require licensing an adopting project's independently developed code or documents under GPLv3.** Redistributing or modifying GPLv3-covered DLD texts is a separate licensing matter. The two full license texts accompany the distribution.
+
+## Assemble and check
+
+Requires Python 3.11+ and Git, without third-party Python packages. From the repository root:
+
+```sh
+python3 scripts/check-text-format.py
+python3 scripts/test-text-format.py
+python3 scripts/test-package.py
+python3 scripts/package.py
+```
+
+The packager reads `product.toml` and writes a manifest-limited `build/product/` tree, deterministic `build/dld-v<VERSION>.zip`, and adjacent SHA-256 checksum. It validates destination uniqueness, safe paths, expected files, product-local Markdown links, archive entries, and content equivalence. Errors during preparation preserve previously successful outputs. Only the files explicitly mapped in the manifest belong to the product.
+
+Packaging success is not methodology approval, release authorization, or proof of publisher authenticity. A published release requires a distinct human authorization.
 

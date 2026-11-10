@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Design-Led Development
 
 **Status:** Draft (target release: 0.1.5)

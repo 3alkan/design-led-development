@@ -1,4 +1,4 @@
-name: Text format (TXT-001)
+name: Repository validation
 
 on:
   push:
@@ -13,7 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Test validator
+      - name: Test text validator
         run: python3 scripts/test-text-format.py -v
       - name: Check maintained text files
         run: python3 scripts/check-text-format.py
+      - name: Test package builder
+        run: python3 scripts/test-package.py -v
+      - name: Assemble and validate product
+        run: python3 scripts/package.py
