@@ -57,7 +57,7 @@ function Expand-ProductMapping([string] $Root, [string] $Source, [string] $Desti
         $sourceFile = Join-Path $Root $Source
         if (-not [IO.File]::Exists($sourceFile)) { throw "Missing source: $Source" }
         Assert-SourceNotLinked $Root $sourceFile
-        return ,([pscustomobject]@{ source=$Source; destination=$Destination })
+        return [pscustomobject]@{ source=$Source; destination=$Destination }
     }
 
     if (-not $Destination.EndsWith('/')) {
