@@ -1,50 +1,31 @@
-# Design-Led Development — Development Repository
+# Design-Led Development
 
-This repository develops Design-Led Development (DLD), a human-governed, AI-assisted software engineering methodology. The repository contains a prepared **v0.1.5** baseline; publication requires a separate release authorization. Development work on branches is not automatically included in that release.
+Design-Led Development (DLD) is a design-centered, human-authoritative, AI-assisted methodology for the software development lifecycle. Approved abstract design governs intended outcomes; concrete realizations are developed and verified against it.
 
-## Sources and responsibilities
+This is the **development repository** for DLD. For the documents delivered to adopting projects, see the [collaboration contract](dld/CONTRACT.md), [methodology](dld/DLD.md), and [adopter introduction](product-files/README.md).
 
-- [dld/CONTRACT.md](dld/CONTRACT.md): foundational human–AI collaboration contract.
-- [dld/DLD.md](dld/DLD.md): engineering methodology built on that contract.
-- [dld/CONTEXT-REGISTRY.md](dld/CONTEXT-REGISTRY.md): editable context registry for DLD development; the clean adopter registry comes from [product-files/CONTEXT-REGISTRY.md](product-files/CONTEXT-REGISTRY.md).
-- [DESIGN.md](DESIGN.md): overall design authority and scope navigation; scope designs sit close to their realizations.
-- [TRACEABILITY.md](TRACEABILITY.md): maintained-artifact ownership and reconciliation gaps.
-- [dld/collaboration.md](dld/collaboration.md) and [dld/methodology.md](dld/methodology.md): contract and methodology abstract designs.
-- [product-files/adoption.md](product-files/adoption.md): adopter materials design.
-- [scripts/assembly.md](scripts/assembly.md) and [scripts/quality.md](scripts/quality.md): distribution and verification designs.
-- [release-policy.md](release-policy.md): repository governance and release design.
-- [RULES.md](RULES.md): conventions for DLD development only.
-- [dld/supporting/](dld/supporting): optional practical suggestions.
-- [product-files/](product-files): additional product-specific maintained inputs.
-- [product.toml](product.toml): the sole specification of product file membership and destinations.
-- [scripts/](scripts): validation and reproducible product assembly.
+## How this repository is organized
 
-DLD development uses its own contract and methodology; its development-specific files are not automatically product files. The manifest defines the distribution, including mapping the neutral editable adopter registry into `dld/CONTEXT-REGISTRY.md`.
+Development follows DLD itself: design is organized by engineering responsibility, with scope-specific designs maintained near the artifacts they govern. Designs can govern multiple files; names and directory boundaries alone do not establish authority.
 
-## Versioning
+Start with the [project design](DESIGN.md) for overall intent, scope ownership, and dependencies. Then follow the relevant scope:
 
-DLD uses [Semantic Versioning](https://semver.org/) syntax: `MAJOR.MINOR.PATCH[-PRERELEASE]`. In DLD, an incompatible change to the adopted contract or methodological obligations calls for a major version; a compatible addition calls for a minor version; and a compatible clarification or correction calls for a patch version. While the major version is `0`, the methodology is still in initial development and compatibility may evolve.
+| Responsibility | Abstract design | Realization |
+| --- | --- | --- |
+| Human–AI collaboration | [Collaboration](dld/collaboration.md) | [Contract](dld/CONTRACT.md) |
+| Software engineering methodology | [Methodology](dld/methodology.md) | [DLD](dld/DLD.md) |
+| Adoption and project context | [Adoption](product-files/adoption.md) | [Adopter files](product-files/) and [supporting materials](dld/supporting/) |
+| Product distribution | [Assembly](scripts/assembly.md) | [Manifest](product.toml) and [packager](scripts/package.ps1) |
+| Verification and validation | [Quality](scripts/quality.md) | [Tests](scripts/test.ps1) and [text validator](scripts/check-text-format.ps1) |
+| Release and repository governance | [Release policy](release-policy.md) | [Version](VERSION), [changelog](CHANGELOG.md), licensing, and repository configuration |
 
-Development snapshots may use prerelease identifiers such as `0.1.6-dev.1`; approved releases use the stable version and a matching `v`-prefixed Git tag.
+The [development context registry](dld/CONTEXT-REGISTRY.md) helps discover governing sources. [Traceability](TRACEABILITY.md) records artifact ownership and reconciliation coverage. Design approval is separate from implementation completion; the scope designs on this working branch remain proposed for reconciliation.
 
-The root [VERSION](VERSION) is the current version identifier and is also selected for distribution by `product.toml`. Release history continues in [CHANGELOG.md](CHANGELOG.md). Existing releases retain their historical identities. The leading `v` is used for tags, not in `VERSION`.
+## Validate and assemble
 
-## Licensing
+Requires **PowerShell 7**; no Git checkout or external PowerShell modules are required.
 
-DLD uses two licenses with distinct purposes:
-
-- **GPLv3** ([LICENSE](LICENSE)) covers the normative [collaboration contract](dld/CONTRACT.md) and [DLD methodology](dld/DLD.md). Changes or redistribution of these texts are subject to GPLv3; their copies are not intended to be locally modified as part of ordinary DLD adoption.
-- **CC0 1.0** ([LICENSE-CC0](LICENSE-CC0)) covers the adopter-editable [context registry](dld/CONTEXT-REGISTRY.md), the [supporting materials](dld/supporting), and the distributed product introduction maintained at [product-files/README.md](product-files/README.md). These may be copied and adapted freely.
-
-Other development repository files are **not automatically CC0**. Their licensing follows applicable notices and license terms; this policy does not retroactively relicense earlier releases.
-
-**Using DLD does not require licensing an adopting project's independently developed code or documents under GPLv3.** Redistributing or modifying GPLv3-covered DLD texts is a separate licensing matter. The two full license texts accompany the distribution.
-
-## Assemble and check
-
-Requires PowerShell 7.
-
-From the repository root:
+Run from the repository root:
 
 ```powershell
 pwsh -NoProfile -File scripts/test.ps1
@@ -52,5 +33,10 @@ pwsh -NoProfile -File scripts/check-text-format.ps1
 pwsh -NoProfile -File scripts/package.ps1
 ```
 
-The packager assembles the files declared in `product.toml` into `build/product/`, a versioned ZIP, and a SHA-256 checksum. It validates the package before replacing existing outputs.
+The [product manifest](product.toml) selects the distributed files and destinations explicitly. Packaging produces `build/product/`, a versioned ZIP, and a SHA-256 checksum. Development designs and other unselected files are not included in the product.
 
+## Versioning and licensing
+
+[VERSION](VERSION) identifies the current DLD product baseline; it is not an adopting project's version. See [release policy](release-policy.md) for versioning and publication decisions and [CHANGELOG.md](CHANGELOG.md) for release history. A merge, successful package build, tag, and GitHub Release are distinct events.
+
+The normative [contract](dld/CONTRACT.md) and [methodology](dld/DLD.md) are covered by [GPLv3](LICENSE). The adopter-editable registry, [adopter introduction](product-files/README.md), and optional supporting materials use [CC0 1.0](LICENSE-CC0). Other development files are not automatically CC0. Using DLD does not by itself require an adopting project to license its independently developed work under GPLv3.
