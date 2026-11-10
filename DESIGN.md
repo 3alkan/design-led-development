@@ -13,7 +13,7 @@ Develop, verify, and distribute Design-Led Development (DLD) as a coherent, vers
 | [Contract](dld/CONTRACT.md) | General human–AI collaboration boundaries | Normative |
 | [Methodology](dld/DLD.md) | Design-led software engineering obligations under the contract | Normative |
 | [Context registry](product-files/CONTEXT-REGISTRY.md) | Editable discovery of adopting-project sources | Non-normative |
-| [Supporting materials](dld/supporting/) | Optional examples and templates | Non-normative |
+| [Supporting materials](dld/supporting) | Optional examples and templates | Non-normative |
 
 Normative sources are maintained once and distributed unchanged. Adopters own their project-specific designs, rules, decisions, and implementations.
 
@@ -23,14 +23,14 @@ These are logical responsibility boundaries, not required directory boundaries. 
 
 | Scope | Abstract design | Principal realizations |
 | --- | --- | --- |
-| Collaboration contract | [Contract design](design/contract.md) | `dld/CONTRACT.md` |
-| DLD methodology | [Methodology design](design/methodology.md) | `dld/DLD.md` |
-| Adoption and context | [Adoption design](design/adoption.md) | Registries, product README, supporting materials |
-| Distribution | [Distribution design](design/distribution.md) | `product.toml`, `scripts/package.ps1` |
-| Verification and validation | [Assurance design](design/assurance.md) | `scripts/test.ps1`, `scripts/check-text-format.ps1` |
-| Release and governance | [Release design](design/release.md) | Version, licenses, changelog, development README and configuration |
+| Collaboration contract | [Contract design](dld/CONTRACT.design.md) | `dld/CONTRACT.md` |
+| DLD methodology | [Methodology design](dld/DLD.design.md) | `dld/DLD.md` |
+| Adoption and context | [Adoption design](product-files/DESIGN.md) | Registries, product README, supporting materials |
+| Distribution | [Distribution design](scripts/PACKAGE.design.md) | `product.toml`, `scripts/package.ps1` |
+| Verification and validation | [Assurance design](scripts/TEST.design.md) | `scripts/test.ps1`, `scripts/check-text-format.ps1` |
+| Release and governance | [Release design](RELEASE.design.md) | Version, licenses, changelog, development README and configuration |
 
-The [traceability register](design/traceability.md) assigns an owner to every maintained artifact.
+The [traceability register](TRACEABILITY.md) assigns an owner to every maintained artifact.
 
 ## Governing requirements
 

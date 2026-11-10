@@ -4,7 +4,7 @@
 
 ## Intent and boundary
 
-Provide a general, portable agreement governing human–AI collaboration in any domain. This scope defines the intended content and properties of the contract; the contractual obligations delivered to adopters are realized in [CONTRACT.md](../dld/CONTRACT.md).
+Provide a general, portable agreement governing human–AI collaboration in any domain. This scope defines the intended content and properties of the contract; the contractual obligations delivered to adopters are realized in [CONTRACT.md](CONTRACT.md).
 
 The contract governs participants and authority, not a software lifecycle, repository practice, or tool.
 

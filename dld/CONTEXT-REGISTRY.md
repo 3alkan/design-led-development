@@ -9,20 +9,20 @@ This editable registry is the central discovery point for context relevant to th
 | --- | --- |
 | [CONTRACT.md](CONTRACT.md) | Human–AI collaboration boundaries |
 | [DLD.md](DLD.md) | Design-led software engineering methodology |
-| [supporting/](supporting/) | Optional non-normative suggestions |
+| [supporting/](supporting) | Optional non-normative suggestions |
 
 ## Development project context
 
 | Source | Responsibility |
 | --- | --- |
 | [Development design](../DESIGN.md) | Project-level architecture and governing scope decisions (proposed) |
-| [Contract scope design](../design/contract.md) | Intended contract behavior and constraints |
-| [Methodology scope design](../design/methodology.md) | Intended methodology and approval model |
-| [Adoption scope design](../design/adoption.md) | Context, adopter guidance, and supporting materials |
-| [Distribution scope design](../design/distribution.md) | Manifest, packaging, and reproducibility |
-| [Assurance scope design](../design/assurance.md) | Verification, validation, and evidence |
-| [Release scope design](../design/release.md) | Release identity, licensing, and repository governance |
-| [Traceability register](../design/traceability.md) | Artifact ownership and reconciliation status |
+| [Contract scope design](CONTRACT.design.md) | Intended contract behavior and constraints |
+| [Methodology scope design](DLD.design.md) | Intended methodology and approval model |
+| [Adoption scope design](../product-files/DESIGN.md) | Context, adopter guidance, and supporting materials |
+| [Distribution scope design](../scripts/PACKAGE.design.md) | Manifest, packaging, and reproducibility |
+| [Assurance scope design](../scripts/TEST.design.md) | Verification, validation, and evidence |
+| [Release scope design](../RELEASE.design.md) | Release identity, licensing, and repository governance |
+| [Traceability register](../TRACEABILITY.md) | Artifact ownership and reconciliation status |
 | [Development rules](../RULES.md) | Adopted development-only constraints, including TXT-001 |
 | [Development README](../README.md) | Repository navigation and versioning/licensing policy |
 | [Product manifest](../product.toml) | Explicit distribution membership and file destinations |

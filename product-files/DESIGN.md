@@ -12,8 +12,8 @@ This scope owns the adopter introduction, editable registry template, and option
 
 | ID | Intended requirement | Realization |
 | --- | --- | --- |
-| A-01 | Give adopters a short path to copy the DLD foundation, read the normative sources, and start with relevant approved intent. | [Product README](../product-files/README.md) |
-| A-02 | Supply a project-neutral, editable context registry with links to the two normative documents and optional resources. | [Product registry](../product-files/CONTEXT-REGISTRY.md) |
+| A-01 | Give adopters a short path to copy the DLD foundation, read the normative sources, and start with relevant approved intent. | [Product README](README.md) |
+| A-02 | Supply a project-neutral, editable context registry with links to the two normative documents and optional resources. | [Product registry](CONTEXT-REGISTRY.md) |
 | A-03 | Allow project sources anywhere in the repository; a registry entry must not imply approval. | Product registry; product README |
 | A-04 | Keep development-only navigation separate from distributed adopter context. | [Development registry](../dld/CONTEXT-REGISTRY.md); [manifest](../product.toml) |
 | A-05 | Provide optional, adaptable project-rules guidance without treating the template as adopted rules. | [Rules template](../dld/supporting/RULES.md) |

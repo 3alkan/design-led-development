@@ -10,9 +10,9 @@ Provide evidence of technical conformance and product suitability. This scope ve
 
 | ID | Intended requirement | Realization / evidence |
 | --- | --- | --- |
-| V-01 | Enforce TXT-001: maintained text is UTF-8 without BOM and uses LF; exempt binary files. | [RULES.md](../RULES.md), [text validator](../scripts/check-text-format.ps1) |
+| V-01 | Enforce TXT-001: maintained text is UTF-8 without BOM and uses LF; exempt binary files. | [RULES.md](../RULES.md), [text validator](check-text-format.ps1) |
 | V-02 | Validate extracted source archives as well as Git checkouts, without requiring a Git repository. | Recursive source scan, excluding `.git/`, `build/`, and filesystem links |
-| V-03 | Detect good text, BOM, CR, invalid UTF-8, and binary exemptions. | [Local tests](../scripts/test.ps1) |
+| V-03 | Detect good text, BOM, CR, invalid UTF-8, and binary exemptions. | [Local tests](test.ps1) |
 | V-04 | Exercise packaging on a temporary fixture without altering repository outputs. | Packaging fixture |
 | V-05 | Test reproducible archives, broken-link rejection, and preservation of prior outputs after failed validation. | Packaging tests |
 | V-06 | Distinguish automated technical verification from human review of contract/methodology coverage and representative-project adoption validation. | Design review and adoption evidence |

@@ -4,7 +4,7 @@
 
 ## Intent and boundary
 
-Transform maintained DLD product sources into a reproducible, verifiable distribution without including development-only material. [product.toml](../product.toml) owns file membership and destinations; [package.ps1](../scripts/package.ps1) realizes assembly.
+Transform maintained DLD product sources into a reproducible, verifiable distribution without including development-only material. [product.toml](../product.toml) owns file membership and destinations; [package.ps1](package.ps1) realizes assembly.
 
 ## Requirements
 

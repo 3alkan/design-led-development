@@ -4,7 +4,7 @@
 
 ## Intent and boundary
 
-Define a design-authoritative, human-governed, AI-assisted method for the complete software engineering lifecycle, under the [contract design](contract.md). The deliverable is [DLD.md](../dld/DLD.md), not the project-specific designs that adopters create.
+Define a design-authoritative, human-governed, AI-assisted method for the complete software engineering lifecycle, under the [contract design](CONTRACT.design.md). The deliverable is [DLD.md](DLD.md), not the project-specific designs that adopters create.
 
 ## Requirements
 
@@ -33,7 +33,7 @@ Define a design-authoritative, human-governed, AI-assisted method for the comple
 
 ## Acceptance
 
-Review each requirement against the corresponding section of [DLD.md](../dld/DLD.md). Confirm that approval, design authority, ownership, evidence, change impact, and continuity remain operationally understandable. A representative adopting-project exercise is required to validate usefulness; textual coverage alone is verification, not validation.
+Review each requirement against the corresponding section of [DLD.md](DLD.md). Confirm that approval, design authority, ownership, evidence, change impact, and continuity remain operationally understandable. A representative adopting-project exercise is required to validate usefulness; textual coverage alone is verification, not validation.
 
 ## Reconciliation
 
