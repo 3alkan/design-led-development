@@ -168,7 +168,7 @@ destination = "selected/"
         Assert ((Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash -ceq $validHash) 'invalid expansion preserves output'
     }
     [IO.File]::WriteAllText((Join-Path $fixture 'product.toml'), $baseManifest, $utf8)
-
+    Invoke-DldPackage $fixture
 
     [IO.File]::WriteAllText((Join-Path $fixture 'product-files/README.md'),
         "[Missing](not-found.md)" + [char]10, $utf8)
