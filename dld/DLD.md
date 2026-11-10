@@ -1,7 +1,6 @@
 <!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Design-Led Development
 
-**Status:** Draft
 
 ## 1. Purpose
 
