@@ -1,48 +1,41 @@
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
 # DLD Development — Project Design
 
-**Status:** Draft
+**Status:** Proposed for reconciliation
 
 ## Purpose
 
-Develop and distribute Design-Led Development (DLD) as a coherent, versioned methodology for software engineering with human–AI collaboration. This document governs the design of the DLD development project, not the projects adopting DLD.
+Develop, verify, and distribute Design-Led Development (DLD) as a coherent, versioned human–AI software engineering methodology. The development project adopts its own [contract](dld/CONTRACT.md) and [methodology](dld/DLD.md). This document governs the development project, not an adopting project's design.
 
-## Product architecture
+## Scope architecture
 
-The product separates four responsibilities:
+Scope boundaries follow engineering responsibility. The linked scope designs own their local requirements and decisions.
 
-| Component | Responsibility |
-| --- | --- |
-| [Contract](dld/CONTRACT.md) | General human–AI collaboration boundaries; normative |
-| [Methodology](dld/DLD.md) | Design-led software engineering practices under the contract; normative |
-| Context registry | Editable discovery of project-specific design, rules, decisions, and evidence; non-normative |
-| [Supporting materials](dld/supporting/) | Optional examples and templates; non-normative |
+| Scope | Abstract design | Principal realizations |
+| --- | --- | --- |
+| Collaboration contract | [Contract design](dld/collaboration.md) | `dld/CONTRACT.md` |
+| DLD methodology | [Methodology design](dld/methodology.md) | `dld/DLD.md` |
+| Adoption and context | [Adoption design](product-files/adoption.md) | Registries, product README, supporting materials |
+| Distribution | [Distribution design](scripts/assembly.md) | `product.toml`, `scripts/package.ps1` |
+| Verification and validation | [Assurance design](scripts/quality.md) | `scripts/test.ps1`, `scripts/check-text-format.ps1` |
+| Release and governance | [Release design](release-policy.md) | Version, licenses, changelog, development README and configuration |
 
-Adopters retain their own design, implementation, decisions, and rules. The contract and methodology are adopted unchanged until a deliberate upgrade; the registry and supporting materials may be customized.
+## Project requirements
 
-## Development and distribution
+1. Maintain one canonical contract and methodology source; distribute each unchanged.
+2. Separate development-only context from adopter-facing material.
+3. Assemble and verify only the files selected in [product.toml](product.toml).
+4. Keep scope ownership, dependencies, verification, and release authority discoverable.
 
-The repository maintains one canonical source for each normative component. Development-specific design, rules, and other internal materials are separate from the adopter distribution.
+## Scope dependencies
 
-The [product manifest](product.toml) defines which maintained source files appear in the distribution and their destinations. In particular, development uses [its own context registry](dld/CONTEXT-REGISTRY.md), while the product receives a separate [project-neutral registry](product-files/CONTEXT-REGISTRY.md). Both refer to the same normative components without duplicating their authority.
-
-## Design invariants
-
-1. The contract is the general collaboration authority; the methodology adds compatible software engineering requirements without redefining it.
-2. Each normative component has one canonical maintained source. Distributed copies preserve that source unchanged.
-3. Adopter-editable material does not create or alter normative DLD obligations.
-4. Development-specific context and constraints do not enter the adopter distribution.
-5. Distribution contents and destinations are explicitly selected by the manifest, never inferred from directory contents.
-6. The development project and adopting projects retain separate designs, decisions, and release identities.
+- The contract constrains the methodology and all development work.
+- The methodology governs how the development project changes its design and realizations.
+- Adoption depends on contract and methodology content but cannot modify normative obligations.
+- Distribution consumes canonical product files and adopter-specific sources.
+- Assurance evaluates source constraints, product correctness, and adoption suitability.
+- Release governance establishes identity and policy for the verified distribution.
 
 ## Acceptance criteria
 
-An assembled distribution is consistent with this design when:
-
-- It contains exactly the manifest-selected files at their declared destinations.
-- Its contract and methodology match their canonical sources.
-- Its initial registry is project-neutral, editable, and points to the distributed normative files.
-- Its internal references resolve within the distribution.
-- Its version and license files accompany the selected content.
-- Its archive is reproducible from the same inputs, with a verifiable checksum.
-
-Release approval is governed separately from product assembly.
+Every maintained artifact has a governing scope and acceptance path, cross-scope requirements are consistent, and the manifest produces a reproducible, verified product. Scope designs remain proposed until human approval.

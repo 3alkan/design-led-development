@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Changelog
 
 This file records the ongoing history of Design-Led Development (DLD). The v0.1.5 work continues the existing v0.1.4 release series.

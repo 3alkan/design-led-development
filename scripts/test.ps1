@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-only
 #Requires -Version 7.0
 <#
 .SYNOPSIS
@@ -21,6 +22,19 @@ Assert (@(Get-TextViolations ([byte[]](0,255,13)) 'image.dat').Count -eq 0) 'bin
 
 $root = Split-Path $PSScriptRoot -Parent
 Assert (Test-RepositoryText $root) 'current tracked text'
+
+# Check recognized SPDX header syntax. License assignment changes require human review.
+$withoutHeader = @('LICENSE', 'LICENSE-CC0', 'VERSION')
+foreach ($path in @(Get-SourceFiles $root)) {
+    $relative = [IO.Path]::GetRelativePath($root, $path).Replace([char]92, [char]47)
+    if ($relative -in $withoutHeader) { continue }
+    $firstLine = [IO.File]::ReadLines($path) | Select-Object -First 1
+    if ($relative.EndsWith('.md')) {
+        Assert ($firstLine -cmatch '^<!-- SPDX-License-Identifier: (GPL-3\.0-only|CC0-1\.0) -->$') "recognized SPDX license notice: $relative"
+    } else {
+        Assert ($firstLine -cmatch '^# SPDX-License-Identifier: (GPL-3\.0-only|CC0-1\.0)$') "recognized SPDX license notice: $relative"
+    }
+}
 
 # Assemble a temporary three-file product without modifying the repository's build outputs.
 $fixture = Join-Path ([IO.Path]::GetTempPath()) ('dld-package-test-' + [guid]::NewGuid().ToString('N'))
@@ -59,6 +73,69 @@ destination = "VERSION"
     $originalHash = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash
     Invoke-DldPackage $fixture
     Assert ((Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash -ceq $originalHash) 'reproducible archive'
+
+    # Expand recursive directories and filename wildcards with preserved relative paths.
+    $extras = Join-Path $fixture 'extras'
+    [IO.Directory]::CreateDirectory((Join-Path $extras 'nested')) | Out-Null
+    [IO.File]::WriteAllText((Join-Path $extras 'top.md'), "Top" + [char]10, $utf8)
+    [IO.File]::WriteAllText((Join-Path $extras 'other.txt'), "Other" + [char]10, $utf8)
+    [IO.File]::WriteAllText((Join-Path $extras 'nested/child.md'), "Child" + [char]10, $utf8)
+    $baseManifest = [IO.File]::ReadAllText((Join-Path $fixture 'product.toml'))
+    $dirMap = @'
+
+[[files]]
+source = "extras/"
+destination = "examples/"
+'@
+    [IO.File]::WriteAllText((Join-Path $fixture 'product.toml'), $baseManifest + $dirMap, $utf8)
+    Invoke-DldPackage $fixture
+    Assert ([IO.File]::Exists((Join-Path $fixture 'build/product/examples/nested/child.md'))) 'recursive directory expansion'
+    $directoryHash = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash
+    Invoke-DldPackage $fixture
+    Assert ((Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash -ceq $directoryHash) 'recursive archive reproducible'
+
+    $wildcardMap = @'
+
+[[files]]
+source = "extras/*.md"
+destination = "selected/"
+'@
+    [IO.File]::WriteAllText((Join-Path $fixture 'product.toml'), $baseManifest + $wildcardMap, $utf8)
+    Invoke-DldPackage $fixture
+    Assert ([IO.File]::Exists((Join-Path $fixture 'build/product/selected/top.md'))) 'wildcard file selected'
+    Assert (-not [IO.File]::Exists((Join-Path $fixture 'build/product/selected/nested/child.md'))) 'wildcard nonrecursive'
+    Assert (-not [IO.File]::Exists((Join-Path $fixture 'build/product/selected/other.txt'))) 'wildcard filters extension'
+
+    $validHash = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash
+    foreach ($invalid in @(
+        $baseManifest + $dirMap + $dirMap,
+        $baseManifest + $dirMap + @'
+
+[[files]]
+source = "extras/top.md"
+destination = "examples/top.md"
+'@,
+        $baseManifest + @'
+
+[[files]]
+source = "extras/*.pdf"
+destination = "selected/"
+'@,
+        $baseManifest + @'
+
+[[files]]
+source = "extras/**"
+destination = "selected/"
+'@
+    )) {
+        [IO.File]::WriteAllText((Join-Path $fixture 'product.toml'), $invalid, $utf8)
+        $rejected = $false
+        try { Invoke-DldPackage $fixture } catch { $rejected = $true }
+        Assert $rejected 'invalid or overlapping expansion rejected'
+        Assert ((Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash -ceq $validHash) 'invalid expansion preserves output'
+    }
+    [IO.File]::WriteAllText((Join-Path $fixture 'product.toml'), $baseManifest, $utf8)
+    Invoke-DldPackage $fixture
 
     [IO.File]::WriteAllText((Join-Path $fixture 'product-files/README.md'),
         "[Missing](not-found.md)" + [char]10, $utf8)

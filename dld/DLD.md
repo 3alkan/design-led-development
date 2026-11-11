@@ -11,15 +11,19 @@ Here, **MUST** means required, **MUST NOT** prohibited, **SHOULD** recommended w
 
 ## 2. Design and ownership
 
-A **project** contains identifiable **scopes** of engineering responsibility. **Design** describes intended outcomes, requirements, behavior, architecture, interfaces, constraints, and decisions. **Realization** is concrete work or artifacts implementing design. **Evidence** supports or challenges a claim about design or realization.
+A **project** contains identifiable **scopes** of engineering responsibility. Scopes MAY be progressively decomposed into subordinate scopes as their responsibilities warrant. **Design** describes intended outcomes, requirements, behavior, architecture, interfaces, constraints, and decisions. **Realization** is concrete work or artifacts implementing design. **Evidence** supports or challenges a claim about design or realization.
 
-Each authoritative decision MUST have one identifiable owning scope. Shared decisions need one governing owner; dependent scopes reference it rather than duplicate authority. Governing relationships and material dependencies MUST remain discoverable. Scopes need not correspond to directories or individual files.
+Each authoritative decision MUST have one identifiable owning scope: the narrowest scope able to govern it coherently. A decision spanning subordinate scopes belongs to their narrowest suitable shared ancestor when it truly governs them together; otherwise an identifiable owning scope governs it and affected scopes reference that authority. Subordinate scopes MUST respect applicable ancestor decisions without duplicating them. Cross-scope dependencies MAY connect any scopes and MUST remain discoverable without forcing unrelated decisions upward.
+
+Each scope's authoritative design MUST provide or reference sufficient information to identify its responsibility and boundary, intended outcomes and constraints, consequential decisions and their rationale, governed realizations, and criteria for evaluating conformity. Applicable information MAY be inherited from governing scopes or distributed among related design artifacts without repeating authority. DLD does not prescribe document headings, media, formats, or templates.
+
+Every maintained realization MUST have an identifiable governing design scope, which MAY cover one artifact, several artifacts, or a subsystem. Decompose designs only as far as responsibility and change isolation justify; individual realization files need not each have a separate design document. Design documents SHOULD be maintained near the realizations they govern where practical. Their authority comes from declared ownership and approval, not filenames or a prescribed directory layout.
 
 ## 3. Decisions and approval
 
 A design decision is **consequential** when it introduces unapproved intent or materially changes approved outcomes, requirements, constraints, interfaces, externally relevant behavior, responsibilities, or delegation. Assess significance by impact and risk, not by labels such as “refactor.”
 
-Consequential design changes MUST be approved by an authorized human before realizing the changed intent. AI MAY investigate and propose changes beforehand, and implement approved intent within delegated boundaries. Unclear authority or approval boundaries MUST be resolved before consequential action.
+Consequential realization MUST be governed by sufficient approved design before implementation. Consequential design changes MUST be approved by an authorized human before realizing the changed intent. AI MAY investigate, prototype within permission, and propose changes beforehand, and implement approved intent within delegated boundaries. Exploratory realization does not itself approve new product intent. Unclear authority or approval boundaries MUST be resolved before consequential action.
 
 Approved and proposed content MUST remain distinguishable; partial approval does not cover unresolved choices. Each approval MUST have a discoverable record identifying the approver, accepted scope, content, and revision, with an identifiable, recoverable baseline. A commit or document status alone does not prove approval. Previously approved intent remains governing until changed through approval.
 
@@ -50,7 +54,7 @@ Before consequential changes, assess reasonably discoverable effects on governin
 
 ## 6. Context and continuity
 
-Before consequential work, reconstruct sufficient authoritative context for the active scope. Start with the contract, methodology, applicable project design, approvals, and constraints; expand to relevant dependencies and history as needed.
+Before consequential work, reconstruct sufficient authoritative context for the active scope. Start with the contract, methodology, applicable ancestor and local designs, approvals, and constraints; expand to affected cross-scope dependencies and history as needed. A scope should be understandable with its governing context without loading every unrelated scope.
 
 The editable [Context Registry](CONTEXT-REGISTRY.md) helps locate project-owned design, rules, decisions, and evidence wherever they reside. Registration aids discovery but does not confer authority.
 
@@ -62,4 +66,4 @@ New projects MAY begin with draft design. Existing projects MAY reconcile their 
 
 Adopters keep their distributed contract and methodology unchanged during ordinary project work. Their designs, rules, and context remain project-owned. Adopting a newer DLD version requires a deliberate human decision and assessment of affected approvals and design.
 
-DLD does not prescribe a technology, repository layout, or AI provider. [Supporting materials](supporting/) are optional guidance, not additional obligations.
+DLD does not prescribe a technology, repository layout, or AI provider. [Supporting materials](supporting) are optional guidance, not additional obligations.
