@@ -5,7 +5,7 @@ DLD is a design-centered, human-authoritative, AI-assisted methodology for the s
 
 ## Adopt DLD
 
-1. Copy the distributed `dld/` folder into your project or reconcile it with an existing installation.
+1. Keep the extracted DLD distribution intact as the release reference, including its `VERSION`, `LICENSE`, and `LICENSE-CC0` files. Copy its `dld/` folder into your project or reconcile it with an existing installation. When redistributing the copied DLD files, include the applicable license texts.
 2. Read the unchanged [Collaboration Contract](dld/CONTRACT.md) and [DLD Methodology](dld/DLD.md).
 3. Edit [Context Registry](dld/CONTEXT-REGISTRY.md) to reference your project's design, decisions, rules, evidence, and other relevant information wherever located.
 4. Establish sufficient project design and obtain human approval for consequential intent before realizing it; distinguish drafts from approved decisions.
@@ -15,7 +15,7 @@ The [supporting materials](dld/supporting/) are optional. For project-specific r
 
 ## Version and adoption
 
-[VERSION](VERSION) identifies the DLD distribution baseline, not the adopting project's own product version. Keep adopted `CONTRACT.md` and `DLD.md` unchanged until deliberately upgrading the adopted DLD version. A new release does not automatically change a project's decisions or approvals.
+The release reference's [VERSION](VERSION) identifies the DLD distribution baseline, not the adopting project's own product version. Record the adopted DLD version in your project context so it remains identifiable independently of that reference. Keep adopted `CONTRACT.md` and `DLD.md` unchanged until deliberately upgrading the adopted DLD version. A new release does not automatically change a project's decisions or approvals.
 
 ## Licensing and release status
 

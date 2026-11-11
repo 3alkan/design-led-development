@@ -23,8 +23,7 @@ Assert (@(Get-TextViolations ([byte[]](0,255,13)) 'image.dat').Count -eq 0) 'bin
 $root = Split-Path $PSScriptRoot -Parent
 Assert (Test-RepositoryText $root) 'current tracked text'
 
-# Verify the license declared by each maintained original source.
-$root = Split-Path $PSScriptRoot -Parent
+# Check recognized SPDX header syntax. License assignment changes require human review.
 $withoutHeader = @('LICENSE', 'LICENSE-CC0', 'VERSION')
 foreach ($path in @(Get-SourceFiles $root)) {
     $relative = [IO.Path]::GetRelativePath($root, $path).Replace([char]92, [char]47)

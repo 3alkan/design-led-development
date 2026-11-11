@@ -14,7 +14,7 @@ Maintain DLD's identity, licensing, development rules, and release history. Sepa
 | R-01 | Maintain a single DLD distribution version, shared by contract and methodology; adopting projects version themselves independently. | [VERSION](VERSION), [README](README.md) |
 | R-02 | Use SemVer-style version identifiers, with `v`-prefixed release tags and optional numbered prereleases. | README; package filename |
 | R-03 | Maintain release history without rewriting earlier releases to match the current architecture. | [CHANGELOG.md](CHANGELOG.md) |
-| R-04 | Use per-file SPDX declarations: GPL-3.0-only for DLD material and CC0-1.0 for selected adopter-customizable sources. Preserve original terms for third-party works and license texts. | [LICENSE](LICENSE), [LICENSE-CC0](LICENSE-CC0), source notices |
+| R-04 | Use per-file SPDX declarations: GPL-3.0-only for DLD material and CC0-1.0 for selected adopter-customizable sources. License assignment changes require human review and approval; syntax validation alone does not establish licensing correctness. Preserve original terms for third-party works and license texts. | [LICENSE](LICENSE), [LICENSE-CC0](LICENSE-CC0), source notices |
 | R-05 | Document development purpose, navigation, installation/build commands, and release policy separately from normative product content. | README |
 | R-06 | Keep developer-owned design and rules outside the distribution unless explicitly selected as product material. | [DESIGN.md](DESIGN.md), [RULES.md](RULES.md), manifest |
 | R-07 | Use standard repository metadata for text defaults and generated output exclusion. | [editor config](.editorconfig), [Git attributes](.gitattributes), [Git ignore](.gitignore) |
@@ -30,5 +30,5 @@ Maintain DLD's identity, licensing, development rules, and release history. Sepa
 
 ## Realization and acceptance
 
-Check version, changelog, license texts, source notices, and product membership. Local tests MUST verify recognized SPDX notices on maintained original source files. Exclude development-only references from adopter files and generated outputs from source control. Publication requires authorization.
+Check version, changelog, license texts, source notices, and product membership. Local tests MUST verify recognized SPDX notices on maintained original source files; suitability and changes to license assignments require human review. Exclude development-only references from adopter files and generated outputs from source control. Publication requires authorization.
 

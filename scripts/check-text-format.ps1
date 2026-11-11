@@ -51,7 +51,7 @@ function Test-RepositoryText([string] $Root) {
     $checked = 0
     $failed = 0
     foreach ($path in @(Get-SourceFiles $rootPath)) {
-        $relative = [IO.Path]::GetRelativePath($rootPath, $path).Replace('\\', '/')
+        $relative = [IO.Path]::GetRelativePath($rootPath, $path).Replace([char]92, [char]47)
         $checked++
         $problems = @(Get-TextViolations ([IO.File]::ReadAllBytes($path)) $relative)
         if ($problems.Count -gt 0) {
