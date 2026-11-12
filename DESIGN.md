@@ -17,7 +17,7 @@ Scope boundaries follow engineering responsibility. The linked scope designs own
 | Adoption and context | [Adoption design](product-files/adoption.md) | Registries, product README, supporting materials |
 | Distribution | [Distribution design](scripts/assembly.md) | `product.toml`, `scripts/package.ps1` |
 | Verification and validation | [Assurance design](scripts/quality.md) | `scripts/test-scripts.ps1`, `scripts/validate-text-format.ps1` |
-| Release and governance | [Release design](release-policy.md) | Version, licenses, changelog, development README and configuration |
+| Release governance | [Release design](release-policy.md) | Version, license, changelog, and release identity |
 
 ## Project requirements
 
@@ -26,11 +26,13 @@ Scope boundaries follow engineering responsibility. The linked scope designs own
 3. Assemble and verify only the files selected in [product.toml](product.toml).
 4. Keep scope ownership, dependencies, verification, and release authority discoverable.
 5. Give maintained facts, rules, and configuration a single authoritative owner wherever practical. Other scopes reference or consume that owner rather than independently declaring the same decision; context registries retain their distinct discovery responsibility.
+6. Maintain developer-facing navigation and repository conventions at project scope without imposing those conventions on adopting projects. The root README, development rules, and repository configuration realize this responsibility.
 
 ## Decisions and rationale
 
 - **Separate development and adopter sources.** The development repository includes design and verification work that adopters do not need. The [adoption design](product-files/adoption.md) governs the distinct adopter-facing introduction and context registry; the [distribution design](scripts/assembly.md) governs which sources are delivered.
 - **Assign decisions to responsibility scopes.** Keep project-wide boundaries here and detailed choices in the linked scope designs. This limits competing authority and allows individual parts of DLD to evolve without repeatedly editing the root design.
+- **Keep repository conventions project-owned.** The development README and configuration support this repository rather than defining DLD methodology or release approval; their conventions should not become adopter obligations.
 - **Use an explicit product manifest.** Let [product.toml](product.toml) define distribution membership so packaging does not infer product content from the repository layout. The assembly design governs how that selection is implemented.
 
 ## Scope dependencies
@@ -49,6 +51,7 @@ This design governs the development repository as a whole; the scope table ident
 - Each maintained artifact can be traced to an owning scope and its design, using the [scope architecture](#scope-architecture) and [context registry](dld/CONTEXT-REGISTRY.md) for discovery.
 - Development-only files remain outside the product, and product contents follow [product.toml](product.toml), as checked under the [distribution design](scripts/assembly.md).
 - The [assurance design](scripts/quality.md) supplies technical checks and distinguishes them from human review and representative adoption.
-- [Release governance](release-policy.md) preserves the independent decisions to approve designs, integrate changes, and publish a release.
+- [Release governance](release-policy.md) preserves clear authorization for publication while allowing proportionate, scoped approvals.
+- The development README and repository configuration remain governed by this project, rather than by the release scope.
 
 Acceptance of the complete project depends on the relevant subordinate criteria and evidence; a successful package alone does not prove methodology usefulness. The scope designs remain proposed for reconciliation until the necessary human approvals are established.
