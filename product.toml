@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 # Product manifest. Source paths are relative to the development repository;
 # destinations are relative to the assembled product root.
 # Exact files map to files. Source directories ending / are recursive;
@@ -42,6 +42,3 @@ destination = "CHANGELOG.md"
 source = "LICENSE"
 destination = "LICENSE"
 
-[[files]]
-source = "LICENSE-CC0"
-destination = "LICENSE-CC0"

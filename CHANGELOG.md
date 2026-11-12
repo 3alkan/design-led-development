@@ -1,9 +1,11 @@
-<!-- SPDX-License-Identifier: GPL-3.0-only -->
+<!-- SPDX-License-Identifier: MIT -->
 # Changelog
 
 This file records the ongoing history of Design-Led Development (DLD). The v0.1.5 work continues the existing v0.1.4 release series.
 
 ## 0.1.5 — Prepared for release
+
+- Unify original DLD sources and adopter templates under the MIT License; align SPDX notices, product manifest, documentation, and license checks. Earlier published releases retain their historical terms.
 
 - Reorganize the DLD foundation around a human–AI contract and a design-led software engineering methodology.
 - Provide a project-editable context registry, optional supporting materials, and separate development and adopter registry sources.

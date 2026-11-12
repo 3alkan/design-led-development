@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: GPL-3.0-only -->
+<!-- SPDX-License-Identifier: MIT -->
 # Design-Led Development
 
 Design-Led Development (DLD) is a design-centered, human-authoritative, AI-assisted methodology for the software development lifecycle. Approved abstract design governs intended outcomes; concrete realizations are developed and verified against it.
@@ -38,4 +38,4 @@ The [product manifest](product.toml) selects the distributed files and destinati
 
 [VERSION](VERSION) identifies the DLD distribution, not an adopter's project version. See [release policy](release-policy.md) and [CHANGELOG.md](CHANGELOG.md); packaging, merging, and publishing are separate decisions.
 
-Each source file declares its license in its SPDX header. Most use [GPL-3.0-only](LICENSE); adopter-customizable files use [CC0-1.0](LICENSE-CC0). Independently developed adopter work is not GPL-covered merely by using DLD.
+Original DLD sources use the [MIT License](LICENSE), declared in their SPDX headers. Redistribution of copies or substantial portions requires preserving the copyright and license notice. Adopters may use DLD in open-source or proprietary projects; independently developed adopter work is not automatically licensed by using DLD.

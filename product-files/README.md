@@ -1,11 +1,11 @@
-<!-- SPDX-License-Identifier: GPL-3.0-only -->
+<!-- SPDX-License-Identifier: MIT -->
 # Design-Led Development (DLD)
 
 DLD is a design-centered, human-authoritative, AI-assisted methodology for the software development lifecycle. It can be adopted incrementally in new or existing software projects.
 
 ## Adopt DLD
 
-1. Keep the extracted DLD distribution intact as the release reference, including its `VERSION`, `LICENSE`, and `LICENSE-CC0` files. Copy its `dld/` folder into your project or reconcile it with an existing installation. When redistributing the copied DLD files, include the applicable license texts.
+1. Keep the extracted DLD distribution intact as the release reference, including its `VERSION` and `LICENSE` files. Copy its `dld/` folder into your project or reconcile it with an existing installation. When redistributing copies or substantial portions of DLD files, retain the MIT copyright and license notice.
 2. Read the unchanged [Collaboration Contract](dld/CONTRACT.md) and [DLD Methodology](dld/DLD.md).
 3. Edit [Context Registry](dld/CONTEXT-REGISTRY.md) to reference your project's design, decisions, rules, evidence, and other relevant information wherever located.
 4. Establish sufficient project design and obtain human approval for consequential intent before realizing it; distinguish drafts from approved decisions.
@@ -19,4 +19,4 @@ The release reference's [VERSION](VERSION) identifies the DLD distribution basel
 
 ## Licensing and release status
 
-Each file identifies its license in an SPDX header: the editable context registry and project-rules template use CC0-1.0; other original product documents use GPL-3.0-only. See [LICENSE](LICENSE) and [LICENSE-CC0](LICENSE-CC0). GPLv3 permits modification and redistribution subject to its terms, although DLD recommends deliberate upgrades of normative documents. Independently developed project work is not GPL-covered merely by using DLD.
+Original DLD files, including the editable registry and optional templates, use the [MIT License](LICENSE). Redistributed copies or substantial portions must retain the copyright and permission notice. Deliberate upgrades of normative documents are methodological guidance, not a restriction on MIT's modification rights. Independently developed project work is not licensed merely by using DLD.
