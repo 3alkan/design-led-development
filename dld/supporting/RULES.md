@@ -1,4 +1,3 @@
-<!-- SPDX-License-Identifier: MIT -->
 # Project Rules — Optional Template
 
 No additional project-specific rules have been adopted.

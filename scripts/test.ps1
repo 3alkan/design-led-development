@@ -1,4 +1,3 @@
-# SPDX-License-Identifier: MIT
 #Requires -Version 7.0
 <#
 .SYNOPSIS
@@ -25,19 +24,6 @@ Assert ([IO.File]::ReadAllText((Join-Path $root 'LICENSE')).StartsWith("MIT Lice
 Assert (-not [IO.File]::Exists((Join-Path $root 'LICENSE-CC0'))) 'obsolete CC0 license removed'
 Assert (-not ([IO.File]::ReadAllText((Join-Path $root 'product.toml')).Contains('LICENSE-CC0'))) 'manifest excludes obsolete license'
 Assert (Test-RepositoryText $root) 'current tracked text'
-
-# Check that original source files consistently declare MIT.
-$withoutHeader = @('LICENSE', 'VERSION')
-foreach ($path in @(Get-SourceFiles $root)) {
-    $relative = [IO.Path]::GetRelativePath($root, $path).Replace([char]92, [char]47)
-    if ($relative -in $withoutHeader) { continue }
-    $firstLine = [IO.File]::ReadLines($path) | Select-Object -First 1
-    if ($relative.EndsWith('.md')) {
-        Assert ($firstLine -cmatch '^<!-- SPDX-License-Identifier: MIT -->$') "MIT SPDX license notice: $relative"
-    } else {
-        Assert ($firstLine -cmatch '^# SPDX-License-Identifier: MIT$') "MIT SPDX license notice: $relative"
-    }
-}
 
 # Assemble a temporary three-file product without modifying the repository's build outputs.
 $fixture = Join-Path ([IO.Path]::GetTempPath()) ('dld-package-test-' + [guid]::NewGuid().ToString('N'))

@@ -1,4 +1,3 @@
-<!-- SPDX-License-Identifier: MIT -->
 # Distribution Scope — Design
 
 **Status:** Proposed for reconciliation

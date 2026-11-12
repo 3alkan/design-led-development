@@ -1,4 +1,3 @@
-<!-- SPDX-License-Identifier: MIT -->
 # Design Document — Optional Guide
 
 This is a small, expandable reference example for an abstract design. It is **not** a required DLD template or a DLD product file that adopters are expected to edit. Rename, merge, reorder, or omit headings as appropriate; use prose, tables, models, diagrams, or references wherever they express the design more clearly.

@@ -1,4 +1,3 @@
-<!-- SPDX-License-Identifier: MIT -->
 # Design-Led Development (DLD)
 
 DLD is a design-centered, human-authoritative, AI-assisted methodology for the software development lifecycle. It can be adopted incrementally in new or existing software projects.
@@ -19,4 +18,4 @@ The release reference's [VERSION](VERSION) identifies the DLD distribution basel
 
 ## Licensing and release status
 
-Original DLD files, including the editable registry and optional templates, use the [MIT License](LICENSE). Redistributed copies or substantial portions must retain the copyright and permission notice. Deliberate upgrades of normative documents are methodological guidance, not a restriction on MIT's modification rights. Independently developed project work is not licensed merely by using DLD.
+The root [MIT License](LICENSE) covers original DLD files, including the editable registry and optional templates. Redistributed copies or substantial portions must retain the copyright and permission notice. Deliberate upgrades of normative documents are methodological guidance, not a restriction on MIT's modification rights. Independently developed project work is not licensed merely by using DLD.
