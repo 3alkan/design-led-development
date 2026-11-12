@@ -32,12 +32,12 @@ Define a design-authoritative, human-governed, AI-assisted method for the comple
 ## Decisions and rationale
 
 - **M-D1:** The methodology specializes, rather than duplicates, the general contract.
-- **M-D2:** Model ownership as a hierarchy of coherent responsibility scopes; dependencies may form a cross-scope graph. Prefer the narrowest suitable owner for each decision, with inheritance of applicable ancestor decisions.
-- **M-D3:** Design approval is scoped and recorded, but no particular approval-record tool is imposed.
-- **M-D4:** One recurring engineering cycle spans SDLC responsibilities instead of prescribing Waterfall or Agile.
+- **M-D2:** Use coherent responsibility scopes as the unit of ownership, with cross-scope dependencies rather than duplicated shared decisions. This keeps authority local where possible without hiding effects across scopes.
+- **M-D3:** Do not prescribe an approval-record tool: approval must be traceable and recoverable, but a mandatory service or file format would burden projects with different workflows.
+- **M-D4:** Use one recurring engineering cycle across the SDLC because the same design, decision, realization, and evidence responsibilities recur regardless of sequential or iterative delivery.
 - **M-D5:** Supporting materials and the editable registry assist adoption but do not impose methodology obligations.
 - **M-D6:** Keep designs close to realizations when practical. Meaningful document names are preferred over obligatory `DESIGN` filenames or `.design` suffixes; ownership and references establish authority.
-- **M-D7:** File-level design is permissible but not the compulsory unit of design. Create another design scope only when independent decisions, responsibilities, or isolation warrant it.
+- **M-D7:** Do not require a design file for every implementation file: design scope follows independent responsibility and change isolation, avoiding documentation whose ownership adds no value.
 - **M-D8:** Standardize design information sufficiency, not document presentation; offer a minimal-core, expandable Markdown example as optional guidance.
 - **M-D9:** Minimize independently maintained truths without flattening design intent, normative obligations, and realization into one artifact. Context registries provide discovery and do not replace authoritative sources.
 

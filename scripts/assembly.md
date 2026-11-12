@@ -23,10 +23,10 @@ Transform maintained DLD product sources into a reproducible, verifiable distrib
 ## Decisions and rationale
 
 - **P-D1:** One TOML manifest is the product-membership authority. Exact files map to files; a source ending in `/` recursively maps its contents into a destination ending in `/`; a filename pattern containing one `*` maps matching immediate files into a destination ending in `/`. Preserve subpaths under a directory, sort expansions deterministically, reject overlaps and link traversal. This is not a general-purpose TOML or glob parser.
-- **P-D2:** Stage assembled files in `build/`; the working product, ZIP, and checksum are generated outputs, not repository sources.
+- **P-D2:** Stage assembled files in `build/` so invalid inputs are rejected before replacing generated outputs; the product, ZIP, and checksum remain regenerable build artifacts rather than repository sources.
 - **P-D3:** ZIP entry content is stored without compression to make deterministic output simple; compression ratio is not an acceptance goal.
-- **P-D4:** The archive uses `dld-v<VERSION>/` as its top-level directory, while `build/product/` contains the unwrapped product tree.
-- **P-D5:** Finish validation before replacing generated outputs. Replacement is not transactional; a failure can leave partial outputs that must be rebuilt.
+- **P-D4:** Use `dld-v<VERSION>/` inside the archive to identify an extracted distribution; leave `build/product/` unwrapped for straightforward local inspection.
+- **P-D5:** Replace generated outputs without multi-file rollback: they are reproducible build artifacts, and the complexity of transactional recovery is disproportionate. Failed replacement must be reported and outputs rebuilt before use.
 
 ## Realization and acceptance
 

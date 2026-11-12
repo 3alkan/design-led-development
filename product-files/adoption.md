@@ -23,10 +23,10 @@ This scope owns the adopter introduction, editable registry template, and option
 
 ## Decisions and rationale
 
-- **A-D1:** The development registry and product registry are separate source files because their audiences differ; distribution maps the neutral source to the conventional `dld/CONTEXT-REGISTRY.md` destination.
-- **A-D2:** The context registry is edited in place; the rules template is copied into project ownership before editing.
-- **A-D3:** No starter project design or rules are automatically approved or prescribed.
-- **A-D4:** Supporting materials, including the design-document example, remain optional.
+- **A-D1:** Keep development and adopter context registries distinct because each discovers a different project's governing context. The manifest maps the neutral adopter source to `dld/CONTEXT-REGISTRY.md` in the distribution; neither registry is merely README navigation.
+- **A-D2:** Adopters edit their context registry in place so it continues to locate their own authoritative sources. They copy the rules template before editing so optional project rules do not modify the distributed reference.
+- **A-D3:** Do not ship preapproved project design or rules: an adopting project's intent and binding constraints require its own human decisions.
+- **A-D4:** Keep supporting materials optional so useful examples do not become accidental methodology requirements.
 
 ## Realization and acceptance
 

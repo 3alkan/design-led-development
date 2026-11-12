@@ -21,11 +21,11 @@ Maintain DLD's identity, licensing, development rules, and release history. Sepa
 
 ## Decisions and rationale
 
-- **R-D1:** The root README is development-facing; an adopter-facing README is maintained separately.
-- **R-D2:** The manifest determines distribution boundaries, not the directory containing a source.
-- **R-D3:** Releases are assembled and verified before an authorized tag/publication operation.
-- **R-D4:** Text-format rule TXT-001 is development governance; it does not become an additional adopter obligation.
-- **R-D5:** [LICENSE](LICENSE) is the legal source of licensing terms; [VERSION](VERSION) is the current distribution identifier. Neither requires duplicate declarations in source files.
+- **R-D1:** Maintain separate development and adopter READMEs because build instructions and repository governance should not be delivered as adopter instructions.
+- **R-D2:** Let the manifest determine distribution boundaries instead of assuming that everything in a source directory is product material; this preserves a single explicit authority for packaging.
+- **R-D3:** Keep assembly and verification separate from tagging and publication so a generated artifact cannot by itself imply human release authorization.
+- **R-D4:** Apply TXT-001 to maintained repository sources only; adopters should not inherit DLD's development conventions as new methodology obligations.
+- **R-D5:** Keep [LICENSE](LICENSE) and [VERSION](VERSION) as their respective authoritative sources; repeated headers and embedded version declarations would create avoidable synchronization work.
 
 ## Realization and acceptance
 

@@ -20,8 +20,8 @@ Define a domain-independent human–AI agreement governing authority and conduct
 
 ## Decisions and rationale
 
-- **C-D1:** One compact human–AI contract applies across domains; DLD adds software-engineering-specific obligations separately.
-- **C-D2:** The contract specifies behavioral boundaries rather than a mandatory interaction protocol or decision-record format.
+- **C-D1:** Keep a compact, domain-independent human–AI contract so the same authority and conduct boundaries can be applied outside software engineering; place DLD-specific procedure in the methodology to avoid coupling the contract to one domain.
+- **C-D2:** Specify behavioral boundaries rather than a mandatory interaction protocol or decision-record format, allowing different projects and tools to meet the same obligations.
 
 ## Realization and acceptance
 

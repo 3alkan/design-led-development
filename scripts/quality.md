@@ -22,10 +22,10 @@ Provide evidence of technical conformance and product suitability. This scope ve
 
 ## Decisions and rationale
 
-- **V-D1:** Checks run locally in PowerShell 7; the current project does not depend on hosted CI.
+- **V-D1:** Use local PowerShell 7 checks so contributors can validate source archives or checkouts without a hosted CI service or added tooling dependencies.
 - **V-D2:** TXT-001 checks maintained sources rather than Git's index, so downloaded source archives work.
-- **V-D3:** Run functional packaging tests in a temporary directory; generated release artifacts belong to distribution, not test code.
-- **V-D4:** Maintain one compact test script until the test suite warrants separate ownership.
+- **V-D3:** Use a temporary fixture for packaging tests to avoid replacing a contributor's actual release artifacts during negative tests.
+- **V-D4:** Keep one script-test entry point while its responsibilities remain small; splitting it now would add navigation and maintenance overhead.
 
 ## Realization and acceptance
 
