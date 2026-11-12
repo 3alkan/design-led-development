@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 #Requires -Version 7.0
 <#
 .SYNOPSIS
@@ -21,18 +21,21 @@ Assert (@(Get-TextViolations ([byte[]](65,255,10)) 'invalid.md') -contains 'Inva
 Assert (@(Get-TextViolations ([byte[]](0,255,13)) 'image.dat').Count -eq 0) 'binary exemption'
 
 $root = Split-Path $PSScriptRoot -Parent
+Assert ([IO.File]::ReadAllText((Join-Path $root 'LICENSE')).StartsWith("MIT License" + [char]10)) 'MIT license text'
+Assert (-not [IO.File]::Exists((Join-Path $root 'LICENSE-CC0'))) 'obsolete CC0 license removed'
+Assert (-not ([IO.File]::ReadAllText((Join-Path $root 'product.toml')).Contains('LICENSE-CC0'))) 'manifest excludes obsolete license'
 Assert (Test-RepositoryText $root) 'current tracked text'
 
-# Check recognized SPDX header syntax. License assignment changes require human review.
-$withoutHeader = @('LICENSE', 'LICENSE-CC0', 'VERSION')
+# Check that original source files consistently declare MIT.
+$withoutHeader = @('LICENSE', 'VERSION')
 foreach ($path in @(Get-SourceFiles $root)) {
     $relative = [IO.Path]::GetRelativePath($root, $path).Replace([char]92, [char]47)
     if ($relative -in $withoutHeader) { continue }
     $firstLine = [IO.File]::ReadLines($path) | Select-Object -First 1
     if ($relative.EndsWith('.md')) {
-        Assert ($firstLine -cmatch '^<!-- SPDX-License-Identifier: (GPL-3\.0-only|CC0-1\.0) -->$') "recognized SPDX license notice: $relative"
+        Assert ($firstLine -cmatch '^<!-- SPDX-License-Identifier: MIT -->$') "MIT SPDX license notice: $relative"
     } else {
-        Assert ($firstLine -cmatch '^# SPDX-License-Identifier: (GPL-3\.0-only|CC0-1\.0)$') "recognized SPDX license notice: $relative"
+        Assert ($firstLine -cmatch '^# SPDX-License-Identifier: MIT$') "MIT SPDX license notice: $relative"
     }
 }
 

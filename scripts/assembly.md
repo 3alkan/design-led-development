@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: GPL-3.0-only -->
+<!-- SPDX-License-Identifier: MIT -->
 # Distribution Scope — Design
 
 **Status:** Proposed for reconciliation
