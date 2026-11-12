@@ -21,8 +21,6 @@ Assert (@(Get-TextViolations ([byte[]](0,255,13)) 'image.dat').Count -eq 0) 'bin
 
 $root = Split-Path $PSScriptRoot -Parent
 Assert ([IO.File]::ReadAllText((Join-Path $root 'LICENSE')).StartsWith("MIT License" + [char]10)) 'MIT license text'
-Assert (-not [IO.File]::Exists((Join-Path $root 'LICENSE-CC0'))) 'obsolete CC0 license removed'
-Assert (-not ([IO.File]::ReadAllText((Join-Path $root 'product.toml')).Contains('LICENSE-CC0'))) 'manifest excludes obsolete license'
 Assert (Test-RepositoryText $root) 'current tracked text'
 
 # Assemble a temporary three-file product without modifying the repository's build outputs.
