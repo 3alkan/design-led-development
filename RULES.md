@@ -1,4 +1,3 @@
-<!-- SPDX-License-Identifier: MIT -->
 # DLD Development Rules
 
 ## TXT-001 — Maintained text encoding and line endings

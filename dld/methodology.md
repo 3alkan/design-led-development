@@ -1,4 +1,3 @@
-<!-- SPDX-License-Identifier: MIT -->
 # Methodology Scope — Design
 
 **Status:** Proposed for reconciliation

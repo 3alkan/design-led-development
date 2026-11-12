@@ -1,4 +1,3 @@
-<!-- SPDX-License-Identifier: MIT -->
 # Design-Led Development
 
 ## 1. Purpose

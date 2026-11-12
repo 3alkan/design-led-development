@@ -1,4 +1,3 @@
-<!-- SPDX-License-Identifier: MIT -->
 # Human–AI Collaboration Contract
 
 ## Purpose

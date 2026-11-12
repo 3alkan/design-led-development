@@ -1,3 +1,2 @@
-# SPDX-License-Identifier: MIT
 # Normalize maintained text to LF when Git checks it out or adds it.
 * text=auto eol=lf

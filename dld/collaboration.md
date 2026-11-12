@@ -1,4 +1,3 @@
-<!-- SPDX-License-Identifier: MIT -->
 # Contract Scope — Design
 
 **Status:** Proposed for reconciliation

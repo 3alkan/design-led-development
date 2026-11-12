@@ -1,4 +1,3 @@
-<!-- SPDX-License-Identifier: MIT -->
 # DLD Development — Project Design
 
 **Status:** Proposed for reconciliation
