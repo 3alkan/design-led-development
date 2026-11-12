@@ -5,7 +5,7 @@
 #>
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
-. (Join-Path $PSScriptRoot 'check-text-format.ps1')
+. (Join-Path $PSScriptRoot 'validate-text-format.ps1')
 . (Join-Path $PSScriptRoot 'package.ps1')
 
 function Assert([bool] $Condition, [string] $Message) {
@@ -24,6 +24,9 @@ Assert ([IO.File]::Exists((Join-Path $root 'LICENSE')) -and ([IO.File]::ReadAllT
 $manifestText = [IO.File]::ReadAllText((Join-Path $root 'product.toml'))
 Assert ($manifestText.Contains('source = "LICENSE"' + [char]10 + 'destination = "LICENSE"')) 'root license mapped into product'
 Assert (Test-RepositoryText $root) 'current tracked text'
+$actualMappings = @(Read-ProductManifest $root)
+Assert (@($actualMappings | Where-Object { $_.destination -eq 'LICENSE' }).Count -eq 1) 'real manifest maps license'
+Assert (@($actualMappings | Where-Object { $_.destination -eq 'dld/DLD.md' }).Count -eq 1) 'real manifest maps methodology'
 
 # Assemble a temporary three-file product without modifying the repository's build outputs.
 $fixture = Join-Path ([IO.Path]::GetTempPath()) ('dld-package-test-' + [guid]::NewGuid().ToString('N'))
@@ -136,4 +139,4 @@ destination = "selected/"
     if ([IO.Directory]::Exists($fixture)) { [IO.Directory]::Delete($fixture, $true) }
 }
 
-Write-Host 'Local validation tests passed.'
+Write-Host 'Script tests passed.'

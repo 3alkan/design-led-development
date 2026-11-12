@@ -16,8 +16,8 @@ Transform maintained DLD product sources into a reproducible, verifiable distrib
 | P-04 | Validate local Markdown references against the assembled layout and prevent escaping the product boundary. | Product link check |
 | P-05 | Use the root version identifier to name the versioned ZIP and one containing directory; include the selected version file. | Version parsing, ZIP creation |
 | P-06 | Generate deterministic ZIP ordering, metadata, and payloads for identical inputs. | Sorted entries, fixed timestamps |
-| P-07 | Verify ZIP membership and payload correspondence, and emit a SHA-256 checksum. | Archive re-read and checksum |
-| P-08 | Preserve previous successful managed outputs when validation fails; stage before replacement and attempt rollback on replacement errors. | Build staging and rollback |
+| P-07 | Emit a SHA-256 checksum for the ZIP. | ZIP checksum |
+| P-08 | Validate the staged package before replacing generated outputs. Report replacement failures; generated outputs can be rebuilt. | Build staging |
 | P-09 | Work locally with PowerShell 7 and built-in platform functionality; no CI service dependency. | `scripts/package.ps1` |
 
 ## Decisions and rationale
@@ -26,9 +26,9 @@ Transform maintained DLD product sources into a reproducible, verifiable distrib
 - **P-D2:** Stage assembled files in `build/`; the working product, ZIP, and checksum are generated outputs, not repository sources.
 - **P-D3:** ZIP entry content is stored without compression to make deterministic output simple; compression ratio is not an acceptance goal.
 - **P-D4:** The archive uses `dld-v<VERSION>/` as its top-level directory, while `build/product/` contains the unwrapped product tree.
-- **P-D5:** Fail before replacing good outputs where possible. Multi-file output replacement is best-effort transactional rather than filesystem-atomic.
+- **P-D5:** Finish validation before replacing generated outputs. Replacement is not transactional; a failure can leave partial outputs that must be rebuilt.
 
 ## Realization and acceptance
 
-The assembled file set must equal the manifest destinations exactly; product copies match source bytes; no product-local Markdown links are broken. Repeated packaging of identical inputs must produce identical SHA-256 digests. Invalid manifests, broken links, and unsafe paths must fail without replacing previously valid outputs. A real PowerShell 7 run is needed to establish execution evidence.
+The assembled file set must equal the manifest destinations exactly; product copies match source bytes; no product-local Markdown links are broken. Repeated packaging of identical inputs must produce identical SHA-256 digests. Invalid manifests, broken links, and unsafe paths must be rejected before replacing existing outputs. A real PowerShell 7 run is needed to establish execution evidence.
 

@@ -16,7 +16,7 @@ Scope boundaries follow engineering responsibility. The linked scope designs own
 | DLD methodology | [Methodology design](dld/methodology.md) | `dld/DLD.md` |
 | Adoption and context | [Adoption design](product-files/adoption.md) | Registries, product README, supporting materials |
 | Distribution | [Distribution design](scripts/assembly.md) | `product.toml`, `scripts/package.ps1` |
-| Verification and validation | [Assurance design](scripts/quality.md) | `scripts/test.ps1`, `scripts/check-text-format.ps1` |
+| Verification and validation | [Assurance design](scripts/quality.md) | `scripts/test-scripts.ps1`, `scripts/validate-text-format.ps1` |
 | Release and governance | [Release design](release-policy.md) | Version, licenses, changelog, development README and configuration |
 
 ## Project requirements

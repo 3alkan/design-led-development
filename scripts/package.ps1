@@ -239,7 +239,6 @@ function Invoke-DldPackage([string] $Root) {
     }
     [IO.Directory]::CreateDirectory($build) | Out-Null
     $stage = Join-Path $build ('.stage-' + [guid]::NewGuid().ToString('N'))
-    $keepStage = $false
     try {
         $product = Join-Path $stage 'product'
         [IO.Directory]::CreateDirectory($product) | Out-Null
@@ -271,26 +270,6 @@ function Invoke-DldPackage([string] $Root) {
             } finally { $zip.Dispose() }
         } finally { $stream.Dispose() }
 
-        $zip = [IO.Compression.ZipFile]::OpenRead($archive)
-        try {
-            $wanted = @($files | ForEach-Object { "dld-v$version/$($_.destination)" } | Sort-Object -CaseSensitive)
-            $found = @($zip.Entries | ForEach-Object { $_.FullName } | Sort-Object -CaseSensitive)
-            if ([string]::Join([char]10,$wanted) -cne [string]::Join([char]10,$found)) {
-                throw 'Archive contents differ from manifest'
-            }
-            foreach ($entry in $zip.Entries) {
-                $relative = $entry.FullName.Substring(("dld-v$version/").Length)
-                $entryStream = $entry.Open()
-                try {
-                    $entryHash = (Get-FileHash -InputStream $entryStream -Algorithm SHA256).Hash
-                } finally { $entryStream.Dispose() }
-                $fileHash = (Get-FileHash -LiteralPath (Join-Path $product $relative) -Algorithm SHA256).Hash
-                if ($entryHash -cne $fileHash) {
-                    throw "Archive payload mismatch: $relative"
-                }
-            }
-        } finally { $zip.Dispose() }
-
         $digest = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash.ToLowerInvariant()
         [IO.File]::WriteAllText((Join-Path $stage $sumName),
             "$digest  $name" + [char]10, [Text.UTF8Encoding]::new($false))
@@ -306,34 +285,14 @@ function Invoke-DldPackage([string] $Root) {
                 }
             }
         }
-        $backup = Join-Path $stage '.previous'
-        [IO.Directory]::CreateDirectory($backup) | Out-Null
-        $old = [Collections.Generic.List[string]]::new()
-        $new = [Collections.Generic.List[string]]::new()
-        try {
-            foreach ($outputName in $outputs) {
-                $existingPath = Join-Path $build $outputName
-                if (Test-Path -LiteralPath $existingPath) {
-                    Move-Item -LiteralPath $existingPath -Destination (Join-Path $backup $outputName)
-                    $old.Add($outputName)
-                }
+        # Outputs are regenerable. Validation completes before the existing outputs
+        # are replaced; a replacement error is reported rather than rolled back.
+        foreach ($outputName in $outputs) {
+            $existingPath = Join-Path $build $outputName
+            if (Test-Path -LiteralPath $existingPath) {
+                Remove-Item -LiteralPath $existingPath -Recurse -Force
             }
-            foreach ($outputName in $outputs) {
-                Move-Item -LiteralPath (Join-Path $stage $outputName) -Destination (Join-Path $build $outputName)
-                $new.Add($outputName)
-            }
-        } catch {
-            $keepStage = $true
-            foreach ($outputName in $new) {
-                Remove-Item -LiteralPath (Join-Path $build $outputName) -Recurse -Force -ErrorAction Continue
-            }
-            foreach ($outputName in $old) {
-                $saved = Join-Path $backup $outputName
-                if (Test-Path -LiteralPath $saved) {
-                    Move-Item -LiteralPath $saved -Destination (Join-Path $build $outputName) -ErrorAction Continue
-                }
-            }
-            throw "Publishing staged outputs failed; rollback attempted: $_"
+            Move-Item -LiteralPath (Join-Path $stage $outputName) -Destination $existingPath
         }
 
         Write-Host "Validated DLD $version"
@@ -341,7 +300,7 @@ function Invoke-DldPackage([string] $Root) {
         Write-Host "Archive: $(Join-Path $build $name)"
         Write-Host "SHA-256: $digest"
     } finally {
-        if (-not $keepStage -and (Test-Path -LiteralPath $stage)) {
+        if (Test-Path -LiteralPath $stage) {
             Remove-Item -LiteralPath $stage -Recurse -Force
         }
     }
