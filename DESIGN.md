@@ -25,6 +25,7 @@ Scope boundaries follow engineering responsibility. The linked scope designs own
 2. Separate development-only context from adopter-facing material.
 3. Assemble and verify only the files selected in [product.toml](product.toml).
 4. Keep scope ownership, dependencies, verification, and release authority discoverable.
+5. Give maintained facts, rules, and configuration a single authoritative owner wherever practical. Other scopes reference or consume that owner rather than independently declaring the same decision; context registries retain their distinct discovery responsibility.
 
 ## Scope dependencies
 

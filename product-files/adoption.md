@@ -16,7 +16,7 @@ This scope owns the adopter introduction, editable registry template, and option
 | A-02 | Supply a project-neutral, editable context registry with links to the two normative documents and optional resources. | [Product registry](CONTEXT-REGISTRY.md) |
 | A-03 | Allow project sources anywhere in the repository; a registry entry must not imply approval. | Product registry; product README |
 | A-04 | Keep development-only navigation separate from distributed adopter context. | [Development registry](../dld/CONTEXT-REGISTRY.md); [manifest](../product.toml) |
-| A-05 | Provide an optional MIT-licensed rules template that an adopter can copy and modify in a project-owned location; the distributed source itself does not constitute adopted rules. | [Rules template](../dld/supporting/RULES.md) |
+| A-05 | Provide an optional rules template that an adopter can copy and modify in a project-owned location; the distributed source itself does not constitute adopted rules. | [Rules template](../dld/supporting/RULES.md) |
 | A-06 | Provide practical, technology-aware repository-layout suggestions without mandating a universal tree. | [Layout reference](../dld/supporting/repository-layout.md) |
 | A-07 | Explain that adopters maintain their own product versions and upgrade adopted normative DLD deliberately. | Product README |
 | A-08 | Offer a minimal-core design document example that scales with scope complexity, without imposing headings or a template on adopters. | [Design-document guidance](../dld/supporting/design-document.md) |
@@ -24,7 +24,7 @@ This scope owns the adopter introduction, editable registry template, and option
 ## Decisions and rationale
 
 - **A-D1:** The development registry and product registry are separate source files because their audiences differ; distribution maps the neutral source to the conventional `dld/CONTEXT-REGISTRY.md` destination.
-- **A-D2:** The context registry is edited in place; the rules template is copied into project ownership before editing. The repository's MIT license covers the original DLD materials.
+- **A-D2:** The context registry is edited in place; the rules template is copied into project ownership before editing.
 - **A-D3:** No starter project design or rules are automatically approved or prescribed.
 - **A-D4:** Supporting materials, including the design-document example, remain optional.
 

@@ -14,26 +14,25 @@ A design need not repeat applicable ancestor decisions. Shared concerns belong t
 ## Example
 
 ```markdown
-# Product Assembly
+# Notification Preferences
 
 ## Responsibility
-Assemble a versioned product from explicitly selected sources.
-Does not approve or publish releases.
+Manage a user's notification preferences.
+Does not deliver notifications.
 
 ## Intended Design
-- Only manifest-selected files enter the distribution.
-- Identical inputs produce identical archive bytes.
-- Missing or unsafe input is rejected without replacing good output.
+- Users can enable or disable email notifications.
+- Preferences are retained between sessions.
+- Notification delivery consults the stored preference.
 
 ## Decisions and Rationale
-- Use an explicit manifest to avoid accidental file inclusion.
-- Use reproducible ZIP metadata so identical inputs can be audited.
+- A single preference record is authoritative for each user.
+- Delivery services read that record instead of maintaining separate copies.
 - Approval: link the scope's human decision record when approved.
 
 ## Realization and Acceptance
-- Realization: product.toml, scripts/package.ps1
-- Acceptance: exact file membership, stable archive hash,
-  and negative tests for unsafe or missing input.
+- Realization: preference model, settings interface, and persistence layer.
+- Acceptance: settings survive restart and delivery respects the preference.
 ```
 
 ## Extend only when useful

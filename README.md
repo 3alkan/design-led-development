@@ -31,10 +31,8 @@ pwsh -NoProfile -File scripts/check-text-format.ps1
 pwsh -NoProfile -File scripts/package.ps1
 ```
 
-The [product manifest](product.toml) selects the distributed files and destinations explicitly. Packaging produces `build/product/`, a versioned ZIP, and a SHA-256 checksum. Development designs and other unselected files are not included in the product.
+[product.toml](product.toml) is the authoritative list of distributed files. The packager produces `build/product/`, a versioned ZIP, and a SHA-256 checksum.
 
 ## Versioning and licensing
 
-[VERSION](VERSION) identifies the DLD distribution, not an adopter's project version. See [release policy](release-policy.md) and [CHANGELOG.md](CHANGELOG.md); packaging, merging, and publishing are separate decisions.
-
-The repository's original DLD material is covered by the root [MIT License](LICENSE). Redistribution of copies or substantial portions requires preserving the copyright and license notice. Adopters may use DLD in open-source or proprietary projects; independently developed adopter work is not automatically licensed by using DLD.
+The current distribution version is in [VERSION](VERSION); release history is in [CHANGELOG.md](CHANGELOG.md), and release decisions are governed by [release policy](release-policy.md). Original DLD material is licensed under [LICENSE](LICENSE).

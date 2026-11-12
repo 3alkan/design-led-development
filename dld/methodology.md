@@ -27,6 +27,7 @@ Define a design-authoritative, human-governed, AI-assisted method for the comple
 | M-15 | Require sufficient approved design before consequential realization while allowing authorized exploration and prototypes. | §§1, 3 |
 | M-16 | Support progressively deeper decomposition only when independent responsibility or change isolation warrants it. | §2 |
 | M-17 | Require sufficient scope identity, intended outcomes, consequential decisions with rationale, governed realizations, and conformity criteria, allowing inheritance and references without mandatory document format. | §2 |
+| M-18 | Favor a single identifiable source for maintained facts, configuration, rules, and decisions, with references or consumption rather than competing copies; allow justified duplication with consistency checks. | §2 |
 
 ## Decisions and rationale
 
@@ -38,6 +39,7 @@ Define a design-authoritative, human-governed, AI-assisted method for the comple
 - **M-D6:** Keep designs close to realizations when practical. Meaningful document names are preferred over obligatory `DESIGN` filenames or `.design` suffixes; ownership and references establish authority.
 - **M-D7:** File-level design is permissible but not the compulsory unit of design. Create another design scope only when independent decisions, responsibilities, or isolation warrant it.
 - **M-D8:** Standardize design information sufficiency, not document presentation; offer a minimal-core, expandable Markdown example as optional guidance.
+- **M-D9:** Minimize independently maintained truths without flattening design intent, normative obligations, and realization into one artifact. Context registries provide discovery and do not replace authoritative sources.
 
 ## Realization and acceptance
 
