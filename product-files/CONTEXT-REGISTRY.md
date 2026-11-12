@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: CC0-1.0 -->
+<!-- SPDX-License-Identifier: MIT -->
 # Context Registry
 
 This editable registry is the central discovery point for a project's relevant context. A reference makes material discoverable; it does not approve it or grant it authority.
