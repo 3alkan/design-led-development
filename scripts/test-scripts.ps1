@@ -20,7 +20,7 @@ Assert (@(Get-TextViolations ([byte[]](65,255,10)) 'invalid.md') -contains 'Inva
 Assert (@(Get-TextViolations ([byte[]](0,255,13)) 'image.dat').Count -eq 0) 'binary exemption'
 
 $root = Split-Path $PSScriptRoot -Parent
-Assert ([IO.File]::Exists((Join-Path $root 'LICENSE')) -and ([IO.File]::ReadAllText((Join-Path $root 'LICENSE')).Trim().Length -gt 0) 'root license present'
+Assert ([IO.File]::Exists((Join-Path $root 'LICENSE')) -and ([IO.File]::ReadAllText((Join-Path $root 'LICENSE')).Trim().Length -gt 0)) 'root license present'
 $manifestText = [IO.File]::ReadAllText((Join-Path $root 'product.toml'))
 Assert ($manifestText.Contains('source = "LICENSE"' + [char]10 + 'destination = "LICENSE"')) 'root license mapped into product'
 Assert (Test-RepositoryText $root) 'current tracked text'
