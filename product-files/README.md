@@ -1,20 +1,16 @@
 # Design-Led Development (DLD)
 
-DLD is a design-centered, human-authoritative, AI-assisted methodology for the software development lifecycle. It can be adopted incrementally in new or existing software projects.
+DLD is a design-centered, human-authoritative, AI-assisted methodology for software engineering across the full lifecycle. This distribution includes adoption instructions and a complete, versioned DLD dependency.
 
 ## Adopt DLD
 
-1. Keep the extracted DLD distribution intact as the release reference, including its `VERSION` and `LICENSE` files. Copy its `dld/` folder into your project or reconcile it with an existing installation. For redistribution conditions, see [LICENSE](LICENSE).
-2. Read the unchanged [Collaboration Contract](dld/CONTRACT.md) and [DLD Methodology](dld/DLD.md).
-3. Edit [Context Registry](dld/CONTEXT-REGISTRY.md) to reference your project's design, decisions, rules, evidence, and other relevant information wherever located.
-4. Follow the [methodology](dld/DLD.md) for governing design, approval, realization, verification, and continuity, under the [contract](dld/CONTRACT.md).
+1. Copy the complete [dld/](dld/) directory into your project's root (or reconcile an existing installation). Keep the installed dependency unchanged during ordinary project work.
+2. Read the [collaboration contract](dld/CONTRACT.md) and [methodology](dld/DLD.md). They govern human–AI authority, design, implementation, evidence, and upgrades.
+3. Keep project-owned designs, rules, and context outside the installed `dld/` directory. Make governing information discoverable using a means appropriate to the project.
+4. Optionally copy the [Context Registry template](dld/supporting/CONTEXT-REGISTRY.md) to `CONTEXT-REGISTRY.md` in the project root and customize it there. The template assumes the DLD dependency is installed in `dld/` at the root; an equivalent discovery system is also valid.
 
-The [supporting materials](dld/supporting/) are optional. For project-specific rules, copy and adapt the [rules template](dld/supporting/RULES.md); binding rules require human approval. An optional [design-document example](dld/supporting/design-document.md) is also available. Keep project-owned sources separate from the distributed DLD files.
+Optional [supporting guidance](dld/supporting/) includes a [rules template](dld/supporting/RULES.md), [design-document example](dld/supporting/design-document.md), and [repository-layout reference](dld/supporting/repository-layout.md). Copy or adapt templates into project-owned locations as useful; they are not additional obligations.
 
-## Version and adoption
+## Version, history, and license
 
-Use the distributed [VERSION](VERSION) as the adopted DLD baseline and record it in your project context, independently of your product version. The [methodology](dld/DLD.md#7-adoption-and-evolution) governs deliberate upgrades.
-
-## License
-
-See [LICENSE](LICENSE) for the license and redistribution terms of original DLD material.
+The dependency's authoritative [VERSION](dld/VERSION), [CHANGELOG](dld/CHANGELOG.md), and [LICENSE](dld/LICENSE) travel with `dld/`. Your own project's version and history remain independent. Review the [methodology's upgrade guidance](dld/DLD.md#7-adoption-and-evolution) before replacing an adopted version.

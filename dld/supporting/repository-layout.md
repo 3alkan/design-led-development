@@ -7,15 +7,18 @@ DLD does not prescribe a universal repository tree. Begin with your language and
 ```text
 project/
 ├── README.md
-├── dld/
-│   ├── CONTEXT-REGISTRY.md
+├── CONTEXT-REGISTRY.md    # Optional project-owned registry
+├── dld/                   # Unchanged DLD dependency
+│   ├── VERSION
+│   ├── LICENSE
+│   ├── CHANGELOG.md
 │   ├── CONTRACT.md
 │   ├── DLD.md
 │   └── supporting/
 └── ...project files
 ```
 
-Use the editable `dld/CONTEXT-REGISTRY.md` to locate design, decisions, rules, evidence, and dependencies maintained elsewhere in the project.
+Use a project-owned discovery mechanism for designs, decisions, rules, evidence, and dependencies. The optional [Context Registry template](CONTEXT-REGISTRY.md) suggests `CONTEXT-REGISTRY.md` at the project root with `dld/` installed alongside it. Copy the template outside `dld/` before editing it; other mechanisms are permitted.
 
 ## Extend by responsibility
 

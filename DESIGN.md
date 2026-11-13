@@ -10,7 +10,7 @@ Develop and distribute DLD as a coherent, design-led, human-authoritative, AI-as
 
 1. Maintain the [contract](dld/CONTRACT.md) and [methodology](dld/DLD.md) as the foundational sources of DLD, with their content preserved in distribution; neither needs a separate design counterpart.
 2. Separate development context from adopter-facing content.
-3. Keep distributed content explicitly selected, identifiable, and verifiable.
+3. Keep distributed content explicitly selected, identifiable, and verifiable, with a user-facing introduction and an unchanged, self-contained `dld/` dependency.
 4. Make this project's responsibility boundaries and dependencies discoverable.
 5. Maintain developer-facing navigation and repository conventions without imposing those conventions on adopting projects.
 
@@ -20,7 +20,7 @@ Prefer the simplest conventional solution sufficient for the responsibility and 
 
 ## Decisions and rationale
 
-- **Separate development and adoption context.** The development project and adopting projects have different governing information. Mixing their introductions, registries, or rules would blur authority.
+- **Three distinct layouts.** Development owns its source and tooling; distribution contains an introductory README and a versioned `dld/` dependency; adopting projects own their context outside the unchanged installed directory. Separate developer and adopter registries prevent competing authority.
 - **Explicit distribution membership.** Selection is governed by [distribution design](scripts/assembly.md) rather than inferred from directory placement, allowing development material to coexist with product sources.
 - **Project-owned conventions.** Repository navigation, text rules, and configuration serve DLD development; they are not methodology obligations for adopters.
 

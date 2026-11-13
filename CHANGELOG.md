@@ -2,6 +2,28 @@
 
 This file records the release history of Design-Led Development (DLD).
 
+## 0.1.7
+
+### Development repository changes
+- Establish three explicit layouts for DLD development, distribution, and adopting projects, with one source of truth for each maintained file.
+- Update the distribution manifest, packaging validation, and script tests for a self-contained `dld/` dependency.
+
+### Product changes
+- Package a top-level adoption `README.md` beside a self-contained `dld/` directory containing `VERSION`, `LICENSE`, `CHANGELOG.md`, the contract, the methodology, and optional supporting material.
+- Provide a project-root Context Registry template under `dld/supporting/` instead of shipping a project-editable registry inside the installed dependency.
+- Keep discoverability normative but the root registry convention optional; remove the methodology's dependency on a specific registry filename.
+
+### Adopting project impact
+- Existing projects can keep their current context discovery mechanism; the revised layout makes the installed `dld/` directory replaceable without modifying project-owned files.
+- The default recommended setup maintains a project-owned `CONTEXT-REGISTRY.md` at the root and leaves the entire `dld/` directory unchanged.
+
+### Developer upgrade guidance
+- Use the revised `product.toml`, packaging script, and tests together. Build and verify with PowerShell 7 before tagging and publishing.
+
+### Adopter upgrade guidance
+- Retain or reconcile project-owned context and rules, then install the complete new `dld/` directory; copy the optional supporting registry template to the project root only if useful.
+- Review changes in the adopted contract and methodology before upgrading, as required by DLD.
+
 ## 0.1.6 — Released (`v0.1.6`)
 
 - Unify original DLD sources and adopter templates under the MIT License; remove per-file SPDX notices and align the product manifest, documentation, and license checks.

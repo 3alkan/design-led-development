@@ -23,6 +23,7 @@ This editable registry is the central discovery point for context relevant to th
 | [Development README](../README.md) | Repository introduction, navigation, and development commands |
 | [Product manifest](../product.toml) | Explicit distribution membership and file destinations |
 | [Product introduction](../product-files/README.md) | Maintained introduction delivered to adopters |
+| [Adopter registry template](supporting/CONTEXT-REGISTRY.md) | Optional project-root context convention, copied outside installed `dld/` |
 | [Changelog](../CHANGELOG.md) | Release history and pending changes |
 
 Before consequential work, identify relevant scope, decisions, approvals, constraints, and evidence. Distinguish draft intent, past implementation, and approved content. Expand context to other project files as relevant.

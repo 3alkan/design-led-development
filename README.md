@@ -18,7 +18,7 @@ The development repository contains additional files not included in the adopter
 
 - [Collaboration contract](dld/CONTRACT.md) — general human–AI authority and conduct.
 - [DLD methodology](dld/DLD.md) — design ownership, approval, realization, evidence, and evolution.
-- [Supporting materials](dld/supporting/) — optional design and repository guidance.
+- [Supporting materials](dld/supporting/) — optional design, repository, rules, and root Context Registry templates.
 - [Context Registry](dld/CONTEXT-REGISTRY.md) — discovery of the development project's governing context, distinct from README navigation.
 
 ## Repository structure
@@ -51,7 +51,7 @@ pwsh -NoProfile -File scripts/validate-text-format.ps1
 pwsh -NoProfile -File scripts/package.ps1
 ```
 
-The packager reads [product.toml](product.toml), the authoritative source for distributed file membership. It generates `build/product/`, a versioned ZIP, and its SHA-256 checksum. Development-only files are excluded unless selected by the manifest.
+The packager reads [product.toml](product.toml), the authoritative source for distributed file membership. It generates `build/product/` containing an adoption README and a complete `dld/` dependency (including its version, license, and changelog), plus a versioned ZIP and SHA-256 checksum. Development-only files are excluded unless selected by the manifest.
 
 ## Releases
 

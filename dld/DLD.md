@@ -57,7 +57,7 @@ Before consequential changes, assess reasonably discoverable effects on governin
 
 Before consequential work, reconstruct sufficient authoritative context for the active scope. Start with the contract, methodology, applicable ancestor and local designs, approvals, and constraints; expand to affected cross-scope dependencies and history as needed. A scope should be understandable with its governing context without loading every unrelated scope.
 
-The editable [Context Registry](CONTEXT-REGISTRY.md) helps locate project-owned design, rules, decisions, and evidence wherever they reside. Registration aids discovery but does not confer authority.
+A project's governing designs, rules, decisions, and evidence MUST remain discoverable through an identifiable project-appropriate mechanism. The optional [Context Registry template](supporting/CONTEXT-REGISTRY.md) illustrates a project-root convention, but no registry filename, location, or format is required. Registration aids discovery but does not confer authority.
 
 Keep material open decisions, incomplete work, inconsistencies, and evidence discoverable across handoffs. Summaries and AI memory supplement, but do not replace, authoritative project records.
 

@@ -14,10 +14,6 @@ source = "product-files/README.md"
 destination = "README.md"
 
 [[files]]
-source = "product-files/CONTEXT-REGISTRY.md"
-destination = "dld/CONTEXT-REGISTRY.md"
-
-[[files]]
 source = "dld/CONTRACT.md"
 destination = "dld/CONTRACT.md"
 
@@ -31,13 +27,13 @@ destination = "dld/supporting/"
 
 [[files]]
 source = "VERSION"
-destination = "VERSION"
+destination = "dld/VERSION"
 
 [[files]]
 source = "CHANGELOG.md"
-destination = "CHANGELOG.md"
+destination = "dld/CHANGELOG.md"
 
 [[files]]
 source = "LICENSE"
-destination = "LICENSE"
+destination = "dld/LICENSE"
 
