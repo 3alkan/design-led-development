@@ -15,8 +15,6 @@ This editable registry is the central discovery point for context relevant to th
 | Source | Responsibility |
 | --- | --- |
 | [Development design](../DESIGN.md) | Project-level architecture and governing scope decisions (proposed) |
-| [Contract scope design](collaboration.md) | Intended contract behavior and constraints |
-| [Methodology scope design](methodology.md) | Intended methodology and approval model |
 | [Adoption scope design](../product-files/adoption.md) | Context, adopter guidance, and supporting materials |
 | [Distribution scope design](../scripts/assembly.md) | Manifest, packaging, and reproducibility |
 | [Assurance scope design](../scripts/quality.md) | Verification, validation, and evidence |

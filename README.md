@@ -23,12 +23,12 @@ The development repository contains additional files not included in the adopter
 
 ## Repository structure
 
-This repository **develops and distributes DLD**. The [project design](DESIGN.md) owns the overall development architecture; each scope design governs its realizations.
+This repository **develops and distributes DLD**. The [contract](dld/CONTRACT.md) and [methodology](dld/DLD.md) are foundational sources in their own right; the [project design](DESIGN.md) governs repository-specific responsibilities.
 
 | Responsibility | Design | Main realization |
 | --- | --- | --- |
-| Human–AI collaboration | [Contract design](dld/collaboration.md) | [CONTRACT.md](dld/CONTRACT.md) |
-| Software engineering methodology | [Methodology design](dld/methodology.md) | [DLD.md](dld/DLD.md) |
+| Human–AI collaboration | Foundational source | [CONTRACT.md](dld/CONTRACT.md) |
+| DLD methodology | Foundational source | [DLD.md](dld/DLD.md) |
 | Adoption and project context | [Adoption design](product-files/adoption.md) | [Adopter files](product-files/) and [supporting guidance](dld/supporting/) |
 | Product distribution | [Assembly design](scripts/assembly.md) | [Manifest](product.toml) and [packager](scripts/package.ps1) |
 | Verification and validation | [Quality design](scripts/quality.md) | [Script tests](scripts/test-scripts.ps1) and [text validator](scripts/validate-text-format.ps1) |
