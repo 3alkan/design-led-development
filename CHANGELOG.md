@@ -1,8 +1,8 @@
 # Changelog
 
-This file records the ongoing history of Design-Led Development (DLD). The v0.1.5 work continues the existing v0.1.4 release series.
+This file records the release history of Design-Led Development (DLD).
 
-## 0.1.5 — Prepared for release
+## 0.1.6 — Prepared for release
 
 - Unify original DLD sources and adopter templates under the MIT License; remove per-file SPDX notices and align the product manifest, documentation, and license checks.
 - Establish one-source-of-truth guidance for maintained information and replace repeated licensing, version, and methodology instructions with references while retaining context registries.
@@ -13,13 +13,17 @@ This file records the ongoing history of Design-Led Development (DLD). The v0.1.
 - Document proportionate repository authoring and abstract-first design guidance; align README and context-registry scope descriptions.
 - Treat the contract and methodology as self-authoritative foundational sources, remove redundant companion designs, and make development scopes inherit rather than restate their obligations.
 
+Release tag `v0.1.6` and publication are pending. Script verification remains to be performed by the maintainer.
+
+## 0.1.5 — Released (`v0.1.5`)
+
 - Reorganize the DLD foundation around a human–AI contract and a design-led software engineering methodology.
 - Provide a project-editable context registry, optional supporting materials, and separate development and adopter registry sources.
 - Define product contents through `product.toml` and assemble them using local PowerShell tooling.
 - Validate maintained text formatting (TXT-001) and provide local packaging tests.
 - Adopt SemVer-style versions while preserving the release history through v0.1.4.
 
-This version is prepared for publication; the release date and tag are pending.
+Release tag: `v0.1.5`.
 
 ## 0.1.4 — 2026-11-06
 
