@@ -15,7 +15,7 @@ Verify this repository's maintained sources and distribution artifacts, and supp
 | V-03 | Automated checks distinguish conforming text from relevant encoding and line-ending violations. |
 | V-04 | Packaging behavior is testable without changing actual release outputs. |
 | V-05 | Checks cover ordinary packaging success, reproducibility, invalid selections, and broken internal references. |
-| V-08 | Distribution checks include the applicable license material without duplicating its legal terms. |
+| V-08 | Distribution checks ensure the self-contained `dld/` dependency includes version, history, license, normative files, and optional registry guidance without a project-owned registry inside the dependency. |
 | V-09 | Review repository-specific design consistency against governing sources and scope responsibilities. |
 
 ## Decisions and rationale
@@ -28,4 +28,4 @@ Verify this repository's maintained sources and distribution artifacts, and supp
 
 [Development rules](../RULES.md) own the text constraints. [Text validator](validate-text-format.ps1) checks maintained sources, and [script tests](test-scripts.ps1) exercise formatting and packaging behavior. [Packager](package.ps1) produces the artifacts under test. The [optional design guide](../dld/supporting/design-document.md) illustrates governing information without imposing a template.
 
-Verify that conforming sources pass, expected invalid cases fail, tests avoid changing real release outputs, and relevant license content is selected in the [manifest](../product.toml). Review agreement between foundational sources and repository-specific designs, and assess suitability through representative adoption. Record test evidence and limitations according to the [methodology](../dld/DLD.md).
+Verify that conforming sources pass, expected invalid cases fail, tests avoid changing real release outputs, and the [manifest](../product.toml) selects the complete dependency, with `dld/VERSION` matching the repository's release identity. Review agreement between foundational sources and repository-specific designs, and assess suitability through representative adoption. Record test evidence and limitations according to the [methodology](../dld/DLD.md).

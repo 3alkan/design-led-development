@@ -22,10 +22,14 @@ Assert (@(Get-TextViolations ([byte[]](0,255,13)) 'image.dat').Count -eq 0) 'bin
 $root = Split-Path $PSScriptRoot -Parent
 Assert ([IO.File]::Exists((Join-Path $root 'LICENSE')) -and ([IO.File]::ReadAllText((Join-Path $root 'LICENSE')).Trim().Length -gt 0)) 'root license present'
 $manifestText = [IO.File]::ReadAllText((Join-Path $root 'product.toml'))
-Assert ($manifestText.Contains('source = "LICENSE"' + [char]10 + 'destination = "LICENSE"')) 'root license mapped into product'
+Assert ($manifestText.Contains('source = "LICENSE"' + [char]10 + 'destination = "dld/LICENSE"')) 'license mapped into dependency'
 Assert (Test-RepositoryText $root) 'current tracked text'
 $actualMappings = @(Read-ProductManifest $root)
-Assert (@($actualMappings | Where-Object { $_.destination -eq 'LICENSE' }).Count -eq 1) 'real manifest maps license'
+Assert (@($actualMappings | Where-Object { $_.destination -eq 'dld/LICENSE' }).Count -eq 1) 'real manifest maps dependency license'
+Assert (@($actualMappings | Where-Object { $_.destination -eq 'dld/VERSION' }).Count -eq 1) 'real manifest maps dependency version'
+Assert (@($actualMappings | Where-Object { $_.destination -eq 'dld/CHANGELOG.md' }).Count -eq 1) 'real manifest maps dependency history'
+Assert (@($actualMappings | Where-Object { $_.destination -eq 'dld/supporting/CONTEXT-REGISTRY.md' }).Count -eq 1) 'real manifest maps optional registry template'
+Assert (@($actualMappings | Where-Object { $_.destination -eq 'dld/CONTEXT-REGISTRY.md' }).Count -eq 0) 'no mutable registry inside dependency'
 Assert (@($actualMappings | Where-Object { $_.destination -eq 'dld/DLD.md' }).Count -eq 1) 'real manifest maps methodology'
 
 # Assemble a temporary three-file product without modifying the repository's build outputs.
@@ -54,7 +58,7 @@ destination = "dld/DLD.md"
 
 [[files]]
 source = "VERSION"
-destination = "VERSION"
+destination = "dld/VERSION"
 '@
     [IO.File]::WriteAllText((Join-Path $fixture 'product.toml'), $manifest + [char]10, $utf8)
 
@@ -62,6 +66,8 @@ destination = "VERSION"
     $archive = Join-Path $fixture ("build/dld-v$fixtureVersion.zip")
     $checksum = "$archive.sha256"
     Assert ([IO.File]::Exists($archive) -and [IO.File]::Exists($checksum)) 'package and checksum generated'
+    Assert ([IO.File]::Exists((Join-Path $fixture 'build/product/dld/VERSION'))) 'dependency version included'
+    Assert (-not [IO.File]::Exists((Join-Path $fixture 'build/product/VERSION'))) 'no duplicate version at product root'
     $originalHash = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash
     Invoke-DldPackage $fixture
     Assert ((Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash -ceq $originalHash) 'reproducible archive'

@@ -171,8 +171,8 @@ function Read-ProductManifest([string] $Root) {
             $expanded.Add($file)
         }
     }
-    if (-not $destinations.Contains('README.md') -or -not $destinations.Contains('VERSION')) {
-        throw 'Manifest must include README.md and VERSION'
+    if (-not $destinations.Contains('README.md') -or -not $destinations.Contains('dld/VERSION')) {
+        throw 'Manifest must include README.md and dld/VERSION'
     }
     # A file must never be an ancestor of another file's destination.
     foreach ($file in $expanded) {
@@ -196,7 +196,7 @@ function Assert-Product([string] $Product, [object[]] $Files, [string] $Version)
     if ([string]::Join([char]10, $expected) -cne [string]::Join([char]10, $actual)) {
         throw 'Product contents differ from manifest'
     }
-    if ([IO.File]::ReadAllText((Join-Path $Product 'VERSION')).Trim() -cne $Version) {
+    if ([IO.File]::ReadAllText((Join-Path $Product 'dld/VERSION')).Trim() -cne $Version) {
         throw 'Product version mismatch'
     }
     $prefix = [IO.Path]::GetFullPath($Product).TrimEnd([IO.Path]::DirectorySeparatorChar) +
