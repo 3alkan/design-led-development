@@ -15,6 +15,10 @@ Develop and distribute DLD as a coherent, design-led, human-authoritative, AI-as
 5. Keep authoritative facts, rules, and configuration under identifiable ownership; distinguish context discovery from decision authority.
 6. Maintain developer-facing navigation and repository conventions without imposing those conventions on adopting projects.
 
+## Development approach
+
+Prefer the simplest conventional solution sufficient for the responsibility and its actual risks. Add files, abstractions, dependencies, safeguards, or checks only when they serve a meaningful need. Keep changes focused, writing clear, and each artifact's responsibility identifiable. The [methodology](dld/DLD.md#2-design-and-ownership) governs authoritative information and references; this project applies that guidance without duplicating its rules.
+
 ## Decisions and rationale
 
 - **Responsibility-based scopes.** Assign local decisions to the scope that can govern them coherently; project design holds shared boundaries. This allows changes without continually rewriting unrelated designs.

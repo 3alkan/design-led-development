@@ -20,9 +20,9 @@ This editable registry is the central discovery point for context relevant to th
 | [Adoption scope design](../product-files/adoption.md) | Context, adopter guidance, and supporting materials |
 | [Distribution scope design](../scripts/assembly.md) | Manifest, packaging, and reproducibility |
 | [Assurance scope design](../scripts/quality.md) | Verification, validation, and evidence |
-| [Release scope design](../release-policy.md) | Release identity, licensing, and repository governance |
+| [Release scope design](../release-policy.md) | Release identity, history, licensing, and publication authority |
 | [Development rules](../RULES.md) | Adopted development-only constraints, including TXT-001 |
-| [Development README](../README.md) | Repository navigation and versioning/licensing policy |
+| [Development README](../README.md) | Repository introduction, navigation, and development commands |
 | [Product manifest](../product.toml) | Explicit distribution membership and file destinations |
 | [Product introduction](../product-files/README.md) | Maintained introduction delivered to adopters |
 | [Changelog](../CHANGELOG.md) | Release history and pending changes |

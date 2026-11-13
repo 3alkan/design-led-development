@@ -9,6 +9,8 @@ What matters is that the authoritative design of a scope, including relevant inh
 3. **Decisions and rationale:** What consequential choices govern the scope, and why were they selected? Where are their approvals recorded?
 4. **Realization and acceptance:** What artifacts does the design govern, and how can conformity and intended usefulness be assessed?
 
+Write intended outcomes and constraints independently of implementation where practical; explain consequential choices and their rationale. Place specific artifacts and mechanisms in realization references unless a mechanism is itself an intentional design constraint. A design may be technically precise without becoming an implementation recipe.
+
 A design need not repeat applicable ancestor decisions. Shared concerns belong to the narrowest coherent governing owner; affected scopes reference them. A single design may govern multiple realizations, and a complex scope may split its design among several complementary artifacts.
 
 ## Example

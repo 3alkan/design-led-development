@@ -32,7 +32,7 @@ This repository **develops and distributes DLD**. The [project design](DESIGN.md
 | Adoption and project context | [Adoption design](product-files/adoption.md) | [Adopter files](product-files/) and [supporting guidance](dld/supporting/) |
 | Product distribution | [Assembly design](scripts/assembly.md) | [Manifest](product.toml) and [packager](scripts/package.ps1) |
 | Verification and validation | [Quality design](scripts/quality.md) | [Script tests](scripts/test-scripts.ps1) and [text validator](scripts/validate-text-format.ps1) |
-| Releases and governance | [Release design](release-policy.md) | [VERSION](VERSION), [CHANGELOG.md](CHANGELOG.md), and repository metadata |
+| Release governance | [Release design](release-policy.md) | [VERSION](VERSION), [CHANGELOG.md](CHANGELOG.md), and [LICENSE](LICENSE) |
 
 ## Development
 
