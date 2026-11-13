@@ -2,7 +2,7 @@
 
 This file records the release history of Design-Led Development (DLD).
 
-## 0.1.6 — Prepared for release
+## 0.1.6 — Released (`v0.1.6`)
 
 - Unify original DLD sources and adopter templates under the MIT License; remove per-file SPDX notices and align the product manifest, documentation, and license checks.
 - Establish one-source-of-truth guidance for maintained information and replace repeated licensing, version, and methodology instructions with references while retaining context registries.
@@ -13,7 +13,7 @@ This file records the release history of Design-Led Development (DLD).
 - Document proportionate repository authoring and abstract-first design guidance; align README and context-registry scope descriptions.
 - Treat the contract and methodology as self-authoritative foundational sources, remove redundant companion designs, and make development scopes inherit rather than restate their obligations.
 
-Release tag `v0.1.6` and publication are pending. Script verification remains to be performed by the maintainer.
+Release tag: `v0.1.6`. This entry was corrected after tagging; the tagged snapshot retains its original release-preparation wording. No additional script verification is claimed by this correction.
 
 ## 0.1.5 — Released (`v0.1.5`)
 
