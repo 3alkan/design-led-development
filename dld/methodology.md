@@ -1,47 +1,44 @@
-# Methodology Scope — Design
+# DLD Methodology — Design
 
 **Status:** Proposed for reconciliation
 
 ## Responsibility and boundary
 
-Define a design-authoritative, human-governed, AI-assisted method for the complete software engineering lifecycle, under the [contract design](collaboration.md). The deliverable is [DLD.md](DLD.md), not the project-specific designs that adopters create.
+Define a design-authoritative, human-governed, AI-assisted approach across the software engineering lifecycle. The method operates under the [collaboration contract](CONTRACT.md); projects adopting it retain authority over their own designs and rules.
 
 ## Intended design and requirements
 
-| ID | Intended requirement | Product realization |
-| --- | --- | --- |
-| M-01 | Make approved abstract design authoritative over intended engineering outcomes; keep realizations and observations as evidence. | §1 |
-| M-02 | Support sufficient incremental design, without a required tool, technology, repository layout, or sequential lifecycle model. | §§1, 4, 7 |
-| M-03 | Define project, scope, design, realization, and evidence with discoverable ownership and dependencies. | §2 |
-| M-04 | Require one coherent owning scope for each decision; place shared decisions at their narrowest suitable ancestor, honor inherited decisions, and preserve cross-scope dependency links. | §2 |
-| M-05 | Define when changed intent is consequential and requires authorized human approval before realization; permit bounded local execution. | §3 |
-| M-06 | Preserve distinguishable proposals, approval records identifying approver/content/scope/revision, and recoverable baselines. | §3 |
-| M-07 | Permit project-owned binding rules subject to compatible, recorded approval. | §3 |
-| M-08 | Cover planning through retirement with proportionate, recurring understand–design–decide–realize–verify/validate–report/evolve responsibilities. | §4 |
-| M-09 | Require implementation alignment with approved intent and assess affected scopes before propagating consequential changes. | §5 |
-| M-10 | Distinguish verification from validation; tie claims to identifiable evidence and disclose unperformed checks. | §5 |
-| M-11 | Establish sufficient context progressively and preserve relevant handoff records without granting authority to summaries or memory. | §6 |
-| M-12 | Support incremental new-project adoption and scope-wise reconciliation of existing projects; require deliberate method upgrades. | §7 |
-| M-13 | Require every maintained realization to have an identifiable governing design, allowing one design to cover multiple artifacts or a justified file-level scope. | §2 |
-| M-14 | Favor scope-local design placement and meaningful names; do not prescribe a physical hierarchy, suffix, or document count. | §2 |
-| M-15 | Require sufficient approved design before consequential realization while allowing authorized exploration and prototypes. | §§1, 3 |
-| M-16 | Support progressively deeper decomposition only when independent responsibility or change isolation warrants it. | §2 |
-| M-17 | Require sufficient scope identity, intended outcomes, consequential decisions with rationale, governed realizations, and conformity criteria, allowing inheritance and references without mandatory document format. | §2 |
-| M-18 | Favor a single identifiable source for maintained facts, configuration, rules, and decisions, with references or consumption rather than competing copies; allow justified duplication with consistency checks. | §2 |
+| ID | Intended requirement |
+| --- | --- |
+| M-01 | Approved abstract design governs intended engineering outcomes; realizations and observations provide evidence, not replacement authority. |
+| M-02 | Design may evolve incrementally without requiring a technology, tool, repository layout, or sequential lifecycle. |
+| M-03 | Projects and responsibility scopes have identifiable design, realization, evidence, ownership, and dependencies. |
+| M-04 | Decisions have coherent owners; inherited and cross-scope effects remain discoverable without competing authority. |
+| M-05 | Consequential changes require authorized human decisions, while bounded AI execution remains possible. |
+| M-06 | Proposed and approved intent remain distinguishable, with discoverable approval and recoverable baselines. |
+| M-07 | Projects may govern additional compatible binding rules through authorized decisions. |
+| M-08 | Planning through retirement is supported by proportionate, recurring engineering responsibilities. |
+| M-09 | Realizations remain aligned with approved intent; consequential changes consider affected scopes. |
+| M-10 | Conformance and suitability are evaluated distinctly, with claims tied to evidence and limitations disclosed. |
+| M-11 | Relevant authoritative context and material handoff knowledge remain discoverable without relying on summaries as authority. |
+| M-12 | New and existing projects can adopt and evolve DLD deliberately and incrementally. |
+| M-13 | Every maintained realization has an identifiable governing design, which may cover multiple artifacts. |
+| M-14 | Design ownership is discoverable without imposing mandatory filenames, placement, or document counts. |
+| M-15 | Consequential realization follows sufficient approved design; authorized exploration does not itself establish approval. |
+| M-16 | Design decomposition follows genuine differences in responsibility and change impact. |
+| M-17 | Scope design sufficiently communicates responsibility, intent, governing decisions, realizations, and evaluation criteria without prescribed presentation. |
+| M-18 | Maintained information has an identifiable source of authority, with proportionate treatment of necessary copies. |
 
 ## Decisions and rationale
 
-- **M-D1:** The methodology specializes, rather than duplicates, the general contract.
-- **M-D2:** Use coherent responsibility scopes as the unit of ownership, with cross-scope dependencies rather than duplicated shared decisions. This keeps authority local where possible without hiding effects across scopes.
-- **M-D3:** Do not prescribe an approval-record tool: approval must be traceable and recoverable, but a mandatory service or file format would burden projects with different workflows.
-- **M-D4:** Use one recurring engineering cycle across the SDLC because the same design, decision, realization, and evidence responsibilities recur regardless of sequential or iterative delivery.
-- **M-D5:** Supporting materials and the editable registry assist adoption but do not impose methodology obligations.
-- **M-D6:** Keep designs close to realizations when practical. Meaningful document names are preferred over obligatory `DESIGN` filenames or `.design` suffixes; ownership and references establish authority.
-- **M-D7:** Do not require a design file for every implementation file: design scope follows independent responsibility and change isolation, avoiding documentation whose ownership adds no value.
-- **M-D8:** Standardize design information sufficiency, not document presentation; offer a minimal-core, expandable Markdown example as optional guidance.
-- **M-D9:** Minimize independently maintained truths without flattening design intent, normative obligations, and realization into one artifact. Context registries provide discovery and do not replace authoritative sources.
+- **Methodology complements the contract.** Engineering responsibilities specialize general human–AI boundaries without duplicating them.
+- **Responsibility-based ownership.** Coherent scopes and discoverable dependencies allow decisions to remain local while shared constraints govern affected work.
+- **Tool-independent authority.** Human approval must be attributable and recoverable, but no particular approval tool or record format is essential.
+- **Recurring lifecycle responsibilities.** Understanding, design, decisions, realization, and evaluation recur regardless of delivery process; a mandatory sequence would limit applicability.
+- **Proportionate design granularity.** Designs should cover responsibilities, not automatically mirror implementation files. Names, locations, and decomposition remain adaptable.
+- **Information sufficiency over templates.** Designs must convey enough to govern work; optional examples help without imposing documentation machinery.
+- **Distinct authorities.** Design, realization, evidence, and context discovery serve different purposes. Repeating maintained truths across them creates unnecessary reconciliation work.
 
 ## Realization and acceptance
 
-Review each requirement against the corresponding section of [DLD.md](DLD.md). Confirm that approval, design authority, ownership, evidence, change impact, and continuity remain operationally understandable. A representative adopting-project exercise is required to validate usefulness; textual coverage alone is verification, not validation.
-
+[DLD.md](DLD.md) is the authoritative methodology realization. Review M-01–M-18 against its sections on purpose, ownership, decisions, lifecycle, alignment, continuity, and adoption. Confirm that requirements are coherent with the [contract](CONTRACT.md) and that consequential authority is unambiguous. Representative adoption in a software project is needed to assess practical usefulness; textual coverage alone establishes neither approval nor validation.

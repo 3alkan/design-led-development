@@ -9,6 +9,7 @@ This file records the ongoing history of Design-Led Development (DLD). The v0.1.
 - Simplify packaging by removing redundant ZIP payload re-verification and multi-output rollback while retaining wildcard mappings; rename tooling to `test-scripts.ps1` and `validate-text-format.ps1`.
 - Reconcile design-file content against the optional four-area guide, adding root-level rationale and explicit acceptance references while retaining proportionate scope-specific designs.
 - Narrow release governance to release identity, licensing, history, and publication authority; assign repository conventions to project design and keep release requirements abstract.
+- Reconcile the remaining development scope designs around abstract intent and responsibility, retaining concrete implementation references in realization and acceptance.
 
 - Reorganize the DLD foundation around a human–AI contract and a design-led software engineering methodology.
 - Provide a project-editable context registry, optional supporting materials, and separate development and adopter registry sources.

@@ -1,33 +1,34 @@
-# Verification and Validation Scope — Design
+# Verification and Validation — Design
 
 **Status:** Proposed for reconciliation
 
 ## Responsibility and boundary
 
-Provide evidence of technical conformance and product suitability. This scope verifies the maintained development sources and assembled DLD distribution; it does not authorize publication or replace human review of the methodology.
+Provide proportionate evidence of source and distribution conformance, and support evaluation of DLD's usefulness. This scope does not approve designs, make publication decisions, or equate technical success with validation.
 
 ## Intended design and requirements
 
-| ID | Intended requirement | Realization / evidence |
-| --- | --- | --- |
-| V-01 | Enforce TXT-001: maintained text is UTF-8 without BOM and uses LF; exempt binary files. | [RULES.md](../RULES.md), [text validator](validate-text-format.ps1) |
-| V-02 | Validate extracted source archives as well as Git checkouts, without requiring a Git repository. | Recursive source scan, excluding `.git/`, `build/`, and filesystem links |
-| V-03 | Detect good text, BOM, CR, invalid UTF-8, and binary exemptions. | [Local tests](test-scripts.ps1) |
-| V-04 | Exercise packaging on a temporary fixture without altering repository outputs. | Packaging fixture |
-| V-05 | Test reproducible archives, broken-link rejection, and failure before replacing existing outputs when input validation fails. | Packaging tests |
-| V-06 | Distinguish automated technical verification from human review of contract/methodology coverage and representative-project adoption validation. | Design review and adoption evidence |
-| V-07 | Record outcomes and unverified areas truthfully; never equate a passing build with product usefulness or approval. | Test results and review records |
-| V-08 | Confirm that the root license is present in the distribution, without maintaining a second declaration of its contents; review licensing suitability separately. | `LICENSE`, `product.toml`, `scripts/test-scripts.ps1`; human review under release policy |
-| V-09 | Review scope designs for the agreed essential information while allowing references and inherited context instead of imposing section headings. | Human design review; [optional guide](../dld/supporting/design-document.md) |
+| ID | Intended requirement |
+| --- | --- |
+| V-01 | Maintained source text conforms to the project's governing text rules, with binary material excluded. |
+| V-02 | Local verification is practical for both source checkouts and extracted source archives. |
+| V-03 | Automated checks distinguish conforming text from relevant encoding and line-ending violations. |
+| V-04 | Packaging behavior is testable without changing actual release outputs. |
+| V-05 | Checks cover ordinary packaging success, reproducibility, invalid selections, and broken internal references. |
+| V-06 | Technical verification and human assessment of intended usefulness remain distinct. |
+| V-07 | Verification outcomes, unperformed checks, and limitations are reported accurately. |
+| V-08 | Distribution checks include the applicable license material without duplicating its legal terms. |
+| V-09 | Scope designs are reviewed for sufficient governing information, not mandatory section headings. |
 
 ## Decisions and rationale
 
-- **V-D1:** Use local PowerShell 7 checks so contributors can validate source archives or checkouts without a hosted CI service or added tooling dependencies.
-- **V-D2:** TXT-001 checks maintained sources rather than Git's index, so downloaded source archives work.
-- **V-D3:** Use a temporary fixture for packaging tests to avoid replacing a contributor's actual release artifacts during negative tests.
-- **V-D4:** Keep one script-test entry point while its responsibilities remain small; splitting it now would add navigation and maintenance overhead.
+- **Local, dependency-light checks.** Contributors should be able to evaluate maintained sources without a hosted service or Git-specific environment.
+- **Separate verification from validation.** Automated tests can establish technical behavior; human review and representative adoption are needed to assess coherence and usefulness.
+- **Isolated test artifacts.** Exercise packaging on temporary inputs to avoid altering release outputs during negative tests.
+- **Proportionate coverage.** Retain a compact test entry point until independent responsibilities justify splitting it; favor meaningful behavior checks over hypothetical failure machinery.
 
 ## Realization and acceptance
 
-`scripts/test-scripts.ps1`, `scripts/validate-text-format.ps1`, and `scripts/package.ps1` must exit successfully on supported input. Negative tests must fail where intended. Checks should cover the requirements above; any untested condition remains an explicit coverage gap, not an assumed success. Human readability and adoption usefulness require independent review or representative use.
+[Development rules](../RULES.md) own the text constraints. [Text validator](validate-text-format.ps1) checks maintained sources, and [script tests](test-scripts.ps1) exercise formatting and packaging behavior. [Packager](package.ps1) produces the artifacts under test. The [optional design guide](../dld/supporting/design-document.md) illustrates governing information without imposing a template.
 
+Verify that conforming sources pass, expected invalid cases fail, tests avoid changing real release outputs, and relevant license content is selected in the [manifest](../product.toml). Review the contract and methodology for design consistency, and use representative adoption to assess their practical suitability. Report evidence and gaps without treating test success as approval.

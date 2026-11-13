@@ -1,34 +1,34 @@
-# Distribution Scope — Design
+# Distribution — Design
 
 **Status:** Proposed for reconciliation
 
 ## Responsibility and boundary
 
-Transform maintained DLD product sources into a reproducible, verifiable distribution without including development-only material. [product.toml](../product.toml) owns file membership and destinations; [package.ps1](package.ps1) realizes assembly.
+Assemble an identifiable, reproducible DLD distribution from explicitly selected authoritative sources. This scope owns product selection and assembly, not source-content decisions, release approval, or publication.
 
 ## Intended design and requirements
 
-| ID | Intended requirement | Realization |
-| --- | --- | --- |
-| P-01 | Select distribution entries explicitly; support individual files, recursive directory mappings, and filename wildcards, with predictable expansion. | `product.toml`, manifest parser |
-| P-02 | Reject incomplete, duplicate, missing, unsafe or linked sources, unmatched patterns, and conflicting destinations. | Manifest/source checks |
-| P-03 | Assemble only the selected files, preserving their bytes at declared destinations. | Staged product tree, membership check |
-| P-04 | Validate local Markdown references against the assembled layout and prevent escaping the product boundary. | Product link check |
-| P-05 | Use the root version identifier to name the versioned ZIP and one containing directory; include the selected version file. | Version parsing, ZIP creation |
-| P-06 | Generate deterministic ZIP ordering, metadata, and payloads for identical inputs. | Sorted entries, fixed timestamps |
-| P-07 | Emit a SHA-256 checksum for the ZIP. | ZIP checksum |
-| P-08 | Validate the staged package before replacing generated outputs. Report replacement failures; generated outputs can be rebuilt. | Build staging |
-| P-09 | Work locally with PowerShell 7 and built-in platform functionality; no CI service dependency. | `scripts/package.ps1` |
+| ID | Intended requirement |
+| --- | --- |
+| P-01 | Distribution membership and destinations are explicitly governed, with predictable expansion for grouped sources. |
+| P-02 | Invalid or ambiguous selections fail rather than silently adding, omitting, or overwriting content. |
+| P-03 | The assembled distribution contains exactly the selected content, preserving source content. |
+| P-04 | Internal references in the delivered material remain usable within the assembled product. |
+| P-05 | Each distribution identifies its DLD baseline consistently in the package and its contents. |
+| P-06 | Identical sources and selection produce reproducible release artifacts. |
+| P-07 | An integrity checksum accompanies the distributable archive. |
+| P-08 | Validate assembled output before replacing generated artifacts, and report failures without implying success. |
+| P-09 | Packaging remains usable locally without hosted services or added dependencies. |
 
 ## Decisions and rationale
 
-- **P-D1:** One TOML manifest is the product-membership authority. Exact files map to files; a source ending in `/` recursively maps its contents into a destination ending in `/`; a filename pattern containing one `*` maps matching immediate files into a destination ending in `/`. Preserve subpaths under a directory, sort expansions deterministically, reject overlaps and link traversal. This is not a general-purpose TOML or glob parser.
-- **P-D2:** Stage assembled files in `build/` so invalid inputs are rejected before replacing generated outputs; the product, ZIP, and checksum remain regenerable build artifacts rather than repository sources.
-- **P-D3:** ZIP entry content is stored without compression to make deterministic output simple; compression ratio is not an acceptance goal.
-- **P-D4:** Use `dld-v<VERSION>/` inside the archive to identify an extracted distribution; leave `build/product/` unwrapped for straightforward local inspection.
-- **P-D5:** Replace generated outputs without multi-file rollback: they are reproducible build artifacts, and the complexity of transactional recovery is disproportionate. Failed replacement must be reported and outputs rebuilt before use.
+- **Explicit selection.** Use a single product manifest to avoid inferring membership from repository structure; allow exact files, recursive directories, and filename wildcards to keep selection practical without building a general-purpose glob system.
+- **Simple, deterministic packaging.** Stable file ordering and ZIP metadata make identical inputs reproducible. Archive compression is not needed for this small text-based product.
+- **Regenerable outputs.** Build in a staging area before replacement. Generated artifacts can be rebuilt, so multi-output transactional rollback is disproportionate.
+- **Self-contained distribution.** Include a versioned containing directory in the archive to make extracted releases recognizable, while retaining an unwrapped local product for inspection.
 
 ## Realization and acceptance
 
-The assembled file set must equal the manifest destinations exactly; product copies match source bytes; no product-local Markdown links are broken. Repeated packaging of identical inputs must produce identical SHA-256 digests. Invalid manifests, broken links, and unsafe paths must be rejected before replacing existing outputs. A real PowerShell 7 run is needed to establish execution evidence.
+[product.toml](../product.toml) governs selected files and destinations. [package.ps1](package.ps1) assembles `build/product/`, a versioned ZIP, and its SHA-256 checksum using PowerShell 7 and built-in platform functionality. The current manifest supports exact mappings, recursive directory mappings, and immediate-file wildcard patterns.
 
+Check that selected files alone are included, their bytes are preserved, links resolve, invalid paths or overlaps are rejected, and repeated builds of identical inputs yield identical archive hashes. An invalid package must fail before replacing existing outputs; a filesystem replacement failure must be reported so outputs can be rebuilt. Executing the script is required to establish implementation evidence.

@@ -1,34 +1,33 @@
-# Adoption and Context Scope — Design
+# Adoption and Context — Design
 
 **Status:** Proposed for reconciliation
 
 ## Responsibility and boundary
 
-Enable a new or existing project to adopt DLD incrementally while keeping its own design, rules, decisions, implementation, and versioning independent.
-
-This scope owns the adopter introduction, editable registry template, and optional practical materials. It does not own the normative contract or methodology.
+Enable projects to adopt DLD incrementally while retaining ownership of their own intent, decisions, context, rules, realizations, and versions. This scope governs adopter-facing guidance and optional aids, not the normative [contract](../dld/CONTRACT.md) or [methodology](../dld/DLD.md).
 
 ## Intended design and requirements
 
-| ID | Intended requirement | Realization |
-| --- | --- | --- |
-| A-01 | Give adopters a short path to copy the DLD foundation, read the normative sources, and start with relevant approved intent. | [Product README](README.md) |
-| A-02 | Supply a project-neutral, editable context registry with links to the two normative documents and optional resources. | [Product registry](CONTEXT-REGISTRY.md) |
-| A-03 | Allow project sources anywhere in the repository; a registry entry must not imply approval. | Product registry; product README |
-| A-04 | Keep development-only navigation separate from distributed adopter context. | [Development registry](../dld/CONTEXT-REGISTRY.md); [manifest](../product.toml) |
-| A-05 | Provide an optional rules template that an adopter can copy and modify in a project-owned location; the distributed source itself does not constitute adopted rules. | [Rules template](../dld/supporting/RULES.md) |
-| A-06 | Provide practical, technology-aware repository-layout suggestions without mandating a universal tree. | [Layout reference](../dld/supporting/repository-layout.md) |
-| A-07 | Explain that adopters maintain their own product versions and upgrade adopted normative DLD deliberately. | Product README |
-| A-08 | Offer a minimal-core design document example that scales with scope complexity, without imposing headings or a template on adopters. | [Design-document guidance](../dld/supporting/design-document.md) |
+| ID | Intended requirement |
+| --- | --- |
+| A-01 | Adopters have a clear, minimal entry point to the normative DLD sources and initial project setup. |
+| A-02 | Adopters can discover their own governing context through an editable, project-neutral registry. |
+| A-03 | Project information can reside wherever appropriate; references and registration do not imply approval. |
+| A-04 | Development-only context and instructions are not presented as adopter obligations. |
+| A-05 | Optional project-rule guidance can be adapted without automatically becoming binding. |
+| A-06 | Optional repository guidance supports varied technologies and project structures without mandating one layout. |
+| A-07 | Adopters distinguish their product versions from the DLD baseline and decide deliberately when to upgrade it. |
+| A-08 | Optional design examples convey sufficient abstract information without prescribing headings or templates. |
 
 ## Decisions and rationale
 
-- **A-D1:** Keep development and adopter context registries distinct because each discovers a different project's governing context. The manifest maps the neutral adopter source to `dld/CONTEXT-REGISTRY.md` in the distribution; neither registry is merely README navigation.
-- **A-D2:** Adopters edit their context registry in place so it continues to locate their own authoritative sources. They copy the rules template before editing so optional project rules do not modify the distributed reference.
-- **A-D3:** Do not ship preapproved project design or rules: an adopting project's intent and binding constraints require its own human decisions.
-- **A-D4:** Keep supporting materials optional so useful examples do not become accidental methodology requirements.
+- **Separate context registries.** Development and adopting projects have different authorities and relevant sources. Their registries remain distinct discovery mechanisms, not copies of README navigation.
+- **Project-owned changes.** Adopters edit their own registry and adopt or adapt optional rules under their own authority; distributed normative sources remain unchanged during ordinary project work.
+- **No preapproved project intent.** A starter cannot decide an adopting project's objectives or rules on its behalf.
+- **Optional aids.** Examples and structural suggestions remain nonbinding to avoid turning convenience into methodology requirements.
 
 ## Realization and acceptance
 
-An extracted product must open at its own README. All links from the delivered registry and introduction must resolve inside the distribution. No developer-specific navigation or local governance may appear in the adopter registry. A representative adoption must demonstrate that the adopter can link project-owned design and rules without altering the normative DLD files.
+The [adopter introduction](README.md) and [adopter registry source](CONTEXT-REGISTRY.md) provide the entry point and context discovery. [Supporting materials](../dld/supporting/) provide optional rules, repository guidance, and a design example. The [distribution design](../scripts/assembly.md) owns their placement and selection, rather than this scope prescribing packaging paths.
 
+Verify that the delivered introduction and registry are usable, their links resolve, and no development-only obligations are presented to adopters. Validate with a representative project that it can adopt DLD, identify its own design and rules, and maintain its context without modifying the normative sources.
